@@ -34,6 +34,13 @@ $(".client_owl-carousel").owlCarousel({
     }
 });
 
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
 
 
 /** google_map js **/
