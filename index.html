@@ -72,7 +72,19 @@
         #description {
             font-size: 12px;
             color: black;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        #download-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
         #image {
@@ -146,6 +158,13 @@
             descriptionParagraph.textContent = 'Description: ' + item['Description'];
             descriptionParagraph.id = 'description';
 
+            // Create download button for the 'Download Link' key
+            var downloadButton = document.createElement('a');
+            downloadButton.textContent = 'Download';
+            downloadButton.href = item['Download Link'];
+            downloadButton.target = '_blank';
+            downloadButton.id = 'download-button';
+
             // Create image element for the 'Image Url' key
             var imageElement = document.createElement('img');
             imageElement.src = item['Image Url'];
@@ -161,6 +180,7 @@
             itemDiv.appendChild(titleHeader);
             itemDiv.appendChild(dateParagraph);
             itemDiv.appendChild(descriptionParagraph);
+            itemDiv.appendChild(downloadButton);
             itemDiv.appendChild(imageElement);
             itemDiv.appendChild(creatorLabel);
 
