@@ -3,17 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Display with Styling</title>
+    <title>JSON Display with Styling and Search</title>
     <style>
-	#page-title-box{
-	width:100%;
-	height:auto;
-	}
-	
-	#page-title{
-	text-align: center;
-	text-color: red;
-	}
+        #page-title-box {
+            width: 100%;
+            height: auto;
+        }
+
+        #page-title {
+            text-align: center;
+            color: red;
+            margin-bottom: 20px;
+        }
+
+        #search-box {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
 
         #json-container {
             font-family: Arial, sans-serif;
@@ -50,39 +58,63 @@
         }
 
         #image {
+            width: 100%;
+            height: auto;
             max-width: 100%;
-            height: 320px;
             margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
+
 <div id="page-title-box">
-<h1 id="page-title"> File Sharing</h1>
+    <h1 id="page-title"> File Sharing</h1>
 </div>
+
+<div id="search-box">
+    <label for="search">Search:</label>
+    <input type="text" id="search" oninput="filterJson()" placeholder="Type to search...">
+</div>
+
 <div id="json-container">
     <h1 id="page-header">File Sharing</h1>
 </div>
 
 <script>
-// URL of the JSON API
-var apiUrl = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
+    // URL of the JSON API
+    var apiUrl = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
 
-// Reference to the container where JSON data will be displayed
-var container = document.getElementById('json-container');
+    // Reference to the container where JSON data will be displayed
+    var container = document.getElementById('json-container');
 
-// Show loading indicator
-container.innerHTML = '<p class="loading">Loading...</p>';
+    // Reference to the search input
+    var searchInput = document.getElementById('search');
 
-// Fetch data from the API
-fetch(apiUrl)
-    .then(response => response.json())
-    .then(jsonData => {
-        // Clear loading indicator
-        container.innerHTML = '';
+    // Show loading indicator
+    container.innerHTML = '<p class="loading">Loading...</p>';
 
-        // Loop through each item in the JSON array
-        jsonData.forEach(function(item) {
+    // Fetch data from the API
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(jsonData => {
+            // Clear loading indicator
+            container.innerHTML = '';
+
+            // Display all items initially
+            displayItems(jsonData);
+
+            // Add event listener for search input
+            searchInput.addEventListener('input', filterJson);
+        })
+        .catch(error => {
+            // Display error message
+            container.innerHTML = '<p class="error">Error fetching data. Please try again later.</p>';
+            console.error('Error fetching data:', error);
+        });
+
+    function displayItems(items) {
+        // Loop through each item in the provided array
+        items.forEach(function (item) {
             // Create a div element for each item
             var itemDiv = document.createElement('div');
 
@@ -119,12 +151,24 @@ fetch(apiUrl)
             // Append the item div to the main container
             container.appendChild(itemDiv);
         });
-    })
-    .catch(error => {
-        // Display error message
-        container.innerHTML = '<p class="error">Error fetching data. Please try again later.</p>';
-        console.error('Error fetching data:', error);
-    });
+    }
+
+    function filterJson() {
+        var searchTerm = searchInput.value.toLowerCase();
+
+        // Filter items based on the search term
+        var filteredItems = jsonData.filter(function (item) {
+            return item['Title'].toLowerCase().includes(searchTerm) ||
+                item['Date'].toLowerCase().includes(searchTerm) ||
+                item['Description'].toLowerCase().includes(searchTerm);
+        });
+
+        // Clear the container before displaying filtered items
+        container.innerHTML = '';
+
+        // Display the filtered items
+        displayItems(filteredItems);
+    }
 </script>
 
 </body>
