@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Sharing</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #page-title-box {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #page-title {
+            color: red;
+        }
+
+        #json-container {
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: left;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .item {
+            width: 100%; /* Set the width to 100% for one column on mobile */
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        @media only screen and (min-width: 768px) {
+            /* For desktop: */
+            .item {
+                width: 48%; /* Set the width to 48% for two columns on desktop */
+            }
+        }
+
+        #page-header {
+            font-size: 18px;
+            font-weight: bold;
+            color: blue;
+            margin-bottom: 20px;
+        }
+
+        #header {
+            font-size: 14px;
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        #date {
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        #description {
+            font-size: 12px;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        #download-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #image {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        #creator-label {
+            font-size: 12px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div id="page-title-box">
+    <h1 id="page-title">File Sharing</h1>
+</div>
+
+<div id="json-container">
+    <h1 id="page-header">File Sharing</h1>
+</div>
+
+<script>
+    // URL of the JSON API
+    var apiUrl = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
+
+    // Reference to the container where JSON data will be displayed
+    var container = document.getElementById('json-container');
+
+    // Show loading indicator
+    container.innerHTML = '<p class="loading">Loading...</p>';
+
+    // Fetch data from the API
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(jsonData => {
+            // Clear loading indicator
+            container.innerHTML = '';
+
+            // Display all items initially
+            displayItems(jsonData);
+        })
+        .catch(error => {
+            // Display error message
+            container.innerHTML = '<p class="error">Error fetching data. Please try again later.</p>';
+            console.error('Error fetching data:', error);
+        });
+
+    function displayItems(items) {
+        // Loop through each item in the provided array
+        items.forEach(function (item) {
+            // Create a div element for each item
+            var itemDiv = document.createElement('div');
+            itemDiv.className = 'item';
+
+            // Create header element for the 'Title' key
+            var titleHeader = document.createElement('h2');
+            titleHeader.textContent = item['Title'];
+            titleHeader.id = 'header';
+
+            // Create paragraph element for the 'Date' key
+            var dateParagraph = document.createElement('p');
+            dateParagraph.textContent = 'Date: ' + item['Date'];
+            dateParagraph.id = 'date';
+
+            // Create paragraph element for the 'Description' key
+            var descriptionParagraph = document.createElement('p');
+            descriptionParagraph.textContent = 'Description: ' + item['Description'];
+            descriptionParagraph.id = 'description';
+
+            // Create download button for the 'Download Link' key
+            var downloadButton = document.createElement('a');
+            downloadButton.textContent = 'Download';
+            downloadButton.href = item['Download Link'];
+            downloadButton.target = '_blank';
+            downloadButton.id = 'download-button';
+
+            // Create image element for the 'Image Url' key
+            var imageElement = document.createElement('img');
+            imageElement.src = item['Image Url'];
+            imageElement.alt = 'Image';
+            imageElement.id = 'image';
+
+            // Create label for the 'Creator' key
+            var creatorLabel = document.createElement('div');
+            creatorLabel.textContent = 'Creator: ' + item['Creator'];
+            creatorLabel.id = 'creator-label';
+
+            // Append elements to the item div
+            itemDiv.appendChild(titleHeader);
+            itemDiv.appendChild(dateParagraph);
+            itemDiv.appendChild(descriptionParagraph);
+            itemDiv.appendChild(downloadButton);
+            itemDiv.appendChild(imageElement);
+            itemDiv.appendChild(creatorLabel);
+
+            // Append the item div to the main container
+            container.appendChild(itemDiv);
+        });
+    }
+</script>
+
+</body>
+</html>
