@@ -145,35 +145,35 @@
 
             // Create header element for the 'Title' key
             var titleHeader = document.createElement('h2');
-            titleHeader.textContent = item['Title'];
+            titleHeader.textContent = item['title'];
             titleHeader.id = 'header';
 
             // Create paragraph element for the 'Date' key
             var dateParagraph = document.createElement('p');
-            dateParagraph.textContent = 'Date: ' + item['Date'];
+            dateParagraph.textContent = 'Date: ' + item['date'];
             dateParagraph.id = 'date';
 
             // Create paragraph element for the 'Description' key
             var descriptionParagraph = document.createElement('p');
-            descriptionParagraph.textContent = 'Description: ' + item['Description'];
+            descriptionParagraph.textContent = 'Description: ' + item['description'];
             descriptionParagraph.id = 'description';
 
             // Create download button for the 'Download Link' key
             var downloadButton = document.createElement('a');
             downloadButton.textContent = 'Download';
-            downloadButton.href = item['Download Link'];
+            downloadButton.href = item['downloadlink'];
             downloadButton.target = '_blank';
             downloadButton.id = 'download-button';
 
             // Create image element for the 'Image Url' key
             var imageElement = document.createElement('img');
-            imageElement.src = item['Image Url'];
+            imageElement.src = item['imageurl'];
             imageElement.alt = 'Image';
             imageElement.id = 'image';
 
             // Create label for the 'Creator' key
             var creatorLabel = document.createElement('div');
-            creatorLabel.textContent = 'Creator: ' + item['Creator'];
+            creatorLabel.textContent = 'Creator: ' + item['creator'];
             creatorLabel.id = 'creator-label';
 
             // Append elements to the item div
