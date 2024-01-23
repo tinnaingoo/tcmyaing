@@ -39,9 +39,16 @@
         }
 
         .item {
-            width: 48%; /* Set the width to 48% for two columns with a small gap */
+            width: 100%; /* Set the width to 100% for one column on mobile */
             margin-bottom: 20px;
             box-sizing: border-box;
+        }
+
+        @media only screen and (min-width: 768px) {
+            /* For desktop: */
+            .item {
+                width: 48%; /* Set the width to 48% for two columns on desktop */
+            }
         }
 
         #page-header {
