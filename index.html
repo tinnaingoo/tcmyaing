@@ -3,30 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Display with Styling</title>
+    <title>File Sharing</title>
     <style>
         body {
-            text-align: center;
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #left-slider {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         #page-title-box {
             width: 100%;
             height: auto;
+            margin-bottom: 20px;
         }
 
         #page-title {
             color: red;
-            margin-bottom: 20px;
         }
 
         #json-container {
-            font-family: Arial, sans-serif;
             max-width: 600px;
             margin: auto;
-            padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            text-align: left; /* Align items to the left */
+            text-align: left;
+            padding: 20px;
         }
 
         #page-header {
@@ -75,12 +92,19 @@
 </head>
 <body>
 
-<div id="page-title-box">
-    <h1 id="page-title"> File Sharing</h1>
+<div id="left-slider">
+    <!-- You can add navigation items or any content for the left slider here -->
+    <p>Left Slider Content</p>
 </div>
 
-<div id="json-container">
-    <h1 id="page-header">File Sharing</h1>
+<div id="content">
+    <div id="page-title-box">
+        <h1 id="page-title"> File Sharing</h1>
+    </div>
+
+    <div id="json-container">
+        <h1 id="page-header">File Sharing</h1>
+    </div>
 </div>
 
 <script>
