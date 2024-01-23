@@ -12,34 +12,39 @@
             font-family: Arial, sans-serif;
         }
 
-        #navbar {
-            width: 250px;
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-y: auto;
-            position: fixed;
-            height: 100%;
-            transition: margin-left 0.3s;
-        }
-
-        #content {
-            flex: 1;
-            padding: 20px;
-            box-sizing: border-box;
-            margin-left: 0;
-            transition: margin-left 0.3s;
-        }
-
         #page-title-box {
             width: 100%;
             height: auto;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         #page-title {
             color: red;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        #navbar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            margin: 0 10px;
+            background-color: #555;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #navbar a:hover {
+            background-color: #777;
         }
 
         #json-container {
@@ -93,40 +98,13 @@
             font-size: 12px;
             color: green;
         }
-
-        #navbar a {
-            display: block;
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            margin-bottom: 10px;
-            background-color: #555;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        #navbar a:hover {
-            background-color: #777;
-        }
-
-        #toggle-btn {
-            background-color: #555;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-
-        #toggle-btn:hover {
-            background-color: #777;
-        }
     </style>
 </head>
 <body>
 
-<button id="toggle-btn" onclick="toggleSlider()">Toggle Slider</button>
+<div id="page-title-box">
+    <h1 id="page-title">File Sharing</h1>
+</div>
 
 <div id="navbar">
     <a href="#">Home</a>
@@ -134,14 +112,8 @@
     <a href="#">About</a>
 </div>
 
-<div id="content">
-    <div id="page-title-box">
-        <h1 id="page-title"> File Sharing</h1>
-    </div>
-
-    <div id="json-container">
-        <h1 id="page-header">File Sharing</h1>
-    </div>
+<div id="json-container">
+    <h1 id="page-header">File Sharing</h1>
 </div>
 
 <script>
@@ -150,11 +122,6 @@
 
     // Reference to the container where JSON data will be displayed
     var container = document.getElementById('json-container');
-    var navbar = document.getElementById('navbar');
-    var content = document.getElementById('content');
-
-    // Initial state, slider is visible
-    var isSliderVisible = true;
 
     // Show loading indicator
     container.innerHTML = '<p class="loading">Loading...</p>';
@@ -221,22 +188,6 @@
             // Append the item div to the main container
             container.appendChild(itemDiv);
         });
-    }
-
-    // Function to toggle the visibility of the slider
-    function toggleSlider() {
-        if (isSliderVisible) {
-            // Hide the slider
-            navbar.style.marginLeft = '-250px';
-            content.style.marginLeft = '0';
-        } else {
-            // Show the slider
-            navbar.style.marginLeft = '0';
-            content.style.marginLeft = '250px';
-        }
-
-        // Update the state
-        isSliderVisible = !isSliderVisible;
     }
 </script>
 
