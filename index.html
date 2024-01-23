@@ -7,6 +7,8 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
+            align-items: center;
             min-height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
@@ -23,37 +25,23 @@
             color: red;
         }
 
-        #navbar {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            box-sizing: border-box;
-            overflow-y: auto;
-        }
-
-        #navbar a {
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            margin: 0 10px;
-            background-color: #555;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        #navbar a:hover {
-            background-color: #777;
-        }
-
         #json-container {
             max-width: 600px;
-            margin: auto;
+            width: 100%;
             border: 1px solid #ccc;
             border-radius: 5px;
             text-align: left;
             padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .item {
+            width: 100%;
+            margin-bottom: 20px;
+            box-sizing: border-box;
         }
 
         #page-header {
@@ -80,10 +68,6 @@
             margin-bottom: 20px;
         }
 
-        .item {
-            position: relative;
-        }
-
         #image {
             width: 100%;
             height: auto;
@@ -92,9 +76,6 @@
         }
 
         #creator-label {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
             font-size: 12px;
             color: green;
         }
@@ -104,12 +85,6 @@
 
 <div id="page-title-box">
     <h1 id="page-title">File Sharing</h1>
-</div>
-
-<div id="navbar">
-    <a href="#">Home</a>
-    <a href="#">Share</a>
-    <a href="#">About</a>
 </div>
 
 <div id="json-container">
@@ -181,9 +156,6 @@
             itemDiv.appendChild(descriptionParagraph);
             itemDiv.appendChild(imageElement);
             itemDiv.appendChild(creatorLabel);
-
-            // Add a line break between items
-            itemDiv.appendChild(document.createElement('hr'));
 
             // Append the item div to the main container
             container.appendChild(itemDiv);
