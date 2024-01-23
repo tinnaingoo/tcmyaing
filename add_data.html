@@ -6,63 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Data to SheetDB</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-bottom: 6px;
-            color: #555;
-        }
-
-        input, textarea {
-            margin-bottom: 12px;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #statusMessage {
-            margin-top: 15px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .success {
-            color: #008000;
-        }
-
-        .error {
-            color: #FF0000;
-        }
+        /* Your styling goes here */
     </style>
 </head>
 <body>
@@ -71,19 +15,19 @@
 
     <form id="dataForm">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required>
+        <input type="text" id="title" name="title" required><br>
 
         <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required>
+        <input type="date" id="date" name="date" required><br>
 
         <label for="description">Description:</label>
-        <textarea id="description" name="description" rows="4" required></textarea>
+        <textarea id="description" name="description" rows="4" required></textarea><br>
 
-        <label for="downloadUrl">Download URL:</label>
-        <input type="url" id="downloadUrl" name="downloadUrl" required>
+        <label for="downloadLink">Download Link:</label>
+        <input type="url" id="downloadLink" name="downloadLink" required><br>
 
         <label for="imageUrl">Image URL:</label>
-        <input type="url" id="imageUrl" name="imageUrl" required>
+        <input type="url" id="imageUrl" name="imageUrl" required><br>
 
         <button type="button" onclick="addData()">Add Data</button>
     </form>
@@ -95,18 +39,18 @@
             var title = document.getElementById("title").value;
             var date = document.getElementById("date").value;
             var description = document.getElementById("description").value;
-            var downloadUrl = document.getElementById("downloadUrl").value;
+            var downloadLink = document.getElementById("downloadLink").value;
             var imageUrl = document.getElementById("imageUrl").value;
 
             var apiEndpoint = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
 
             var newData = {
                 data: [{
-                    title: Title,
-                    date: Date,
-                    description: Description,
-                    downloadUrl: Download Url,
-                    imageUrl: Image Url
+                    title: title,
+                    date: date,
+                    description: description,
+                    downloadLink: downloadLink,
+                    imageUrl: imageUrl
                 }]
             };
 
