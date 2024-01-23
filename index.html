@@ -5,22 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JSON Display with Styling and Search</title>
     <style>
+        body {
+            text-align: center;
+        }
+
         #page-title-box {
             width: 100%;
             height: auto;
         }
 
         #page-title {
-            text-align: center;
             color: red;
             margin-bottom: 20px;
         }
 
         #search-box {
-            width: 100%;
+            width: 60%;
+            margin: auto;
             margin-bottom: 20px;
             padding: 10px;
             box-sizing: border-box;
+            position: relative;
+        }
+
+        #search-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        #search-input {
+            width: 90%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
         #json-container {
@@ -37,7 +58,6 @@
             font-weight: bold;
             color: blue;
             margin-bottom: 20px;
-            text-align: center;
         }
 
         #header {
@@ -72,8 +92,8 @@
 </div>
 
 <div id="search-box">
-    <label for="search">Search:</label>
-    <input type="text" id="search" oninput="filterJson()" placeholder="Type to search...">
+    <input type="text" id="search-input" placeholder="Type to search...">
+    <div id="search-icon" onclick="filterJson()">🔍</div>
 </div>
 
 <div id="json-container">
@@ -88,7 +108,7 @@
     var container = document.getElementById('json-container');
 
     // Reference to the search input
-    var searchInput = document.getElementById('search');
+    var searchInput = document.getElementById('search-input');
 
     // Show loading indicator
     container.innerHTML = '<p class="loading">Loading...</p>';
@@ -102,9 +122,6 @@
 
             // Display all items initially
             displayItems(jsonData);
-
-            // Add event listener for search input
-            searchInput.addEventListener('input', filterJson);
         })
         .catch(error => {
             // Display error message
@@ -156,18 +173,28 @@
     function filterJson() {
         var searchTerm = searchInput.value.toLowerCase();
 
-        // Filter items based on the search term
-        var filteredItems = jsonData.filter(function (item) {
-            return item['Title'].toLowerCase().includes(searchTerm) ||
-                item['Date'].toLowerCase().includes(searchTerm) ||
-                item['Description'].toLowerCase().includes(searchTerm);
-        });
+        // Fetch data from the API
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(jsonData => {
+                // Filter items based on the search term
+                var filteredItems = jsonData.filter(function (item) {
+                    return item['Title'].toLowerCase().includes(searchTerm) ||
+                        item['Date'].toLowerCase().includes(searchTerm) ||
+                        item['Description'].toLowerCase().includes(searchTerm);
+                });
 
-        // Clear the container before displaying filtered items
-        container.innerHTML = '';
+                // Clear the container before displaying filtered items
+                container.innerHTML = '';
 
-        // Display the filtered items
-        displayItems(filteredItems);
+                // Display the filtered items
+                displayItems(filteredItems);
+            })
+            .catch(error => {
+                // Display error message
+                container.innerHTML = '<p class="error">Error fetching data. Please try again later.</p>';
+                console.error('Error fetching data:', error);
+            });
     }
 </script>
 
