@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Display with Styling and Search</title>
+    <title>JSON Display with Styling</title>
     <style>
         body {
             text-align: center;
@@ -17,31 +17,6 @@
         #page-title {
             color: red;
             margin-bottom: 20px;
-        }
-
-        #search-box {
-            width: 60%;
-            margin: auto;
-            margin-bottom: 20px;
-            padding: 10px;
-            box-sizing: border-box;
-            position: relative;
-        }
-
-        #search-icon {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-
-        #search-input {
-            width: 90%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 5px;
         }
 
         #json-container {
@@ -104,11 +79,6 @@
     <h1 id="page-title"> File Sharing</h1>
 </div>
 
-<div id="search-box">
-    <input type="text" id="search-input" placeholder="Type to search..." oninput="filterJson()">
-    <div id="search-icon" onclick="filterJson()">🔍</div>
-</div>
-
 <div id="json-container">
     <h1 id="page-header">File Sharing</h1>
 </div>
@@ -119,9 +89,6 @@
 
     // Reference to the container where JSON data will be displayed
     var container = document.getElementById('json-container');
-
-    // Reference to the search input
-    var searchInput = document.getElementById('search-input');
 
     // Show loading indicator
     container.innerHTML = '<p class="loading">Loading...</p>';
@@ -188,38 +155,6 @@
             // Append the item div to the main container
             container.appendChild(itemDiv);
         });
-    }
-
-    function filterJson() {
-        var searchTerm = searchInput.value.toLowerCase();
-
-        // Fetch data from the API
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(jsonData => {
-                // If search term is empty, display all items
-                if (searchTerm === '') {
-                    displayItems(jsonData);
-                } else {
-                    // Filter items based on the search term
-                    var filteredItems = jsonData.filter(function (item) {
-                        return item['Title'].toLowerCase().includes(searchTerm) ||
-                            item['Date'].toLowerCase().includes(searchTerm) ||
-                            item['Description'].toLowerCase().includes(searchTerm);
-                    });
-
-                    // Clear the container before displaying filtered items
-                    container.innerHTML = '';
-
-                    // Display the filtered items
-                    displayItems(filteredItems);
-                }
-            })
-            .catch(error => {
-                // Display error message
-                container.innerHTML = '<p class="error">Error fetching data. Please try again later.</p>';
-                console.error('Error fetching data:', error);
-            });
     }
 </script>
 
