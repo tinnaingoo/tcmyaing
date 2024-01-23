@@ -21,13 +21,15 @@
             overflow-y: auto;
             position: fixed;
             height: 100%;
+            transition: margin-left 0.3s;
         }
 
         #content {
             flex: 1;
             padding: 20px;
             box-sizing: border-box;
-            margin-left: 250px;
+            margin-left: 0;
+            transition: margin-left 0.3s;
         }
 
         #page-title-box {
@@ -106,9 +108,25 @@
         #navbar a:hover {
             background-color: #777;
         }
+
+        #toggle-btn {
+            background-color: #555;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        #toggle-btn:hover {
+            background-color: #777;
+        }
     </style>
 </head>
 <body>
+
+<button id="toggle-btn" onclick="toggleSlider()">Toggle Slider</button>
 
 <div id="navbar">
     <a href="#">Home</a>
@@ -132,6 +150,11 @@
 
     // Reference to the container where JSON data will be displayed
     var container = document.getElementById('json-container');
+    var navbar = document.getElementById('navbar');
+    var content = document.getElementById('content');
+
+    // Initial state, slider is visible
+    var isSliderVisible = true;
 
     // Show loading indicator
     container.innerHTML = '<p class="loading">Loading...</p>';
@@ -198,6 +221,22 @@
             // Append the item div to the main container
             container.appendChild(itemDiv);
         });
+    }
+
+    // Function to toggle the visibility of the slider
+    function toggleSlider() {
+        if (isSliderVisible) {
+            // Hide the slider
+            navbar.style.marginLeft = '-250px';
+            content.style.marginLeft = '0';
+        } else {
+            // Show the slider
+            navbar.style.marginLeft = '0';
+            content.style.marginLeft = '250px';
+        }
+
+        // Update the state
+        isSliderVisible = !isSliderVisible;
     }
 </script>
 
