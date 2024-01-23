@@ -78,12 +78,15 @@
             margin-bottom: 20px;
         }
 
+        .item {
+            position: relative;
+        }
+
         #image {
             width: 100%;
             height: auto;
             max-width: 100%;
             margin-bottom: 20px;
-            position: relative;
         }
 
         #creator-label {
@@ -144,6 +147,7 @@
         items.forEach(function (item) {
             // Create a div element for each item
             var itemDiv = document.createElement('div');
+            itemDiv.className = 'item';
 
             // Create header element for the 'Title' key
             var titleHeader = document.createElement('h2');
