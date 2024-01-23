@@ -83,6 +83,15 @@
             height: auto;
             max-width: 100%;
             margin-bottom: 20px;
+            position: relative;
+        }
+
+        #creator-label {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            font-size: 12px;
+            color: green;
         }
     </style>
 </head>
@@ -93,7 +102,7 @@
 </div>
 
 <div id="search-box">
-    <input type="text" id="search-input" placeholder="Type to search...">
+    <input type="text" id="search-input" placeholder="Type to search..." oninput="filterJson()">
     <div id="search-icon" onclick="filterJson()">🔍</div>
 </div>
 
@@ -157,11 +166,17 @@
             imageElement.alt = 'Image';
             imageElement.id = 'image';
 
+            // Create label for the 'Creator' key
+            var creatorLabel = document.createElement('div');
+            creatorLabel.textContent = 'Creator: ' + item['Creator'];
+            creatorLabel.id = 'creator-label';
+
             // Append elements to the item div
             itemDiv.appendChild(titleHeader);
             itemDiv.appendChild(dateParagraph);
             itemDiv.appendChild(descriptionParagraph);
             itemDiv.appendChild(imageElement);
+            itemDiv.appendChild(creatorLabel);
 
             // Add a line break between items
             itemDiv.appendChild(document.createElement('hr'));
@@ -178,18 +193,23 @@
         fetch(apiUrl)
             .then(response => response.json())
             .then(jsonData => {
-                // Filter items based on the search term
-                var filteredItems = jsonData.filter(function (item) {
-                    return item['Title'].toLowerCase().includes(searchTerm) ||
-                        item['Date'].toLowerCase().includes(searchTerm) ||
-                        item['Description'].toLowerCase().includes(searchTerm);
-                });
+                // If search term is empty, display all items
+                if (searchTerm === '') {
+                    displayItems(jsonData);
+                } else {
+                    // Filter items based on the search term
+                    var filteredItems = jsonData.filter(function (item) {
+                        return item['Title'].toLowerCase().includes(searchTerm) ||
+                            item['Date'].toLowerCase().includes(searchTerm) ||
+                            item['Description'].toLowerCase().includes(searchTerm);
+                    });
 
-                // Clear the container before displaying filtered items
-                container.innerHTML = '';
+                    // Clear the container before displaying filtered items
+                    container.innerHTML = '';
 
-                // Display the filtered items
-                displayItems(filteredItems);
+                    // Display the filtered items
+                    displayItems(filteredItems);
+                }
             })
             .catch(error => {
                 // Display error message
