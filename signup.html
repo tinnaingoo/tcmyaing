@@ -102,6 +102,26 @@ function myFunction() {
 </script>
 
     <script>
+
+        
+function doGet(e) {
+
+  var x = HtmlService.createTemplateFromFile("");
+  var y = x.evaluate();
+  var z = y.setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+  return z;
+
+}
+
+function AddRecord(full_name, user_name, email, phone, fb_link, password) {
+
+  var url = 'https://sheetdb.io/api/v1/0tgi3664owtat';
+  var ss= SpreadsheetApp.openByUrl(url);
+  var webAppSheet = ss.getSheetByName("Sheet1");
+  webAppSheet.appendRow([full_name, user_name, email, phone, fb_link, password]);
+  
+}
+        
         function AddRow() {
             var full_name = document.getElementById("full_name").value;
             var user_name = document.getElementByID("user_name").value;
