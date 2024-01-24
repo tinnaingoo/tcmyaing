@@ -6,85 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Data to SheetDB</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #f7f7f7;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-bottom: 6px;
-            color: #555;
-        }
-
-        input, textarea {
-            margin-bottom: 12px;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #statusMessage {
-            margin-top: 15px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .success {
-            color: #008000;
-        }
-
-        .error {
-            color: #FF0000;
-        }
+        /* Your styling goes here */
     </style>
 </head>
 <body>
 
-    <h1 style="color: #333;">Add Data to SheetDB</h1>
+    <h1>Add Data to SheetDB</h1>
 
     <form id="dataForm">
-        <label for="title" style="color: #555;">Title:</label>
-        <input type="text" id="title" name="title" required>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br>
 
-        <label for="date" style="color: #555;">Date:</label>
-        <input type="date" id="date" name="date" required>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br>
 
-        <label for="description" style="color: #555;">Description:</label>
-        <textarea id="description" name="description" rows="4" required></textarea>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea><br>
 
-        <label for="downloadLink" style="color: #555;">Download Link:</label>
-        <input type="url" id="downloadLink" name="downloadLink" required>
+        <label for="downloadLink">Download Link:</label>
+        <input type="url" id="downloadLink" name="downloadLink" required><br>
 
-        <label for="imageUrl" style="color: #555;">Image URL:</label>
-        <input type="url" id="imageUrl" name="imageUrl" required>
+        <label for="imageUrl">Image URL:</label>
+        <input type="url" id="imageUrl" name="imageUrl" required><br>
 
         <button type="button" onclick="addData()">Add Data</button>
     </form>
@@ -106,8 +49,8 @@
                     title: title,
                     date: date,
                     description: description,
-                    downloadLink: downloadlink,
-                    imageUrl: imageurl
+                    downloadLink: downloadLink,
+                    imageUrl: imageUrl
                 }]
             };
 
