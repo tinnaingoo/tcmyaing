@@ -84,6 +84,7 @@ loginForm.addEventListener('submit', async function(event) {
     // Check if the user exists
     if (data.length > 0) {
         alert('Login successful!');
+        window.location.href = 'fileshare.html';
     } else {
         alert('Invalid username or password. Please try again.');
     }
