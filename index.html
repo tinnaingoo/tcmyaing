@@ -4,61 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f5f5f5;
-        }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
 
-        .container {
-            max-width: 400px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+.container {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+form {
+    display: flex;
+    flex-direction: column;
+}
 
-        label {
-            margin-bottom: 8px;
-        }
+label {
+    margin-bottom: 8px;
+}
 
-        input {
-            margin-bottom: 16px;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+input {
+    margin-bottom: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
-        button {
-            padding: 10px;
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        button:hover {
-            background-color: #0056b3;
-        }
+button:hover {
+    background-color: #0056b3;
+}
 
-        .error-message {
-            color: #FF0000;
-            margin-top: 8px;
-        }
+.error-message {
+    color: #FF0000;
+    margin-top: 8px;
+}
+
     </style>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <title>Login Page</title>
 </head>
 <body>
@@ -75,61 +78,33 @@
         <p>Don't have an account? <a href="signup.html">Sign up</a></p>
     </div>
     <script>
-    const signupForm = document.getElementById('signupForm');
+        document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
 
-    signupForm.addEventListener('submit', async function(event) {
+    loginForm.addEventListener('submit', async function(event) {
         event.preventDefault();
 
-        const fullName = document.getElementById('fullName').value;
         const username = document.getElementById('username').value;
-        const phoneNumber = document.getElementById('phoneNumber').value;
-        const facebookLink = document.getElementById('facebookLink').value;
         const password = document.getElementById('password').value;
 
         // Fetch data from SheetDB
-        const sheetDbUrl = 'https://sheetdb.io/api/v1/0tgi3664owtat'; // Replace with your SheetDB API endpoint
+        const sheetDbUrl = 'https://sheetdb.io/api/v1/0tgi3664owtat';
         const response = await fetch(sheetDbUrl);
         const data = await response.json();
 
-        // Check if the username already exists
-        const usernameExists = data.some(user => user.username === username);
+        // Check if the username and password match
+        const user = data.find(u => u.username === username && u.password === password);
 
-        if (!usernameExists) {
-            // Add the new user to the sheet
-            const newUser = {
-                full_name: fullName,
-                username: username,
-                phone_number: phoneNumber,
-                facebook_account_link: facebookLink,
-                password: password
-            };
-
-            try {
-                const postData = await fetch(sheetDbUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ data: [newUser] }),
-                });
-
-                const responseData = await postData.json();
-
-                if (responseData.status === 'OK') {
-                    showToast('Signup successful! Redirecting to Login...');
-                    // Redirect to login page after a brief delay
-                    setTimeout(() => {
-                        window.location.href = 'fileshare.html';
-                    }, 3000);
-                    return;
-                }
-            } catch (error) {
-                // Log the error to the console for debugging
-                console.error(error);
-            }
+        if (user) {
+            sessionStorage.setItem('loggedInUser', username);
+            showToast('Login successful! Redirecting to File Share...');
+            // Redirect to fileshare.html after a brief delay
+            setTimeout(() => {
+                window.location.href = 'fileshare.html';
+            }, 3000);
+        } else {
+            displayErrorMessage('Invalid username or password. Please try again.');
         }
-
-        displayErrorMessage('Failed to sign up. Please try again.');
     });
 
     function showToast(message) {
@@ -149,7 +124,9 @@
         const errorElement = document.getElementById('error');
         errorElement.textContent = message;
     }
-</script>
+});
 
+        
+    </script>
 </body>
 </html>
