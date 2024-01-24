@@ -72,6 +72,16 @@
         <p id="error" class="error-message"></p>
     </div>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if a user is already logged in
+            const loggedInUser = sessionStorage.getItem('loggedInUser');
+
+            // If a user is logged in, redirect to fileshare.html
+            if (loggedInUser) {
+                window.location.href = 'fileshare.html';
+            }
+        });
+
         const loginForm = document.getElementById('loginForm');
 
         loginForm.addEventListener('submit', async function(event) {
