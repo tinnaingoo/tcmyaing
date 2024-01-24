@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -17,6 +16,7 @@
         }
 
         .container {
+            width: 80%;
             max-width: 400px;
             padding: 20px;
             background-color: #fff;
@@ -35,13 +35,13 @@
 
         input {
             margin-bottom: 16px;
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
 
         button {
-            padding: 10px;
+            padding: 12px;
             background-color: #28a745; /* Green color for signup button */
             color: #fff;
             border: none;
@@ -53,123 +53,75 @@
             background-color: #218838; /* Darker green color on hover */
         }
 
-        .error-message {
-            color: #dc3545; /* Red color for error messages */
-            margin-top: 8px;
+        .success-message, .error-message {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
         }
     </style>
-    <title>Signup Page</title>
+    <title>Registration Form</title>
 </head>
 <body>
     <div class="container">
-        <h2>Signup</h2>
-        <form id="signupForm">
-            <label for="fullName">Full Name:</label>
-            <input type="text" id="fullName" required>
-            <label for="username">Username:</label>
-            <input type="text" id="username" required>
-            <label for="phoneNumber">Phone Number:</label>
-            <input type="text" id="phoneNumber" required>
-            <label for="facebookLink">Facebook Link:</label>
-            <input type="text" id="facebookLink" required>
-            <label for="password">Password (6-10 characters):</label>
+        <h2 style="text-align: center;">Registration</h2>
+        <form>
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" required>
+            <label for="user_name">User Name:</label>
+            <input type="text" id="user_name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" required>
+            <label for="fb_link">FB Link:</label>
+            <input type="url" id="fb_link" required>
+            <label for="password">Password :</label>
             <input type="password" id="password" required>
-            <button type="submit">Signup</button>
+
+            <button type="button" onclick="AddRow()">Register</button>
         </form>
-        <p id="error" class="error-message"></p>
-        <p>Already have an account? <a href="index.html">Login</a></p>
+        <p id="success-message" class="success-message"></p>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const signupForm = document.getElementById('signupForm');
+        function AddRow() {
+            var full_name = document.getElementById("full_name").value;
+            var user_name = document.getElementByID("user_name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var fb_link = document.getElementByID("fb_link").value;
+            var password = document.getElementByID("password").value;                                     
 
-            signupForm.addEventListener('submit', async function (event) {
-                event.preventDefault();
-
-                const fullName = document.getElementById('fullName').value;
-                const username = document.getElementById('username').value;
-                const phoneNumber = document.getElementById('phoneNumber').value;
-                const facebookLink = document.getElementById('facebookLink').value;
-                const password = document.getElementById('password').value;
-
-                // Password strength check
-                if (!isStrongPassword(password)) {
-                    displayErrorMessage('Password must be between 6 and 10 characters and contain at least one uppercase letter, one lowercase letter, and one digit.');
-                    return;
-                }
-
-                // Fetch data from SheetDB
-                const sheetDbUrl = 'https://sheetdb.io/api/v1/0tgi3664owtat'; // Replace with your SheetDB API endpoint
-                const response = await fetch(sheetDbUrl);
-                const data = await response.json();
-
-                // Check if the username already exists
-                const usernameExists = data.some(user => user.username === username);
-
-                if (!usernameExists) {
-                    // Add the new user to the sheet
-                    const newUser = {
-                        full_name: fullName,
-                        username: username,
-                        phone_number: phoneNumber,
-                        facebook_account_link: facebookLink,
-                        password: password
-                    };
-
-                    try {
-                        const postData = await fetch(sheetDbUrl, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({ data: [newUser] }),
-                        });
-
-                        const responseData = await postData.json();
-
-                        if (responseData.status === 'OK') {
-                            showToast('Signup successful! Redirecting to Login...');
-                            // Redirect to login page after a brief delay
-                            setTimeout(() => {
-                                window.location.href = 'index.html';
-                            }, 3000);
-                            return;
-                        }
-                    } catch (error) {
-                        // Log the error to the console for debugging
-                        console.error(error);
-                    }
-                }
-
-                displayErrorMessage('Failed to sign up. Username already taken. Please try a different one.');
-            });
-
-            function isStrongPassword(password) {
-                // Password must be between 6 and 10 characters and contain at least one uppercase letter, one lowercase letter, and one digit
-                const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,10}$/;
-                return regex.test(password);
+            if (full_name === ""||user_name === ""|| email === "" || phone === "" || fb_link === ""|| password === "") {
+                displayErrorMessage("Please fill in all fields.");
+            } else {
+                google.script.run.AddRecord(full_name, user_name, email, phone, fb_link, password);
+                displaySuccessMessage("You have successfully registered!");
+                document.getElementById("full_name").value = "";
+                document.getElementById("user_name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("phone").value = "";
+                document.getElementById("fb_link").value = "";
+                document.getElementById("password").value = "";
             }
+        }
 
-            function showToast(message) {
-                Toastify({
-                    text: message,
-                    duration: 3000,
-                    newWindow: true,
-                    close: true,
-                    gravity: 'bottom',
-                    position: 'right',
-                    backgroundColor: '#28a745', /* Green color for toast message */
-                    stopOnFocus: true,
-                }).showToast();
-            }
+        function displaySuccessMessage(message) {
+            var successMessage = document.getElementById("success-message");
+            successMessage.textContent = message;
+            successMessage.style.color = "#28a745"; // Green color for success message
+        }
 
-            function displayErrorMessage(message) {
-                const errorElement = document.getElementById('error');
-                errorElement.textContent = message;
-            }
-        });
+        function displayErrorMessage(message) {
+            var errorMessage = document.getElementById("success-message");
+            errorMessage.textContent = message;
+            errorMessage.style.color = "#dc3545"; // Red color for error message
+        }
     </script>
 </body>
 </html>
