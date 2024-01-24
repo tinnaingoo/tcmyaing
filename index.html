@@ -77,9 +77,10 @@
 
     
     <script>
+    document.addEventListener('DOMContentLoaded', function () {
     const signupForm = document.getElementById('signupForm');
 
-    signupForm.addEventListener('submit', async function(event) {
+    signupForm.addEventListener('submit', async function (event) {
         event.preventDefault();
 
         const fullName = document.getElementById('fullName').value;
@@ -87,6 +88,12 @@
         const phoneNumber = document.getElementById('phoneNumber').value;
         const facebookLink = document.getElementById('facebookLink').value;
         const password = document.getElementById('password').value;
+
+        // Password strength check
+        if (!isStrongPassword(password)) {
+            displayErrorMessage('Password must be between 6 and 10 characters and contain at least one uppercase letter, one lowercase letter, and one digit.');
+            return;
+        }
 
         // Fetch data from SheetDB
         const sheetDbUrl = 'https://sheetdb.io/api/v1/0tgi3664owtat'; // Replace with your SheetDB API endpoint
@@ -133,6 +140,16 @@
 
         displayErrorMessage('Failed to sign up. Please try again.');
     });
+
+    function isStrongPassword(password) {
+        // Password must be between 6 and 10 characters and contain at least one uppercase letter, one lowercase letter, and one digit
+        const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,10}$/;
+        return regex.test(password);
+    }
+
+    // Other functions remain unchanged...
+});
+
 
     function showToast(message) {
         Toastify({
