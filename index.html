@@ -75,57 +75,81 @@
         <p>Don't have an account? <a href="signup.html">Sign up</a></p>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if a user is already logged in
-            const loggedInUser = sessionStorage.getItem('loggedInUser');
+    const signupForm = document.getElementById('signupForm');
 
-            // If a user is logged in, redirect to fileshare.html
-            if (loggedInUser) {
-                window.location.href = 'fileshare.html';
+    signupForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const fullName = document.getElementById('fullName').value;
+        const username = document.getElementById('username').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const facebookLink = document.getElementById('facebookLink').value;
+        const password = document.getElementById('password').value;
+
+        // Fetch data from SheetDB
+        const sheetDbUrl = 'https://sheetdb.io/api/v1/0tgi3664owtat'; // Replace with your SheetDB API endpoint
+        const response = await fetch(sheetDbUrl);
+        const data = await response.json();
+
+        // Check if the username already exists
+        const usernameExists = data.some(user => user.username === username);
+
+        if (!usernameExists) {
+            // Add the new user to the sheet
+            const newUser = {
+                full_name: fullName,
+                username: username,
+                phone_number: phoneNumber,
+                facebook_account_link: facebookLink,
+                password: password
+            };
+
+            try {
+                const postData = await fetch(sheetDbUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ data: [newUser] }),
+                });
+
+                const responseData = await postData.json();
+
+                if (responseData.status === 'OK') {
+                    showToast('Signup successful! Redirecting to Login...');
+                    // Redirect to login page after a brief delay
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 3000);
+                    return;
+                }
+            } catch (error) {
+                // Log the error to the console for debugging
+                console.error(error);
             }
-        });
-
-        const loginForm = document.getElementById('loginForm');
-
-        loginForm.addEventListener('submit', async function(event) {
-            event.preventDefault();
-
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            // Fetch data from SheetDB
-            const sheetDbUrl = 'https://sheetdb.io/api/v1/0tgi3664owtat'; // Replace with your SheetDB API endpoint
-            const response = await fetch(sheetDbUrl);
-            const data = await response.json();
-
-            // Check if the provided username and password match any row in the sheet
-            const userExists = data.some(user => user.username === username && user.password === password);
-
-            if (userExists) {
-                // Save the username to sessionStorage
-                sessionStorage.setItem('loggedInUser', username);
-                showToast('Login successful!');
-                // Redirect to fileshare.html
-                window.location.href = 'fileshare.html';
-            } else {
-                // Display an error message
-                const errorElement = document.getElementById('error');
-                errorElement.textContent = 'Invalid username or password. Please try again.';
-            }
-        });
-
-        function showToast(message) {
-            Toastify({
-                text: message,
-                duration: 3000,
-                newWindow: true,
-                close: true,
-                gravity: 'bottom', // Available options: 'top', 'bottom', 'center', 'left', 'right'
-                position: 'right', // Available options: 'left', 'right', 'center'
-                backgroundColor: '#007BFF',
-                stopOnFocus: true,
-            }).showToast();
         }
-    </script>
+
+        displayErrorMessage('Failed to sign up. Please try again.');
+    });
+
+    function showToast(message) {
+        Toastify({
+            text: message,
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: 'bottom',
+            position: 'right',
+            backgroundColor: '#007BFF',
+            stopOnFocus: true,
+        }).showToast();
+    }
+
+    function displayErrorMessage(message) {
+        const errorElement = document.getElementById('error');
+        errorElement.textContent = message;
+    }
+</script>
+
 </body>
 </html>
