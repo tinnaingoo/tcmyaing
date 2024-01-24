@@ -72,27 +72,26 @@
     </style>
 </head>
 <body>
-
-    <h1 style="color: #333;">Add Data to SheetDB</h1>
+    <h1>Add Data to SheetDB</h1>
 
     <form id="dataForm">
         <label for="title" style="color: #555;">Title:</label>
-        <input type="text" id="title" name="title" required oninput="validateInput()"><br>
+        <input type="text" id="title" name="title" required oninput="validateInput()">
 
         <label for="date" style="color: #555;">Date:</label>
-        <input type="date" id="date" name="date" required><br>
+        <input type="date" id="date" name="date" required>
 
         <label for="description" style="color: #555;">Description:</label>
-        <textarea id="description" name="description" rows="4" required></textarea><br>
+        <textarea id="description" name="description" rows="4" required></textarea>
 
         <label for="downloadLink" style="color: #555;">Download Link:</label>
-        <input type="url" id="downloadLink" name="downloadLink" required><br>
+        <input type="url" id="downloadLink" name="downloadLink" required>
 
         <label for="imageUrl" style="color: #555;">Image URL:</label>
-        <input type="url" id="imageUrl" name="imageUrl" required><br>
+        <input type="url" id="imageUrl" name="imageUrl" required>
 
         <label for="creator" style="color: #555;">Creator:</label>
-        <input type="text" id="creator" name="creator" required><br>
+        <input type="text" id="creator" name="creator" required readonly>
 
         <button type="button" onclick="addData()" id="addButton" disabled>Add Data</button>
     </form>
@@ -100,13 +99,24 @@
     <div id="statusMessage"></div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve the logged-in username from sessionStorage
+            const loggedInUser = sessionStorage.getItem('loggedInUser');
+
+            // Fill the username in the creator input field
+            const creatorInput = document.getElementById('creator');
+            if (loggedInUser) {
+                creatorInput.value = loggedInUser;
+            }
+        });
+
         function addData() {
-            var title = document.getElementById("title").value;
-            var date = document.getElementById("date").value;
-            var description = document.getElementById("description").value;
-            var downloadLink = document.getElementById("downloadLink").value;
-            var imageUrl = document.getElementById("imageUrl").value;
-            var creator = document.getElementById("creator").value;
+            var title = document.getElementById('title').value;
+            var date = document.getElementById('date').value;
+            var description = document.getElementById('description').value;
+            var downloadLink = document.getElementById('downloadLink').value;
+            var imageUrl = document.getElementById('imageUrl').value;
+            var creator = document.getElementById('creator').value;
 
             var apiEndpoint = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
 
@@ -143,7 +153,7 @@
         }
 
         function displayStatusMessage(message, type) {
-            var statusMessage = document.getElementById("statusMessage");
+            var statusMessage = document.getElementById('statusMessage');
             statusMessage.textContent = message;
 
             if (type === 'success') {
@@ -154,15 +164,14 @@
         }
 
         function validateInput() {
-            var addButton = document.getElementById("addButton");
-            addButton.disabled = !document.getElementById("title").value.trim();
+            var addButton = document.getElementById('addButton');
+            addButton.disabled = !document.getElementById('title').value.trim();
         }
 
         function clearForm() {
-            document.getElementById("dataForm").reset();
+            document.getElementById('dataForm').reset();
             validateInput();
         }
     </script>
-
 </body>
 </html>
