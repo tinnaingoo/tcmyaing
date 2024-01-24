@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input {
+            margin-bottom: 16px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: #FF0000;
+            margin-top: 8px;
+        }
+    </style>
+    <title>Signup Page</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" required>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" required>
+
+            <label for="facebookLink">Facebook Account Link:</label>
+            <input type="url" id="facebookLink" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <p id="error" class="error-message"></p>
+        <p>Already have an account? <a href="index.html">Log in</a></p>
+    </div>
+    <script>
+        const signupForm = document.getElementById('signupForm');
+
+        signupForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const username = document.getElementById('username').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const facebookLink = document.getElementById('facebookLink').value;
+            const password = document.getElementById('password').value;
+
+            // Fetch data from SheetDB
+            const sheetDbUrl = 'https://sheetdb.io/api/v1/0tgi3664owtat'; // Replace with your SheetDB API endpoint
+            const response = await fetch(sheetDbUrl);
+            const data = await response.json();
+
+            // Check if the username already exists
+            const usernameExists = data.some(user => user.username === username);
+
+            if (!usernameExists) {
+                // Add the new user to the sheet
+                const newUser = {
+                    data: [{
+                        full_name: fullName,
+                        username: username,
+                        phone_number: phoneNumber,
+                        facebook_account_link: facebookLink,
+                        password: password
+                    }]
+                };
+
+                fetch(sheetDbUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(newUser),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'OK') {
+                        showToast('Signup successful! Redirecting to Login...');
+                        // Redirect to login page after a brief delay
+                        setTimeout(() => {
+                            window.location.href = 'index.html';
+                        }, 3000);
+                    } else {
+                        displayErrorMessage('Failed to sign up. Please try again.');
+                    }
+                })
+                .catch(() => {
+                    displayErrorMessage('Error communicating with the server. Please try again later.');
+                });
+            } else {
+                displayErrorMessage('Username already exists. Please choose a different username.');
+            }
+        });
+
+        function showToast(message) {
+            Toastify({
+                text: message,
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: 'bottom', // Available options: 'top', 'bottom', 'center', 'left', 'right'
+                position: 'right', // Available options: 'left', 'right', 'center'
+                backgroundColor: '#007BFF',
+                stopOnFocus: true,
+            }).showToast();
+        }
+
+        function displayErrorMessage(message) {
+            const errorElement = document.getElementById('error');
+            errorElement.textContent = message;
+        }
+    </script>
+</body>
+</html>
