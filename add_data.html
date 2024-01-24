@@ -29,6 +29,9 @@
         <label for="imageUrl" style="color: #555;">Image URL:</label>
         <input type="url" id="imageUrl" name="imageUrl" required>
 
+        <label for="Creator" style="color: #555;">Creator :</label>
+        <input type="text" id="Creator" name="Creator" required>
+
         <button type="button" onclick="addData()">Add Data</button>
     </form>
 
@@ -40,7 +43,8 @@
             var date = document.getElementById("date").value;
             var description = document.getElementById("description").value;
             var downloadLink = document.getElementById("downloadLink").value;
-            var imageUrl = document.getElementById("imageUrl").value;
+            var imageUrl = document.getElementById("imageurl").value;
+            var Creator = document.getElementById("creator").value;
 
             var apiEndpoint = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
 
