@@ -96,65 +96,46 @@
 
     <script>
         function addData() {
-    // Get form input values
-    var title = document.getElementById("title").value;
-    var date = document.getElementById("date").value;
-    var description = document.getElementById("description").value;
-    var downloadLink = document.getElementById("downloadLink").value;
-    var imageUrl = document.getElementById("imageUrl").value;
-    var creator = document.getElementById("creator").value;
+            var title = document.getElementById("title").value;
+            var date = document.getElementById("date").value;
+            var description = document.getElementById("description").value;
+            var downloadLink = document.getElementById("downloadLink").value;
+            var imageUrl = document.getElementById("imageUrl").value;
+            var creator = document.getElementById("creator").value; // New input for creator
 
-    // Define SheetDB API endpoint
-    var apiEndpoint = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
+            var apiEndpoint = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
 
-    // Construct data object
-    var newData = {
-        data: [{
-            title: title,
-            date: date,
-            description: description,
-            downloadLink: downloadLink,
-            imageUrl: imageUrl,
-            creator: creator
-        }]
-    };
+            var newData = {
+                data: [{
+                    title: title,
+                    date: date,
+                    description: description,
+                    downloadLink: downloadLink,
+                    imageUrl: imageUrl,
+                    creator: creator // Include creator in the data object
+                }]
+            };
 
-    // Disable the button during the API request
-    var addButton = document.getElementById("addButton");
-    addButton.disabled = true;
-
-    // Send POST request to SheetDB
-    fetch(apiEndpoint, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newData),
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('SheetDB API response:', data); // Log the API response
-
-        // Check if the data addition was successful
-        if (data.status === 'OK') {
-            // Display success message
-            displayStatusMessage('Data added successfully!', 'success');
-        } else {
-            // Display error message for other statuses
-            displayStatusMessage('Failed to add data. Please try again.', 'error');
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'OK') {
+                    displayStatusMessage('Data added successfully!', 'success');
+                } else {
+                    displayStatusMessage('Failed to add data. Please try again.', 'error');
+                }
+            })
+            .catch(() => {
+                displayStatusMessage('Error communicating with the server. Please try again later.', 'error');
+            });
         }
-    })
-    .catch(error => {
-        console.error('Error communicating with the server:', error); // Log the error
-        // Display error message for network or server errors
-        displayStatusMessage('Error communicating with the server. Please try again later.', 'error');
-    })
-    .finally(() => {
-        // Re-enable the button after the API request is complete
-        addButton.disabled = false;
-    });
-}
-}
+
         function displayStatusMessage(message, type) {
             var statusMessage = document.getElementById("statusMessage");
             statusMessage.textContent = message;
