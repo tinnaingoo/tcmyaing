@@ -103,8 +103,13 @@
       password: document.getElementById('password').value,
     };
 
+    // Replace with your actual Sheet ID and Sheet Name
+const sheetId = 'g3s2wf98urngi';
+const sheetName = 'Sheet2';
+
+
     // Fetch existing data from SheetDB
-    const existingData = await fetch('https://sheetdb.io/api/v1/0tgi3664owtat')
+    const existingData = await fetch('https://sheetdb.io/api/v1/${sheetId}/sheets/${sheetName}')
       .then(response => response.json())
       .then(data => data);
 
