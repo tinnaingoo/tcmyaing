@@ -128,7 +128,9 @@
     };
 
     // Check if username already exists
-    const existingUsernames = ["user1", "user2", "user3"]; // Replace with your actual list of usernames
+     // Check if the username already exists
+        const existingUsernames = data.some(user => user.username === username);
+    
     if (existingUsernames.includes(formData.username.toLowerCase())) {
       document.getElementById('errorMessage').innerText = 'Username is already taken. Please choose another.';
       document.getElementById('signupMessage').innerText = '';
