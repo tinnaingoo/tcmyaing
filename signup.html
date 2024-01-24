@@ -30,7 +30,7 @@
     }
 
     input {
-      width: 100%;
+      width: calc(100% - 18px);
       padding: 8px;
       margin-bottom: 16px;
       box-sizing: border-box;
@@ -43,6 +43,21 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .checkbox-container input {
+      margin-right: 8px;
+    }
+
+    .message {
+      color: #f00;
+      margin-top: 8px;
     }
   </style>
 </head>
@@ -65,9 +80,19 @@
   <input type="text" id="fb_link" name="fb_link" required>
 
   <label for="password">Password:</label>
-  <input type="password" id="password" name="password" required>
+  <div class="password-container">
+    <input type="password" id="password" name="password" required>
+    <div class="checkbox-container">
+      <input type="checkbox" id="showPassword" onchange="togglePasswordVisibility()">
+      <label for="showPassword">Show Password</label>
+    </div>
+  </div>
 
   <button type="button" onclick="signup()">Sign Up</button>
+
+  <div class="message" id="signupMessage"></div>
+
+  <p>Already have an account? <a href="index.html">Login</a></p>
 </form>
 
 <script>
@@ -94,12 +119,21 @@
     .then(response => response.json())
     .then(data => {
       console.log('Success:', data);
-      // You can handle success response here (e.g., redirect to another page)
+      // Handle success response
+      document.getElementById('signupMessage').innerText = 'Signup successful!';
     })
     .catch((error) => {
       console.error('Error:', error);
-      // Handle error here
+      // Handle error
+      document.getElementById('signupMessage').innerText = 'Signup failed. Please try again.';
     });
+  }
+
+  function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password');
+    const showPasswordCheckbox = document.getElementById('showPassword');
+    
+    passwordInput.type = showPasswordCheckbox.checked ? 'text' : 'password';
   }
 </script>
 
