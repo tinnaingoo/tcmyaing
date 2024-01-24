@@ -6,7 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Data to SheetDB</title>
     <style>
-        /* Your styling goes here */
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        input, textarea {
+            margin-bottom: 12px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #statusMessage {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #008000;
+        }
+
+        .error {
+            color: #FF0000;
+        }
     </style>
 </head>
 <body>
@@ -23,11 +80,11 @@
         <label for="description">Description:</label>
         <textarea id="description" name="description" rows="4" required></textarea><br>
 
-        <label for="downloadlink">Download Link:</label>
-        <input type="url" id="downloadlink" name="downloadlink" required><br>
+        <label for="downloadLink">Download Link:</label>
+        <input type="url" id="downloadLink" name="downloadLink" required><br>
 
-        <label for="imageurl">Image URL:</label>
-        <input type="url" id="imageurl" name="imageurl" required><br>
+        <label for="imageUrl">Image URL:</label>
+        <input type="url" id="imageUrl" name="imageUrl" required><br>
 
         <button type="button" onclick="addData()">Add Data</button>
     </form>
@@ -39,8 +96,8 @@
             var title = document.getElementById("title").value;
             var date = document.getElementById("date").value;
             var description = document.getElementById("description").value;
-            var downloadlink = document.getElementById("downloadlink").value;
-            var imageurl = document.getElementById("imageurl").value;
+            var downloadLink = document.getElementById("downloadLink").value;
+            var imageUrl = document.getElementById("imageUrl").value;
 
             var apiEndpoint = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
 
@@ -49,8 +106,8 @@
                     title: title,
                     date: date,
                     description: description,
-                    downloadlink: downloadlink,
-                    imageurl: imageurl
+                    downloadLink: downloadLink,
+                    imageUrl: imageUrl
                 }]
             };
 
