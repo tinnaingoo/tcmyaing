@@ -26,8 +26,8 @@
         <label for="downloadlink">Download Link:</label>
         <input type="url" id="downloadlink" name="downloadlink" required><br>
 
-        <label for="imageUrl">Image URL:</label>
-        <input type="url" id="imageUrl" name="imageUrl" required><br>
+        <label for="imageurl">Image URL:</label>
+        <input type="url" id="imageurl" name="imageurl" required><br>
 
         <button type="button" onclick="addData()">Add Data</button>
     </form>
@@ -40,7 +40,7 @@
             var date = document.getElementById("date").value;
             var description = document.getElementById("description").value;
             var downloadlink = document.getElementById("downloadlink").value;
-            var imageUrl = document.getElementById("imageUrl").value;
+            var imageurl = document.getElementById("imageurl").value;
 
             var apiEndpoint = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
 
@@ -50,7 +50,7 @@
                     date: date,
                     description: description,
                     downloadlink: downloadlink,
-                    imageUrl: imageurl
+                    imageurl: imageurl
                 }]
             };
 
