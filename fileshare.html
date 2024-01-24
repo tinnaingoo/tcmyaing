@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cool App</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Your Cool App!</h1>
+  
+  <div class="button-container">
+    <button class="button" onclick="redirectTo('post.html')">View Post</button>
+    <button class="button" onclick="redirectTo('add_data.html')">Add Data</button>
+  </div>
+
+  <script>
+    function redirectTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>
