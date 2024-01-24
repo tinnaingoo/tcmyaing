@@ -76,6 +76,7 @@
             <div>
                 <button class="menu-button" onclick="viewPost()">View Post</button>
                 <button class="menu-button" onclick="addData()">Add Data</button>
+                <button class="menu-button" onclick="logout()">Logout</button>
             </div>
         </div>
         <!-- Content goes here -->
@@ -98,6 +99,12 @@
 
         function addData() {
             window.location.href = 'add_data.html';
+        }
+
+        function logout() {
+            // Clear the sessionStorage and redirect to the login page
+            sessionStorage.clear();
+            window.location.href = 'index.html';
         }
     </script>
 </body>
