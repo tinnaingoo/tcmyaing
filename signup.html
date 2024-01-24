@@ -86,93 +86,87 @@
         <p id="error" class="error-message"></p>
         <p>Already have an account? <a href="index.html">Log in</a></p>
     </div>
-    <script>
-        const signupForm = document.getElementById('signupForm');
+    <!-- ... (your existing HTML code) ... -->
 
-        signupForm.addEventListener('submit', async function(event) {
-            event.preventDefault();
+<script>
+    const signupForm = document.getElementById('signupForm');
 
-            const fullName = document.getElementById('fullName').value;
-            const username = document.getElementById('username').value;
-            const phoneNumber = document.getElementById('phoneNumber').value;
-            const facebookLink = document.getElementById('facebookLink').value;
-            const password = document.getElementById('password').value;
+    signupForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
 
-            // Fetch data from SheetDB
-            const sheetDbUrl = 'https://sheetdb.io/api/v1/0tgi3664owtat'; // Replace with your SheetDB API endpoint
-            const response = await fetch(sheetDbUrl);
-            const data = await response.json();
+        const fullName = document.getElementById('fullName').value;
+        const username = document.getElementById('username').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const facebookLink = document.getElementById('facebookLink').value;
+        const password = document.getElementById('password').value;
 
-            // Check if the username already exists
-            const usernameExists = data.some(user => user.username === username);
+        // Fetch data from SheetDB
+        const sheetDbUrl = 'https://sheetdb.io/api/v1/0tgi3664owtat'; // Replace with your SheetDB API endpoint
+        const response = await fetch(sheetDbUrl);
+        const data = await response.json();
 
-            if (!usernameExists) {
-                // Add the new user to the sheet
-                const newUser = {
-                    data: [{
-                        full_name: fullName,
-                        username: username,
-                        phone_number: phoneNumber,
-                        facebook_account_link: facebookLink,
-                        password: password
-                    }]
-                };
+        // Check if the username already exists
+        const usernameExists = data.some(user => user.username === username);
 
-                fetch(sheetDbUrl, {
+        if (!usernameExists) {
+            // Add the new user to the sheet
+            const newUser = {
+                data: [{
+                    full_name: fullName,
+                    username: username,
+                    phone_number: phoneNumber,
+                    facebook_account_link: facebookLink,
+                    password: password
+                }]
+            };
+
+            try {
+                const postData = await fetch(sheetDbUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(newUser),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'OK') {
-                        showToast('Signup successful! Redirecting to Login...');
-                        // Redirect to login page after a brief delay
-                        setTimeout(() => {
-                            window.location.href = 'index.html';
-                        }, 3000);
-                    } else {
-                        displayErrorMessage('Failed to sign up. Please try again.');
-                    }
-                })
-                .catch(() => {
-                    displayErrorMessage('Error communicating with the server. Please try again later.');
                 });
-            } else {
-                displayErrorMessage('Username already exists. Please choose a different username.');
+
+                const responseData = await postData.json();
+
+                if (responseData.status === 'OK') {
+                    showToast('Signup successful! Redirecting to Login...');
+                    // Redirect to login page after a brief delay
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 3000);
+                } else {
+                    displayErrorMessage('Failed to sign up. Please try again.');
+                }
+            } catch (error) {
+                displayErrorMessage('Error communicating with the server. Please try again later.');
             }
-        });
-
-        const newUser = {
-    data: [{
-        full_name: fullName,
-        username: username,
-        phone_number: phoneNumber,
-        facebook_account_link: facebookLink,
-        password: password
-    }]
-};
-
-        
-        function showToast(message) {
-            Toastify({
-                text: message,
-                duration: 3000,
-                newWindow: true,
-                close: true,
-                gravity: 'bottom', // Available options: 'top', 'bottom', 'center', 'left', 'right'
-                position: 'right', // Available options: 'left', 'right', 'center'
-                backgroundColor: '#007BFF',
-                stopOnFocus: true,
-            }).showToast();
+        } else {
+            displayErrorMessage('Username already exists. Please choose a different username.');
         }
+    });
 
-        function displayErrorMessage(message) {
-            const errorElement = document.getElementById('error');
-            errorElement.textContent = message;
-        }
-    </script>
+    function showToast(message) {
+        Toastify({
+            text: message,
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: 'bottom',
+            position: 'right',
+            backgroundColor: '#007BFF',
+            stopOnFocus: true,
+        }).showToast();
+    }
+
+    function displayErrorMessage(message) {
+        const errorElement = document.getElementById('error');
+        errorElement.textContent = message;
+    }
+</script>
+
+    
 </body>
 </html>
