@@ -23,8 +23,8 @@
         <label for="description">Description:</label>
         <textarea id="description" name="description" rows="4" required></textarea><br>
 
-        <label for="downloadLink">Download Link:</label>
-        <input type="url" id="downloadLink" name="downloadLink" required><br>
+        <label for="downloadlink">Download Link:</label>
+        <input type="url" id="downloadlink" name="downloadlink" required><br>
 
         <label for="imageUrl">Image URL:</label>
         <input type="url" id="imageUrl" name="imageUrl" required><br>
@@ -39,7 +39,7 @@
             var title = document.getElementById("title").value;
             var date = document.getElementById("date").value;
             var description = document.getElementById("description").value;
-            var downloadLink = document.getElementById("downloadLink").value;
+            var downloadlink = document.getElementById("downloadlink").value;
             var imageUrl = document.getElementById("imageUrl").value;
 
             var apiEndpoint = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
@@ -49,7 +49,7 @@
                     title: title,
                     date: date,
                     description: description,
-                    downloadLink: downloadlink,
+                    downloadlink: downloadlink,
                     imageUrl: imageurl
                 }]
             };
