@@ -77,7 +77,7 @@
   <input type="tel" id="phone" name="phone" required>
 
   <label for="fb_link">Facebook Link:</label>
-  <input type="text" id="fb_link" name="fb_link" required>
+  <input type="url" id="fb_link" name="fb_link" required>
 
   <label for="password">Password:</label>
   <div class="password-container">
@@ -96,7 +96,7 @@
 </form>
 
 <script>
-  function signup() {
+  async function signup() {
     const formData = {
       fullname: document.getElementById('fullname').value,
       username: document.getElementById('username').value,
@@ -106,27 +106,37 @@
       password: document.getElementById('password').value,
     };
 
-    // Perform validation here if needed
+    // Fetch existing data from SheetDB
+    const existingData = await fetch('https://sheetdb.io/api/v1/0tgi3664owtat')
+      .then(response => response.json())
+      .then(data => data);
 
-    // Send data to the API
-    fetch('https://sheetdb.io/api/v1/0tgi3664owtat', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success:', data);
-      // Handle success response
-      document.getElementById('signupMessage').innerText = 'Signup successful!';
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      // Handle error
-      document.getElementById('signupMessage').innerText = 'Signup failed. Please try again.';
-    });
+    // Check if the entered username already exists
+    const usernameExists = existingData.some(entry => entry.username === formData.username);
+
+    if (usernameExists) {
+      document.getElementById('signupMessage').innerText = 'Username already exists. Please choose a different one.';
+    } else {
+      // Send data to the API
+      fetch('https://sheetdb.io/api/v1/0tgi3664owtat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        // Handle success response
+        document.getElementById('signupMessage').innerText = 'Signup successful!';
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        // Handle error
+        document.getElementById('signupMessage').innerText = 'Signup failed. Please try again.';
+      });
+    }
   }
 
   function togglePasswordVisibility() {
