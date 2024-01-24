@@ -6,7 +6,7 @@
   <title>Signup Page</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       margin: 0;
       padding: 0;
@@ -19,44 +19,36 @@
     form {
       background-color: #fff;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      width: 80%;
-      max-width: 400px;
-      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
     }
 
     label {
       display: block;
       margin-bottom: 8px;
-      text-align: left;
     }
 
     input {
-      width: 100%;
-      padding: 10px;
+      width: calc(100% - 18px);
+      padding: 8px;
       margin-bottom: 16px;
       box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 4px;
     }
 
     button {
       background-color: #4caf50;
       color: #fff;
-      padding: 12px;
+      padding: 10px;
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      width: 100%;
-      font-size: 16px;
     }
 
     .checkbox-container {
       display: flex;
       align-items: center;
       margin-bottom: 16px;
-      text-align: left;
     }
 
     .checkbox-container input {
@@ -64,20 +56,8 @@
     }
 
     .message {
-      margin-top: 16px;
-      font-size: 14px;
-      color: #4caf50;
-    }
-
-    .error-message {
-      margin-top: 16px;
-      font-size: 14px;
       color: #f00;
-    }
-
-    p {
-      margin-top: 16px;
-      font-size: 14px;
+      margin-top: 8px;
     }
   </style>
 </head>
@@ -111,7 +91,6 @@
   <button type="button" onclick="signup()">Sign Up</button>
 
   <div class="message" id="signupMessage"></div>
-  <div class="error-message" id="errorMessage"></div>
 
   <p>Already have an account? <a href="index.html">Login</a></p>
 </form>
@@ -126,16 +105,6 @@
       fb_link: document.getElementById('fb_link').value,
       password: document.getElementById('password').value,
     };
-
-    // Check if username already exists
-     // Check if the username already exists
-        const existingUsernames = data.some(user => user.username === username);
-    
-    if (existingUsernames.includes(formData.username.toLowerCase())) {
-      document.getElementById('errorMessage').innerText = 'Username is already taken. Please choose another.';
-      document.getElementById('signupMessage').innerText = '';
-      return;
-    }
 
     // Perform validation here if needed
 
@@ -152,15 +121,11 @@
       console.log('Success:', data);
       // Handle success response
       document.getElementById('signupMessage').innerText = 'Signup successful!';
-      document.getElementById('errorMessage').innerText = '';
-      // Clear input fields
-      document.getElementById('signupForm').reset();
     })
     .catch((error) => {
       console.error('Error:', error);
       // Handle error
-      document.getElementById('signupMessage').innerText = '';
-      document.getElementById('errorMessage').innerText = 'Signup failed. Please try again.';
+      document.getElementById('signupMessage').innerText = 'Signup failed. Please try again.';
     });
   }
 
