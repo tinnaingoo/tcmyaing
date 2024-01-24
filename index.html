@@ -71,39 +71,35 @@
         </form>
         <p id="error" class="error-message"></p>
     </div>
-    <script >
+    <script>
+        const loginForm = document.getElementById('loginForm');
 
-     const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
 
-loginForm.addEventListener('submit', async function(event) {
-    event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+            // Fetch data from SheetDB
+            const sheetDbUrl = 'https://sheetdb.io/api/v1/0tgi3664owtat'; // Replace with your SheetDB API endpoint
+            const response = await fetch(sheetDbUrl);
+            const data = await response.json();
 
-    // Fetch data from SheetDB
-    const sheetDbUrl = 'https://sheetdb.io/api/v1/0tgi3664owtat'; // Replace with your SheetDB API endpoint
-    const response = await fetch(`${sheetDbUrl}?username=${username}&password=${password}`);
-    const data = await response.json();
+            // Check if the provided username and password match any row in the sheet
+            const userExists = data.some(user => user.username === username && user.password === password);
 
-    // Check if the user exists
-    if (data.length > 0) {
-        // Save the username to sessionStorage
-        sessionStorage.setItem('loggedInUser', username);
-        alert('Login successful!');
-        // Redirect to fileshare.html
-        window.location.href = 'fileshare.html';
-    } else {
-        // Display an error message
-        const errorElement = document.getElementById('error');
-        errorElement.textContent = 'Invalid username or password. Please try again.';
-    }
-});
-
-
-      
+            if (userExists) {
+                // Save the username to sessionStorage
+                sessionStorage.setItem('loggedInUser', username);
+                alert('Login successful!');
+                // Redirect to fileshare.html
+                window.location.href = 'fileshare.html';
+            } else {
+                // Display an error message
+                const errorElement = document.getElementById('error');
+                errorElement.textContent = 'Invalid username or password. Please try again.';
+            }
+        });
     </script>
-
-  
 </body>
 </html>
