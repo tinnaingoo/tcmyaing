@@ -133,6 +133,8 @@
     })
     .then(response => response.json())
     .then(data => {
+        console.log('SheetDB API response:', data); // Log the API response
+
         // Check if the data addition was successful
         if (data.status === 'OK') {
             // Display success message
@@ -142,7 +144,8 @@
             displayStatusMessage('Failed to add data. Please try again.', 'error');
         }
     })
-    .catch(() => {
+    .catch(error => {
+        console.error('Error communicating with the server:', error); // Log the error
         // Display error message for network or server errors
         displayStatusMessage('Error communicating with the server. Please try again later.', 'error');
     })
@@ -150,6 +153,7 @@
         // Re-enable the button after the API request is complete
         addButton.disabled = false;
     });
+}
 }
         function displayStatusMessage(message, type) {
             var statusMessage = document.getElementById("statusMessage");
