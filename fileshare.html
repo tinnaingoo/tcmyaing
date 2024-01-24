@@ -3,29 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-name {
+            margin-right: 10px;
+        }
+
+        .menu-button {
+            padding: 8px 12px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .menu-button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: #FF0000;
+            margin-top: 8px;
+        }
+    </style>
     <title>File Share Page</title>
 </head>
 <body>
+    <header>
+        <h1>File Sharing App</h1>
+    </header>
     <div class="container">
-        <h2>Welcome to the File Share Page!</h2>
-        <p id="loggedInUser"></p>
-        <!-- Add your content here -->
+        <div class="menu-bar">
+            <div class="user-info">
+                <span class="user-name" id="loggedInUser"></span>
+            </div>
+            <div>
+                <button class="menu-button" onclick="viewPost()">View Post</button>
+                <button class="menu-button" onclick="addData()">Add Data</button>
+            </div>
+        </div>
+        <!-- Content goes here -->
     </div>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-    // Retrieve the logged-in username from sessionStorage
-    const loggedInUser = sessionStorage.getItem('loggedInUser');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve the logged-in username from sessionStorage
+            const loggedInUser = sessionStorage.getItem('loggedInUser');
 
-    // Display the username on the page
-    const loggedInUserElement = document.getElementById('loggedInUser');
-    if (loggedInUser) {
-        loggedInUserElement.textContent = `Logged in as: ${loggedInUser}`;
-    } else {
-        // Redirect to the login page if the username is not found in sessionStorage
-        window.location.href = 'index.html';
-    }
-});
+            // Display the username in the user-info section
+            const loggedInUserElement = document.getElementById('loggedInUser');
+            if (loggedInUser) {
+                loggedInUserElement.textContent = `Logged in as: ${loggedInUser}`;
+            }
+        });
+
+        function viewPost() {
+            window.location.href = 'post.html';
+        }
+
+        function addData() {
+            window.location.href = 'add_data.html';
+        }
     </script>
 </body>
 </html>
