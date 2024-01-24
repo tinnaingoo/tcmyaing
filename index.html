@@ -68,7 +68,7 @@ button:hover {
     </div>
     <script >
 
-      const loginForm = document.getElementById('loginForm');
+     const loginForm = document.getElementById('loginForm');
 
 loginForm.addEventListener('submit', async function(event) {
     event.preventDefault();
@@ -83,15 +83,18 @@ loginForm.addEventListener('submit', async function(event) {
 
     // Check if the user exists
     if (data.length > 0) {
-         // Save the username to sessionStorage
+        // Save the username to sessionStorage
         sessionStorage.setItem('loggedInUser', username);
         alert('Login successful!');
         // Redirect to fileshare.html
         window.location.href = 'fileshare.html';
     } else {
-        alert('Invalid username or password. Please try again.');
+        // Display an error message
+        const errorElement = document.getElementById('error');
+        errorElement.textContent = 'Invalid username or password. Please try again.';
     }
 });
+
 
       
     </script>
