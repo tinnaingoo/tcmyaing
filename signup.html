@@ -144,6 +144,17 @@
             }
         });
 
+        const newUser = {
+    data: [{
+        full_name: fullName,
+        username: username,
+        phone_number: phoneNumber,
+        facebook_account_link: facebookLink,
+        password: password
+    }]
+};
+
+        
         function showToast(message) {
             Toastify({
                 text: message,
