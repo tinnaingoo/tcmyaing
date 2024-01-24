@@ -82,11 +82,24 @@
             <input type="url" id="fb_link" required>
             <label for="password">Password :</label>
             <input type="password" id="password" required>
+            <input type="checkbox" onclick="myFunction()">Show Password
+
 
             <button type="button" onclick="AddRow()">Register</button>
         </form>
         <p id="success-message" class="success-message"></p>
     </div>
+
+    <script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 
     <script>
         function AddRow() {
