@@ -83,7 +83,10 @@ loginForm.addEventListener('submit', async function(event) {
 
     // Check if the user exists
     if (data.length > 0) {
+         // Save the username to sessionStorage
+        sessionStorage.setItem('loggedInUser', username);
         alert('Login successful!');
+        // Redirect to fileshare.html
         window.location.href = 'fileshare.html';
     } else {
         alert('Invalid username or password. Please try again.');
