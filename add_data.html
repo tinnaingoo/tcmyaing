@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Data to SheetDB</title>
-   <style>
+    <style>
         body {
             font-family: 'Arial', sans-serif;
             max-width: 400px;
@@ -72,7 +72,7 @@
 
     <form id="dataForm">
         <label for="title" style="color: #555;">Title:</label>
-        <input type="text" id="title" name="title" value="Creator" required>
+        <input type="text" id="title" name="title" required>
 
         <label for="date" style="color: #555;">Date:</label>
         <input type="date" id="date" name="date" required>
@@ -86,9 +86,6 @@
         <label for="imageUrl" style="color: #555;">Image URL:</label>
         <input type="url" id="imageUrl" name="imageUrl" required>
 
-        <label for="Creator" style="color: #555;">Creator :</label>
-        <input type="text" id="Creator" name="Creator" required>
-
         <button type="button" onclick="addData()">Add Data</button>
     </form>
 
@@ -100,8 +97,7 @@
             var date = document.getElementById("date").value;
             var description = document.getElementById("description").value;
             var downloadLink = document.getElementById("downloadLink").value;
-            var imageUrl = document.getElementById("imageurl").value;
-            var Creator = document.getElementById("creator").value;
+            var imageUrl = document.getElementById("imageUrl").value;
 
             var apiEndpoint = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
 
@@ -111,7 +107,7 @@
                     date: date,
                     description: description,
                     downloadLink: downloadLink,
-                    imageUrl: imageUrl
+                    imageUrl: imageurl
                 }]
             };
 
