@@ -106,22 +106,6 @@
       password: document.getElementById('password').value,
     };
 
-    // Perform validation here if needed
-
-    // Check if the username already exists
-                const usernameExists = data.some(user => user.username === username);
-
-                if (!usernameExists) {
-                    // Add the new user to the sheet
-                    const newUser = {
-                        fullname: fullname,
-                        username: username,
-                        phone: phone,
-                        email: email,
-                        fb_link: fb_link,
-                        password: password
-                    };
-
     // Send data to the API
     fetch('https://sheetdb.io/api/v1/0tgi3664owtat', {
       method: 'POST',
