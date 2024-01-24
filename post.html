@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Sharing</title>
     <style>
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
         }
 
         #page-title-box {
@@ -19,19 +22,21 @@
             height: auto;
             margin-bottom: 20px;
             text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         #page-title {
+            margin: 0;
             color: red;
         }
 
         #json-container {
-            max-width: 600px;
+            max-width: 800px;
             width: 100%;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: left;
-            padding: 20px;
+            margin: 20px;
             box-sizing: border-box;
             display: flex;
             flex-wrap: wrap;
@@ -39,40 +44,44 @@
         }
 
         .item {
-            width: 100%; /* Set the width to 100% for one column on mobile */
+            width: 100%;
             margin-bottom: 20px;
             box-sizing: border-box;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
         }
 
         @media only screen and (min-width: 768px) {
-            /* For desktop: */
             .item {
-                width: 48%; /* Set the width to 48% for two columns on desktop */
+                width: 48%;
             }
         }
 
         #page-header {
             font-size: 18px;
             font-weight: bold;
-            color: blue;
-            margin-bottom: 20px;
+            color: #333;
+            margin: 20px 0 10px;
         }
 
         #header {
-            font-size: 14px;
-            color: red;
-            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
         }
 
-        #date {
-            font-size: 12px;
-            margin-bottom: 10px;
-        }
-
+        #date,
         #description {
-            font-size: 12px;
-            color: black;
-            margin-bottom: 10px;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
         }
 
         #download-button {
@@ -82,113 +91,121 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 12px;
+            font-size: 14px;
             cursor: pointer;
             border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #download-button:hover {
+            background-color: #45a049;
         }
 
         #image {
             width: 100%;
             height: auto;
             max-width: 100%;
-            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
         }
 
         #creator-label {
-            font-size: 12px;
-            color: green;
+            font-size: 14px;
+            color: #008CBA;
+            margin: 10px 0;
         }
     </style>
 </head>
+
 <body>
 
-<div id="page-title-box">
-    <h1 id="page-title">File Sharing</h1>
-</div>
+    <div id="page-title-box">
+        <h1 id="page-title">File Sharing</h1>
+    </div>
 
-<div id="json-container">
-    <h1 id="page-header">File Sharing</h1>
-</div>
+    <div id="json-container">
+        <h1 id="page-header">File Sharing</h1>
+    </div>
 
-<script>
-    // URL of the JSON API
-    var apiUrl = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
+    <script>
+        // URL of the JSON API
+        var apiUrl = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
 
-    // Reference to the container where JSON data will be displayed
-    var container = document.getElementById('json-container');
+        // Reference to the container where JSON data will be displayed
+        var container = document.getElementById('json-container');
 
-    // Show loading indicator
-    container.innerHTML = '<p class="loading">Loading...</p>';
+        // Show loading indicator
+        container.innerHTML = '<p class="loading">Loading...</p>';
 
-    // Fetch data from the API
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(jsonData => {
-            // Clear loading indicator
-            container.innerHTML = '';
+        // Fetch data from the API
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(jsonData => {
+                // Clear loading indicator
+                container.innerHTML = '';
 
-            // Display all items initially
-            displayItems(jsonData);
-        })
-        .catch(error => {
-            // Display error message
-            container.innerHTML = '<p class="error">Error fetching data. Please try again later.</p>';
-            console.error('Error fetching data:', error);
-        });
+                // Display all items initially
+                displayItems(jsonData);
+            })
+            .catch(error => {
+                // Display error message
+                container.innerHTML = '<p class="error">Error fetching data. Please try again later.</p>';
+                console.error('Error fetching data:', error);
+            });
 
-    function displayItems(items) {
-        // Loop through each item in the provided array
-        items.forEach(function (item) {
-            // Create a div element for each item
-            var itemDiv = document.createElement('div');
-            itemDiv.className = 'item';
+        function displayItems(items) {
+            // Loop through each item in the provided array
+            items.forEach(function (item) {
+                // Create a div element for each item
+                var itemDiv = document.createElement('div');
+                itemDiv.className = 'item';
 
-            // Create header element for the 'Title' key
-            var titleHeader = document.createElement('h2');
-            titleHeader.textContent = item['title'];
-            titleHeader.id = 'header';
+                // Create header element for the 'Title' key
+                var titleHeader = document.createElement('h2');
+                titleHeader.textContent = item['title'];
+                titleHeader.id = 'header';
 
-            // Create paragraph element for the 'Date' key
-            var dateParagraph = document.createElement('p');
-            dateParagraph.textContent = 'Date: ' + item['date'];
-            dateParagraph.id = 'date';
+                // Create paragraph element for the 'Date' key
+                var dateParagraph = document.createElement('p');
+                dateParagraph.textContent = 'Date: ' + item['date'];
+                dateParagraph.id = 'date';
 
-            // Create paragraph element for the 'Description' key
-            var descriptionParagraph = document.createElement('p');
-            descriptionParagraph.textContent = 'Description: ' + item['description'];
-            descriptionParagraph.id = 'description';
+                // Create paragraph element for the 'Description' key
+                var descriptionParagraph = document.createElement('p');
+                descriptionParagraph.textContent = 'Description: ' + item['description'];
+                descriptionParagraph.id = 'description';
 
-            // Create download button for the 'Download Link' key
-            var downloadButton = document.createElement('a');
-            downloadButton.textContent = 'Download';
-            downloadButton.href = item['downloadlink'];
-            downloadButton.target = '_blank';
-            downloadButton.id = 'download-button';
+                // Create download button for the 'Download Link' key
+                var downloadButton = document.createElement('a');
+                downloadButton.textContent = 'Download';
+                downloadButton.href = item['downloadlink'];
+                downloadButton.target = '_blank';
+                downloadButton.id = 'download-button';
 
-            // Create image element for the 'Image Url' key
-            var imageElement = document.createElement('img');
-            imageElement.src = item['imageurl'];
-            imageElement.alt = 'Image';
-            imageElement.id = 'image';
+                // Create image element for the 'Image Url' key
+                var imageElement = document.createElement('img');
+                imageElement.src = item['imageurl'];
+                imageElement.alt = 'Image';
+                imageElement.id = 'image';
 
-            // Create label for the 'Creator' key
-            var creatorLabel = document.createElement('div');
-            creatorLabel.textContent = 'Creator: ' + item['creator'];
-            creatorLabel.id = 'creator-label';
+                // Create label for the 'Creator' key
+                var creatorLabel = document.createElement('div');
+                creatorLabel.textContent = 'Creator: ' + item['creator'];
+                creatorLabel.id = 'creator-label';
 
-            // Append elements to the item div
-            itemDiv.appendChild(titleHeader);
-            itemDiv.appendChild(dateParagraph);
-            itemDiv.appendChild(descriptionParagraph);
-            itemDiv.appendChild(downloadButton);
-            itemDiv.appendChild(imageElement);
-            itemDiv.appendChild(creatorLabel);
+                // Append elements to the item div
+                itemDiv.appendChild(titleHeader);
+                itemDiv.appendChild(dateParagraph);
+                itemDiv.appendChild(descriptionParagraph);
+                itemDiv.appendChild(downloadButton);
+                itemDiv.appendChild(imageElement);
+                itemDiv.appendChild(creatorLabel);
 
-            // Append the item div to the main container
-            container.appendChild(itemDiv);
-        });
-    }
-</script>
+                // Append the item div to the main container
+                container.appendChild(itemDiv);
+            });
+        }
+    </script>
 
 </body>
+
 </html>
