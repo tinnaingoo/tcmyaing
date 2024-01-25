@@ -71,12 +71,14 @@ span.psw {
 
 <h2>Login Form</h2>
 
-<form id="loginForm">
+
   <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
+	<form id="loginForm">
+		
     	<label for="username"><b>Username</b></label>
     	<input type="text" id="username" placeholder="Enter Username" name="username" required>
 
@@ -87,6 +89,7 @@ span.psw {
       	<input type="checkbox" checked="checked" name="remember"> Show Password
     	</label>
 
+	</form>
         
     	<p id="error" class="error-message"></p>
 
@@ -97,7 +100,6 @@ span.psw {
 
   </div>
 
-</form>
 
 <script>
         document.addEventListener('DOMContentLoaded', function() {
