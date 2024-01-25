@@ -85,8 +85,8 @@ img.avatar {
             <input type="text" id="username" required autocomplete="username">
             <label for="password">Password:</label>
             <input type="password" id="password" required>
-	    <label>
-      	    <input type="checkbox" checked="checked" name="remember"> Show Password </label>
+	    <!-- An element to toggle between password visibility -->
+	    <input type="pwCheck" onclick="pwCheck()">Show Password
             <button type="submit">Login</button>
         </form>
         <p id="error" class="error-message"></p>
@@ -95,6 +95,15 @@ img.avatar {
     <script>
         document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('loginForm');
+
+		function pwCheck() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
 
     loginForm.addEventListener('submit', async function(event) {
         event.preventDefault();
