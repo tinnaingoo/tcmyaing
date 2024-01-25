@@ -97,17 +97,35 @@ button:hover {
   <h1>Login Page</h1>
 </div>
     
-    <div class="container">
+    <div class="row">
         <h2>Login</h2>
+    </div>
+        <div class="row">
         <form id="loginForm">
+            
+            <div class="row">
             <label for="username">Username:</label>
             <input type="text" id="username" required autocomplete="username">
+            </div>
+            
+            <div class="row">
             <label for="password">Password:</label>
             <input type="password" id="password" required>
+            </div>
+
+            <div class="row">
             <button type="submit">Login</button>
+            </div>    
         </form>
+        </div>
+    
+        <div class="row">
         <p id="error" class="error-message"></p>
+        </div>
+    
+        <div class="row">
         <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
