@@ -93,6 +93,18 @@ img.avatar {
         <p id="error" class="error-message"></p>
         <p>Don't have an account? <a href="signup.html">Sign up</a></p>
     </div>
+
+    <script>
+function pwCheck() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+	
     <script>
         document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('loginForm');
