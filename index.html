@@ -99,13 +99,11 @@ img.avatar {
         document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('loginForm');
 
-		function pwCheck() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
+	function pwCheck() {
+  		var x = document.getElementById("password");
+  		if (x.type === "password") {
+    		x.type = "text";
+		} else { x.type = "password";}
 }
 
     loginForm.addEventListener('submit', async function(event) {
