@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <title>Login Page</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    border: 3px solid #f1f1f1;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+}
 
 input[type=text], input[type=password] {
   width: 100%;
@@ -16,6 +43,7 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
+
 button {
   background-color: #04AA6D;
   color: white;
@@ -23,17 +51,12 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 70%;
 }
+
 
 button:hover {
   opacity: 0.8;
-}
-
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
 }
 
 .imgcontainer {
@@ -46,62 +69,39 @@ img.avatar {
   border-radius: 50%;
 }
 
-.container {
-  padding: 16px;
+.error-message {
+    color: #FF0000;
+    margin-top: 8px;
 }
 
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
+    </style>
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-</style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <title>Login Page</title>
 </head>
 <body>
 
-<h2>Login Form</h2>
+    <div class="container">
+        <h2>Login</h2>
 
+	<div class="imgcontainer">
+    	<img src="img/img_avatar2.png" alt="Avatar" class="avatar">
+  	</div>
 
-  <div class="imgcontainer">
-    <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
-
-  <div class="container">
-	<form id="loginForm">
-		
-    	<label for="username"><b>Username</b></label>
-    	<input type="text" id="username" placeholder="Enter Username" name="username" required>
-
-   	<label for="password"><b>Password</b></label>
-  	<input type="password" id="password" placeholder="Enter Password" name="password" required>
-
-	<label>
-      	<input type="checkbox" checked="checked" name="remember"> Show Password
-    	</label>
-
-	</form>
-        
-    	<p id="error" class="error-message"></p>
-
-    
-	<button type="submit">Login</button>
-
-	<p>Don't have an account? <a href="signup.html">Sign up</a></p>
-
-  </div>
-
-
-<script>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required autocomplete="username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+	    <label>
+      	    <input type="checkbox" checked="checked" name="remember"> Show Password </label>
+            <button type="submit">Login</button>
+        </form>
+        <p id="error" class="error-message"></p>
+        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('loginForm');
 
@@ -152,7 +152,5 @@ span.psw {
 
         
     </script>
-
-
 </body>
 </html>
