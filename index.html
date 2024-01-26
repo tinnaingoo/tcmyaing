@@ -70,14 +70,14 @@ margin-bottom: 26px;
   cursor: pointer;
 }
 
-.form .label {
-    margin-bottom: 8px;
-}
+
+
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
   font-size: 12px;
 }
+
 .form .message a {
   color: #4CAF50;
   text-decoration: none;
@@ -98,9 +98,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.error-message {
+    color: #FF0000;
+    margin-top: 8px;
+}
 
 </style>
-<title> CSS Login Screen Tutorial </title>
+<title> Login </title>
 </head>
 <body>
   <body>
@@ -116,8 +120,8 @@ body {
           <input type="text" id="username" placeholder="username"/>
           <input type="password" id="password" placeholder="password"/>
 	  <input class="sPw" type="checkbox" onclick="pwCheck()">Show Password
+  	  <p classage id="error" class="error-message"></p>
           <button type="submit">login</button>
-	  <p id="error" class="error-message"></p>
           <p class="message">Not registered? <a href="signup.html">Create an account</a></p>
         </form>
       </div>
