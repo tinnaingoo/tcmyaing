@@ -114,6 +114,25 @@ form {
   font-weight: 500;
   font-size: 1em;
 }
+
+.form .inputBox i 
+{
+  position: absolute;
+  left: 0;
+  padding: 15px 10px;
+  font-style: normal;
+  color: #aaa;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.form .inputBox input:focus ~ i,
+.form .inputBox input:valid ~ i
+{
+  transform: translateY(-7.5px);
+  font-size: 0.8em;
+  color: #fff;
+}
     
     
 .imgcontainer {
@@ -176,13 +195,11 @@ button:hover {
                 <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
             </div>
             <div class="inputBox">
-            <label for="username">Username</label>
-            <input type="text" id="username" placeholder="Enter Username" required autocomplete="username">
+            <input type="text" id="username" required autocomplete="username"> <i>Username</i>
             </div>
 
             <div class="inputBox">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter Password" required>
+            <input type="password" id="password" required> <i>password</i>
             <!-- An element to toggle between password visibility -->
             <input type="checkbox" onclick="pwSH()">Show Password
             </div>
