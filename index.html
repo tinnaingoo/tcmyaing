@@ -87,7 +87,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   text-transform: uppercase;
 }
     
-.loginForm {
+#loginForm {
     
   width: 100%;
   display: flex;
@@ -95,13 +95,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
   gap: 25px;
     }
 
-.loginForm .inputBox
+.inputBox
 {
   position: relative;
   width: 100%;
 }
 
-.loginForm .inputBox input 
+.inputBox input 
 {
  position: relative;
   width: 100%;
@@ -115,7 +115,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   font-size: 1em;
 }
 
-.loginForm .inputBox input i 
+.inputBox input i 
 {
   position: absolute;
   left: 0;
@@ -126,15 +126,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
   pointer-events: none;
 }
 
-.loginForm .inputBox input:focus ~ i,
-.loginForm .inputBox input:valid ~ i
+.inputBox input:focus ~ i,
+
+.inputBox input:valid ~ i
 {
   transform: translateY(-7.5px);
   font-size: 0.8em;
   color: #fff;
 }
     
-.loginForm .inputBox input[type="submit"]
+.inputBox input[type="submit"]
 {
   padding: 10px;
   background: #0f0;
