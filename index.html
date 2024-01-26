@@ -134,6 +134,20 @@ form {
   color: #fff;
 }
     
+.form .inputBox input[type="submit"]
+{
+  padding: 10px;
+  background: #0f0;
+  color: #000;
+  font-weight: 600;
+  font-size: 1.35em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+input[type="submit"]:active
+{
+  opacity: 0.6;
+}
     
 .imgcontainer {
     text-align: center;
@@ -205,7 +219,7 @@ button:hover {
             </div>
 
             <div class="inputBox">
-            <button type="submit">Login</button></br>
+            <input type="submit" value="Login">
             </div>
             
             <p id="error" class="error-message"></p></br>
