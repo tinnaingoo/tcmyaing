@@ -87,13 +87,28 @@ body {font-family: Arial, Helvetica, sans-serif;}
   text-transform: uppercase;
 }
     
-#loginForm {
-    
+#loginForm { position: absolute;
+  width: 400px;
+  background: #222;  
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0,0,0,9);
+    }
+
+.content 
+{
+  position: relative;
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  gap: 25px;
-    }
+  gap: 40px;
+}
 
 .inputBox
 {
@@ -202,8 +217,9 @@ button:hover {
   <div class="col-5" style=" " >
       
     <div class="container">
-        <div class="content">
+        
         <div class="login-page">
+        <div class="content">
         <h2>Sign In</h2>
         <form id="loginForm">
         
