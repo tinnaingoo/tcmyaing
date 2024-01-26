@@ -41,6 +41,19 @@ margin-bottom: 26px;
   box-sizing: border-box;
   font-size: 14px;
 }
+
+.form input .sPw{
+ font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 11px;
+
+}
 .form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -55,6 +68,10 @@ margin-bottom: 26px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+}
+
+.form .label {
+    margin-bottom: 8px;
 }
 .form .message {
   margin: 15px 0 0;
@@ -83,7 +100,7 @@ body {
 
 
 </style>
-<title> Login </title>
+<title> CSS Login Screen Tutorial </title>
 </head>
 <body>
   <body>
@@ -98,9 +115,10 @@ body {
         <form class="loginForm">
           <input type="text" id="username" placeholder="username"/>
           <input type="password" id="password" placeholder="password"/>
-	  <input type="checkbox" onclick="pwCheck()">Show Password
+	  <input class="sPw" type="checkbox" onclick="pwCheck()">Show Password
           <button type="submit">login</button>
-          <p class="message">Not registered? <a href="index.html">Create an account</a></p>
+	  <p id="error" class="error-message"></p>
+          <p class="message">Not registered? <a href="signup.html">Create an account</a></p>
         </form>
       </div>
     </div>
