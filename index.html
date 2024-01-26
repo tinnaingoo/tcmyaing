@@ -29,7 +29,17 @@ form {
   margin: 0 auto 100px;
   padding: 45px;
   }
+        
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
 
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+        
 label {
     margin-bottom: 8px;
 }
@@ -75,6 +85,9 @@ button:hover {
     <div class="container">
         <h2>Login</h2>
         <form id="loginForm">
+            <div class="imgcontainer">
+                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+            </div>
             <label for="username">Username</label></br>
             <input type="text" id="username" placeholder="Enter Username" required autocomplete="username"></br>
             <label for="password">Password</label></br>
