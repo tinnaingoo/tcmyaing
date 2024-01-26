@@ -89,18 +89,32 @@ button:hover {
         <h2>Login</h2>
         <form id="loginForm">
             <div class="imgcontainer">
-                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
             </div>
             <label for="username">Username</label></br>
             <input type="text" id="username" placeholder="Enter Username" required autocomplete="username"></br>
             <label for="password">Password</label></br>
             <input type="password" id="password" placeholder="Enter Password" required></br>
+            <!-- An element to toggle between password visibility -->
+            
+            <input type="checkbox" onclick="pwSH()">Show Password
+            
             <button type="submit">Login</button></br>
             <p id="error" class="error-message"></p></br>
             <p>Don't have an account? <a href="signup.html">Sign up</a></p>
         </form>
     </div>
-    </div>       
+    </div>      
+    <script>
+    function pwSH() {
+    var x = document.getElementById("myInput");
+    if    (x.type === "password") {
+                x.type = "text";
+          } else {
+                x.type = "password";
+          }
+    }
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('loginForm');
