@@ -55,6 +55,12 @@ button:hover {
     background-color: #0056b3;
 }
 
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}        
+
 .error-message {
     color: #FF0000;
     margin-top: 8px;
@@ -69,6 +75,7 @@ button:hover {
     <title>Login Page</title>
 </head>
 <body>
+    <div class="login-page">
     <div class="container">
         <h2>Login</h2>
         <form id="loginForm">
@@ -82,6 +89,7 @@ button:hover {
         
         <p>Don't have an account? <a href="signup.html">Sign up</a></p>
     </div>
+    </div>       
     <script>
         document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('loginForm');
