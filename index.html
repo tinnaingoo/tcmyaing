@@ -101,7 +101,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 {
  position: relative;
   width: 100%;
-  background: #333;
+  background: #fff;
+  color: #222;
   border: none;
   outline: none;
   padding: 25px 10px 7.5px;
@@ -205,11 +206,11 @@ button:hover {
         <form id="loginForm">
         
             <div class="inputBox">
-            <input type="text" id="username" required autocomplete="username"> <i>Username</i>
+            <input type="text" id="username" placeholder="Enter Username" required autocomplete="username"> <i>Username</i>
             </div>
 
             <div class="inputBox">
-            <input type="password" id="password" required> <i>password</i>
+            <input type="password" id="password" placeholder="Enter Password" required>
             <!-- An element to toggle between password visibility -->
             <input type="checkbox" onclick="pwSH()">Show Password
             </div>
