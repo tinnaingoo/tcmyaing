@@ -343,6 +343,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </script>
 
     
+    <script>
+  // Check if the user is logged in
+  const isLoggedIn = sessionStorage.getItem('loggedIn');
+
+  if (!isLoggedIn) {
+    // If not logged in, redirect to the login page
+    window.location.href = 'index.html';
+  }
+</script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
