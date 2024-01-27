@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
+    <link rel="stylesheet" href="css/ad-style.css">
 <style>
     * {
   box-sizing: border-box;
@@ -51,6 +51,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .header {
   background-color: #9933cc;
   color: #ffffff;
+  text-align: center;
   padding: 5px;
 }
 
@@ -61,23 +62,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
   font-size: 12px;
   padding: 5px;
 }
-.content 
-{  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 40px;
-}
     
 .login-page {
-   width: 400px;
+  width: 100%;
   background: #fff;
   align-items: center;
-  padding: 10px;
+  padding: 40px;
   border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0,0,0,9);
 }
 
 .h2 
@@ -86,35 +77,56 @@ body {font-family: Arial, Helvetica, sans-serif;}
   color: #0f0;
   text-transform: uppercase;
 }
-    
-form {
-    
+.content 
+{
+  width: 100%;
+  align-items: center;
+  gap: 40px;
+}
+
+.form 
+{
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 25px;
-    }
+}
 
-.form .inputBox
+.inputBox
 {
   position: relative;
   width: 100%;
 }
 
-.form .inputBox input 
-{
- position: relative;
+.inputBox input[type=text], input[type=password]{
   width: 100%;
-  background: #333;
-  border: none;
-  outline: none;
-  padding: 25px 10px 7.5px;
-  border-radius: 4px;
-  color: #fff;
-  font-weight: 500;
-  font-size: 1em;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
+
+.inputBox input[type=checkbox]{
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 10px;
+  }
     
+.inputBox input[type="submit"] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="submit"]:active {
+  opacity: 0.8;
+}
+
     
 .imgcontainer {
     text-align: center;
@@ -126,9 +138,6 @@ img.avatar {
     border-radius: 50%;
 }
         
-label {
-          margin-bottom: 8px;
-        }
 
 button {
     padding: 10px;
@@ -148,7 +157,7 @@ button:hover {
     color: #FF0000;
     margin-top: 8px;
     text-align: center;
-    font-size: 10px;
+    font-size: 14px;
 }
 
 </style>
@@ -168,41 +177,54 @@ button:hover {
   <div class="col-5" style=" " >
       
     <div class="container">
-        <div class="content">
+        
         <div class="login-page">
-        <h2>Sign In</h2>
-        <form id="loginForm">
-            <div class="imgcontainer">
-                <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
-            </div>
-            <div class="inputBox">
-            <label for="username">Username</label>
-            <input type="text" id="username" placeholder="Enter Username" required autocomplete="username">
-            </div>
-
-            <div class="inputBox">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter Password" required>
-            <!-- An element to toggle between password visibility -->
-            <input type="checkbox" onclick="pwSH()">Show Password
-            </div>
-
-            <div class="inputBox">
-            <button type="submit">Login</button></br>
-            </div>
+        <div class="content">
             
+      <form id="loginForm">
+            <div class="inputBox">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" id="username" placeholder="Enter Username" required autocomplete="username">
+            </div>
+            <div class="inputBox">
+                <label for="uname"><b>Password</b></label>
+                <input type="password" id="password" placeholder="Enter Password" required autocomplete="password">
+            </div>
+            <input type="checkbox" onclick="pwSH()">Show Password
+                <div class="inputBox">
+                <input type="submit" value="Login">
+            </div>
             <p id="error" class="error-message"></p></br>
-            </form>
-            <div class="container" style="background-color:#f1f1f1; text-align: center;">
+      </form>
+            
+      <div class="container" style="background-color:#f1f1f1; text-align: center;">
             <span class="psw">Don't have an account? <a href="signup.html">Sign up</a></span>
-          </div>
-        </div>
-        </div>
-        <!---Login Page End-->
-        </div>      
-    
-  </div>
-    
+      </div>
+            
+      <!--- Content End -->
+      </div>
+      <!---Login Page End-->
+      </div>
+        
+        </div> 
+
+      <div>
+          <div class="ad-container">
+                <img src="img/ad-720-90.png" alt="Advertisement" class="ad-image">
+                <div class="ad-content">
+                <div class="ad-title">Special Offer Just for You!</div>
+                <div class="ad-description">
+                    Discover amazing products at unbeatable prices. Limited-time offer. Don't miss out!
+                </div>
+                    <a href="your-ad-landing-page.html" class="ad-button">Shop Now</a>
+                </div>
+            </div>
+          <p>Advertisement</p>
+      </div>
+
+      </div>
+
+          
 <div class="col-7" sytle="background:red;" >
 <div class="container">
     
@@ -213,8 +235,23 @@ button:hover {
     </div>
     
     <h2 style="text-align:center">Our Team</h2>
-    <div class="row">
-         <div class="column">
+    
+        <div class="row">
+            
+             <div class="col-6">
+             <div class="card">
+                <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+                <div class="container">
+                    <h2>Jane Doe</h2>
+                    <p class="title">CEO & Founder</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>jane@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+             </div>
+            </div>
+                     
+            <div class="col-6">
             <div class="card">
                 <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
                 <div class="container">
@@ -224,15 +261,18 @@ button:hover {
                     <p>jane@example.com</p>
                     <p><button class="button">Contact</button></p>
                 </div>
-           </div>
+            </div>
+               </div>
+            
         </div>
-    </div>
 
+            
       
 </div>
 </div>
 
 </div>
+    
 <div class="footer">
   <p>Resize the browser window to see how the content respond to the resizing.</p>
 </div>
@@ -271,7 +311,7 @@ button:hover {
             showToast('Login successful! Redirecting to File Share...');
             // Redirect to fileshare.html after a brief delay
             setTimeout(() => {
-                window.location.href = 'fileshare.html';
+                window.location.href = 'home.html';
             }, 3000);
         } else {
             displayErrorMessage('Invalid username or password. Please try again.');
