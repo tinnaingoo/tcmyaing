@@ -284,22 +284,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </div>
     </div>
 
-    
-<script>
-window.onscroll = function() {stickyFunction()};
-
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-function stickyFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
-</script>
-    
+        
     <script>
         // URL of the JSON API
         var apiUrl = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
@@ -417,5 +402,21 @@ function stickyFunction() {
             window.location.href = 'index.html';
         }
     </script>
+
+    <script>
+window.onscroll = function() {stickyFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function stickyFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
 </body>
 </html>
