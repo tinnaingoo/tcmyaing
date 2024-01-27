@@ -312,6 +312,7 @@ button:hover {
             // Redirect to fileshare.html after a brief delay
             setTimeout(() => {
                 window.location.href = 'home.html';
+                sessionStorage.setItem('loggedIn', 'true');
             }, 3000);
         } else {
             displayErrorMessage('Invalid username or password. Please try again.');
