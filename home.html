@@ -1,58 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-[class*="col-"] {
-  float: left;
-  padding: 1px;
-}
-
-/* For mobile phones: */
-[class*="col-"] {
-  width: 100%;
-}
-
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;}
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;}
+body {
+  margin: 0;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .header {
-  background-color: #9933cc;
-  color: #ffffff;
+  background-color: #f1f1f1;
+  padding: 30px;
   text-align: center;
-  padding: 5px;
 }
-
-.footer {
-  background-color: #0099cc;
-  color: #ffffff;
-  text-align: center;
-  font-size: 12px;
-  padding: 5px;
-}
-
 
 #navbar {
   overflow: hidden;
@@ -93,155 +54,9 @@
   padding-top: 60px;
 }
 </style>
-    
-    <style>
-        * {
-  box-sizing: border-box;
-}
-
-body {font-family: Arial, Helvetica, sans-serif;}
-    
-
-.container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .error-message {
-            color: #FF0000;
-            margin-top: 8px;
-        }
-
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f4;
-        }
-
-        #page-title-box {
-            width: 100%;
-            height: auto;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        #page-title {
-            color: #3498db;
-            font-size: 24px;
-            margin: 0;
-        }
-
-        #json-container {
-            max-width: 800px;
-            width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .item {
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-            transition: transform 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        @media only screen and (min-width: 768px) {
-            .item {
-                width: calc(48% - 20px);
-            }
-        }
-
-        .item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-        }
-
-        #page-header {
-            font-size: 18px;
-            font-weight: bold;
-            color: #3498db;
-            margin-bottom: 10px;
-        }
-
-        #header {
-            font-size: 16px;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        #date {
-            font-size: 14px;
-            color: #7f8c8d;
-            margin-bottom: 10px;
-        }
-
-        #description {
-            font-size: 14px;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        #download-button {
-            background-color: #2ecc71;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        #download-button:hover {
-            background-color: #27ae60;
-        }
-
-        #image {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        #creator-label {
-            font-size: 12px;
-            color: #34495e;
-            margin-top: auto;
-        }
-    </style>
-    <title>File Share Page</title>
 </head>
 <body>
-    <div class="row">
-    <div class="col-12 style="background-color: #9933cc; color: #ffffff; text-align: center; padding: 5px;">
-          
+
 <div class="header">
   <h2>Scroll Down</h2>
   <p>Scroll down to see the sticky effect.</p>
@@ -252,121 +67,35 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <a href="javascript:void(0)">News</a>
   <a href="javascript:void(0)">Contact</a>
 </div>
-    
-    </div>
-    </div>
 
-    
-    <div class="container">
-        <div class="row">
-        <div class="menu-bar">
-            <div class="user-info">
-                <span class="user-name" id="loggedInUser"></span>
-            </div>
-        </div>
-        </div>
-        <div class="row">
-            <div>
-                <button class="menu-button" onclick="viewPost()">View Post</button>
-                <button class="menu-button" onclick="addData()">Add Data</button>
-                <button class="menu-button" onclick="logout()">Logout</button>
-            </div>
-        </div>
-    </div>
-        <!-- Content goes here -->
-    
-    <div id="page-title-box">
-        <h1 id="page-title">File Sharing</h1>
-    </div>
+<div class="content">
+  <h3>Sticky Navigation Example</h3>
+  <p>The navbar will stick to the top when you reach its scroll position.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+</div>
 
-    <div id="json-container">
-        <h1 id="page-header">File Sharing</h1>
-    </div>
-    </div>
+<script>
+window.onscroll = function() {myFunction()};
 
-        
-    <script>
-        // URL of the JSON API
-        var apiUrl = 'https://sheetdb.io/api/v1/g3s2wf98urngi';
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
 
-        // Reference to the container where JSON data will be displayed
-        var container = document.getElementById('json-container');
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
 
-        // Show loading indicator
-        container.innerHTML = '<p class="loading">Loading...</p>';
-
-        // Fetch data from the API
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(jsonData => {
-                // Clear loading indicator
-                container.innerHTML = '';
-
-                // Display all items initially
-                displayItems(jsonData);
-            })
-            .catch(error => {
-                // Display error message
-                container.innerHTML = '<p class="error">Error fetching data. Please try again later.</p>';
-                console.error('Error fetching data:', error);
-            });
-
-        function displayItems(items) {
-            // Loop through each item in the provided array
-            items.forEach(function (item) {
-                // Create a div element for each item
-                var itemDiv = document.createElement('div');
-                itemDiv.className = 'item';
-
-                // Create header element for the 'Title' key
-                var titleHeader = document.createElement('h2');
-                titleHeader.textContent = item['title'];
-                titleHeader.id = 'header';
-
-                // Create paragraph element for the 'Date' key
-                var dateParagraph = document.createElement('p');
-                dateParagraph.textContent = 'Date: ' + item['date'];
-                dateParagraph.id = 'date';
-
-                // Create paragraph element for the 'Description' key
-                var descriptionParagraph = document.createElement('p');
-                descriptionParagraph.textContent = 'Description: ' + item['description'];
-                descriptionParagraph.id = 'description';
-
-                // Create download button for the 'Download Link' key
-                var downloadButton = document.createElement('a');
-                downloadButton.textContent = 'Download';
-                downloadButton.href = item['downloadLink'];
-                downloadButton.target = '_blank';
-                downloadButton.id = 'download-button';
-
-                // Create image element for the 'Image Url' key
-                var imageElement = document.createElement('img');
-                imageElement.src = item['imageUrl'];
-                imageElement.alt = 'Image';
-                imageElement.id = 'image';
-
-                // Create label for the 'Creator' key
-                var creatorLabel = document.createElement('div');
-                creatorLabel.textContent = 'Creator: ' + item['creator'];
-                creatorLabel.id = 'creator-label';
-
-                // Append elements to the item div
-                itemDiv.appendChild(titleHeader);
-                itemDiv.appendChild(dateParagraph);
-                itemDiv.appendChild(descriptionParagraph);
-                itemDiv.appendChild(downloadButton);
-                itemDiv.appendChild(imageElement);
-                itemDiv.appendChild(creatorLabel);
-
-                // Append the item div to the main container
-                container.appendChild(itemDiv);
-            });
-        }
-    </script>
-
-    
-    <script>
+<script>
   // Check if the user is logged in
   const isLoggedIn = sessionStorage.getItem('loggedIn');
 
@@ -376,47 +105,5 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 </script>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Retrieve the logged-in username from sessionStorage
-            const loggedInUser = sessionStorage.getItem('loggedInUser');
-
-            // Display the username in the user-info section
-            const loggedInUserElement = document.getElementById('loggedInUser');
-            if (loggedInUser) {
-                loggedInUserElement.textContent = `Logged in as: ${loggedInUser}`;
-            }
-        });
-
-        function viewPost() {
-            window.location.href = 'post.html';
-        }
-
-        function addData() {
-            window.location.href = 'add_data.html';
-        }
-
-        function logout() {
-            // Clear the sessionStorage and redirect to the login page
-            sessionStorage.clear();
-            window.location.href = 'index.html';
-        }
-    </script>
-
-    <script>
-window.onscroll = function() {stickyFunction()};
-
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-function stickyFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
-</script>
-
 </body>
 </html>
