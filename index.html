@@ -291,8 +291,7 @@ button:hover {
 
                 if (isValid) {
                     // Successful login, you can redirect or perform other actions here
-                    showToast('Login successful! Redirecting to File Share...');
-                    // Redirect to fileshare.html after a brief delay
+                    alert("Login successful!");
                     window.location.href = 'home.html';
                     sessionStorage.setItem('loggedIn', 'true');
                 } else {
@@ -304,26 +303,6 @@ button:hover {
                 console.error("Error fetching or parsing JSON:", error);
             });
     });
-
-    function showToast(message) {
-        Toastify({
-            text: message,
-            duration: 3000,
-            newWindow: true,
-            close: true,
-            gravity: 'bottom',
-            position: 'right',
-            backgroundColor: '#007BFF',
-            stopOnFocus: true,
-        }).showToast();
-    }
-
-    function displayErrorMessage(message) {
-        const errorElement = document.getElementById('error');
-        errorElement.textContent = message;
-    }
-});
-    
 </script>
 
     </body>
