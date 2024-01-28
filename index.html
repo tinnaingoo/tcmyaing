@@ -192,7 +192,7 @@ button:hover {
         <input type="checkbox" onclick="pwSH()">Show Password
 
         <div class="inputBox">
-        <input type="submit" onclick="validateLogin()" value="Login">
+        <input type="submit" value="Login">
         </div>
 
         <div class="inputBox">
@@ -289,7 +289,10 @@ button:hover {
     </script>
 
     <script>
-    async function validateLogin() {
+        
+    loginForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
