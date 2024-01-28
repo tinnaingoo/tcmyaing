@@ -291,9 +291,10 @@ button:hover {
 
                 if (isValid) {
                     // Successful login, you can redirect or perform other actions here
-                    alert("Login successful!");
-                    window.location.href = 'home.html';
+                    sessionStorage.setItem('loggedInUser', username);
                     sessionStorage.setItem('loggedIn', 'true');
+                    window.location.href = 'home.html';
+                    
                 } else {
                     // Display error message for incorrect credentials
                     document.getElementById("error").textContent = "Incorrect username or password.";
