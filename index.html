@@ -190,8 +190,11 @@ button:hover {
         <input type="password" id="password" name="password" required><br>
         </div>
         <input type="checkbox" onclick="pwSH()">Show Password
+
+        <div class="inputBox">
+        <input type="submit" onclick="validateLogin()" value="Login">
+        </div>
         
-        <button type="button" onclick="validateLogin()">Login</button>
     </form>
 
     <p class="error-message">Incorrect username or password.</p>
