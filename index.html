@@ -293,10 +293,8 @@ button:hover {
                     // Successful login, you can redirect or perform other actions here
                     showToast('Login successful! Redirecting to File Share...');
                     // Redirect to fileshare.html after a brief delay
-                    setTimeout(() => {
                     window.location.href = 'home.html';
                     sessionStorage.setItem('loggedIn', 'true');
-                    }, 1000);
                 } else {
                     // Display error message for incorrect credentials
                     document.getElementById("error").textContent = "Incorrect username or password.";
