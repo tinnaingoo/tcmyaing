@@ -173,25 +173,32 @@ button:hover {
     <div class="col-5" style=" " >
       
     <div class="container">
-        
-        <div class="login-page">
-        <div class="content">
-            
-<div id="login-form">
-    <h2>Login</h2>
-    <form>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-        <button type="button" onclick="validateLogin()">Login</button>
-    </form>
-    
-    <p class="error-message">Incorrect username or password.</p>
-</div>    
-        </div> 
-            
-        <div>
+            <div class="login-page">
+    <div class="content">
+
+        <form id="loginForm">
+            <div class="inputBox">
+                <label for="username"><b>Username</b></label>
+                <input type="text" id="username" placeholder="Enter Username" required autocomplete="username">
+            </div>
+            <div class="inputBox">
+                <label for="password"><b>Password</b></label>
+                <input type="password" id="password" placeholder="Enter Password" required autocomplete="current-password">
+            </div>
+            <input type="checkbox" onclick="togglePassword()"> Show Password
+            <div class="inputBox">
+                <input type="submit" value="Login">
+            </div>
+            <p id="error" class="error-message"></p>
+        </form>
+
+        <div class="container" style="background-color:#f1f1f1; text-align: center;">
+            <span class="psw">Don't have an account? <a href="signup.html">Sign up</a></span>
+        </div>
+    </div>
+    </div>
+</div>
+
           <div class="ad-container">
                 <img src="img/ad-720-90.png" alt="Advertisement" class="ad-image">
                 <div class="ad-content">
