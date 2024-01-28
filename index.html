@@ -311,6 +311,13 @@ button:hover {
         console.error("Error fetching or parsing JSON:", error);
     }
 }
+
+        function displayErrorMessage(message) {
+        const errorElement = document.getElementById('error');
+        errorElement.textContent = message;
+    }
+});
+        
     </script>
 </body>
 </html>
