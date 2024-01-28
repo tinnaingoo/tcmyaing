@@ -291,8 +291,7 @@ button:hover {
 
     loginForm.addEventListener('submit', async function(event) {
         event.preventDefault();
-        
-    const username = document.getElementById("username").value;
+            const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
     try {
@@ -315,13 +314,7 @@ button:hover {
         console.error("Error fetching or parsing JSON:", error);
     }
 }
-
-        function displayErrorMessage(message) {
-        const errorElement = document.getElementById('error');
-        errorElement.textContent = message;
-    }
-});
-        
+                               }
     </script>
 </body>
 </html>
