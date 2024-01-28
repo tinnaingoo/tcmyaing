@@ -195,6 +195,13 @@
             }
         });
 
+        // For Logout
+           function logout() {
+            // Clear the sessionStorage and redirect to the login page
+            sessionStorage.clear();
+            window.location.href = 'index.html';
+        }
+
         // Check if the user is logged in
         const isLoggedIn = sessionStorage.getItem('loggedIn');
 
