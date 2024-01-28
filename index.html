@@ -172,37 +172,41 @@ button:hover {
 
 
 <div class="row">
-    
-  <div class="col-5" style=" " >
+    <div class="col-5" style=" " >
       
     <div class="container">
         
-       <div id="login-form">
-    <h2>Login</h2>
-    <form>
-        <div class="inputBox">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-        </div>
-
-        <div class="inputBox">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-        </div>
-        <input type="checkbox" onclick="pwSH()">Show Password
-
-        <div class="inputBox">
-        <input type="submit" value="Login">
-        </div>
-
-        <div class="inputBox">
-        <p id="error" class="error-message"></p></br>
-        </div>
+        <div class="login-page">
+        <div class="content">
+            
+      <form id="loginForm">
+            <div class="inputBox">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" id="username" placeholder="Enter Username" required autocomplete="username">
+            </div>
+            <div class="inputBox">
+                <label for="uname"><b>Password</b></label>
+                <input type="password" id="password" placeholder="Enter Password" required autocomplete="password">
+            </div>
+            <input type="checkbox" onclick="pwSH()">Show Password
+                <div class="inputBox">
+                <input type="submit" value="Login">
+            </div>
+            <p id="error" class="error-message"></p></br>
+      </form>
+            
+      <div class="container" style="background-color:#f1f1f1; text-align: center;">
+            <span class="psw">Don't have an account? <a href="signup.html">Sign up</a></span>
+      </div>
+            
+      <!--- Content End -->
+      </div>
+      <!---Login Page End-->
+      </div>
         
-    </form>
+        </div> 
 
-    </div>
-      
+      <div>
           <div class="ad-container">
                 <img src="img/ad-720-90.png" alt="Advertisement" class="ad-image">
                 <div class="ad-content">
@@ -213,17 +217,10 @@ button:hover {
                     <a href="your-ad-landing-page.html" class="ad-button">Shop Now</a>
                 </div>
             </div>
-
-        <!---container end-->
+          <p>Advertisement</p>
       </div>
 
-            
-      <!--- column End -->
-      </div>
-      
-
-
-                
+      </div>      
 <div class="col-7" sytle="background:red;" >
 <div class="container">
     
