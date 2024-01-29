@@ -129,7 +129,7 @@ span#loggedInUser {
 }
         
        
-.logo .user-section button {
+.logo .user-section ,logout-button {
     padding: 3px;
     margin-left: 4px;
     font-size: 14px;
@@ -141,7 +141,7 @@ span#loggedInUser {
     border-radius: 3px;
     font-family: monospace;
 }
-.logo .user-section button:hover {
+.logo .user-section ,logout-button:hover {
     background-color: #fff;
     color: #333;
     font-weight: bold;
@@ -252,9 +252,9 @@ button.menu-button {
     <nav>
       <div class="logo">
         <div class="user-section">
-            <img src="img-‌admin/user-icon.png" alt="User Image" style="border-radius: 20%; width: 30px; height: 30px; background: #fff;">
+            <img src="/img-‌admin/user-icon.png" alt="User Image" style="border-radius: 20%; width: 30px; height: 30px; background: #fff;">
             <span id="loggedInUser">User: </span>
-            <button onclick="logout()">Logout</button>
+            <div class="logout-button" onclick="logout()">Logout</div>
         </div>
       </div>
       <div class="links">
