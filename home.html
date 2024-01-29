@@ -259,20 +259,42 @@ mobileMenuBtn.addEventListener("click", () => {
     </div>
     </div>
 
-    <script>
-    // Load JSON data using fetch
+   <script>
+        // Load JSON data using fetch
         fetch('post.json')
             .then(response => response.json())
             .then(jsonData => {
                 const imageGrid = document.getElementById('imageGrid');
 
+                // Base URL for image paths
+                const baseUrl = 'https://raw.githubusercontent.com/tinnaingoo/tcmyaing/Page/imgs/';
+
                 // Dynamically generate HTML based on JSON data
                 jsonData.forEach(entry => {
                     const imageBox = document.createElement('div');
                     imageBox.className = 'image-box';
-                    imageBox.innerHTML = `
-                        <img src="${entry.imageUrl}" alt="${entry.altText}">
+
+                    // Create the image element
+                    const imageElement = document.createElement('img');
+                    imageElement.src = baseUrl + entry.filename;
+                    imageElement.alt = entry.title;
+
+                    // Create content for the image box
+                    const content = `
+                        <div class="image-content">
+                            <h3>${entry.title}</h3>
+                            <p>Date: ${entry.date}</p>
+                            <p>Description: ${entry.description}</p>
+                            <p>Creator: ${entry.creator}</p>
+                            <p>Views: ${entry.view}</p>
+                        </div>
                     `;
+
+                    // Append the image and content to the image box
+                    imageBox.innerHTML = content;
+                    imageBox.appendChild(imageElement);
+
+                    // Append the image box to the image grid
                     imageGrid.appendChild(imageBox);
                 });
 
