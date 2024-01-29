@@ -167,7 +167,10 @@
             <button onclick="logout()">Logout</button>
         </div>
     </div>
-
+    <div class="nav-menu" id="nav-menu">
+        <!-- Content will be loaded here -->
+    </div>
+    
     <div class="container posts-section">
         <!-- JSON sample for posts -->
         <div class="post">
@@ -217,6 +220,23 @@
             // If not logged in, redirect to the login page
             window.location.href = 'index.html';
         }
+    </script>
+
+    <script >
+        document.addEventListener("DOMContentLoaded", function() {
+    var postsContainer = document.getElementById("nav-menu");
+
+    // Fetch content from post.html
+    fetch("menu.html")
+        .then(response => response.text())
+        .then(data => {
+            // Insert the fetched content into the postsContainer
+            postsContainer.innerHTML = data;
+        })
+        .catch(error => console.error("Error fetching content:", error));
+});
+
+        
     </script>
   
 </body>
