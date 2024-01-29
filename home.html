@@ -170,21 +170,42 @@ span#loggedInUser {
         </div>
       </div>
       <div class="links">
-        <p>Login</p>
-        <p>Signup</p>
-        <p>About Us</p>
-        <p>Contact</p>
+        <p id="login"></p>
+        <p id="signup"></p>
+        <p id="about-us"></p>
+        <p id="contact"></p>
         <strong id="mobile-menu-btn">Menu</strong>
       </div>
     </nav>
     <!-- Small Screen Navigation Bar -->
     <div class="mobile-menu">
-      <p>Login</p>
-      <p>Signup</p>
-      <p>About Us</p>
-      <p>Contact</p>
+      <p id="login"></p>
+        <p id="signup"></p>
+        <p id="about-us"></p>
+        <p id="contact"></p>
     </div>
 
+    <script>
+    let login = "Login";
+    let resultlogin = login.link("index.html");
+    document.getElementById("login").innerHTML = resultlogin;
+
+    let signup = "Signup";
+    let resultsignup = signup.link("index.html");
+    document.getElementById("signup").innerHTML = resultsignup;
+
+    let about-us = "About Us";
+    let resultabout = signup.link("index.html");
+    document.getElementById("about-us").innerHTML = resultabout;
+
+    let contact = "Contact";
+    let resultcontact = contact.link("index.html");
+    document.getElementById("contact").innerHTML = resultcontact;
+
+    
+
+    </script>
+    
     <script>
       var mobileMenuBtn = document.querySelector("#mobile-menu-btn");
 var mobileMenu = document.querySelector(".mobile-menu");
