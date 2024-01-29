@@ -258,7 +258,7 @@ mobileMenuBtn.addEventListener("click", () => {
     </div>
     </div>
 
-   <script>
+    <script>
         // Load JSON data using fetch
         fetch('post.json')
             .then(response => response.json())
@@ -286,6 +286,7 @@ mobileMenuBtn.addEventListener("click", () => {
                             <p>Description: ${entry.description}</p>
                             <p>Creator: ${entry.creator}</p>
                             <p>Views: ${entry.view}</p>
+                            <button class="download-button" onclick="downloadImage('${baseUrl}${entry.filename}', '${entry.title}')">Download</button>
                         </div>
                     `;
 
@@ -306,6 +307,14 @@ mobileMenuBtn.addEventListener("click", () => {
                 });
             })
             .catch(error => console.error('Error fetching and parsing JSON:', error));
+
+            // Function to download the image
+            function downloadImage(imageUrl, imageName) {
+                const a = document.createElement('a');
+                a.href = imageUrl;
+                a.download = imageName;
+                a.click();
+            }
     </script>
 
     <div class="footer">
