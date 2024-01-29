@@ -179,7 +179,26 @@ button.menu-button {
         
         
     </style>
-    
+    <style>
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .image-box {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
@@ -233,22 +252,16 @@ mobileMenuBtn.addEventListener("click", () => {
     
     
     <div class="container posts-section">
-        <!-- JSON sample for posts -->
-        <div class="post">
-            <h2>Title 1</h2>
-            <p>Date: 2024-01-28</p>
-            <p>Description: This is the description for post 1.</p>
-            <a href="#download-url">Download</a>
-            <img src="img/img_avatar2.png" alt="Post Image 1" style="width:100%;">
+        <div class="image-grid">
+        <!-- Replace these with your image URLs -->
+        <div class="image-box">
+            <img src="https://raw.githubusercontent.com/your-username/your-repository/main/path-to-image1.png" alt="Image 1">
         </div>
-        <div class="post">
-            <h2>Title 2</h2>
-            <p>Date: 2024-01-29</p>
-            <p>Description: This is the description for post 2.</p>
-            <a href="#download-url">Download</a>
-            <img src="img/img_avatar2.png" alt="Post Image 2" style="width:100%;">
+        <div class="image-box">
+            <img src="https://raw.githubusercontent.com/your-username/your-repository/main/path-to-image2.png" alt="Image 2">
         </div>
-        <!-- Add more posts as needed -->
+        <!-- Add more image boxes as needed -->
+        </div>
     </div>
 
     <div class="footer">
