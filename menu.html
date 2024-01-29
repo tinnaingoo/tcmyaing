@@ -1,1 +1,48 @@
+<html>
+<head>
+<link rel=”stylesheet” href=”css/menu-style.css” />
+<script src=”main.js” defer></script>
+</head>
+
+<body>
+    <!-- Large Screen Navigation Bar -->
+    <nav>
+      <div class="logo">
+        Logo
+      </div>
+      <div class="links">
+        <p>Login</p>
+        <p>Signup</p>
+        <p>About Us</p>
+        <p>Contact</p>
+        <strong id="mobile-menu-btn">Menu</strong>
+      </div>
+    </nav>
+    <!-- Small Screen Navigation Bar -->
+    <div class="mobile-menu">
+      <p>Login</p>
+      <p>Signup</p>
+      <p>About Us</p>
+      <p>Contact</p>
+    </div>
+
+  <script>
+    var mobileMenuBtn = document.querySelector("#mobile-menu-btn");
+var mobileMenu = document.querySelector(".mobile-menu");
+mobileMenuBtn.addEventListener("click", () => {
+  if (mobileMenu.style.display === "none") {
+    mobileMenu.style.display = "flex";
+    mobileMenuBtn.innerHTML = "Close";
+  } 
+  else {
+    mobileMenu.style.display = "none";
+    mobileMenuBtn.innerHTML = "Menu";
+  }
+});
+
+    
+  </script>
+  </body>
+</html>
+
 
