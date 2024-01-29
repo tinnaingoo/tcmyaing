@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .image-box {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+
+    <div class="image-grid">
+        <!-- Replace these with your image URLs -->
+        <div class="image-box">
+            <img src="https://raw.githubusercontent.com/your-username/your-repository/main/path-to-image1.png" alt="Image 1">
+        </div>
+        <div class="image-box">
+            <img src="https://raw.githubusercontent.com/your-username/your-repository/main/path-to-image2.png" alt="Image 2">
+        </div>
+        <!-- Add more image boxes as needed -->
+    </div>
+</body>
+</html>
