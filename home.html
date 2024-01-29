@@ -260,32 +260,31 @@ mobileMenuBtn.addEventListener("click", () => {
     </div>
 
     <script>
-    // Load JSON data
-    fetch('post.json')
-        .then(response => response.json())
-        .then(data => {
-            const imageGrid = document.getElementById('imageGrid');
+    // Hardcoded data for testing
+const data = [
+    {
+        "imageUrl": "https://raw.githubusercontent.com/your-username/your-repository/main/path-to-image1.png",
+        "altText": "Image 1"
+    },
+    {
+        "imageUrl": "https://raw.githubusercontent.com/your-username/your-repository/main/path-to-image2.png",
+        "altText": "Image 2"
+    }
+    // Add more entries as needed
+];
 
-            // Dynamically generate HTML based on JSON data
-            data.forEach(entry => {
-                const imageBox = document.createElement('div');
-                imageBox.className = 'image-box';
-                imageBox.innerHTML = `
-                    <img src="${entry.imageUrl}" alt="${entry.altText}">
-                `;
-                imageGrid.appendChild(imageBox);
-            });
+const imageGrid = document.getElementById('imageGrid');
 
-            // Disable right-click on image boxes
-            const imageBoxes = document.querySelectorAll('.image-box');
-            imageBoxes.forEach(box => {
-                box.addEventListener('contextmenu', (event) => {
-                    event.preventDefault();
-                });
-            });
-        })
-        .catch(error => console.error('Error fetching JSON:', error));
-</script>
+// Dynamically generate HTML based on JSON data
+data.forEach(entry => {
+    const imageBox = document.createElement('div');
+    imageBox.className = 'image-box';
+    imageBox.innerHTML = `
+        <img src="${entry.imageUrl}" alt="${entry.altText}">
+    `;
+    imageGrid.appendChild(imageBox);
+});
+    </script>
 
     <div class="footer">
         <p>&copy; 2024 Your Website. All Rights Reserved.</p>
