@@ -209,16 +209,46 @@ nav .links {
         <p>Page Header and Description</p>
     </div>
 
-    <div class="navbar">
+    <nav>
+      <div class="logo">
         <div class="user-section">
             <img src="img/user-icon.png" alt="User Image" style="border-radius: 20%; width: 30px; height: 30px; background: #fff;">
             <span id="loggedInUser">Logged in as: </span>
             <button onclick="logout()">Logout</button>
         </div>
+      </div>
+      <div class="links">
+        <p>Login</p>
+        <p>Signup</p>
+        <p>About Us</p>
+        <p>Contact</p>
+        <strong id="mobile-menu-btn">Menu</strong>
+      </div>
+    </nav>
+    <!-- Small Screen Navigation Bar -->
+    <div class="mobile-menu">
+      <p>Login</p>
+      <p>Signup</p>
+      <p>About Us</p>
+      <p>Contact</p>
     </div>
-    <div class="nav-menu" id="nav-menu">
-        <!-- Content will be loaded here -->
-    </div>
+
+    <script>
+      var mobileMenuBtn = document.querySelector("#mobile-menu-btn");
+var mobileMenu = document.querySelector(".mobile-menu");
+
+mobileMenuBtn.addEventListener("click", () => {
+  if (mobileMenu.style.display === "none") {
+    mobileMenu.style.display = "flex";
+    mobileMenuBtn.innerHTML = "Close";
+  } else {
+    mobileMenu.style.display = "none";
+    mobileMenuBtn.innerHTML = "Menu";
+  }
+});
+
+    </script>
+    
     
     <div class="container posts-section">
         <!-- JSON sample for posts -->
