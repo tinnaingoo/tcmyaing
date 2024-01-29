@@ -127,15 +127,28 @@ span#loggedInUser {
     font-family: monospace;
 }
         
+       
 .logo .user-section button {
-    margin-left: 5px;
-    padding: 2px;
-    color: red;
-    border: black;
-    text-align: center;
-    font-family: math;
-}        
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
 
+.logo .user-section button:hover {background-color: #3e8e41}
+
+.logo .user-section button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+        
 .links p:hover { background-color: red; }
         
 @media (max-width: 600px) {
