@@ -32,6 +32,40 @@
         "description": "Cityscape with colorful lights.",
         "creator": "Jane Smith",
         "view": 80
+    },
+    {
+        "filename": "coffee-cup.png",
+        "title": "Beautiful Landscape",
+        "date": "2024-02-01",
+        "description": "A stunning view of nature.",
+        "creator": "John Doe",
+        "view": 120
+    },
+    {
+        "filename": "coffee-cup.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    
+    {
+        "filename": "usericon.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    
+    {
+        "filename": "usericon.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
     }
     
 ]
