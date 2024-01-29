@@ -1,13 +1,11 @@
-<html>
-<head>
-<link rel=”stylesheet” href=”css/menu-style.css” />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<style>
-<style>
-
-
-* {
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+  <body>
+    <style>
+      * {
   padding: 0px;
   margin: 0px;
   transition: 0.5 s;
@@ -56,14 +54,7 @@ nav .links {
   }
 }
 
-
-  
-</style>
-    
-</style>
-</head>
-
-<body>
+    </style>
     <!-- Large Screen Navigation Bar -->
     <nav>
       <div class="logo">
@@ -85,23 +76,20 @@ nav .links {
       <p>Contact</p>
     </div>
 
-  <script>
-    var mobileMenuBtn = document.querySelector("#mobile-menu-btn");
+    <script>
+      var mobileMenuBtn = document.querySelector("#mobile-menu-btn");
 var mobileMenu = document.querySelector(".mobile-menu");
+
 mobileMenuBtn.addEventListener("click", () => {
   if (mobileMenu.style.display === "none") {
     mobileMenu.style.display = "flex";
     mobileMenuBtn.innerHTML = "Close";
-  } 
-  else {
+  } else {
     mobileMenu.style.display = "none";
     mobileMenuBtn.innerHTML = "Menu";
   }
 });
 
-    
-  </script>
+    </script>
   </body>
 </html>
-
-
