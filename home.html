@@ -129,7 +129,7 @@ span#loggedInUser {
 }
         
        
-.logo .user-section ,logout-button {
+.logo .user-section p {
     padding: 3px;
     margin-left: 4px;
     font-size: 14px;
@@ -141,14 +141,14 @@ span#loggedInUser {
     border-radius: 3px;
     font-family: monospace;
 }
-.logo .user-section ,logout-button:hover {
+.logo .user-section p:hover {
     background-color: #fff;
     color: #333;
     font-weight: bold;
     font-family: system-ui;
 }
 
-.logo .user-section button:active {
+.logo .user-section p:active {
   background-color: #3e8e41;
   transform: translateY(4px);
 }
@@ -254,7 +254,7 @@ button.menu-button {
         <div class="user-section">
             <img src="/img-‌admin/user-icon.png" alt="User Image" style="border-radius: 20%; width: 30px; height: 30px; background: #fff;">
             <span id="loggedInUser">User: </span>
-            <div class="logout-button" onclick="logout()">Logout</div>
+            <p class="logout-button" onclick="logout()">Logout</p>
         </div>
       </div>
       <div class="links">
