@@ -260,30 +260,31 @@ mobileMenuBtn.addEventListener("click", () => {
     </div>
 
     <script>
-    // Hardcoded data for testing
-const data = [
-    {
-        "imageUrl": "https://raw.githubusercontent.com/tinnaingoo/tcmyaing/Page/imgs/coffee-cup.png",
-        "altText": "Image 1"
-    },
-    {
-        "imageUrl": "https://raw.githubusercontent.com/tinnaingoo/tcmyaing/Page/imgs/coffee-cup.png",
-        "altText": "Image 2"
-    }
-    // Add more entries as needed
-];
+    // Load JSON data using fetch
+        fetch('post.json')
+            .then(response => response.json())
+            .then(jsonData => {
+                const imageGrid = document.getElementById('imageGrid');
 
-const imageGrid = document.getElementById('imageGrid');
+                // Dynamically generate HTML based on JSON data
+                jsonData.forEach(entry => {
+                    const imageBox = document.createElement('div');
+                    imageBox.className = 'image-box';
+                    imageBox.innerHTML = `
+                        <img src="${entry.imageUrl}" alt="${entry.altText}">
+                    `;
+                    imageGrid.appendChild(imageBox);
+                });
 
-// Dynamically generate HTML based on JSON data
-data.forEach(entry => {
-    const imageBox = document.createElement('div');
-    imageBox.className = 'image-box';
-    imageBox.innerHTML = `
-        <img src="${entry.imageUrl}" alt="${entry.altText}">
-    `;
-    imageGrid.appendChild(imageBox);
-});
+                // Disable right-click on image boxes
+                const imageBoxes = document.querySelectorAll('.image-box');
+                imageBoxes.forEach(box => {
+                    box.addEventListener('contextmenu', (event) => {
+                        event.preventDefault();
+                    });
+                });
+            })
+            .catch(error => console.error('Error fetching and parsing JSON:', error));
     </script>
 
     <div class="footer">
