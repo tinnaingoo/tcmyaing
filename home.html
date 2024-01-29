@@ -303,6 +303,15 @@ mobileMenuBtn.addEventListener("click", () => {
         <!-- Add more image boxes as needed -->
         </div>
     </div>
+    <script>
+        // Disable right-click on image boxes
+        const imageBoxes = document.querySelectorAll('.image-box');
+        imageBoxes.forEach(box => {
+            box.addEventListener('contextmenu', (event) => {
+                event.preventDefault();
+            });
+        });
+    </script>
 
     <div class="footer">
         <p>&copy; 2024 Your Website. All Rights Reserved.</p>
