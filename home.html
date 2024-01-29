@@ -301,22 +301,5 @@ mobileMenuBtn.addEventListener("click", () => {
         }
     </script>
 
-    <script >
-        document.addEventListener("DOMContentLoaded", function() {
-    var postsContainer = document.getElementById("nav-menu");
-
-    // Fetch content from post.html
-    fetch("menu.html")
-        .then(response => response.text())
-        .then(data => {
-            // Insert the fetched content into the postsContainer
-            postsContainer.innerHTML = data;
-        })
-        .catch(error => console.error("Error fetching content:", error));
-});
-
-        
-    </script>
-  
 </body>
 </html>
