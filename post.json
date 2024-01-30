@@ -201,7 +201,7 @@
         "creator": "Jane Smith",
         "view": 80
     },
-{
+   {
         "filename": "CoffeeCup1.png",
         "title": "City Lights at Night",
         "date": "2024-02-05",
@@ -234,7 +234,7 @@
         "view": 80
     },
     {
-        "filename": CoffeeCup5.png",
+        "filename": "CoffeeCup5.png",
         "title": "City Lights at Night",
         "date": "2024-02-05",
         "description": "Cityscape with colorful lights.",
