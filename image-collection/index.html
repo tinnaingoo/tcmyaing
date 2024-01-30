@@ -1,1 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="css/ad-style.css">
+<style>
+    * {
+  box-sizing: border-box;
+}
+body {font-family: Arial, Helvetica, sans-serif;}   
+.container {
+ padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 1px;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+.header {
+  background-color: #9933cc;
+  color: #ffffff;
+  text-align: center;
+  padding: 5px;
+}
+
+.footer {
+  background-color: #0099cc;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 5px;
+}
+    
+.login-page {
+  width: 100%;
+  background: #fff;
+  align-items: center;
+  padding: 40px;
+  border-radius: 4px;
+}
+
+.h2 
+{
+  font-size: 2em;
+  color: #0f0;
+  text-transform: uppercase;
+}
+.content 
+{
+  width: 100%;
+  align-items: center;
+  gap: 40px;
+}
+
+.form 
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.inputBox
+{
+  position: relative;
+  width: 100%;
+}
+
+.inputBox input[type=text], input[type=password]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.inputBox input[type=checkbox]{
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 10px;
+  }
+    
+.inputBox input[type="submit"] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="submit"]:active {
+  opacity: 0.8;
+}
+
+    
+.imgcontainer {
+    text-align: center;
+    margin: 5px 0 5px 0;
+}
+
+img.avatar {
+    width: 20%;
+    border-radius: 50%;
+}
+        
+
+button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: #FF0000;
+    margin-top: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+
+</style>
+    
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<title>Login Page</title>
+</head>
+<body>
+
+<div class="header">
+  <h1>TC-Myaing</h1>
+</div>
+
+
+<div class="row">
+    <div class="col-5" style=" " >
+      
+    <div class="container">
+            <div class="login-page">
+    <div class="content">
+
+        <form id="loginForm">
+            <div class="inputBox">
+                <label for="username"><b>Username</b></label>
+                <input type="text" id="username" placeholder="Enter Username" required autocomplete="username">
+            </div>
+            <div class="inputBox">
+                <label for="password"><b>Password</b></label>
+                <input type="password" id="password" placeholder="Enter Password" required autocomplete="current-password">
+            </div>
+            <input type="checkbox" onclick="togglePassword()"> Show Password
+            <div class="inputBox">
+                <input type="submit" value="Login">
+            </div>
+            <p id="error" class="error-message"></p>
+        </form>
+
+        <div class="container" style="background-color:#f1f1f1; text-align: center;">
+            <span class="psw">Don't have an account? <a href="signup.html">Sign up</a></span>
+        </div>
+    </div>
+    </div>
+
+    
+
+          <div class="ad-container">
+                <img src="img/ad-720-90.png" alt="Advertisement" class="ad-image">
+                <div class="ad-content">
+                <div class="ad-title">Special Offer Just for You!</div>
+                <div class="ad-description">
+                    Discover amazing products at unbeatable prices. Limited-time offer. Don't miss out!
+                </div>
+                    <a href="your-ad-landing-page.html" class="ad-button">Shop Now</a>
+                </div>
+            </div>
+        
+</div>
+      </div>      
+        
+<div class="col-7" sytle="background:red;" >
+<div class="container">
+    
+    <div class="about-section">
+      <h1>About Us Page</h1>
+      <p>Some text about who we are and what we do.</p>
+      <p>Resize the browser window to see that this page is responsive by the way.</p>
+    </div>
+           
+        <div class="row">
+            
+             <div class="col-6">
+             <div class="card">
+                <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+                <div class="container">
+                    <h2>Jane Doe</h2>
+                    <p class="title">CEO & Founder</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>jane@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+             </div>
+            </div>
+                     
+            <div class="col-6">
+            <div class="card">
+                <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+                <div class="container">
+                    <h2>Jane Doe</h2>
+                    <p class="title">CEO & Founder</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>jane@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+               </div>
+            
+        </div>
+
+            
+      
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>Resize the browser window to see how the content respond to the resizing.</p>
+</div>
+        
+<script>
+    function togglePassword() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get input values
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Check login credentials (replace this with your actual JSON endpoint)
+        fetch("json/credentials.json")
+            .then(response => response.json())
+            .then(data => {
+                // Check if the entered username and password match the data from JSON
+                var isValid = data.some(entry => entry.username === username && entry.password === password);
+
+                if (isValid) {
+                    // Successful login, you can redirect or perform other actions here
+                    sessionStorage.setItem('loggedInUser', username);
+                    sessionStorage.setItem('loggedIn', 'true');
+                    window.location.href = 'home.html';
+                    
+                } else {
+                    // Display error message for incorrect credentials
+                    document.getElementById("error").textContent = "Incorrect username or password.";
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching or parsing JSON:", error);
+            });
+    });
+</script>
+
+    </body>
+</html>
 
