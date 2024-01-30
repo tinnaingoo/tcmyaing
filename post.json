@@ -192,6 +192,14 @@
         "description": "Cityscape with colorful lights.",
         "creator": "Jane Smith",
         "view": 80
+    },
+    {
+        "filename": "Do not take photos.png",
+        "title": "Do not take photos",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
     }
     
 ]
