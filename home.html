@@ -246,6 +246,28 @@ button.menu-button {
             background-color: #00796b;
         }
     </style>
+    <style>
+    .image-preview-box {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 80%;
+        max-height: 80%;
+        overflow: auto;
+    }
+
+    .preview-image {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+
 </head>
 <body>
 
@@ -302,8 +324,38 @@ mobileMenuBtn.addEventListener("click", () => {
         <div class="image-grid" id="imageGrid">
         <!-- Images will be dynamically added here using JavaScript -->
     </div>
+    <div id="imagePreviewBox" class="image-preview-box"></div>
+        
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // ... your existing code ...
 
+        // Add event listeners for image click
+        const imageElements = document.querySelectorAll('.image-box img');
+        const imagePreviewBox = document.getElementById('imagePreviewBox');
+
+        imageElements.forEach((imageElement) => {
+            imageElement.addEventListener('click', () => {
+                const imageUrl = imageElement.src;
+
+                // Create preview box content
+                const previewContent = `
+                    <img class="preview-image" src="${imageUrl}" alt="Preview Image">
+                `;
+
+                // Set the content and display the preview box
+                imagePreviewBox.innerHTML = previewContent;
+                imagePreviewBox.style.display = 'block';
+            });
+        });
+
+        // Add event listener to close the preview box on click
+        imagePreviewBox.addEventListener('click', () => {
+            imagePreviewBox.style.display = 'none';
+        });
+    });
+</script>
     <script>
         // Load JSON data using fetch
         fetch('post.json')
