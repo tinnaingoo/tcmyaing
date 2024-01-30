@@ -5,10 +5,10 @@ function addData() {
     const newData = { "username": username, "password": password };
 
     // GitHub API URL for updating the file
-    const apiUrl = 'https://api.github.com/repos/YOUR_USERNAME/YOUR_REPOSITORY/contents/json/credentials.json';
+    const apiUrl = 'https://api.github.com/repos/tinnaingoo/tcmyaing/contents/json/credentials.json';
 
     // GitHub personal access token
-    const token = 'YOUR_PERSONAL_ACCESS_TOKEN';
+    const token = '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';
 
     // Fetch options
     const options = {
