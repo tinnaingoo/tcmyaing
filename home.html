@@ -246,27 +246,6 @@ button.menu-button {
             background-color: #00796b;
         }
     </style>
-    <style>
-    .image-preview-box {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(255, 255, 255, 0.9);
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        padding: 20px;
-        max-width: 80%;
-        max-height: 80%;
-        overflow: auto;
-    }
-
-    .preview-image {
-        max-width: 100%;
-        height: auto;
-    }
-</style>
 
 </head>
 <body>
@@ -324,38 +303,9 @@ mobileMenuBtn.addEventListener("click", () => {
         <div class="image-grid" id="imageGrid">
         <!-- Images will be dynamically added here using JavaScript -->
     </div>
-    <div id="imagePreviewBox" class="image-preview-box"></div>
-        
+
     </div>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // ... your existing code ...
-
-        // Add event listeners for image click
-        const imageElements = document.querySelectorAll('.image-box img');
-        const imagePreviewBox = document.getElementById('imagePreviewBox');
-
-        imageElements.forEach((imageElement) => {
-            imageElement.addEventListener('click', () => {
-                const imageUrl = imageElement.src;
-
-                // Create preview box content
-                const previewContent = `
-                    <img class="preview-image" src="${imageUrl}" alt="Preview Image">
-                `;
-
-                // Set the content and display the preview box
-                imagePreviewBox.innerHTML = previewContent;
-                imagePreviewBox.style.display = 'block';
-            });
-        });
-
-        // Add event listener to close the preview box on click
-        imagePreviewBox.addEventListener('click', () => {
-            imagePreviewBox.style.display = 'none';
-        });
-    });
-</script>
+   
     <script>
         // Load JSON data using fetch
         fetch('post.json')
@@ -445,6 +395,46 @@ mobileMenuBtn.addEventListener("click", () => {
             // If not logged in, redirect to the login page
             window.location.href = 'index.html';
         }
+
+      // Add event listeners for image click and preview button click
+        const imageElements = document.querySelectorAll('.image-box img');
+
+        imageElements.forEach((imageElement, index) => {
+            // Image click event
+            imageElement.addEventListener('click', () => {
+                showImagePreview(index);
+            });
+
+            // Preview button click event
+            const previewButton = document.createElement('button');
+            previewButton.classList.add('preview-button');
+            previewButton.innerText = 'Preview';
+            previewButton.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent image click event from firing
+                showImagePreview(index);
+            });
+
+            // Append the preview button below each image
+            const imageBox = imageElement.closest('.image-box');
+            imageBox.appendChild(previewButton);
+        });
+
+        // ... Your existing code ...
+
+        // Function to show the image preview
+        function showImagePreview(index) {
+            const imageUrl = imageElements[index].src;
+            const title = jsonData[index].title;
+            const date = jsonData[index].date;
+            const description = jsonData[index].description;
+            const creator = jsonData[index].creator;
+            const view = jsonData[index].view;
+
+            // Redirect to the preview page with image details
+            window.location.href = `/preview?index=${index}&imageUrl=${encodeURIComponent(imageUrl)}&title=${encodeURIComponent(title)}&date=${encodeURIComponent(date)}&description=${encodeURIComponent(description)}&creator=${encodeURIComponent(creator)}&view=${encodeURIComponent(view)}`;
+        }
+    });
+      
     </script>
 
 </body>
