@@ -256,7 +256,11 @@ button.menu-button {
 
     <nav>
       <div class="logo">
-        
+        <div class="user-section">
+            <img src="imgs/usericon.png">
+            <span id="loggedInUser">User: </span>
+            <p class="logout-button" onclick="logout()">Logout</p>
+        </div>
       </div>
       <div class="links">
         <button class="menu-button" href="url">Login</button>
@@ -363,6 +367,20 @@ mobileMenuBtn.addEventListener("click", () => {
         <p>&copy; 2024 TC-Myaing. All Rights Reserved.</p>
     </div>
 
+  <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve the logged-in username from sessionStorage
+            const loggedInUser = sessionStorage.getItem('loggedInUser');
+
+            // Display the username in the user-info section
+            const loggedInUserElement = document.getElementById('loggedInUser');
+            if (loggedInUser) {
+                loggedInUserElement.textContent = ` > ${loggedInUser}`;
+            }
+        });
+
+        
+    </script>
 
 </body>
 </html>
