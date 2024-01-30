@@ -8,7 +8,7 @@
         "view": 120
     },
     {
-        "filename": "coffee-cup.png",
+        "filename": "Coffee Bean2.png",
         "title": "City Lights at Night",
         "date": "2024-02-05",
         "description": "Cityscape with colorful lights.",
@@ -17,7 +17,7 @@
     },
     
     {
-        "filename": "usericon.png",
+        "filename": "Coffee Bean3.png",
         "title": "City Lights at Night",
         "date": "2024-02-05",
         "description": "Cityscape with colorful lights.",
@@ -26,7 +26,7 @@
     },
     
     {
-        "filename": "usericon.png",
+        "filename": "Coffee Bean4.png",
         "title": "City Lights at Night",
         "date": "2024-02-05",
         "description": "Cityscape with colorful lights.",
@@ -42,7 +42,101 @@
         "view": 120
     },
     {
-        "filename": "coffee-cup.png",
+        "filename": "Juice.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    
+    {
+        "filename": "Lemon.png",
+        "title": "Lemon",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    
+    {
+        "filename": "Oragne6.png",
+        "title": "Orange",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    {
+        "filename": "Orang.png",
+        "title": "Coffee Bean",
+        "date": "2024-02-01",
+        "description": "A stunning view of nature.",
+        "creator": "John Doe",
+        "view": 120
+    },
+    {
+        "filename": "Orange.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    
+    {
+        "filename": "Orange2.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    
+    {
+        "filename": "Orange3.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    {
+        "filename": "Orange4.png",
+        "title": "Beautiful Landscape",
+        "date": "2024-02-01",
+        "description": "A stunning view of nature.",
+        "creator": "John Doe",
+        "view": 120
+    },
+    {
+        "filename": "Orange5.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    
+    {
+        "filename": "Orange7.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    
+    {
+        "filename": "Orange8.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+     {
+        "filename": "Shape.png",
         "title": "City Lights at Night",
         "date": "2024-02-05",
         "description": "Cityscape with colorful lights.",
@@ -60,7 +154,39 @@
     },
     
     {
-        "filename": "usericon.png",
+        "filename": "Water.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    {
+        "filename": "Water2.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    {
+        "filename": "Water3.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    {
+        "filename": "Water4.png",
+        "title": "City Lights at Night",
+        "date": "2024-02-05",
+        "description": "Cityscape with colorful lights.",
+        "creator": "Jane Smith",
+        "view": 80
+    },
+    {
+        "filename": "Water5.png",
         "title": "City Lights at Night",
         "date": "2024-02-05",
         "description": "Cityscape with colorful lights.",
