@@ -41,9 +41,12 @@ function addData() {
             // Update the file content
             return fetch(apiUrl, updateOptions);
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Data added successfully:', data);
+        .then(response => {
+            if (response.ok) {
+                console.log('Data added successfully.');
+            } else {
+                console.error('Failed to add data. Status:', response.status);
+            }
         })
         .catch(error => console.error('Error:', error));
 }
