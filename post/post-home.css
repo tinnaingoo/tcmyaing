@@ -114,7 +114,7 @@ nav ul li a:hover {
     }
 
     .logo img {
-        max-height: 30px;
+        max-height: 50px;
     }
 
     nav {
@@ -161,7 +161,7 @@ nav ul li a:hover {
 }
 
 .logo img {
-    height: 40px; /* မင်းရဲ့ logo အရွယ်အစားပေါ် မူတည်ပြီး ပြင်လို့ရတယ် */
+    height: 50px; /* မင်းရဲ့ logo အရွယ်အစားပေါ် မူတည်ပြီး ပြင်လို့ရတယ် */
 }
 
 .search {
