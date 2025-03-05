@@ -6,6 +6,8 @@
     <title></title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <link rel="stylesheet" href="/post/post-home.css">
+    <link rel="stylesheet" href="/css/ad.css">
+    
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -15,9 +17,21 @@
 
 <header>
     <div class="header-box">
-        <div class="logo">
+        <div class="logo" id="headerLogo">
             <img src="/images/logo-white.png" alt="Tech with TCM Logo">
+        </div>
+
+        <!-- Search Box -->
+        <div class="search">
+            <div class="search-container" id="searchContainer">
+                <i class="fa fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search..">
+            </div>
             
+            <div id="sbutton" class="sbutton">
+                <i class="fa fa-search" id="searchIcon"></i>
+            </div>
+            <div id="searchResults" class="search-results"></div>
         </div>
 
         <!-- Hamburger Icon for Mobile -->
@@ -28,7 +42,7 @@
         </div>
 
         <!-- Navigation Menu -->
-        <nav id="navMenu">
+        <nav style="top: 60px;" id="navMenu">
             <ul>
                 <li><a href="/post">Main-Menu</a></li>
                 <li><a href="#about">About</a></li>
@@ -38,6 +52,9 @@
     </div>
 </header>
 
+<div class="main-body">
+<section class="all-post">
+    
 <section class="post-content">
     <div class="container">
         <div class="post-title-container">
@@ -65,8 +82,8 @@ DVD အချပ်မထည့်ထားမိဘဲ သို့မဟုတ
 <p>Boot ကိစ္စနှင့်ပတ်သက်ပြီး ပြောရလျှင် MBR နှင့် GPT လည်း ပါလာပါမည်။<br />MBR သည် Master Boot Record ဖြစ်သည်။ MBR သည် ကွန်ပျူတာပေါ်ရှိ partition များအကြောင်းကို ပြောသည်။<br />Data များထားသိုပုံကို ပြောသည်။ MBR ကောင်းနေလျှင် Device Boot ကိစ္စကိုဆက်လက်ဆောင်ရွက်သွားပါသည်။<br />ထိုအချိန်တွင် BIOS က သယ်ဆောင်လာသော screen အမဲပျောက်သွားပြီး ရောင်စုံ Windows screen တက်လာသည်ကို တွေ့ရပါမည်။ MBR သည် အားသာချက်ရှိသလို အားနည်းချက်လည်းရှိသည်။ MBR သည် partition တစ်ခု အတွက် 32 bit data ကိုသာထိန်းသိမ်းနိုင်သည်။ ထို့ကြောင့် MBR ကိုအခြေခံ၍အလုပ်လုပ်သော ကွန်ပျူတာ တစ်လုံးတွင် partition တစ်ခုကို 2 TB ထက်ပိုကြီးအောင် ထား၍မရပါ။</p>
 <p>ယင်းကိစ္စသည် ၁၉၈ဝ ပြည့်လွန်နှစ်များဆီကဆိုလျှင် ပြဿနာ မဟုတ်ပါ။<br />Hard disk တစ်လုံး၏ အရွယ်အစား သည် 1 GB ပင်မရှိသော ကြောင့်ဖြစ်သည်။<br />ယခုအချိန်၌မူ ငွေကြေးတတ်နိုင်လျှင် 10 TB ခန့်ရှိသော HD သုံးလာနိုင်ပြီဖြစ်ရာ MBR က ပြဿနာတစ်ခုဖြစ်လာပါသည်။<br />ထို့ပြင် MBR ၏အားနည်းချက်မှာ ကွန်ပျူတာ တွင် partition လေးခုထက် ပို၍ ပိုင်းခွင့်မရှိခြင်းဖြစ်သည်။<br />ယင်း partition များ၌ပင်လျှင် နှစ်ခုကို extended partition, Logical partition အဖြစ်ထားရပါသည်။<br />ထို့ကြောင့်ခေတ်ပေါ်တွင် ကွန်ပျူတာကြီးများတွင် GPT (GUID partition table) ကို အသုံးပြုလာပါသည်။<br />GPT ၏အားသာချက်မှာ hard disk တစ်လုံးပေါ်တွင် partition ၁၂၈ ပိုင်းအထိ ပိုင်းခွင့်ရှိခြင်းဖြစ်သည်။<br />ထို့ပြင် GPT သည် Zettabyte အရွယ်အစား hard disk အထိလည်း အထောက်အပံ့ပေးပါသည်။</p>
 <p>ဆောင်းပါးရှင် - ဧဧသက် (ဖြိုးဓနဒစ်ဂျစ်တယ်ဓာတ်ပုံ)<br />Credit-Netguide Journal</p>
-
-        </div>
+<p>#tcmyaing</p>  
+       </div>
     </div>
 </section>
 
@@ -95,80 +112,123 @@ DVD အချပ်မထည့်ထားမိဘဲ သို့မဟုတ
         </div>
     </div>
 </section>
+</section>
     
-
-
-<section id="ad" class="ad">
+<section class="aside">
     <div class="container">
-        <div class="ad-content">
-            <h2>Subscribe to My YouTube Channel</h2>
-            <p>Stay updated with the latest tech tutorials, software reviews, and more!</p>
-            <a href="https://www.youtube.com/@tcmyaing" target="_blank" class="btn">
-                <i class="fab fa-youtube"></i> Subscribe Now
-            </a>
+        <!-- Latest Posts Widget -->
+        <div class="widget-latest-posts">
+            <h4 class="widget-title">Latest Posts</h4>
+            <ul class="latest-posts" id="latestPostsList">
+                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+            </ul>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="widget-categories">
+            <h4 class="widget-title">Categories</h4>
+            <ul class="categories" id="categoriesList">
+                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+            </ul>
+        </div>
+        
+        <!-- Existing Socials Widget -->
+        <div class="widget-socials">
+            <h4 class="widget-title">Keep up with Us</h4>
+            <ul class="socials">
+                <li>
+                    <a class="social-facebook" href="https://www.facebook.com/tcmyaing-official/" title="facebook" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                        <span class="socials__text">Facebook</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="social-telegram" href="https://t.me/tcmyaing" title="telegram" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                        <span class="socials__text">Telegram</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="social-youtube" href="https://www.youtube.com/channel/UCP235oUhop0rvk7wuJTjx6A" title="youtube" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                        <span class="socials__text">YouTube</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        
+        <div class="widget-ad">
+            <div class="ad-160x600">
+                <p><b>ဤနေရာမှာ ကြော်ငြာပါ။</b></p>
+                <p>320x50</p>
+            </div>
         </div>
     </div>
 </section>
+    
+</div>
+    
+<section id="about" class="about-section">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>ကျွန်တော်က Tin Naing Oo ပါ။ Tech လောကထဲက အသုံးဝင်တဲ့ အချက်အလက်တွေကို မြန်မာလို မျှဝေပေးဖို့ TC-Myaing blog ကို စတင်ခဲ့တာပါ။ ကွန်ပျူတာ၊ AI၊ software တွေအကြောင်း လွယ်လွယ်ကူကူ နားလည်အောင် ရှင်းပြပေးသွားမှာပါ။ YouTube မှာလည်း ဗီဒီယိုတွေ တင်ပေးနေတာမို့ လာကြည့်ပေးပါဦး။</p>
+    </div>
+</section>
+
+<section class="subscribe-section">
+    <div class="container">
+        <h2>Subscribe to My YouTube Channel</h2>
+        <p>Stay updated with the latest tech tutorials, software reviews, and more from TC-Myaing!</p>
+        <a href="https://www.youtube.com/@tcmyaing?sub_confirmation=1" target="_blank" class="subscribe-btn">
+            <i class="fab fa-youtube"></i> Subscribe Now
+        </a>
+    </div>
+</section>
+    
 
 <section id="videos" class="videos">
     <div class="container">
         <!-- Image Auto Slider -->
         <div class="slider">
-            <div class="slides">
-                <a href="https://www.youtube.com/watch?v=example1" target="_blank" class="slide">
-                    <img src="/images/sample-img-1.jpeg" alt="Video 1">
-                    <div class="caption">Video Title 1</div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=example2" target="_blank" class="slide">
-                    <img src="/images/sample-img-2.jpeg" alt="Video 2">
-                    <div class="caption">Video Title 2</div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=example3" target="_blank" class="slide">
-                    <img src="/images/sample-img-3.jpg" alt="Video 3">
-                    <div class="caption">Video Title 3</div>
-                </a>
-                <!-- Add more slides as needed -->
+            <div class="slides" id="videoSlides">
+                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
             </div>
-            <button class="prev" onclick="prevSlide()">&#10094;</button>
-            <button class="next" onclick="nextSlide()">&#10095;</button>
+            <button class="prev" onclick="prevSlide()">❮</button>
+            <button class="next" onclick="nextSlide()">❯</button>
         </div>
     </div>
-</section>    
+</section>  
 
        
 </section>
 
-    <section id="contact" class="contact">
+<section class="contact-section">
     <div class="container">
         <h2>Contact Me</h2>
-        <p>Feel free to reach out to me via email or social media.</p>
+        <p>Feel free to reach out to me via Telegram, Email, or follow my YouTube channel for updates!</p>
         <div class="contact-links">
-            <a href="https://www.youtube.com/@tcmyaing" target="_blank" class="contact-link">
+            <a href="https://www.youtube.com/@tcmyaing" target="_blank" class="contact-link youtube">
                 <i class="fab fa-youtube"></i>
                 <span>YouTube Channel</span>
             </a>
-            <a href="https://t.me/tcmyaing" target="_blank" class="contact-link">
+            <a href="https://t.me/tcmyaing" target="_blank" class="contact-link telegram">
                 <i class="fab fa-telegram"></i>
                 <span>Telegram Channel</span>
             </a>
-            <a href="mailto:tcmyaing@example.com" class="contact-link">
+            <a href="mailto:tcmyaing@example.com" class="contact-link email">
                 <i class="fas fa-envelope"></i>
                 <span>Email Me</span>
             </a>
         </div>
     </div>
-</section>
+</section>>
 
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01" alt="Modal Image">
-</div>
+
     
-<!-- Back to Top Button -->
-    <button class="back-to-top" title="Back to Top">
-        <i class="fas fa-arrow-up"></i>
-    </button>            
-<script src="/scripts/back-to-top.js"></script>     
+
     
 <footer>
     <div class="container">
@@ -176,11 +236,19 @@ DVD အချပ်မထည့်ထားမိဘဲ သို့မဟုတ
     </div>
 </footer>
 
+<!-- Back to Top Button -->
+    <button class="back-to-top" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>            
+<script src="/scripts/back-to-top.js"></script>      
+            
 <script src="/scripts/nav-toggle.js"></script>
 <script src="/scripts/dynmic-title-update.js"></script>
 <script src="/scripts/navigation-update.js"></script>
 <script src="/scripts/image-auto-slider.js"></script>
-<script src="/scripts/image-popup-modal.js"></script>
+<script src="/scripts/latest-posts.js"></script>    
+<script src="/scripts/categories.js"></script>
+<script src="/scripts/search.js"></script>
     
 </body>
 </html>
