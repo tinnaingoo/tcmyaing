@@ -7,7 +7,7 @@ async function initSearch() {
     const searchResults = document.getElementById('searchResults');
     const headerLogo = document.getElementById('headerLogo');
     const searchBox = document.querySelector('.search');
-    const divid = document.getElementById('divid');
+    
 
     let postsData = [];
     let isSearchActive = false;
@@ -24,8 +24,7 @@ async function initSearch() {
     searchButton.addEventListener('click', () => {
         if (!isSearchActive) {
             // Search ကို ဖွင့်မယ်
-            searchBox.classList.add('active');
-            divid.style.display='none';
+            searchBox.classList.add('active');            
             headerLogo.style.display = 'none'; // Logo ပျောက်ဖို့ သေချာအောင်
             searchContainer.style.display = 'flex'; // Search container ပေါ်ဖို့
             searchIcon.classList.remove('fa-search');
@@ -34,8 +33,7 @@ async function initSearch() {
             isSearchActive = true;
         } else {
             // Search ကို ပိတ်မယ်
-            searchBox.classList.remove('active');
-            divid.style.display='block';
+            searchBox.classList.remove('active');            
             headerLogo.style.display = 'block'; // Logo ပြန်ပေါ်ဖို့
             searchContainer.style.display = 'none'; // Search container ပျောက်ဖို့
             searchIcon.classList.remove('fa-close');
