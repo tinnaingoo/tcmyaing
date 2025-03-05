@@ -254,6 +254,7 @@ nav ul li a:hover {
 
     .logo#headerLogo {
         display: block; /* Default မှာ ပေါ်မယ် */
+        width: 73%;
     }
     .search {
         position: relative;
