@@ -240,6 +240,9 @@ nav ul li a:hover {
 
 /* Mobile အတွက် */
 @media (max-width: 768px) {
+    .search-results {
+        width: 75%;
+    }
     .header-box {
     display: flex;
     align-items: center;
@@ -388,6 +391,7 @@ nav ul li a:hover {
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
+    
     .main-body {
         flex-direction: column; /* Mobile မှာ column ဖြစ်အောင် */
         width: 100%;
