@@ -1,29 +1,90 @@
+/* Define CSS Variables in :root for global scope */
+:root {
+    /* Colors */
+    --primary-gradient-start: #111184;
+    --primary-gradient-end: #004d99;
+    --primary-color: #0073e6;
+    --primary-hover: #005bb5;
+    --secondary-color: #007bff;
+    --text-dark: #333;
+    --text-light: #fff;
+    --text-muted: #666;
+    --text-meta: #777;
+    --bg-light: #f9f9f9;
+    --bg-footer: #111184;
+    --bg-modal: rgba(0, 0, 0, 0.8);
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.3);
+    --border-light: #ddd;
+    --border-medium: #eee;
+
+    /* Social Media Colors */
+    --facebook-color: #3b5998;
+    --youtube-color: #ff0000;
+    --telegram-color: #0088cc;
+    --youtube-hover: #cc0000;
+    --email-hover: #555;
+
+    /* Typography */
+    --font-primary: "Padauk", serif;
+    --font-secondary: "Noto Sans Myanmar", serif;
+    --font-size-base: 16px;
+    --font-size-title: 2em;
+    --font-size-subtitle: 1.5rem;
+    --font-size-meta: 14px;
+    --font-size-small: 0.9rem;
+    --font-size-nav-title: 1.2rem;
+
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 40px;
+    --spacing-xl: 50px;
+
+    /* Layout */
+    --container-width: 90%;
+    --container-max-width: 1200px;
+    --aside-width: 25%;
+    --post-width: 75%;
+    --modal-max-width: 90%;
+    --modal-max-height: 90vh;
+
+    /* Miscellaneous */
+    --border-radius-small: 5px;
+    --border-radius-medium: 8px;
+    --border-radius-circle: 50%;
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.4s ease;
+    --transition-slow: 0.5s ease;
+}
+
 /* ===== 1. General Styles ===== */
 body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #F8F8F8; /* Changed from #f9f9f9 to #333 for better readability */
-    font-family: "Padauk", serif;
-    scroll-behavior: smooth; /* Moved from html */
+    color: var(--text-light);
+    font-family: var(--font-primary);
+    scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
-    font-family: "Noto Sans Myanmar", "Padauk", serif;
+    font-family: var(--font-secondary), var(--font-primary);
 }
 
 /* Font Classes */
-.noto-sans-myanmar-thin { font-family: "Noto Sans Myanmar", serif; font-weight: 100; font-style: normal; }
-.noto-sans-myanmar-extralight { font-family: "Noto Sans Myanmar", serif; font-weight: 200; font-style: normal; }
-.noto-sans-myanmar-light { font-family: "Noto Sans Myanmar", serif; font-weight: 300; font-style: normal; }
-.noto-sans-myanmar-regular { font-family: "Noto Sans Myanmar", serif; font-weight: 400; font-style: normal; }
-.noto-sans-myanmar-medium { font-family: "Noto Sans Myanmar", serif; font-weight: 500; font-style: normal; }
-.noto-sans-myanmar-semibold { font-family: "Noto Sans Myanmar", serif; font-weight: 600; font-style: normal; }
-.noto-sans-myanmar-bold { font-family: "Noto Sans Myanmar", serif; font-weight: 700; font-style: normal; }
-.noto-sans-myanmar-extrabold { font-family: "Noto Sans Myanmar", serif; font-weight: 800; font-style: normal; }
-.noto-sans-myanmar-black { font-family: "Noto Sans Myanmar", serif; font-weight: 900; font-style: normal; }
-.padauk-regular { font-family: "Padauk", serif; font-weight: 400; font-style: normal; }
-.padauk-bold { font-family: "Padauk", serif; font-weight: 700; font-style: normal; }
+.noto-sans-myanmar-thin { font-family: var(--font-secondary); font-weight: 100; font-style: normal; }
+.noto-sans-myanmar-extralight { font-family: var(--font-secondary); font-weight: 200; font-style: normal; }
+.noto-sans-myanmar-light { font-family: var(--font-secondary); font-weight: 300; font-style: normal; }
+.noto-sans-myanmar-regular { font-family: var(--font-secondary); font-weight: 400; font-style: normal; }
+.noto-sans-myanmar-medium { font-family: var(--font-secondary); font-weight: 500; font-style: normal; }
+.noto-sans-myanmar-semibold { font-family: var(--font-secondary); font-weight: 600; font-style: normal; }
+.noto-sans-myanmar-bold { font-family: var(--font-secondary); font-weight: 700; font-style: normal; }
+.noto-sans-myanmar-extrabold { font-family: var(--font-secondary); font-weight: 800; font-style: normal; }
+.noto-sans-myanmar-black { font-family: var(--font-secondary); font-weight: 900; font-style: normal; }
+.padauk-regular { font-family: var(--font-primary); font-weight: 400; font-style: normal; }
+.padauk-bold { font-family: var(--font-primary); font-weight: 700; font-style: normal; }
 
 /* ===== 2. Header Styles ===== */
 header {
@@ -31,19 +92,19 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(135deg, #111184, #004d99);
-    color: #fff;
-    padding: 10px 0;
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    color: var(--text-light);
+    padding: var(--spacing-small) 0;
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px var(--shadow-medium);
 }
 
 header .header-box h1 {
-    font-size: 20px;
+    font-size: var(--spacing-medium);
     text-align: center;
     padding: 0;
     margin: 0;
-    font-family: "Padauk", serif;
+    font-family: var(--font-primary);
 }
 
 .logo {
@@ -54,8 +115,8 @@ header .header-box h1 {
 }
 
 .logo img {
-    max-height: 50px; /* Changed to max-height for responsiveness */
-    margin-right: 10px;
+    max-height: var(--spacing-xl);
+    margin-right: var(--spacing-small);
 }
 
 nav ul {
@@ -66,23 +127,23 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: var(--spacing-medium);
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--text-light);
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color var(--transition-fast);
 }
 
 nav ul li a:hover {
-    color: #0073e6;
+    color: var(--primary-color);
 }
 
 /* Hamburger Menu */
 .hamburger {
-    display: none; /* Default အနေနဲ့ ဖျောက်ထားတယ် */
+    display: none;
     flex-direction: column;
     cursor: pointer;
 }
@@ -90,9 +151,9 @@ nav ul li a:hover {
 .bar1, .bar2, .bar3 {
     width: 35px;
     height: 5px;
-    background-color: white;
+    background-color: var(--text-light);
     margin: 6px 0;
-    transition: 0.4s;
+    transition: var(--transition-medium);
 }
 
 .hamburger.active .bar1 {
@@ -114,7 +175,7 @@ nav ul li a:hover {
     }
 
     .logo img {
-        max-height: 50px;
+        max-height: var(--spacing-xl);
     }
 
     nav {
@@ -122,8 +183,8 @@ nav ul li a:hover {
         top: 70px;
         right: -100%;
         width: 100%;
-        background: #0073e6;
-        transition: right 0.3s ease;
+        background: var(--primary-color);
+        transition: right var(--transition-fast);
     }
 
     nav.active {
@@ -133,22 +194,22 @@ nav ul li a:hover {
     nav ul {
         flex-direction: column;
         align-items: center;
-        padding: 20px 0;
+        padding: var(--spacing-medium) 0;
     }
 
     nav ul li {
-        margin: 10px 0;
+        margin: var(--spacing-small) 0;
     }
 }
 
-/* =======  Search Bar + Dropdown Styling  =======*/
+/* Search Bar + Dropdown Styling */
 .header-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 20px;
+    padding: 0 var(--spacing-medium);
     position: relative;
-    max-width: 1200px;
+    max-width: var(--container-max-width);
     margin: auto;
 }
 
@@ -161,42 +222,42 @@ nav ul li a:hover {
 }
 
 .logo img {
-    height: 40px; /* မင်းရဲ့ logo အရွယ်အစားပေါ် မူတည်ပြီး ပြင်လို့ရတယ် */
+    height: var(--spacing-large);
 }
 
 .search {
     position: relative;
     flex-grow: 1;
-    margin: 0 20px;
+    margin: 0 var(--spacing-medium);
 }
 
 .search-container {
     display: flex;
     align-items: center;
-    background-color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
+    background-color: var(--text-light);
+    padding: var(--spacing-xs) var(--spacing-small);
+    border-radius: var(--border-radius-small);
     width: 100%;
 }
 
 .search-container i {
-    color: #666;
-    margin-right: 5px;
+    color: var(--text-muted);
+    margin-right: var(--spacing-xs);
 }
 
 #searchInput {
     border: none;
     outline: none;
-    padding: 5px;
+    padding: var(--spacing-xs);
     width: 100%;
 }
 
 .sbutton {
     cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    display: none; /* Desktop မှာ ပျောက်မယ် */
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    border-radius: var(--border-radius-small);
+    display: none;
     width: 40px;
     height: 40px;
 }
@@ -206,57 +267,54 @@ nav ul li a:hover {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    background-color: var(--text-light);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-small);
     max-height: 200px;
     overflow-y: auto;
     display: none;
-    padding: 5px 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-xs) var(--spacing-small);
+    box-shadow: 0 2px 5px var(--shadow-light);
     z-index: 1000;
 }
 
 .result-item {
     padding: 8px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-medium);
 }
 
 .result-item a {
     text-decoration: none;
-    color: #333;
-    font-family: 'Noto Sans Myanmar', sans-serif;
+    color: var(--text-dark);
+    font-family: var(--font-secondary);
 }
 
 .result-item a:hover {
-    color: #007bff;
+    color: var(--secondary-color);
 }
 
 .no-results {
     padding: 8px;
-    color: #666;
+    color: var(--text-muted);
     font-style: italic;
 }
 
-/* Mobile အတွက် */
+/* Mobile Search */
 @media (max-width: 768px) {
     .search-results {
         width: 75%;
     }
     .header-box {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 5px;
-    padding-left: 20px;
-    max-width: 1200px;
-    margin: auto;
-    padding-right: 20px;
-    margin-bottom: 5px;
-}
+        padding-top: var(--spacing-xs);
+        padding-left: var(--spacing-medium);
+        max-width: var(--container-max-width);
+        margin: auto;
+        padding-right: var(--spacing-medium);
+        margin-bottom: var(--spacing-xs);
+    }
 
     .logo#headerLogo {
-        display: block; /* Default မှာ ပေါ်မယ် */
+        display: block;
         width: 73%;
         margin-right: 6px;
     }
@@ -269,7 +327,7 @@ nav ul li a:hover {
         margin-right: 3px;
     }
     .search-container#searchContainer {
-        display: none; /* Default မှာ ပျောက်မယ် */
+        display: none;
         width: 75%;
         margin-right: 6px;
     }
@@ -281,18 +339,17 @@ nav ul li a:hover {
         text-align: center;
         align-items: center;
         justify-content: space-evenly;
-        border-radius: 50%;
+        border-radius: var(--border-radius-circle);
     }
 
-    /* Active ဖြစ်တဲ့အခါ */
-    .search.active .search-container #searchContainer {
+    .search.active .search-container#searchContainer {
         display: flex;
         width: 75%;
         margin-right: 6px;
     }
     
     .search.active .logo#headerLogo {
-        display: none !important; /* Logo သေချာပျောက်ဖို့ specificity မြှင့်မယ် */
+        display: none !important;
     }
 }
 
@@ -300,44 +357,43 @@ nav ul li a:hover {
 .main-body {
     display: flex;
     justify-content: space-between;
-    width: 90%;
-    max-width: 1200px;
+    width: var(--container-width);
+    max-width: var(--container-max-width);
     margin: 0 auto;
-    padding-top: 80px; /* Header ရဲ့ fixed position ကြောင့် margin-top */
+    padding-top: 80px;
 }
 
 .all-post {
-    flex: 0 0 75%; /* Desktop မှာ 75% */
-    padding: 10px 0;
-    background: #fff;
+    flex: 0 0 var(--post-width);
+    padding: var(--spacing-small) 0;
+    background: var(--text-light);
     text-align: center;
 }
 
 .aside {
-    flex: 0 0 25%;
-    padding: 10px 0;
+    flex: 0 0 var(--aside-width);
+    padding: var(--spacing-small) 0;
     text-align: center;
-    background: #fff;
-    margin-left: 5px;
-    background: #fff;
-    font-family: "Padauk", serif;
+    background: var(--text-light);
+    margin-left: var(--spacing-xs);
+    font-family: var(--font-primary);
 }
 
-/* Widget Socials Styles (Already in your CSS, keeping it consistent) */
+/* Widget Socials Styles */
 .widget-socials {
-    background: #fff;
-    padding: 10px;
+    background: var(--text-light);
+    padding: var(--spacing-small);
     border-radius: 2px;
     width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--shadow-light);
 }
 
 .widget-title {
-    font-size: 1.5rem;
-    color: #333;
+    font-size: var(--font-size-subtitle);
+    color: var(--text-dark);
     margin-bottom: 15px;
-    font-family: "Noto Sans Myanmar", serif;
-    border-bottom: 3px dotted gray;
+    font-family: var(--font-secondary);
+    border-bottom: 3px dotted var(--text-meta);
 }
 
 .socials {
@@ -347,18 +403,18 @@ nav ul li a:hover {
 }
 
 .socials li {
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-small);
 }
 
 .socials a {
     display: flex;
     align-items: center;
-    background: #0073e6;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: var(--spacing-small) 15px;
+    border-radius: var(--border-radius-small);
     text-decoration: none;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
 .socials li a:hover {
@@ -366,64 +422,62 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 
- .socials .social-facebook {
-    background-color: #3b5998;
+.socials .social-facebook {
+    background-color: var(--facebook-color);
 }
 
 .socials .social-youtube {
-    background-color: #ff0000;
+    background-color: var(--youtube-color);
 }
 
 .socials .social-telegram {
-    background-color: #0088CC;
+    background-color: var(--telegram-color);
 }
 
 .socials i {
     font-size: 1.2rem;
-    margin-right: 10px;
+    margin-right: var(--spacing-small);
 }
 
 .socials__text {
     font-size: 1rem;
     font-weight: bold;
-    font-family: "Padauk", serif;
+    font-family: var(--font-primary);
 }
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
-    
     .main-body {
-        flex-direction: column; /* Mobile မှာ column ဖြစ်အောင် */
+        flex-direction: column;
         width: 100%;
     }
 
     .all-post, .aside {
-        flex: 0 0 100%; /* Mobile မှာ 100% full width */
-        margin-left: 0px;
+        flex: 0 0 100%;
+        margin-left: 0;
     }
 
     .widget-socials {
-        margin-top: 10px; /* Mobile မှာ သုံးရလွယ်ပါ */
+        margin-top: var(--spacing-small);
     }
 
     .socials a {
-        padding: 8px 12px; /* Mobile မှာ သုံးရလွယ်ပါ */
+        padding: 8px 12px;
     }
 }
 
 /* Widget Latest Posts */
 .widget-latest-posts {
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    margin-bottom: var(--spacing-medium);
+    box-shadow: 0 2px 4px var(--shadow-light);
+    padding: var(--spacing-small);
     border-radius: 2px;
     width: 100%;
 }
 
-
 .latest-posts {
-    list-style: square; /* Bullet points ပြမယ် */
-    padding-left: 30px; /* ဘယ်ဘက်က အကွာအဝေးပေးမယ် */
+    list-style: square;
+    padding-left: 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -442,7 +496,7 @@ ul#latestPostsList {
 
 .latest-posts a {
     text-decoration: none;
-    color: #007bff;
+    color: var(--secondary-color);
     text-align: justify;
     display: flex;
 }
@@ -452,25 +506,25 @@ ul#latestPostsList {
 }
 
 .marker {
-    margin-right: 5px; /* Marker နဲ့ စာသားကြား အကွာအဝေး */
-    color: #333; /* Marker ရဲ့ အရောင် */
+    margin-right: var(--spacing-xs);
+    color: var(--text-dark);
 }
 
-/* ====== Categories Widget ====== */
+/* Categories Widget */
 .widget-categories {
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    margin-bottom: var(--spacing-medium);
+    box-shadow: 0 2px 4px var(--shadow-light);
+    padding: var(--spacing-small);
     border-radius: 2px;
     width: 100%;
 }
 
 .widget-categories .widget-title {
-    font-size: 1.5rem;
-    color: #333;
+    font-size: var(--font-size-subtitle);
+    color: var(--text-dark);
     margin-bottom: 15px;
-    font-family: "Noto Sans Myanmar", serif;
-    border-bottom: 3px dotted gray;
+    font-family: var(--font-secondary);
+    border-bottom: 3px dotted var(--text-meta);
 }
 
 .categories {
@@ -478,18 +532,19 @@ ul#latestPostsList {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left:0px;
+    padding-left: 0;
 }
+
 .categories li {
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-medium);
 }
 
 .categories a {
     text-decoration: none;
-    color: #fff;
-    font-family: 'Noto Sans Myanmar', sans-serif;
-    background: #007bff;
-    padding: 3px 10px;
+    color: var(--text-light);
+    font-family: var(--font-secondary);
+    background: var(--secondary-color);
+    padding: 3px var(--spacing-small);
     border-radius: 10px;
 }
 
@@ -497,26 +552,26 @@ ul#latestPostsList {
     text-decoration: underline;
 }
 
-/* ====== About Section =====*/
+/* About Section */
 .about-section {
-    padding: 40px 20px;
-    background-color: #fff;
+    padding: var(--spacing-large) var(--spacing-medium);
+    background-color: var(--text-light);
     text-align: center;
 }
 
 .about-section h2 {
-    font-size: 2em;
-    color: #333;
+    font-size: var(--font-size-title);
+    color: var(--text-dark);
     margin-bottom: 15px;
-    font-family: 'Padauk', sans-serif; /* မင်းရဲ့ လက်ရှိ ဖောင့်နဲ့ ကိုက်အောင် */
+    font-family: var(--font-primary);
 }
 
 .about-section p {
     font-size: 1.1em;
-    color: #666;
+    color: var(--text-muted);
     max-width: 600px;
     margin: 0 auto;
-    font-family: 'Noto Sans Myanmar', sans-serif;
+    font-family: var(--font-secondary);
 }
 
 /* Container */
@@ -524,19 +579,16 @@ ul#latestPostsList {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    max-width: 1200px;
+    width: var(--container-width);
+    max-width: var(--container-max-width);
     margin: 0 auto;
-    flex-direction: column; /* Consolidated from duplicate definition */
+    flex-direction: column;
 }
 
-
-
-
-/* ====== Post Style ==== */
+/* Post Style */
 section.post-content {
-    margin-top: 0px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 0;
+    box-shadow: 0 2px 4px var(--shadow-light);
 }
 
 .post-title-container {
@@ -544,24 +596,24 @@ section.post-content {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    border-bottom: 1px dotted gray;
-    margin-bottom: 20px;
+    border-bottom: 1px dotted var(--text-meta);
+    margin-bottom: var(--spacing-medium);
 }
 
 .post-title {
     font-size: 23px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-small);
     width: 100%;
     text-align: left;
-    color: black;
-    font-family: "Noto Sans Myanmar", serif;
+    color: var(--text-dark);
+    font-family: var(--font-secondary);
 }
 
 .post-meta {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 20px;
+    font-size: var(--font-size-meta);
+    color: var(--text-meta);
+    margin-bottom: var(--spacing-medium);
 }
 
 .post-image img {
@@ -572,17 +624,17 @@ section.post-content {
 
 .post-text {
     text-align: justify;
-    font-size: 16px;
-    color: #333;
+    font-size: var(--font-size-base);
+    color: var(--text-dark);
     line-height: 1.6;
-    font-family: "Padauk", serif;
+    font-family: var(--font-primary);
 }
 
 .post-text a {
-    font-family: "Padauk", serif;
+    font-family: var(--font-primary);
     text-align: justify;
     text-decoration: none;
-    color: #0073e6;
+    color: var(--primary-color);
 }
 
 .post-text p {
@@ -602,19 +654,19 @@ section.post-content {
 
 @media (max-width: 768px) {
     .post-content h2 {
-        font-size: 1.5rem;
+        font-size: var(--font-size-subtitle);
     }
     .post-text img {
         width: 300px;
     }
 }
 
-/* ===== 11. Post Navigation Styles ===== */
+/* Post Navigation Styles */
 .post-navigation {
     padding: 15px 0;
-    background: #f9f9f9;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
 }
 
 .post-navigation .next-post .nav-content {
@@ -633,39 +685,33 @@ section.post-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 20px;
+    gap: var(--spacing-medium);
     width: 100%;
 }
-
 
 .post-navigation .nav-link {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #333;
-    transition: color 0.3s ease;
+    color: var(--text-dark);
+    transition: color var(--transition-fast);
 }
 
 .post-navigation .nav-link:hover {
-    color: #0073e6;
+    color: var(--primary-color);
 }
 
-
-
-
 .post-navigation .nav-label {
-    font-size: 0.9rem;
-    color: #777;
-    margin-bottom: 5px;
+    font-size: var(--font-size-small);
+    color: var(--text-meta);
+    margin-bottom: var(--spacing-xs);
 }
 
 .post-navigation .nav-title {
-    font-size: 1.2rem;
+    font-size: var(--font-size-nav-title);
     font-weight: bold;
     margin: 0;
 }
-
-
 
 @media (max-width: 768px) {
     .post-navigation .nav-links {
@@ -687,7 +733,7 @@ section.post-content {
     }
 }
 
-/* ===== 12. Modal Styles ===== */
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -697,19 +743,19 @@ section.post-content {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--bg-modal);
     justify-content: center;
     align-items: center;
 }
 
 .modal-content {
     margin: auto;
-    padding-top: 40px;
+    padding-top: var(--spacing-large);
     display: block;
-    max-width: 90%;
-    max-height: 90vh;
-    border-radius: 5px;
-    animation: zoomIn 0.3s ease-in-out;
+    max-width: var(--modal-max-width);
+    max-height: var(--modal-max-height);
+    border-radius: var(--border-radius-small);
+    animation: zoomIn var(--transition-fast);
 }
 
 .close {
@@ -717,10 +763,10 @@ section.post-content {
     top: 15px;
     right: 35px;
     color: #f1f1f1;
-    font-size: 40px;
+    font-size: var(--spacing-large);
     font-weight: bold;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color var(--transition-fast);
 }
 
 .close:hover, .close:focus {
@@ -733,57 +779,54 @@ section.post-content {
     }
 }
 
-/* =====  Subscribe to My Channel Section ===== */
-/* CSS ကို ဒီမှာ ထည့်ထားတယ်၊ လိုအပ်ရင် သီးသန့် .css ဖိုင်ထဲ ထည့်လို့ရတယ် */
-        .subscribe-section {
-            background-color: #f9f9f9;
-            padding: 40px 20px;
-            text-align: center;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+/* Subscribe Section */
+.subscribe-section {
+    background-color: var(--bg-light);
+    padding: var(--spacing-large) var(--spacing-medium);
+    text-align: center;
+    margin: var(--spacing-medium) 0;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
 
-        .subscribe-section .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.subscribe-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-        .subscribe-section h2 {
-            font-size: 2em;
-            color: #333;
-            margin-bottom: 10px;
-        }
+.subscribe-section h2 {
+    font-size: var(--font-size-title);
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-small);
+}
 
-        .subscribe-section p {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 20px;
-        }
+.subscribe-section p {
+    font-size: 1.1em;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-medium);
+}
 
-        .subscribe-btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 12px 24px;
-            background-color: #ff0000; /* YouTube ရဲ့ အနီရောင် */
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1em;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+.subscribe-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: var(--youtube-color);
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: var(--border-radius-small);
+    transition: background-color var(--transition-fast);
+}
 
-        .subscribe-btn i {
-            margin-right: 8px;
-        }
+.subscribe-btn i {
+    margin-right: 8px;
+}
 
-        .subscribe-btn:hover {
-            background-color: #cc0000; /* Hover မှာ အနည်းငယ် မှောင်မယ် */
-        }
+.subscribe-btn:hover {
+    background-color: var(--youtube-hover);
+}
 
-
-/* ===== Slider Styles ===== */
-/* Video Slider */
+/* Slider Styles */
 .slider {
     position: relative;
     max-width: 800px;
@@ -793,11 +836,11 @@ section.post-content {
 
 .slides {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform var(--transition-slow);
 }
 
 .slide {
-    display: none; /* Default အနေနဲ့ ဖွက်ထားမယ် */
+    display: none;
     width: 100%;
     text-decoration: none;
     color: inherit;
@@ -806,14 +849,14 @@ section.post-content {
 .slide img {
     width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: var(--border-radius-small);
 }
 
 .caption {
     text-align: center;
-    padding: 10px;
+    padding: var(--spacing-small);
     background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
+    color: var(--text-light);
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -824,86 +867,83 @@ section.post-content {
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    color: var(--text-light);
     border: none;
-    padding: 10px;
+    padding: var(--spacing-small);
     cursor: pointer;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+.prev { left: var(--spacing-small); }
+.next { right: var(--spacing-small); }
 
+/* Contact Section */
+.contact-section {
+    background-color: #f4f4f4;
+    padding: var(--spacing-large) var(--spacing-medium);
+    text-align: center;
+    margin: var(--spacing-medium) 0;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
 
-/* ===== 9. Contact Section ===== */
-/* CSS ကို ဒီမှာ ထည့်ထားတယ်၊ လိုအပ်ရင် သီးသန့် .css ဖိုင်ထဲ ထည့်လို့ရတယ် */
-        .contact-section {
-            background-color: #f4f4f4;
-            padding: 40px 20px;
-            text-align: center;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+.contact-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-        .contact-section .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.contact-section h2 {
+    font-size: var(--font-size-title);
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
 
-        .contact-section h2 {
-            font-size: 2em;
-            color: #333;
-            margin-bottom: 15px;
-        }
+.contact-section p {
+    font-size: 1.1em;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
 
-        .contact-section p {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 25px;
-        }
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-medium);
+    flex-wrap: wrap;
+}
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+.contact-link {
+    display: flex;
+    align-items: center;
+    padding: 12px var(--spacing-medium);
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: var(--border-radius-small);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+    box-shadow: 0 1px 3px var(--shadow-light);
+}
 
-        .contact-link {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            background-color: #fff;
-            color: #333;
-            text-decoration: none;
-            font-size: 1em;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
+.contact-link i {
+    margin-right: var(--spacing-small);
+    font-size: 1.2em;
+}
 
-        .contact-link i {
-            margin-right: 10px;
-            font-size: 1.2em;
-        }
+.contact-link:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
 
-        .contact-link:hover {
-            background-color: #007bff; /* အပြာရောင် hover effect */
-            color: #fff;
-        }
+.contact-link.youtube:hover {
+    background-color: var(--youtube-color);
+}
 
-        /* Specific platform colors ထည့်ချင်ရင် ဒီလို ပြင်လို့ရတယ် */
-        .contact-link.youtube:hover {
-            background-color: #ff0000; /* YouTube အနီရောင် */
-        }
+.contact-link.telegram:hover {
+    background-color: var(--telegram-color);
+}
 
-        .contact-link.telegram:hover {
-            background-color: #0088cc; /* Telegram အပြာရောင် */
-        }
-
-        .contact-link.email:hover {
-            background-color: #555; /* Email အတွက် မီးခိုးရောင် */
-        }
+.contact-link.email:hover {
+    background-color: var(--email-hover);
+}
 
 @media (max-width: 768px) {
     .contact-links {
@@ -920,23 +960,23 @@ section.post-content {
 /* Back to Top Button Styles */
 .back-to-top {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #0073e6;
-    color: #fff;
+    bottom: var(--spacing-medium);
+    right: var(--spacing-medium);
+    background: var(--primary-color);
+    color: var(--text-light);
     border: none;
-    border-radius: 50%;
+    border-radius: var(--border-radius-circle);
     width: 40px;
     height: 40px;
     cursor: pointer;
-    display: none; /* Default hidden */
+    display: none;
     z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
 .back-to-top:hover {
-    background: #005bb5;
+    background: var(--primary-hover);
     transform: scale(1.1);
 }
 
@@ -944,22 +984,19 @@ section.post-content {
     font-size: 18px;
 }
 
-/* Show button when scrolled down */
 .back-to-top.show {
     display: block;
 }
 
-
-/* ===== 10. Footer ===== */
+/* Footer */
 footer {
-    background: #111184;
-    color: #fff;
+    background: var(--bg-footer);
+    color: var(--text-light);
     text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
+    padding: var(--spacing-medium) 0;
+    margin-top: var(--spacing-xl);
 }
 
 footer p {
     margin: 0;
 }
-
