@@ -1,7 +1,7 @@
 // /scripts/categories.js
 async function loadCategories() {
     try {
-        const response = await fetch('/post/post-data.json');
+        const response = await fetch('/home/post-data.json');
         const postsData = await response.json();
 
         // Category တစ်ခုချင်းစီရဲ့ အရေအတွက်ကို တွက်မယ်
