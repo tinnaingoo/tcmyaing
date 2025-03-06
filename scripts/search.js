@@ -14,7 +14,7 @@ async function initSearch() {
 
     // JSON ကနေ ဒေတာကို တစ်ခါတည်း ဖတ်ထားမယ်
     try {
-        const response = await fetch('/home/home-data.json');
+        const response = await fetch('/home/post-data.json');
         postsData = await response.json();
     } catch (error) {
         console.error('Error loading post data:', error);
