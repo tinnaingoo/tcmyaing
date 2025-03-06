@@ -1,7 +1,7 @@
 // latest-posts.js
 async function updateLatestPosts() {
     try {
-        const response = await fetch('/post/post-data.json');
+        const response = await fetch('/home/home-data.json');
         const postsData = await response.json();
 
         postsData.sort((a, b) => new Date(b.Date) - new Date(a.Date));
