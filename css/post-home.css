@@ -934,6 +934,9 @@ section.post-content {
     color: var(--text-light);
 }
 
+.contact-link.facebook:hover {
+    background-color: var(--facebook-color);
+}
 .contact-link.youtube:hover {
     background-color: var(--youtube-color);
 }
