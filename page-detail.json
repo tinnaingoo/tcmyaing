@@ -43,19 +43,19 @@
                 {
                     "title": "နည်းပညာ",
                     "description": "နောက်ဆုံးပေါ် နည်းပညာသတင်းများ",
-                    "icon": "images/tech-icon.png",
+                    "icon": "fas fa-microchip",
                     "url": "/home/category/Technology.html"
                 },
                 {
                     "title": "ကွန်ပျူတာ",
-                    "description": "ကွန်ပျူတာနှင့်သက်ဆိုင်သော အကြောင်းအရာများနှင့် Software, Driver များ
-                    "icon": "images/knowledge-icon.png",
+                    "description": "ကွန်ပျူတာနှင့်သက်ဆိုင်သော အကြောင်းအရာများနှင့် Software, Driver များ",
+                    "icon": "fas fa-laptop",
                     "url": "/home/category/Computer.html"
                 },
                 {
                     "title": "Phone",
                     "description": "Phone နှင့်သက်ဆိုင်သော နည်းပညာများနှင့် Application များ",
-                    "icon": "images/life-icon.png",
+                    "icon": "fas fa-mobile-alt",
                     "url": "/home/category/Phone.html"
                 }
             ]
