@@ -8,7 +8,7 @@
 <script src="/scripts/image-auto-slider.js"></script>
 <script src="/scripts/latest-posts.js"></script>
 
-<script src="scripts/image-popup-modal.js"></script>
+
 
 
 Image Model အတွက်
@@ -16,6 +16,8 @@ Image Model အတွက်
     <span class="close">&times;</span>
     <img class="modal-content" id="img01" alt="Modal Image">
 </div>
+<script src="/scripts/image-popup-modal.js"></script>
+
 
 Image Auto Slider အတွက်
 <section id="videos" class="videos">
