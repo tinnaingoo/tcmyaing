@@ -462,9 +462,11 @@ ul#latestPostsList {
 }
 
 .widget-categories .widget-title {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    font-family: 'Padauk', sans-serif;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-family: "Noto Sans Myanmar", serif;
+    border-bottom: 3px dotted gray;
 }
 
 .categories {
