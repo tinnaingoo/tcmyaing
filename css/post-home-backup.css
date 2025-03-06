@@ -1,0 +1,964 @@
+/* ===== 1. General Styles ===== */
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #F8F8F8; /* Changed from #f9f9f9 to #333 for better readability */
+    font-family: "Padauk", serif;
+    scroll-behavior: smooth; /* Moved from html */
+}
+
+h1, h2, h3 {
+    font-family: "Noto Sans Myanmar", "Padauk", serif;
+}
+
+/* Font Classes */
+.noto-sans-myanmar-thin { font-family: "Noto Sans Myanmar", serif; font-weight: 100; font-style: normal; }
+.noto-sans-myanmar-extralight { font-family: "Noto Sans Myanmar", serif; font-weight: 200; font-style: normal; }
+.noto-sans-myanmar-light { font-family: "Noto Sans Myanmar", serif; font-weight: 300; font-style: normal; }
+.noto-sans-myanmar-regular { font-family: "Noto Sans Myanmar", serif; font-weight: 400; font-style: normal; }
+.noto-sans-myanmar-medium { font-family: "Noto Sans Myanmar", serif; font-weight: 500; font-style: normal; }
+.noto-sans-myanmar-semibold { font-family: "Noto Sans Myanmar", serif; font-weight: 600; font-style: normal; }
+.noto-sans-myanmar-bold { font-family: "Noto Sans Myanmar", serif; font-weight: 700; font-style: normal; }
+.noto-sans-myanmar-extrabold { font-family: "Noto Sans Myanmar", serif; font-weight: 800; font-style: normal; }
+.noto-sans-myanmar-black { font-family: "Noto Sans Myanmar", serif; font-weight: 900; font-style: normal; }
+.padauk-regular { font-family: "Padauk", serif; font-weight: 400; font-style: normal; }
+.padauk-bold { font-family: "Padauk", serif; font-weight: 700; font-style: normal; }
+
+/* ===== 2. Header Styles ===== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #111184, #004d99);
+    color: #fff;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+header .header-box h1 {
+    font-size: 20px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-family: "Padauk", serif;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.logo img {
+    max-height: 50px; /* Changed to max-height for responsiveness */
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #0073e6;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Default အနေနဲ့ ဖျောက်ထားတယ် */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.hamburger.active .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+}
+
+.hamburger.active .bar2 {
+    opacity: 0;
+}
+
+.hamburger.active .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .hamburger {
+        display: inline-block;
+    }
+
+    .logo img {
+        max-height: 50px;
+    }
+
+    nav {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        background: #0073e6;
+        transition: right 0.3s ease;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+/* =======  Search Bar + Dropdown Styling  =======*/
+.header-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.divid {
+    width: 60%;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: 40px; /* မင်းရဲ့ logo အရွယ်အစားပေါ် မူတည်ပြီး ပြင်လို့ရတယ် */
+}
+
+.search {
+    position: relative;
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.search-container i {
+    color: #666;
+    margin-right: 5px;
+}
+
+#searchInput {
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 100%;
+}
+
+.sbutton {
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    display: none; /* Desktop မှာ ပျောက်မယ် */
+    width: 40px;
+    height: 40px;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    padding: 5px 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.result-item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.result-item a {
+    text-decoration: none;
+    color: #333;
+    font-family: 'Noto Sans Myanmar', sans-serif;
+}
+
+.result-item a:hover {
+    color: #007bff;
+}
+
+.no-results {
+    padding: 8px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Mobile အတွက် */
+@media (max-width: 768px) {
+    .search-results {
+        width: 75%;
+    }
+    .header-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-left: 20px;
+    max-width: 1200px;
+    margin: auto;
+    padding-right: 20px;
+    margin-bottom: 5px;
+}
+
+    .logo#headerLogo {
+        display: block; /* Default မှာ ပေါ်မယ် */
+        width: 73%;
+        margin-right: 6px;
+    }
+    .search {
+        position: relative;
+        flex-grow: 1;
+        margin-left: 2px;
+        display: flex;
+        width: 50%;
+        margin-right: 3px;
+    }
+    .search-container#searchContainer {
+        display: none; /* Default မှာ ပျောက်မယ် */
+        width: 75%;
+        margin-right: 6px;
+    }
+
+    .sbutton#sbutton {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        align-items: center;
+        justify-content: space-evenly;
+        border-radius: 50%;
+    }
+
+    /* Active ဖြစ်တဲ့အခါ */
+    .search.active .search-container #searchContainer {
+        display: flex;
+        width: 75%;
+        margin-right: 6px;
+    }
+    
+    .search.active .logo#headerLogo {
+        display: none !important; /* Logo သေချာပျောက်ဖို့ specificity မြှင့်မယ် */
+    }
+}
+
+/* Main Body Layout */
+.main-body {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 80px; /* Header ရဲ့ fixed position ကြောင့် margin-top */
+}
+
+.all-post {
+    flex: 0 0 75%; /* Desktop မှာ 75% */
+    padding: 10px 0;
+    background: #fff;
+    text-align: center;
+}
+
+.aside {
+    flex: 0 0 25%;
+    padding: 10px 0;
+    text-align: center;
+    background: #fff;
+    margin-left: 5px;
+    background: #fff;
+    font-family: "Padauk", serif;
+}
+
+/* Widget Socials Styles (Already in your CSS, keeping it consistent) */
+.widget-socials {
+    background: #fff;
+    padding: 10px;
+    border-radius: 2px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.widget-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-family: "Noto Sans Myanmar", serif;
+    border-bottom: 3px dotted gray;
+}
+
+.socials {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.socials li {
+    margin-bottom: 10px;
+}
+
+.socials a {
+    display: flex;
+    align-items: center;
+    background: #0073e6;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.socials li a:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+ .socials .social-facebook {
+    background-color: #3b5998;
+}
+
+.socials .social-youtube {
+    background-color: #ff0000;
+}
+
+.socials .social-telegram {
+    background-color: #0088CC;
+}
+
+.socials i {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.socials__text {
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: "Padauk", serif;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    
+    .main-body {
+        flex-direction: column; /* Mobile မှာ column ဖြစ်အောင် */
+        width: 100%;
+    }
+
+    .all-post, .aside {
+        flex: 0 0 100%; /* Mobile မှာ 100% full width */
+        margin-left: 0px;
+    }
+
+    .widget-socials {
+        margin-top: 10px; /* Mobile မှာ သုံးရလွယ်ပါ */
+    }
+
+    .socials a {
+        padding: 8px 12px; /* Mobile မှာ သုံးရလွယ်ပါ */
+    }
+}
+
+/* Widget Latest Posts */
+.widget-latest-posts {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 2px;
+    width: 100%;
+}
+
+
+.latest-posts {
+    list-style: square; /* Bullet points ပြမယ် */
+    padding-left: 30px; /* ဘယ်ဘက်က အကွာအဝေးပေးမယ် */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+ul#latestPostsList {
+    padding: 3px;
+}
+
+.latest-posts li {
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.latest-posts a {
+    text-decoration: none;
+    color: #007bff;
+    text-align: justify;
+    display: flex;
+}
+
+.latest-posts a:hover {
+    text-decoration: underline;
+}
+
+.marker {
+    margin-right: 5px; /* Marker နဲ့ စာသားကြား အကွာအဝေး */
+    color: #333; /* Marker ရဲ့ အရောင် */
+}
+
+/* ====== Categories Widget ====== */
+.widget-categories {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.widget-categories .widget-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-family: "Noto Sans Myanmar", serif;
+    border-bottom: 3px dotted gray;
+}
+
+.categories {
+    list-style: disc;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left:0px;
+}
+.categories li {
+    margin-bottom: 20px;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Noto Sans Myanmar', sans-serif;
+    background: #007bff;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+
+.categories a:hover {
+    text-decoration: underline;
+}
+
+/* ====== About Section =====*/
+.about-section {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 15px;
+    font-family: 'Padauk', sans-serif; /* မင်းရဲ့ လက်ရှိ ဖောင့်နဲ့ ကိုက်အောင် */
+}
+
+.about-section p {
+    font-size: 1.1em;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'Noto Sans Myanmar', sans-serif;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-direction: column; /* Consolidated from duplicate definition */
+}
+
+
+
+
+/* ====== Post Style ==== */
+section.post-content {
+    margin-top: 0px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    border-bottom: 1px dotted gray;
+    margin-bottom: 20px;
+}
+
+.post-title {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: left;
+    color: black;
+    font-family: "Noto Sans Myanmar", serif;
+}
+
+.post-meta {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.post-text {
+    text-align: justify;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    font-family: "Padauk", serif;
+}
+
+.post-text a {
+    font-family: "Padauk", serif;
+    text-align: justify;
+    text-decoration: none;
+    color: #0073e6;
+}
+
+.post-text p {
+    text-align: justify;
+}
+
+.post-text img {
+    display: block;
+    margin: 0 auto;
+    max-width: 600px;
+    cursor: pointer;
+}
+
+.post-text img:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .post-content h2 {
+        font-size: 1.5rem;
+    }
+    .post-text img {
+        width: 300px;
+    }
+}
+
+/* ===== 11. Post Navigation Styles ===== */
+.post-navigation {
+    padding: 15px 0;
+    background: #f9f9f9;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.post-navigation .next-post .nav-content {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.post-navigation .prev-post .nav-content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.post-navigation .nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+
+.post-navigation .nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.post-navigation .nav-link:hover {
+    color: #0073e6;
+}
+
+
+
+
+.post-navigation .nav-label {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.post-navigation .nav-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
+@media (max-width: 768px) {
+    .post-navigation .nav-links {
+        gap: 30px;
+    }
+
+    .post-navigation .prev-post {
+        text-align: left;
+        display: flex;
+        justify-content: flex-start;
+        width: 50%;
+    }
+
+    .post-navigation .next-post {
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        width: 50%;
+    }
+}
+
+/* ===== 12. Modal Styles ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    margin: auto;
+    padding-top: 40px;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 5px;
+    animation: zoomIn 0.3s ease-in-out;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover, .close:focus {
+    color: #bbb;
+}
+
+@media (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+/* =====  Subscribe to My Channel Section ===== */
+/* CSS ကို ဒီမှာ ထည့်ထားတယ်၊ လိုအပ်ရင် သီးသန့် .css ဖိုင်ထဲ ထည့်လို့ရတယ် */
+        .subscribe-section {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .subscribe-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .subscribe-section h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subscribe-section p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .subscribe-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background-color: #ff0000; /* YouTube ရဲ့ အနီရောင် */
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .subscribe-btn i {
+            margin-right: 8px;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #cc0000; /* Hover မှာ အနည်းငယ် မှောင်မယ် */
+        }
+
+
+/* ===== Slider Styles ===== */
+/* Video Slider */
+.slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    display: none; /* Default အနေနဲ့ ဖွက်ထားမယ် */
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.caption {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+
+/* ===== 9. Contact Section ===== */
+/* CSS ကို ဒီမှာ ထည့်ထားတယ်၊ လိုအပ်ရင် သီးသန့် .css ဖိုင်ထဲ ထည့်လို့ရတယ် */
+        .contact-section {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .contact-section p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            background-color: #fff;
+            color: #333;
+            text-decoration: none;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-link i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .contact-link:hover {
+            background-color: #007bff; /* အပြာရောင် hover effect */
+            color: #fff;
+        }
+
+        /* Specific platform colors ထည့်ချင်ရင် ဒီလို ပြင်လို့ရတယ် */
+        .contact-link.youtube:hover {
+            background-color: #ff0000; /* YouTube အနီရောင် */
+        }
+
+        .contact-link.telegram:hover {
+            background-color: #0088cc; /* Telegram အပြာရောင် */
+        }
+
+        .contact-link.email:hover {
+            background-color: #555; /* Email အတွက် မီးခိုးရောင် */
+        }
+
+@media (max-width: 768px) {
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-link {
+        width: 80%;
+        justify-content: center;
+    }
+}
+
+/* Back to Top Button Styles */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0073e6;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: none; /* Default hidden */
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+    background: #005bb5;
+    transform: scale(1.1);
+}
+
+.back-to-top i {
+    font-size: 18px;
+}
+
+/* Show button when scrolled down */
+.back-to-top.show {
+    display: block;
+}
+
+
+/* ===== 10. Footer ===== */
+footer {
+    background: #111184;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+}
