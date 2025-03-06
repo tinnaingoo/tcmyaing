@@ -2,7 +2,7 @@
 // Navigation link တွေကို JSON ကနေ update လုပ်ဖို့ function
 async function updateNavigation() {
     try {
-        const response = await fetch('/post/post-data.json');
+        const response = await fetch('/home/post-data.json');
         const postsData = await response.json();
         const currentTitle = document.getElementById('post-title').textContent.trim();
         const currentPost = postsData.find(post => post.title === currentTitle);
