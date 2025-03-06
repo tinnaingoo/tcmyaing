@@ -18,13 +18,14 @@
     --border-light: #ddd;
     --border-medium: #eee;
 
-    /* Social Media Colors */
+     /* Social Media Colors */
     --facebook-color: #3b5998;
+    --facebook-hover: #2a4373; /* Darker shade of Facebook Blue for hover */
     --youtube-color: #ff0000;
-    --telegram-color: #0088cc;
     --youtube-hover: #cc0000;
+    --telegram-color: #0088cc;
     --email-hover: #555;
-
+    
     /* Typography */
     --font-primary: "Padauk", serif;
     --font-secondary: "Noto Sans Myanmar", serif;
