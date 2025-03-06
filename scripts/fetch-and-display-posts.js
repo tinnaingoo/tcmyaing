@@ -13,7 +13,7 @@ async function fetchAndDisplayPosts() {
     postGrid.innerHTML = '';
 
     try {
-        const response = await fetch('/post/post-data.json');
+        const response = await fetch('/home/post-data.json');
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const posts = await response.json();
 
