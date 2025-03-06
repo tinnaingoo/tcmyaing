@@ -405,28 +405,31 @@ nav ul li a:hover {
     .category-card { flex: 1 1 100%; }
 }
 
-/* ===== 8. Contact Section ===== */
-.contact {
-    padding: var(--spacing-xl) 0;
-    background: var(--bg-light);
+/* Contact Section */
+.contact-section {
+    background-color: #f4f4f4;
+    padding: var(--spacing-large) var(--spacing-medium);
     text-align: center;
-    animation: fadeIn 1s ease-in-out;
+    margin: var(--spacing-medium) 0;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 2px 5px var(--shadow-light);
 }
 
-.contact h2 {
-    font-size: var(--font-size-title);
-    margin-bottom: var(--spacing-medium);
-    color: var(--text-dark);
-    font-family: var(--font-secondary);
-}
-
-.contact p {
-    font-size: var(--font-size-small);
-    color: var(--text-muted);
-    margin-bottom: var(--spacing-large);
+.contact-section .container {
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+}
+
+.contact-section h2 {
+    font-size: var(--font-size-title);
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    color: var(--text-muted);
+    margin-bottom: 25px;
 }
 
 .contact-links {
@@ -439,27 +442,36 @@ nav ul li a:hover {
 .contact-link {
     display: flex;
     align-items: center;
-    background: var(--primary-color);
-    color: var(--text-light);
-    padding: 15px 30px;
-    border-radius: var(--border-radius-large);
+    padding: 12px var(--spacing-medium);
+    background-color: var(--text-light);
+    color: var(--text-dark);
     text-decoration: none;
-    transition: background var(--transition-fast), transform var(--transition-fast);
-}
-
-.contact-link:hover {
-    background: var(--primary-hover);
-    transform: translateY(-5px);
+    font-size: 1em;
+    border-radius: var(--border-radius-small);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+    box-shadow: 0 1px 3px var(--shadow-light);
 }
 
 .contact-link i {
-    font-size: var(--font-size-subtitle);
     margin-right: var(--spacing-small);
+    font-size: 1.2em;
 }
 
-.contact-link span {
-    font-size: var(--font-size-text);
-    font-weight: bold;
+.contact-link:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+.contact-link.youtube:hover {
+    background-color: var(--youtube-color);
+}
+
+.contact-link.telegram:hover {
+    background-color: var(--telegram-color);
+}
+
+.contact-link.email:hover {
+    background-color: var(--email-hover);
 }
 
 @media (max-width: 768px) {
