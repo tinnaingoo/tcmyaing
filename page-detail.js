@@ -1,0 +1,76 @@
+{
+    "page": {
+        "title": "TC-Myaing Blog",
+        "language": "my",
+        "header": {
+            "logo": {
+                "src": "images/logo.png",
+                "alt": "TC-Myaing Logo"
+            },
+            "nav": [
+                {"text": "ပင်မစာမျက်နှာ", "url": "/home"},
+                {"text": "အကြောင်းအရာ", "url": "#about"},
+                {"text": "အမျိုးအစားများ", "url": "#categories"},
+                {"text": "ဆက်သွယ်ရန်", "url": "#contact"}
+            ]
+        },
+        "hero": {
+            "title": "မင်္ဂလာပါ၊ TC-Myaing မှ ကြိုဆိုပါတယ်",
+            "subtitle": "ဗဟုသုတနဲ့ သတင်းအချက်အလက်များကို မျှဝေရာ",
+            "button": {
+                "text": "ပိုမိုဖတ်ရှုရန်",
+                "url": "/home"
+            }
+        },
+        "about": {
+            "title": "ကျွန်ုပ်အကြောင်း",
+            "text": "ကျွန်ုပ်သည် Tin Naing Oo ဖြစ်ပြီး နည်းပညာနှင့် ဗဟုသုတများကို မျှဝေရန် ဤ blog ကို ဖန်တီးထားပါသည်။",
+            "skills": [
+                "စာစီစာရိုက်နှင့်ပုံနှိပ်",
+                "ဂရပ်ဖစ်ဒီဇိုင်းရေရေးဆွဲခြင်း",
+                "နည်းပညာနှင့်သက်ဆိုင်သည့် အချို့သောဝန်ဆောင်မှုများ"
+            ],
+            "socialLinks": [
+                {"platform": "facebook", "url": "https://www.facebook.com/tc.myaing", "icon": "fab fa-facebook-f"},
+                {"platform": "youtube", "url": "https://www.youtube.com/@tcmyaing", "icon": "fab fa-youtube"},
+                {"platform": "telegram", "url": "https://t.me/tcmyaing", "icon": "fab fa-telegram-plane"}
+            ]
+        },
+        "categories": {
+            "title": "အမျိုးအစားများ",
+            "items": [
+                {
+                    "title": "နည်းပညာ",
+                    "description": "နောက်ဆုံးပေါ် နည်းပညာသတင်းများ",
+                    "icon": "images/tech-icon.png",
+                    "url": "/home/category/Technology.html"
+                },
+                {
+                    "title": "ကွန်ပျူတာ",
+                    "description": "ကွန်ပျူတာနှင့်သက်ဆိုင်သော အကြောင်းအရာများနှင့် Software, Driver များ
+                    "icon": "images/knowledge-icon.png",
+                    "url": "/home/category/Computer.html"
+                },
+                {
+                    "title": "Phone",
+                    "description": "Phone နှင့်သက်ဆိုင်သော နည်းပညာများနှင့် Application များ",
+                    "icon": "images/life-icon.png",
+                    "url": "/home/category/Phone.html"
+                }
+            ]
+        },
+        "contact": {
+            "title": "ဆက်သွယ်ရန်",
+            "text": "ကျွန်ုပ်ထံ ဆက်သွယ်လိုပါက အောက်ပါ လင့်များမှ တဆင့် ဆက်သွယ်နိုင်ပါသည်။",
+            "links": [
+                {"platform": "facebook", "url": "https://www.facebook.com/tc.myaing", "icon": "fab fa-facebook-f"},
+                {"platform": "youtube", "url": "https://www.youtube.com/@tcmyaing", "icon": "fab fa-youtube"},
+                {"platform": "telegram", "url": "https://t.me/tcmyaing", "icon": "fab fa-telegram-plane"},
+                {"platform": "email", "url": "mailto:tcmyaing8@gmail.com", "icon": "fas fa-envelope"}
+            ]
+        },
+        "footer": {
+            "text": "© 2025 TC-Myaing | Design by Tin naing Oo."
+        }
+    }
+}
