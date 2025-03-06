@@ -965,6 +965,9 @@ nav ul li a:hover {
     background-color: var(--secondary-color);
     color: var(--text-light);
 }
+.contact-link.facebook:hover {
+    background-color: var(--facebook-color);
+}
 
 .contact-link.youtube:hover {
     background-color: var(--youtube-color);
