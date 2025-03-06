@@ -474,6 +474,7 @@ ul#latestPostsList {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding-left:0px;
 }
 .categories li {
     margin-bottom: 20px;
