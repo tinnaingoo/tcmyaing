@@ -28,8 +28,12 @@
     --overlay-dark: rgba(0, 0, 0, 0.7);
     --overlay-semi: rgba(0, 0, 0, 0.5);
 
-    /* Social Media Colors */
+     /* Social Media Colors */
+    --facebook-color: #3b5998;
+    --youtube-color: #ff0000;
     --telegram-color: #0088cc;
+    --youtube-hover: #cc0000;
+    --email-hover: #555;
 
     /* Typography */
     --font-primary: "Padauk", serif;
