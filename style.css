@@ -16,6 +16,13 @@
     --shadow-light: rgba(0, 0, 0, 0.1);
     --shadow-medium: rgba(0, 0, 0, 0.2);
 
+     /* Social Media Colors */
+    --facebook-color: #3b5998;
+    --youtube-color: #ff0000;
+    --telegram-color: #0088cc;
+    --youtube-hover: #cc0000;
+    --email-hover: #555;
+
     /* Typography */
     --font-primary: "Padauk", serif;
     --font-secondary: "Noto Sans Myanmar", serif;
