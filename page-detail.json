@@ -5,7 +5,7 @@
         "language": "my",
         "header": {
             "logo": {
-                "src": "images/logo-white.png",
+                "src": "/images/logo-white.png",
                 "alt": "TC-Myaing Logo"
             },
             "nav": [
