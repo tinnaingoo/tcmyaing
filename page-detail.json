@@ -10,9 +10,9 @@
             },
             "nav": [
                 {"text": "ပင်မစာမျက်နှာ", "url": "/home"},
-                {"text": "အကြောင်းအရာ", "url": "#about"},
-                {"text": "အမျိုးအစားများ", "url": "#categories"},
-                {"text": "ဆက်သွယ်ရန်", "url": "#contact"}
+                {"text": "အကြောင်းအရာ", "url": "/#about"},
+                {"text": "အမျိုးအစားများ", "url": "/#categories"},
+                {"text": "ဆက်သွယ်ရန်", "url": "/#contact"}
             ]
         },
         "hero": {
