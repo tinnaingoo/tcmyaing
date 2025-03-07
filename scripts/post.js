@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector("footer p").textContent = page.footer.text;
 
             // Title of the page
-            document.title = page.title;
+            //document.title = page.title;
 
             // Check for <img id="post-img"> in <div class="post-text">
             const postText = document.querySelector(".post-text");
