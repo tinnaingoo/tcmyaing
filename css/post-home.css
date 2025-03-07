@@ -909,8 +909,8 @@ section.post-content {
 }
 
 .slider {
-    position: relative;
     max-width: 800px;
+    width:100%;
     margin: 0 auto;
     overflow: hidden;
     border-radius: var(--border-radius-large);
