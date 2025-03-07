@@ -98,6 +98,7 @@ header {
     padding: var(--spacing-small) 0;
     z-index: 1000;
     box-shadow: 0 4px 15px var(--shadow-medium);
+    font-family: var(--font-primary);
 }
 
 header .header-box h1 {
@@ -105,7 +106,7 @@ header .header-box h1 {
     text-align: center;
     padding: 0;
     margin: 0;
-    font-family: var(--font-primary);
+    font-family: var(--font-secondary);
 }
 
 .logo {
@@ -360,6 +361,7 @@ nav ul li a:hover {
     justify-content: space-between;
     width: var(--container-width);
     max-width: var(--container-max-width);
+    font-family: var(--font-primary);
     margin: 0 auto;
     padding-top: 80px;
 }
@@ -543,7 +545,7 @@ ul#latestPostsList {
 .categories a {
     text-decoration: none;
     color: var(--text-light);
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     background: var(--secondary-color);
     padding: 3px var(--spacing-small);
     border-radius: 10px;
@@ -572,7 +574,7 @@ ul#latestPostsList {
     color: var(--text-muted);
     max-width: 600px;
     margin: 0 auto;
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
 }
 
 /* Container */
@@ -615,6 +617,7 @@ section.post-content {
     font-size: var(--font-size-meta);
     color: var(--text-meta);
     margin-bottom: var(--spacing-medium);
+    font-family: var(--font-primary);
 }
 
 .post-image img {
@@ -640,6 +643,7 @@ section.post-content {
 
 .post-text p {
     text-align: justify;
+    font-family: var(--font-primary);
 }
 
 .post-text img {
