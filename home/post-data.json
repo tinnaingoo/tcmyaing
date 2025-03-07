@@ -1,6 +1,20 @@
 [
        
     {
+        "Category": ["Technology Sharing", "AI"],
+        "title": "အခမဲ့နဲ့ အသုံးပြုရအဆင်ပြေတဲ့ AI တွေအကြောင်း",
+        "Description": "ဒီနေ့ခေတ်မှာ နည်းပညာက တစ်နေ့တစ်ခြား တိုးတက်လာနေပြီး အဲဒီထဲမှာ အထူးခြားဆုံးတစ်ခုကတော့ Artificial Intelligence (AI) လို့ခေါ်တဲ့ ဉာဏ်ရည်တု နည်းပညာပါပဲ။ AI ဆိုတာဘာလဲ၊ ဘာတွေလုပ်လို့ရလဲ၊ ဘယ်လိုအခမဲ့ AI တွေကို သုံးလို့ရလဲဆိုတ...",
+        "ImageUrl": "https://i.pinimg.com/1200x/16/af/2d/16af2da293626bde74db2371cad76430.jpg",
+        "ImageCaption": "Learning Windows Boot",
+        "Author": "tinnaingoo",
+        "Date": "March 7, 2025",
+        "PostUrl": "home/technology-sharing/free-ai",
+        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
+        "NextPost-Url": "home/technology-sharing/what-is-computer",
+        "PrePost-Title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
+        "PrePost-Url": "home/technology-sharing/what-different-32bit-and-64bit"
+    },
+       {
         "Category": ["Technology Sharing", "Computer"],
         "title": "Printer တွေအကြောင်း",
         "Description": "ဒီနေ့ Printer တွေအကြောင်းကို အစကနေ အဆုံးထိ ပြောပြပေးချင်ပါတယ်။ သူတို့ ဘယ်လိုစတင်ခဲ့လဲ၊ ဘယ်လိုတိုးတက်လာခဲ့လဲ၊ အထူးသဖြင့် လူသုံးအများဆုံး Inkjet နဲ့ Laser Printer တွေရဲ့ ပုံစံရော အလုပ်လုပ်ပုံရော အသေးစိတ်ထိ  ...",
