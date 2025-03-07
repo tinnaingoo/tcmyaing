@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector("footer p").textContent = page.footer.text;
 
             // Title of the page
-            document.title = page.title;
+           // document.title = page.title;
 
             // အခြား section တွေအတွက် ဒေတာမပါတဲ့အတွက် လောလောဆယ် ထည့်မထားပါ
             // ဥပမာ hero, categories, about စတဲ့ section တွေကို JSON ထဲမှာ အသုံးမပြုထားပုံရပါတယ်
