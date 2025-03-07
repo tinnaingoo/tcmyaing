@@ -35,16 +35,16 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector(".about-text p").textContent = page.about.text;
 
             // Categories Widget (Aside)
-            const categoriesList = document.querySelector("#categoriesList");
-            categoriesList.innerHTML = "";
-            page.categories.items.forEach(category => {
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = category.url;
-                a.textContent = category.title;
-                li.appendChild(a);
-                categoriesList.appendChild(li);
-            });
+            //const categoriesList = document.querySelector("#categoriesList");
+            //categoriesList.innerHTML = "";
+            //page.categories.items.forEach(category => {
+                //const li = document.createElement("li");
+                //const a = document.createElement("a");
+                //a.href = category.url;
+                //a.textContent = category.title;
+                //li.appendChild(a);
+                //categoriesList.appendChild(li);
+            //});
 
             // Contact Section
             document.querySelector(".contact-section h2").textContent = page.contact.title;
