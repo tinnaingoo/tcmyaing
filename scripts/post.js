@@ -28,29 +28,23 @@ document.addEventListener("DOMContentLoaded", function () {
             // Post Meta (Author ကို admin ကနေ ဆွဲထည့်ခြင်း)
             const postMeta = document.querySelector(".post-meta");
             const authorLink = postMeta.querySelector("a");
-            authorLink.textContent = page.admin; // JSON က "admin" ကို ထည့်သွင်းခြင်း
+            authorLink.textContent = page.admin;
 
             // About Section
-            document.querySelector("#about h2").textContent = page.about.title;
+            document.querySelector(".about h2").textContent = page.about.title;
             document.querySelector(".about-text p").textContent = page.about.text;
-            const skillsList = document.querySelector(".about-skills ul");
-            skillsList.innerHTML = "";
-            page.about.skills.forEach(skill => {
+
+            // Categories Widget (Aside)
+            const categoriesList = document.querySelector("#categoriesList");
+            categoriesList.innerHTML = "";
+            page.categories.items.forEach(category => {
                 const li = document.createElement("li");
-                li.textContent = skill;
-                skillsList.appendChild(li);
-            });
-            const socialLinks = document.querySelector(".social-links");
-            socialLinks.innerHTML = "";
-            page.about.socialLinks.forEach(link => {
                 const a = document.createElement("a");
-                a.href = link.url;
-                a.target = "_blank";
-                a.classList.add("social-link");
-                a.innerHTML = `<i class="${link.icon}"></i>`;
-                socialLinks.appendChild(a);
+                a.href = category.url;
+                a.textContent = category.title;
+                li.appendChild(a);
+                categoriesList.appendChild(li);
             });
-            
 
             // Contact Section
             document.querySelector(".contact-section h2").textContent = page.contact.title;
@@ -72,7 +66,32 @@ document.addEventListener("DOMContentLoaded", function () {
             // Footer
             document.querySelector("footer p").textContent = page.footer.text;
 
-            
+            // Title of the page
+            document.title = page.title;
+
+            // Check for <img id="post-img"> in <div class="post-text">
+            const postText = document.querySelector(".post-text");
+            const hasPostImg = postText.querySelector("#post-img") !== null;
+
+            // Get the modal element
+            const modal = document.querySelector("#myModal");
+
+            // Check if image-popup-modal.js script already exists
+            let popupScript = document.querySelector('script[src="/scripts/image-popup-modal.js"]');
+
+            if (hasPostImg) {
+                // If <img id="post-img"> exists and script isn't added yet, add it
+                if (!popupScript) {
+                    popupScript = document.createElement("script");
+                    popupScript.src = "/scripts/image-popup-modal.js";
+                    modal.insertAdjacentElement("afterend", popupScript);
+                }
+            } else {
+                // If <img id="post-img"> doesn't exist and script exists, remove it
+                if (popupScript) {
+                    popupScript.remove();
+                }
+            }
         })
         .catch(error => {
             console.error('Error fetching JSON:', error);
