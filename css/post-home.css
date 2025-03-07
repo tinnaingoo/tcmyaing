@@ -891,12 +891,20 @@ section.post-content {
     background-color: var(--youtube-hover);
 }
 
-/* Slider Styles */
+/* ===== 7. Slider Styles ===== */
+.videos {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    background: #f4f4f4;
+}
+
 .slider {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
     overflow: hidden;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
 .slides {
@@ -905,41 +913,64 @@ section.post-content {
 }
 
 .slide {
-    display: none;
-    width: 100%;
+    min-width: 100%;
+    position: relative;
     text-decoration: none;
     color: inherit;
+    display: block;
 }
 
 .slide img {
     width: 100%;
-    height: auto;
-    border-radius: var(--border-radius-small);
+    display: block;
+    border-radius: var(--border-radius-large);
 }
 
-.caption {
-    text-align: center;
-    padding: var(--spacing-small);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: var(--text-light);
+.slide .caption {
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
+    background: var(--overlay-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: var(--spacing-small);
+    font-size: var(--font-size-caption);
+    border-bottom-left-radius: var(--border-radius-large);
+    border-bottom-right-radius: var(--border-radius-large);
 }
 
 .prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background: var(--overlay-semi);
     color: var(--text-light);
     border: none;
     padding: var(--spacing-small);
     cursor: pointer;
+    font-size: var(--font-size-subtitle);
+    border-radius: var(--border-radius-circle);
+    transition: background var(--transition-fast);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.prev { left: var(--spacing-small); }
-.next { right: var(--spacing-small); }
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: var(--spacing-small);
+}
+
+.next {
+    right: var(--spacing-small);
+}
+
 
 /* Contact Section */
 .contact-section {
