@@ -56,8 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Footer
             document.querySelector("footer p").textContent = page.footer.text;
 
-            // Title of the page
-            document.title = page.title;
+            
         })
         .catch(error => {
             console.error('Error fetching JSON:', error);
