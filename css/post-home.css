@@ -932,7 +932,7 @@ section.post-content {
     left: 0;
     width: 100%;
     background: var(--overlay-dark);
-    color: var(--text-light);
+    color: var(--text-dark);
     text-align: center;
     padding: var(--spacing-small);
     font-size: var(--font-size-caption);
