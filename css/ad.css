@@ -5,14 +5,10 @@
 }
 
 .ad-728x90 {
-  display: none;
-}
-
-.ad-300x250 {
-  width: 300px;
-  height: 250px;
+  width: 728px;
+  height: 90px;
   background-color: #FFF;
-  border: 1px solid #bbb;
+  border: 1px solid #ccc;
   display: flex;
   justify-content: center;
     flex-direction: column;
@@ -21,10 +17,14 @@
   font-size: 16px;
   color: #333;
   text-align: center;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, -0.81);
+  margin-bottom: 20px; /* ကြော်ငြာတစ်ခုနဲ့တစ်ခုကြား နေရာချန် */
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, -0.81);
+}
+
+.ad-300x250 {
+    display: none;
 }
 
 .ad-160x600 {
@@ -111,11 +111,12 @@
         display: none;
     }
 
-    .ad-728x90 {
-  width: 728px;
-  height: 90px;
+    
+    .ad-300x250 {
+  width: 300px;
+  height: 250px;
   background-color: #FFF;
-  border: 1px solid #ccc;
+  border: 1px solid #bbb;
   display: flex;
   justify-content: center;
     flex-direction: column;
@@ -124,10 +125,10 @@
   font-size: 16px;
   color: #333;
   text-align: center;
-  margin-bottom: 20px; /* ကြော်ငြာတစ်ခုနဲ့တစ်ခုကြား နေရာချန် */
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, -0.81);
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, -0.81);
 }
     
     .widget-ad {
