@@ -917,6 +917,15 @@ section.post-content {
     box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
+.slider-box {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 4px 8px var(--shadow-medium);
+}
+
 .slides {
     display: flex;
     transition: transform var(--transition-slow);
