@@ -31,9 +31,25 @@ document.addEventListener("DOMContentLoaded", function () {
             authorLink.textContent = page.admin; // JSON က "admin" ကို ထည့်သွင်းခြင်း
 
             // About Section
-            document.querySelector(".about-section h2").textContent = page.about.title;
-            document.querySelector(".about-section p").textContent = page.about.text;
-
+            document.querySelector("#about h2").textContent = page.about.title;
+            document.querySelector(".about-text p").textContent = page.about.text;
+            const skillsList = document.querySelector(".about-skills ul");
+            skillsList.innerHTML = "";
+            page.about.skills.forEach(skill => {
+                const li = document.createElement("li");
+                li.textContent = skill;
+                skillsList.appendChild(li);
+            });
+            const socialLinks = document.querySelector(".social-links");
+            socialLinks.innerHTML = "";
+            page.about.socialLinks.forEach(link => {
+                const a = document.createElement("a");
+                a.href = link.url;
+                a.target = "_blank";
+                a.classList.add("social-link");
+                a.innerHTML = `<i class="${link.icon}"></i>`;
+                socialLinks.appendChild(a);
+            });
             
 
             // Contact Section
