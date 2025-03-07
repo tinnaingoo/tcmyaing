@@ -25,6 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 navMenu.appendChild(li);
             });
 
+            // Post Meta (Author ကို admin ကနေ ဆွဲထည့်ခြင်း)
+            const postMeta = document.querySelector(".post-meta");
+            const authorLink = postMeta.querySelector("a");
+            authorLink.textContent = page.admin; // JSON က "admin" ကို ထည့်သွင်းခြင်း
+
             // About Section
             document.querySelector(".about-section h2").textContent = page.about.title;
             document.querySelector(".about-section p").textContent = page.about.text;
