@@ -5,18 +5,28 @@
     --primary-gradient-end: #004d99;
     --primary-color: #0073e6;
     --primary-hover: #005bb5;
-    --secondary-color: #007bff;
+    --secondary-color: #3498db;
+    --secondary-hover: #2980b9;
     --text-dark: #333;
     --text-light: #fff;
-    --text-muted: #666;
+    --text-muted: #555;
     --text-meta: #777;
+    --text-placeholder: #999;
+    --bg-body: #F8F8F8;
     --bg-light: #f9f9f9;
     --bg-footer: #111184;
-    --bg-modal: rgba(0, 0, 0, 0.8);
+    --bg-card: #fff;
     --shadow-light: rgba(0, 0, 0, 0.1);
-    --shadow-medium: rgba(0, 0, 0, 0.3);
+    --shadow-medium: rgba(0, 0, 0, 0.2);
+    --shadow-dark: rgba(0, 0, 0, 0.3);
     --border-light: #ddd;
-    --border-medium: #eee;
+    --border-dotted: gray;
+    --category-color: #e67e22;
+    --youtube-color: #ff0000;
+    --youtube-hover: #cc0000;
+    --facebook-color: #3b5998;
+    --overlay-dark: rgba(0, 0, 0, 0.7);
+    --overlay-semi: rgba(0, 0, 0, 0.5);
 
      /* Social Media Colors */
     --facebook-color: #3b5998;
