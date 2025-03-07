@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TC-Myaing Post</title>
+    <title>TC-Myaing Home Page</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-    <link rel="stylesheet" href="/home/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/ad.css">
    
     <!-- For Burmese Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@100;200;300;400;500;600;700;800;900&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@100;200;300;400;500;600;700;800;900&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    
     
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -45,7 +47,6 @@
         <!-- Navigation Menu -->
         <nav style="top: 60px;" id="navMenu">
             <ul>
-                <li><a href="/">Home</a></li>
                 <li><a href="/#about">About</a></li>
                 <li><a href="/#contact">Contact</a></li>
             </ul>
@@ -53,32 +54,67 @@
     </div>
 </header>
     
-<section class="all-post">
-    <div class="container">
-        <!-- Loading Indicator -->
-        <div id="loadingIndicator" class="loadingIndicator" style="text-align: center; padding: 20px;">
-            <i class="fas fa-spinner fa-spin"></i> Loading...
+<div class="main-body">    
+    <section class="all-post">
+        <div class="container">
+            <!-- Loading Indicator -->
+            <div id="loadingIndicator" class="loadingIndicator" style="text-align: center; padding: 20px;">
+                <i class="fas fa-spinner fa-spin"></i> Loading...
+            </div>
+            <div class="post-content-grid" id="post-content-grid">
+                <!-- Posts will be dynamically inserted here -->
+            </div>
+            <div id="noResultsMessage" class="no-results-message" style="display: none;">
+                No results found.
+            </div>
         </div>
-        <div class="post-content-grid" id="post-content-grid">
-            <!-- Posts will be dynamically inserted here -->
-        </div>
-        <div id="noResultsMessage" class="no-results-message" style="display: none;">
-            No results found.
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="ad" class="ad">
+    <section class="aside">
+        <div class="container">
+            
+            <div class="widget-socials">
+                <h4 class="widget-title">Keep up with Us</h4>
+                <ul class="socials">
+                    <li>
+                        <a class="social-facebook" href="https://www.facebook.com/tbhlabs/" title="facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                            <span class="socials__text">Facebook</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-youtube" href="https://www.youtube.com/channel/UCP235oUhop0rvk7wuJTjx6A" title="youtube" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                            <span class="socials__text">YouTube</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+           <div class="widget-ad">
+                <div class="ad-160x600">
+                    <p><b>ဤနေရာမှာ ကြော်ငြာပါ။</b></p>
+                    <p>320x50</p>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+</div>
+    
+<section id="videos" class="videos">
     <div class="container">
-        <div class="ad-content">
-            <h2>Subscribe to My YouTube Channel</h2>
-            <p>Stay updated with the latest tech tutorials, software reviews, and more!</p>
-            <a href="https://www.youtube.com/@tcmyaing" target="_blank" class="btn">
-                <i class="fab fa-youtube"></i> Subscribe Now
-            </a>
+        <!-- Image Auto Slider -->
+        <div class="slider">
+            <div class="slides" id="videoSlides">
+                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+            </div>
+            <button class="prev" onclick="prevSlide()">❮</button>
+            <button class="next" onclick="nextSlide()">❯</button>
         </div>
     </div>
-</section>
+</section>  
 
 <section id="videos" class="videos">
     <div class="container">
@@ -106,27 +142,37 @@
 </section>    
 
        
-<section id="contact" class="contact">
+<section class="contact-section">
     <div class="container">
         <h2>Contact Me</h2>
-        <p>Feel free to reach out to me via email or social media.</p>
+        <p>Feel free to reach out to me via Telegram, Email, or follow my YouTube channel for updates!</p>
         <div class="contact-links">
-            <a href="https://www.youtube.com/@tcmyaing" target="_blank" class="contact-link">
+            <a href="https://www.facebook.com/tc.myaing" target="_blank" class="contact-link facebook">
+                <i class="fab fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+            
+            <a href="https://www.youtube.com/@tcmyaing" target="_blank" class="contact-link youtube">
                 <i class="fab fa-youtube"></i>
                 <span>YouTube Channel</span>
             </a>
-            <a href="https://t.me/tcmyaing" target="_blank" class="contact-link">
+            <a href="https://t.me/tcmyaing" target="_blank" class="contact-link telegram">
                 <i class="fab fa-telegram"></i>
                 <span>Telegram Channel</span>
             </a>
-            <a href="mailto:tcmyaing@example.com" class="contact-link">
+            <a href="mailto:tcmyaing8@example.com" class="contact-link email">
                 <i class="fas fa-envelope"></i>
                 <span>Email Me</span>
             </a>
         </div>
     </div>
-</section>
+</section>>
 
+<!-- Back to Top Button -->
+    <button class="back-to-top" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
 
     <footer>
         <div class="container">
@@ -134,31 +180,14 @@
         </div>
     </footer>
 
-<script>
-    // Toggle Search Container on Mobile
-const sbutton = document.getElementById("sbutton");
-const searchContainer = document.querySelector(".search-container");
-const logo = document.querySelector(".logo");
-const searchInput = document.getElementById("searchInput");
 
-sbutton.addEventListener("click", function() {
-    searchContainer.classList.toggle("active");
-    logo.classList.toggle("hide");
-    sbutton.classList.toggle("active");
-
-    // Clear search input when closing the search container
-    if (!searchContainer.classList.contains("active")) {
-        searchInput.value = ""; // Clear the input field
-        filterPosts(); // Optionally, reset the filtered posts
-    }
-    
-});
-</script>
 <script src="/scripts/nav-toggle.js"></script>
 <script src="/scripts/image-auto-slider.js"></script>
 <script src="/scripts/fetch-and-display-posts.js"></script>
 <script src="/scripts/search-filtering.js"></script>        
-<script src="/scripts/category-filtering.js"></script>        
+<script src="/scripts/category-filtering.js"></script>
+<script src="/scripts/back-to-top.js"></script>        
+
 
 
 <!-- Invoke your consent functions when a user interacts with your banner -->
