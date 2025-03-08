@@ -107,8 +107,16 @@ header {
     color: var(--text-light);
     padding: var(--spacing-small) 0;
     z-index: 1000;
-    box-shadow: 0 4px 15px var(--shadow-medium);
-    font-family: var(--font-primary);
+    box-shadow: 0 4px 15px var(--shadow-dark);
+}
+
+.header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: var(--container-width);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
 }
 
 header .header-box h1 {
@@ -116,7 +124,7 @@ header .header-box h1 {
     text-align: center;
     padding: 0;
     margin: 0;
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
 }
 
 .logo {
@@ -187,7 +195,7 @@ nav ul li a:hover {
     }
 
     .logo img {
-        max-height: var(--spacing-xl);
+        max-height: 30px;
     }
 
     nav {
@@ -213,6 +221,8 @@ nav ul li a:hover {
         margin: var(--spacing-small) 0;
     }
 }
+
+
 
 /* ===== 13. Search Bar Styles ===== */
 .search {
