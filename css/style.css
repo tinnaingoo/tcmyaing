@@ -342,6 +342,54 @@ nav ul li a:hover {
     }
 }
 
+/* Subscribe Section */
+.subscribe-section {
+    background-color: var(--bg-light);
+    padding: var(--spacing-large) var(--spacing-medium);
+    text-align: center;
+    margin: var(--spacing-medium) 0;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+.subscribe-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.subscribe-section h2 {
+    font-size: var(--font-size-title);
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-small);
+}
+
+.subscribe-section p {
+    font-size: 1.1em;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-medium);
+}
+
+.subscribe-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: var(--youtube-color);
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: var(--border-radius-small);
+    transition: background-color var(--transition-fast);
+}
+
+.subscribe-btn i {
+    margin-right: 8px;
+}
+
+.subscribe-btn:hover {
+    background-color: var(--youtube-hover);
+}
+
+
 /* ===== 4. About Section ===== */
 .about {
     padding: var(--spacing-xl) 0;
