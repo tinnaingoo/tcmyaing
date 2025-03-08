@@ -907,7 +907,7 @@ section.post-content {
 .post-meta {
     font-size: var(--font-size-meta);
     color: var(--text-meta);
-    margin-bottom: var(--spacing-medium);
+    margin-bottom: 0px;
     font-family: var(--font-primary);
 }
 
