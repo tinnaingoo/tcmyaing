@@ -29,12 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector("#about h2").textContent = page.about.title;
             document.querySelector(".about-text p").textContent = page.about.text;
             const skillsList = document.querySelector(".about-skills ul");
-            skillsList.innerHTML = "";
-            page.about.skills.forEach(skill => {
-                const li = document.createElement("li");
-                li.textContent = skill;
-                skillsList.appendChild(li);
-            });
+            //skillsList.innerHTML = "";
+            //page.about.skills.forEach(skill => {
+              //  const li = document.createElement("li");
+              // li.textContent = skill;
+              //  skillsList.appendChild(li);
+            //});
             const socialLinks = document.querySelector(".social-links");
             socialLinks.innerHTML = "";
             page.about.socialLinks.forEach(link => {
