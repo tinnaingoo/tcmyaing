@@ -35,16 +35,16 @@ document.addEventListener("DOMContentLoaded", function () {
               // li.textContent = skill;
               //  skillsList.appendChild(li);
             //});
-            const socialLinks = document.querySelector(".social-links");
-            socialLinks.innerHTML = "";
-            page.about.socialLinks.forEach(link => {
-                const a = document.createElement("a");
-                a.href = link.url;
-                a.target = "_blank";
-                a.classList.add("social-link");
-                a.innerHTML = `<i class="${link.icon}"></i>`;
-                socialLinks.appendChild(a);
-            });
+            //const socialLinks = document.querySelector(".social-links");
+            //socialLinks.innerHTML = "";
+            //page.about.socialLinks.forEach(link => {
+              //  const a = document.createElement("a");
+              //  a.href = link.url;
+              //  a.target = "_blank";
+              //  a.classList.add("social-link");
+              //  a.innerHTML = `<i class="${link.icon}"></i>`;
+              //  socialLinks.appendChild(a);
+            //});
             
             // Contact Section
             document.querySelector(".contact-section h2").textContent = page.contact.title;
