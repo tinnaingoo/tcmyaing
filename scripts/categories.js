@@ -3,7 +3,6 @@ async function loadCategories() {
         const response = await fetch('/home/post-data.json');
         const postsData = await response.json();
 
-        // Category တစ်ခုချင်းစီရဲ့ အရေအတွက်ကို တွက်မယ်
         const categoryCounts = {};
         postsData.forEach(post => {
             post.Category.forEach(cat => {
@@ -11,13 +10,11 @@ async function loadCategories() {
             });
         });
 
-        // Unique categories တွေကို ဆွဲထုတ်မယ်
         const categories = Object.keys(categoryCounts);
         const categoriesList = document.getElementById('categoriesList');
 
         categories.forEach(category => {
             const li = document.createElement('li');
-            // URL Parameter နဲ့ Homepage ကို ညွှန်းမယ်
             li.innerHTML = `<a href="/home/category/?category=${encodeURIComponent(category)}">${category} (${categoryCounts[category]})</a>`;
             categoriesList.appendChild(li);
         });
