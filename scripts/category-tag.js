@@ -18,6 +18,9 @@ async function fetchAndDisplayPosts() {
     const categoryFromUrl = urlParams.get('category');
     currentFilter = categoryFromUrl || 'all'; // URL မှာ ရှိရင် အဲဒါကို သုံး၊ မရှိရင် 'all' သုံး
 
+    // URL က '/home/category/' နဲ့ စတင်နေလား စစ်မယ်
+    const isCategoryPage = window.location.pathname.startsWith('/home/category/');
+
     updateFilterStatus(currentFilter); // Filter Status ကို အပ်ဒိတ်လုပ်မယ်
 
     try {
@@ -35,7 +38,11 @@ async function fetchAndDisplayPosts() {
         filteredPosts.forEach(post => {
             const categories = post.Category.join(' ');
             const categoryDisplay = post.Category
-                .map(cat => `<span class="category-tag" data-category="${cat}">${cat}</span>`)
+                .map(cat => {
+                    // Active Category ကို မှတ်သားပြီး Class ထည့်မယ်
+                    const isActive = cat === currentFilter ? ' active-category' : '';
+                    return `<span class="category-tag${isActive}" data-category="${cat}">${cat}</span>`;
+                })
                 .join(', ');
 
             postHTML += `
@@ -60,7 +67,13 @@ async function fetchAndDisplayPosts() {
 
         // Category Tag တွေကို Click လုပ်ရင် Filter လုပ်ဖို့ Event Listener
         document.querySelectorAll('.category-tag').forEach(tag => {
-            tag.addEventListener('click', function () {
+            tag.addEventListener('click', function (e) {
+                // '/home/category/' မှာဆိုရင် Filter မလုပ်ဖို့ Prevent Default
+                if (isCategoryPage) {
+                    e.preventDefault();
+                    return; // Filter မလုပ်ဘူး
+                }
+
                 const selectedCategory = this.getAttribute('data-category');
                 if (currentFilter === selectedCategory) {
                     filterPostsByCategory('all');
@@ -77,7 +90,7 @@ async function fetchAndDisplayPosts() {
         console.error('Error fetching or displaying posts:', error.message);
         loadingIndicator.style.display = 'none';
         postGrid.innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
-        filterStatus.style.display = 'none'; // Error ဖြစ်ရင် Filter Status ဖျောက်မယ်
+        filterStatus.style.display = 'none';
     }
 }
 
