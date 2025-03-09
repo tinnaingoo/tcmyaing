@@ -1,4 +1,3 @@
-// /scripts/categories.js
 async function loadCategories() {
     try {
         const response = await fetch('/home/post-data.json');
@@ -18,7 +17,8 @@ async function loadCategories() {
 
         categories.forEach(category => {
             const li = document.createElement('li');
-            li.innerHTML = `<a href="/home/category/?${category.toLowerCase().replace(' ', '-')}">${category} (${categoryCounts[category]})</a>`;
+            // URL Parameter နဲ့ Homepage ကို ညွှန်းမယ်
+            li.innerHTML = `<a href="/home/category/?category=${encodeURIComponent(category)}">${category} (${categoryCounts[category]})</a>`;
             categoriesList.appendChild(li);
         });
     } catch (error) {
