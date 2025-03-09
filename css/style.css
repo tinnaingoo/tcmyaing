@@ -573,6 +573,19 @@ nav ul li a:hover {
     padding: var(--spacing-small);
 }
 
+#showAllLink {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-left: var(--spacing-small);
+    transition: color var(--transition-fast);
+}
+
+#showAllLink:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
 .filter {
     position: fixed;
     right: 0;
