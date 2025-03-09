@@ -10,6 +10,14 @@ async function fetchAndDisplayPosts() {
         return;
     }
 
+    // URL က '/home/category/' နဲ့ စတင်နေလား စစ်မယ်
+    const isCategoryPage = window.location.pathname.startsWith('/home/category/');
+    if (isCategoryPage && !window.location.search) {
+        // '/home/category/' ပဲရှိပြီး Parameter မပါရင် '/home' ကို Redirect
+        window.location.replace('/home');
+        return; // Redirect လုပ်ပြီးရင် နောက်ထပ် မလုပ်တော့ဘူး
+    }
+
     loadingIndicator.style.display = 'block';
     postGrid.innerHTML = '';
 
@@ -17,9 +25,6 @@ async function fetchAndDisplayPosts() {
     const urlParams = new URLSearchParams(window.location.search);
     const categoryFromUrl = urlParams.get('category');
     currentFilter = categoryFromUrl || 'all'; // URL မှာ ရှိရင် အဲဒါကို သုံး၊ မရှိရင် 'all' သုံး
-
-    // URL က '/home/category/' နဲ့ စတင်နေလား စစ်မယ်
-    const isCategoryPage = window.location.pathname.startsWith('/home/category/');
 
     updateFilterStatus(currentFilter); // Filter Status ကို အပ်ဒိတ်လုပ်မယ်
 
