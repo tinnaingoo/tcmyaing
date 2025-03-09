@@ -5,7 +5,6 @@ async function fetchAndDisplayPosts() {
     const postGrid = document.getElementById('post-content-grid');
     const filterStatus = document.getElementById('filterStatus');
 
-    // DOM ဒြပ်စင်တွေ ရှိမရှိ စစ်ဆေးခြင်း
     if (!loadingIndicator || !postGrid || !filterStatus) {
         console.error('Required DOM elements are missing.');
         return;
@@ -13,15 +12,24 @@ async function fetchAndDisplayPosts() {
 
     loadingIndicator.style.display = 'block';
     postGrid.innerHTML = '';
-    updateFilterStatus("Technology Sharing"); // မူရင်းမှာ Technology Sharing ပဲ ပြမယ်
+
+    // URL Parameter ကနေ Category ကို ဖတ်မယ်
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryFromUrl = urlParams.get('category');
+    currentFilter = categoryFromUrl || 'all'; // URL မှာ ရှိရင် အဲဒါကို သုံး၊ မရှိရင် 'all' သုံး
+
+    updateFilterStatus(currentFilter); // Filter Status ကို အပ်ဒိတ်လုပ်မယ်
 
     try {
         const response = await fetch('/home/post-data.json');
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const posts = await response.json();
 
-        // "Technology Sharing" Category ပါတဲ့ Post တွေကိုပဲ စစ်ထုတ်မယ်
-        const filteredPosts = posts.filter(post => post.Category.includes("Technology Sharing"));
+        // Default အနေနဲ့ Post အားလုံးကို ယူမယ်၊ URL Parameter ရှိရင် Filter လုပ်မယ်
+        let filteredPosts = posts;
+        if (categoryFromUrl && categoryFromUrl !== 'all') {
+            filteredPosts = posts.filter(post => post.Category.includes(categoryFromUrl));
+        }
 
         let postHTML = '';
         filteredPosts.forEach(post => {
@@ -56,12 +64,12 @@ async function fetchAndDisplayPosts() {
                 const selectedCategory = this.getAttribute('data-category');
                 if (currentFilter === selectedCategory) {
                     filterPostsByCategory('all');
-                    currentFilter = null;
-                    updateFilterStatus("Technology Sharing"); // Reset လုပ်ရင် Technology Sharing ပြန်ပြမယ်
+                    currentFilter = 'all'; // Reset လုပ်ရင် All ပြန်ပြမယ်
+                    updateFilterStatus(currentFilter);
                 } else {
                     filterPostsByCategory(selectedCategory);
                     currentFilter = selectedCategory;
-                    updateFilterStatus(selectedCategory); // Filter လုပ်တဲ့ Category ကို ပြမယ်
+                    updateFilterStatus(selectedCategory);
                 }
             });
         });
@@ -69,7 +77,7 @@ async function fetchAndDisplayPosts() {
         console.error('Error fetching or displaying posts:', error.message);
         loadingIndicator.style.display = 'none';
         postGrid.innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
-        filterStatus.innerHTML = ''; // Error ဖြစ်ရင် Filter Status ဖျောက်မယ်
+        filterStatus.innerHTML = '';
     }
 }
 
@@ -77,7 +85,7 @@ async function fetchAndDisplayPosts() {
 function updateFilterStatus(category) {
     const filterStatus = document.getElementById('filterStatus');
     if (category === 'all') {
-        filterStatus.innerHTML = `Showing posts in <strong>Technology Sharing</strong> category only.`;
+        filterStatus.innerHTML = `Showing <strong>all</strong> posts.`;
     } else {
         filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category.`;
     }
@@ -96,5 +104,4 @@ function filterPostsByCategory(category) {
     });
 }
 
-// စာမျက်နှာ ဖွင့်တာနဲ့ Post တွေကို ဆွဲပြမယ်
 document.addEventListener('DOMContentLoaded', fetchAndDisplayPosts);
