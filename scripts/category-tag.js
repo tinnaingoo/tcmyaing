@@ -18,9 +18,6 @@ async function fetchAndDisplayPosts() {
     const categoryFromUrl = urlParams.get('category');
     currentFilter = categoryFromUrl || 'all'; // URL မှာ ရှိရင် အဲဒါကို သုံး၊ မရှိရင် 'all' သုံး
 
-    // URL က '/home/category/' နဲ့ စတင်နေလား စစ်မယ်
-    const isCategoryPage = window.location.pathname.startsWith('/home/category/');
-
     updateFilterStatus(currentFilter); // Filter Status ကို အပ်ဒိတ်လုပ်မယ်
 
     try {
@@ -38,11 +35,7 @@ async function fetchAndDisplayPosts() {
         filteredPosts.forEach(post => {
             const categories = post.Category.join(' ');
             const categoryDisplay = post.Category
-                .map(cat => {
-                    // Active Category ကို မှတ်သားပြီး Class ထည့်မယ်
-                    const isActive = cat === currentFilter ? ' active-category' : '';
-                    return `<span class="category-tag${isActive}" data-category="${cat}">${cat}</span>`;
-                })
+                .map(cat => `<span class="category-tag" data-category="${cat}">${cat}</span>`)
                 .join(', ');
 
             postHTML += `
@@ -67,13 +60,7 @@ async function fetchAndDisplayPosts() {
 
         // Category Tag တွေကို Click လုပ်ရင် Filter လုပ်ဖို့ Event Listener
         document.querySelectorAll('.category-tag').forEach(tag => {
-            tag.addEventListener('click', function (e) {
-                // '/home/category/' မှာဆိုရင် Filter မလုပ်ဖို့ Prevent Default
-                if (isCategoryPage) {
-                    e.preventDefault();
-                    return; // Filter မလုပ်ဘူး
-                }
-
+            tag.addEventListener('click', function () {
                 const selectedCategory = this.getAttribute('data-category');
                 if (currentFilter === selectedCategory) {
                     filterPostsByCategory('all');
@@ -86,11 +73,24 @@ async function fetchAndDisplayPosts() {
                 }
             });
         });
+
+        // "Show All" Link ကို Click လုပ်ရင် Reset လုပ်ဖို့ Event Listener
+        const showAllLink = document.getElementById('showAllLink');
+        if (showAllLink) {
+            showAllLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                filterPostsByCategory('all');
+                currentFilter = 'all';
+                updateFilterStatus(currentFilter);
+                // URL ကို Parameter မပါအောင် အပ်ဒိတ်လုပ်မယ်
+                window.history.pushState({}, document.title, '/index.html');
+            });
+        }
     } catch (error) {
         console.error('Error fetching or displaying posts:', error.message);
         loadingIndicator.style.display = 'none';
         postGrid.innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
-        filterStatus.style.display = 'none';
+        filterStatus.style.display = 'none'; // Error ဖြစ်ရင် Filter Status ဖျောက်မယ်
     }
 }
 
@@ -101,7 +101,7 @@ function updateFilterStatus(category) {
         filterStatus.style.display = 'none'; // "all" ဖြစ်ရင် Filter Status ဖျောက်မယ်
     } else {
         filterStatus.style.display = 'block'; // Category တစ်ခုခု ရှိရင် ပြမယ်
-        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category.`;
+        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category. <a href="#" id="showAllLink">Show All</a>`;
     }
 }
 
