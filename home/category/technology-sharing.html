@@ -54,18 +54,20 @@
     
 <div class="main-body">    
     <section class="all-post">
-        <div class="container">
-            <!-- Loading Indicator -->
-            <div id="loadingIndicator" class="loadingIndicator" style="text-align: center; padding: 20px;">
-                <i class="fas fa-spinner fa-spin"></i> Loading...
-            </div>
-            <div class="post-content-grid" id="post-content-grid">
-                <!-- Posts will be dynamically inserted here -->
-            </div>
-            <div id="noResultsMessage" class="no-results-message" style="display: none;">
-                No results found.
-            </div>
+    <div class="container">
+        <!-- Filter Status ပြဖို့ -->
+        <div id="filterStatus" class="filter-status" style="text-align: center; padding: 10px; color: var(--text-muted);"></div>
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loadingIndicator" style="text-align: center; padding: 20px;">
+            <i class="fas fa-spinner fa-spin"></i> Loading...
         </div>
+        <div class="post-content-grid" id="post-content-grid">
+            <!-- Posts will be dynamically inserted here -->
+        </div>
+        <div id="noResultsMessage" class="no-results-message" style="display: none;">
+            No results found.
+        </div>
+    </div>
     </section>
 
     <section class="aside">
