@@ -83,7 +83,7 @@ async function fetchAndDisplayPosts() {
                 currentFilter = 'all';
                 updateFilterStatus(currentFilter);
                 // URL ကို Parameter မပါအောင် အပ်ဒိတ်လုပ်မယ်
-                window.history.pushState({}, document.title, '/index.html');
+                window.history.pushState({}, document.title, '/home/');
             });
         }
     } catch (error) {
