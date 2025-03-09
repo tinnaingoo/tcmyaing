@@ -77,7 +77,7 @@ async function fetchAndDisplayPosts() {
         console.error('Error fetching or displaying posts:', error.message);
         loadingIndicator.style.display = 'none';
         postGrid.innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
-        filterStatus.innerHTML = '';
+        filterStatus.style.display = 'none'; // Error ဖြစ်ရင် Filter Status ဖျောက်မယ်
     }
 }
 
@@ -85,8 +85,9 @@ async function fetchAndDisplayPosts() {
 function updateFilterStatus(category) {
     const filterStatus = document.getElementById('filterStatus');
     if (category === 'all') {
-        filterStatus.innerHTML = `Showing <strong>all</strong> posts.`;
+        filterStatus.style.display = 'none'; // "all" ဖြစ်ရင် Filter Status ဖျောက်မယ်
     } else {
+        filterStatus.style.display = 'block'; // Category တစ်ခုခု ရှိရင် ပြမယ်
         filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category.`;
     }
 }
