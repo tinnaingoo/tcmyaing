@@ -554,6 +554,14 @@ nav ul li a:hover {
     margin-bottom: var(--spacing-small);
 }
 
+.filter-status {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-small);
+    background: var(--bg-light);
+    border-radius: var(--border-radius-small);
+    padding: var(--spacing-small);
+}
+
 .filter {
     position: fixed;
     right: 0;
