@@ -3,14 +3,17 @@ let currentFilter = null;
 async function fetchAndDisplayPosts() {
     const loadingIndicator = document.getElementById('loadingIndicator');
     const postGrid = document.getElementById('post-content-grid');
+    const filterStatus = document.getElementById('filterStatus');
 
-    if (!loadingIndicator || !postGrid) {
+    // DOM ဒြပ်စင်တွေ ရှိမရှိ စစ်ဆေးခြင်း
+    if (!loadingIndicator || !postGrid || !filterStatus) {
         console.error('Required DOM elements are missing.');
         return;
     }
 
     loadingIndicator.style.display = 'block';
     postGrid.innerHTML = '';
+    updateFilterStatus("Technology Sharing"); // မူရင်းမှာ Technology Sharing ပဲ ပြမယ်
 
     try {
         const response = await fetch('/home/post-data.json');
@@ -22,10 +25,10 @@ async function fetchAndDisplayPosts() {
 
         let postHTML = '';
         filteredPosts.forEach(post => {
-            const categories = post.Category.join(' '); // Space-separated string for data-category
+            const categories = post.Category.join(' ');
             const categoryDisplay = post.Category
                 .map(cat => `<span class="category-tag" data-category="${cat}">${cat}</span>`)
-                .join(', '); // Comma-separated with span tags
+                .join(', ');
 
             postHTML += `
                 <div class="post-card" data-category="${categories}">
@@ -54,9 +57,11 @@ async function fetchAndDisplayPosts() {
                 if (currentFilter === selectedCategory) {
                     filterPostsByCategory('all');
                     currentFilter = null;
+                    updateFilterStatus("Technology Sharing"); // Reset လုပ်ရင် Technology Sharing ပြန်ပြမယ်
                 } else {
                     filterPostsByCategory(selectedCategory);
                     currentFilter = selectedCategory;
+                    updateFilterStatus(selectedCategory); // Filter လုပ်တဲ့ Category ကို ပြမယ်
                 }
             });
         });
@@ -64,13 +69,21 @@ async function fetchAndDisplayPosts() {
         console.error('Error fetching or displaying posts:', error.message);
         loadingIndicator.style.display = 'none';
         postGrid.innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
+        filterStatus.innerHTML = ''; // Error ဖြစ်ရင် Filter Status ဖျောက်မယ်
     }
 }
 
-// စာမျက်နှာ ဖွင့်တာနဲ့ Post တွေကို ဆွဲပြမယ်
-document.addEventListener('DOMContentLoaded', fetchAndDisplayPosts);
+// Filter Status ကို အပ်ဒိတ်လုပ်မယ့် Function
+function updateFilterStatus(category) {
+    const filterStatus = document.getElementById('filterStatus');
+    if (category === 'all') {
+        filterStatus.innerHTML = `Showing posts in <strong>Technology Sharing</strong> category only.`;
+    } else {
+        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category.`;
+    }
+}
 
-// Filter Posts လုပ်ဖို့ Function (Optional အနေနဲ့ ထည့်ထားတယ်)
+// Filter Posts လုပ်မယ့် Function
 function filterPostsByCategory(category) {
     const posts = document.querySelectorAll('.post-card');
     posts.forEach(post => {
@@ -82,3 +95,6 @@ function filterPostsByCategory(category) {
         }
     });
 }
+
+// စာမျက်နှာ ဖွင့်တာနဲ့ Post တွေကို ဆွဲပြမယ်
+document.addEventListener('DOMContentLoaded', fetchAndDisplayPosts);
