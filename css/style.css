@@ -538,11 +538,22 @@ nav ul li a:hover {
     font-size: 1em;
     color: var(--secondary-color);
     cursor: pointer;
+    transition: color var(--transition-fast);
 }
 
+
+
 .category-tag:hover {
-    background-color: #b3e5fc;
+    color: var(--primary-hover);
 }
+
+.active-category {
+    font-weight: bold;
+    color: var(--primary-hover); /* သို့မဟုတ် မင်းလိုချင်တဲ့ အရောင် */
+    text-decoration: underline; /* သို့မဟုတ် မင်းလိုချင်တဲ့ Style */
+}
+
+
 
 .category-tag.highlighted {
     background-color: #0288d1;
