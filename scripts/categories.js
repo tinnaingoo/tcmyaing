@@ -18,7 +18,7 @@ async function loadCategories() {
 
         categories.forEach(category => {
             const li = document.createElement('li');
-            li.innerHTML = `<a href="/home/category/?${category.toLowerCase().replace(' ', '-')}.html">${category} (${categoryCounts[category]})</a>`;
+            li.innerHTML = `<a href="/home/category/?${category.toLowerCase().replace(' ', '-')}">${category} (${categoryCounts[category]})</a>`;
             categoriesList.appendChild(li);
         });
     } catch (error) {
