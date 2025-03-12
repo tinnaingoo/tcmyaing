@@ -54,18 +54,20 @@
     
 <div class="main-body">    
     <section class="all-post">
-        <div class="container">
-            <!-- Loading Indicator -->
-            <div id="loadingIndicator" class="loadingIndicator" style="text-align: center; padding: 20px;">
-                <i class="fas fa-spinner fa-spin"></i> Loading...
-            </div>
-            <div class="post-content-grid" id="post-content-grid">
-                <!-- Posts will be dynamically inserted here -->
-            </div>
-            <div id="noResultsMessage" class="no-results-message" style="display: none;">
-                No results found.
-            </div>
+    <div class="container">
+        <!-- Filter Status ပြဖို့ -->
+        <div id="filterStatus" class="filter-status" style="text-align: center; padding: 10px; color: var(--text-muted);"></div>
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loadingIndicator" style="text-align: center; padding: 20px;">
+            <i class="fas fa-spinner fa-spin"></i> Loading...
         </div>
+        <div class="post-content-grid" id="post-content-grid">
+            <!-- Posts will be dynamically inserted here -->
+        </div>
+        <div id="noResultsMessage" class="no-results-message" style="display: none;">
+            No results found.
+        </div>
+    </div>
     </section>
 
     <section class="aside">
@@ -186,11 +188,12 @@
     </div>
 </footer>
     
+<script src="/scripts/category-tag.js"></script>
+
 <!-- JavaScript ဖိုင်များ -->
 <script src="/scripts/nav-toggle.js"></script>
 <script src="/scripts/categories.js"></script>
 <script src="/scripts/image-auto-slider.js"></script>
-<script src="/scripts/fetch-and-display-posts.js"></script>
 <script src="/scripts/search-filtering.js"></script>        
 <script src="/scripts/category-filtering.js"></script>
 <script src="/scripts/back-to-top.js"></script>
