@@ -87,7 +87,7 @@ async function fetchAndDisplayPosts() {
                 filterPostsByCategory('all');
                 currentFilter = 'all';
                 updateFilterStatus(currentFilter);
-                window.history.pushState({}, document.title, '/home/');
+                window.history.pushState({}, document.title, '/home');
             });
         }
     } catch (error) {
@@ -106,7 +106,7 @@ function updateFilterStatus(category) {
         filterStatus.style.display = 'none'; // "all" ဖြစ်ရင် Filter Status ဖျောက်မယ်
     } else {
         filterStatus.style.display = 'block'; // Category တစ်ခုခု ရှိရင် ပြမယ်
-        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category. <a href="#" id="showAllLink">Show All</a>`;
+        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category. <a href="/home" id="showAllLink">Show All</a>`;
     }
 }
 
