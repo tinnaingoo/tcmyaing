@@ -64,6 +64,9 @@ async function fetchAndDisplayPosts() {
                 const selectedCategory = this.getAttribute('data-category');
                 if (currentFilter === selectedCategory) {
                     filterPostsByCategory('all');
+                    // URL ကို Parameter မပါအောင် အပ်ဒိတ်လုပ်မယ်
+                    window.history.pushState({}, document.title, '/home/');
+                    
                     currentFilter = 'all'; // Reset လုပ်ရင် All ပြန်ပြမယ်
                     updateFilterStatus(currentFilter);
                 } else {
