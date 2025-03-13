@@ -62,19 +62,22 @@ async function fetchAndDisplayPosts() {
         // Initial Filter ကိစ္စကို စီမံမယ်
         filterPostsByCategory(currentFilter);
 
-        // Category Tag တွေကို Click လုပ်ရင် Filter လုပ်ဖို့ Event Listener
+        // Category Tag တွေကို Click လုပ်ရင် Filter လုပ်ပြီး URL ပြောင်းမယ်
         document.querySelectorAll('.category-tag').forEach(tag => {
             tag.addEventListener('click', function () {
                 const selectedCategory = this.getAttribute('data-category');
                 if (currentFilter === selectedCategory) {
+                    // ထပ် Click ရင် All ပြန်ပြပြီး URL ကို Reset လုပ်မယ်
                     filterPostsByCategory('all');
                     currentFilter = 'all';
                     updateFilterStatus(currentFilter);
                     window.history.pushState({}, document.title, '/home');
                 } else {
+                    // Category အသစ်ရွေးရင် Filter လုပ်ပြီး URL ကို ပြောင်းမယ်
                     filterPostsByCategory(selectedCategory);
                     currentFilter = selectedCategory;
-                    updateFilterStatus(selectedCategory);
+                    updateFilterStatus(currentFilter);
+                    window.history.pushState({}, document.title, `/home/?category=${encodeURIComponent(selectedCategory)}`);
                 }
             });
         });
@@ -106,7 +109,7 @@ function updateFilterStatus(category) {
         filterStatus.style.display = 'none'; // "all" ဖြစ်ရင် Filter Status ဖျောက်မယ်
     } else {
         filterStatus.style.display = 'block'; // Category တစ်ခုခု ရှိရင် ပြမယ်
-        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category. <a href="/home" id="showAllLink">Show All</a>`;
+        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category. <a href="#" id="showAllLink">Show All</a>`;
     }
 }
 
