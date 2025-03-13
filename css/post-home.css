@@ -702,6 +702,7 @@ section.post-content {
     color: var(--text-dark);
     line-height: 1.6;
     font-family: var(--font-primary);
+    width:100%;
 }
 
 .post-text a {
