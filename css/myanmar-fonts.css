@@ -3,3 +3,10 @@
     font-family: 'MyanmarChatu';
     src: url('/font/MyanmarChatu.ttf');
 }
+
+
+
+@font-face {
+    font-family: 'MyanmarHeadOne';
+    src: url('/font/MyanmarHeadOne.ttf');
+}
