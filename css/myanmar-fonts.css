@@ -1,12 +1,20 @@
 
 @font-face {
+    font-family: 'MyanmarAngoun';
+    src: url('/fonts/KhmerType/MyanmarAngoun.ttf');
+}
+@font-face {
     font-family: 'MyanmarChatu';
-    src: url('/fonts/MyanmarChatu.ttf');
+    src: url('/fonts/KhmerType/MyanmarChatu.ttf');
+}
+@font-face {
+    font-family: 'MyanmarChatu';
+    src: url('/fonts/KhmerType/MyanmarChatu.ttf');
 }
 
 
 
 @font-face {
     font-family: 'MyanmarHeadOne';
-    src: url('/fonts/MyanmarHeadOne.ttf');
+    src: url('/fonts/unknown/MyanmarHeadOne.ttf');
 }
