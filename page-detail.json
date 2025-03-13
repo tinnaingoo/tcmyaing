@@ -40,22 +40,22 @@
             "title": "အမျိုးအစားများ",
             "items": [
                 {
-                    "title": "နည်းပညာ",
-                    "description": "နောက်ဆုံးပေါ် နည်းပညာသတင်းများ",
+                    "title": "နည်းပညာဗဟုသုတ",
+                    "description": "နည်းပညာနှင့်သက်ဆိုင်တာတေတွေကို ဝါသနာပါသလား?
                     "icon": "fas fa-microchip",
-                    "url": "/home/category/Technology.html"
+                    "url": "/home/?category=Technology%20Sharing"
                 },
                 {
                     "title": "ကွန်ပျူတာ",
                     "description": "ကွန်ပျူတာနှင့်သက်ဆိုင်သော အကြောင်းအရာများနှင့် Software, Driver များ",
                     "icon": "fas fa-laptop",
-                    "url": "/home/category/Computer.html"
+                    "url": "/home/?category=Computer"
                 },
                 {
                     "title": "Phone",
                     "description": "Phone နှင့်သက်ဆိုင်သော နည်းပညာများနှင့် Application များ",
                     "icon": "fas fa-mobile-alt",
-                    "url": "/home/category/Phone.html"
+                    "url": "/home/?category=Phone"
                 }
             ]
         },
