@@ -590,12 +590,17 @@ nav ul li a:hover {
     font-size: 0.9em;
     color: var(--secondary-color);
     cursor: pointer;
-    transition: background-color var(--transition-fast), color var(--transition-fast);
+    transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    
 }
 
 .category-tag:hover {
     background-color: #b3e5fc;
     color: var(--primary-hover);
+}
+
+.category-tag:active {
+    transform: scale(0.95); /* Click လုပ်တဲ့အခါ ခပ်သေးသွားမယ် */
 }
 
 .active-category {
