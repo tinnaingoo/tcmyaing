@@ -12,7 +12,12 @@
     src: url('/fonts/KhmerType/MyanmarChatu.ttf');
 }
 
+<!-- Masterpiece -->
 
+@font-face {
+    font-family: 'MasterpieceTawWin';
+    src: url('/fonts/masterpiece/MasterpieceTawWin.ttf');
+}
 <!-- Unknown -->
 
 @font-face {
