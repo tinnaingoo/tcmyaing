@@ -728,7 +728,24 @@ section.post-content {
     opacity: 0.7;
 }
 
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
 @media (max-width: 768px) {
+    .btn{
+        width:100%;
+    }
     .post-content h2 {
         font-size: var(--font-size-subtitle);
     }
