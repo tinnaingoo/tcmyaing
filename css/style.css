@@ -107,16 +107,8 @@ header {
     color: var(--text-light);
     padding: var(--spacing-small) 0;
     z-index: 1000;
-    box-shadow: 0 4px 15px var(--shadow-dark);
-}
-
-.header-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: var(--container-width);
-    max-width: var(--container-max-width);
-    margin: 0 auto;
+    box-shadow: 0 4px 15px var(--shadow-medium);
+    font-family: var(--font-primary);
 }
 
 header .header-box h1 {
@@ -124,7 +116,7 @@ header .header-box h1 {
     text-align: center;
     padding: 0;
     margin: 0;
-    font-family: var(--font-primary);
+    font-family: var(--font-secondary);
 }
 
 .logo {
@@ -195,7 +187,7 @@ nav ul li a:hover {
     }
 
     .logo img {
-        max-height: 30px;
+        max-height: var(--spacing-xl);
     }
 
     nav {
@@ -219,6 +211,157 @@ nav ul li a:hover {
 
     nav ul li {
         margin: var(--spacing-small) 0;
+    }
+}
+
+/* Search Bar + Dropdown Styling */
+.header-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-medium);
+    position: relative;
+    max-width: var(--container-max-width);
+    margin: auto;
+}
+
+.divid {
+    width: 60%;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: var(--spacing-large);
+}
+
+.search {
+    position: relative;
+    flex-grow: 1;
+    margin: 0 var(--spacing-medium);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--text-light);
+    padding: var(--spacing-xs) var(--spacing-small);
+    border-radius: var(--border-radius-small);
+    width: 100%;
+}
+
+.search-container i {
+    color: var(--text-muted);
+    margin-right: var(--spacing-xs);
+}
+
+#searchInput {
+    border: none;
+    outline: none;
+    padding: var(--spacing-xs);
+    width: 100%;
+}
+
+.sbutton {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    border-radius: var(--border-radius-small);
+    display: none;
+    width: 40px;
+    height: 40px;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--text-light);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-small);
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    padding: var(--spacing-xs) var(--spacing-small);
+    box-shadow: 0 2px 5px var(--shadow-light);
+    z-index: 1000;
+}
+
+.result-item {
+    padding: 8px;
+    border-bottom: 1px solid var(--border-medium);
+}
+
+.result-item a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-family: var(--font-secondary);
+}
+
+.result-item a:hover {
+    color: var(--secondary-color);
+}
+
+.no-results {
+    padding: 8px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Mobile Search */
+@media (max-width: 768px) {
+    .search-results {
+        width: 75%;
+    }
+    .header-box {
+        padding-top: var(--spacing-xs);
+        padding-left: var(--spacing-medium);
+        max-width: var(--container-max-width);
+        margin: auto;
+        padding-right: var(--spacing-medium);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .logo#headerLogo {
+        display: block;
+        width: 73%;
+        margin-right: 6px;
+    }
+    .search {
+        position: relative;
+        flex-grow: 1;
+        margin-left: 2px;
+        display: flex;
+        width: 50%;
+        margin-right: 3px;
+    }
+    .search-container#searchContainer {
+        display: none;
+        width: 75%;
+        margin-right: 6px;
+    }
+
+    .sbutton#sbutton {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        align-items: center;
+        justify-content: space-evenly;
+        border-radius: var(--border-radius-circle);
+    }
+
+    .search.active .search-container#searchContainer {
+        display: flex;
+        width: 75%;
+        margin-right: 6px;
+    }
+    
+    .search.active .logo#headerLogo {
+        display: none !important;
     }
 }
 
