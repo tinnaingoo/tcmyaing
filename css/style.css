@@ -364,6 +364,75 @@ nav ul li a:hover {
     }
 }
 
+/* Error Page Styles */
+.error-page {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--bg-light);
+    height: 100vh; /* Full screen height */
+    padding-top: var(--spacing-large); /* Header နဲ့ မထိအောင် */
+}
+
+.error-page .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-medium);
+}
+
+.error-page h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-medium);
+    color: var(--text-dark);
+    font-family: var(--font-secondary);
+}
+
+.error-page h1 i {
+    color: var(--primary-color);
+    margin-right: var(--spacing-small);
+}
+
+.error-page p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-large);
+    font-family: var(--font-primary);
+}
+
+.error-page .btn {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: var(--spacing-small) 20px;
+    text-decoration: none;
+    border-radius: var(--border-radius-small);
+    font-weight: bold;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.error-page .btn:hover {
+    background: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .error-page h1 {
+        font-size: 2rem;
+    }
+
+    .error-page p {
+        font-size: 1rem;
+    }
+
+    .error-page .btn {
+        padding: 8px 16px;
+        font-size: var(--font-size-small);
+    }
+}
 
 /* Main Body Layout */
 .main-body {
