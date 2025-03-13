@@ -21,19 +21,21 @@
 
 <header>
     <div class="header-box">
-        <div class="logo">
+        <div class="logo" id="headerLogo">
             <img src="/images/logo-white.png" alt="Tech with TCM Logo">
         </div>
 
         <!-- Search Box -->
         <div class="search">
-            <div class="search-container">
+            <div class="search-container" id="searchContainer">
                 <i class="fa fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Search..">
             </div>
+            
             <div id="sbutton" class="sbutton">
-                <i class="fa fa-search"></i>
+                <i class="fa fa-search" id="searchIcon"></i>
             </div>
+            <div id="searchResults" class="search-results"></div>
         </div>
 
         <!-- Hamburger Icon for Mobile -->
@@ -194,7 +196,7 @@
 <script src="/scripts/nav-toggle.js"></script>
 <script src="/scripts/categories.js"></script>
 <script src="/scripts/image-auto-slider.js"></script>
-<script src="/scripts/search-filtering.js"></script>        
+<script src="/scripts/search.js"></script>        
 <script src="/scripts/category-filtering.js"></script>
 <script src="/scripts/back-to-top.js"></script>
 <script src="/scripts/home.js"></script>
