@@ -1,6 +1,7 @@
 /* Define CSS Variables in :root for global scope */
 :root {
     /* Colors */
+    --404-error-colour: #FF3333;
     --primary-gradient-start: #111184;
     --primary-gradient-end: #004d99;
     --primary-color: #0073e6;
@@ -390,7 +391,7 @@ nav ul li a:hover {
 }
 
 .error-page h1 i {
-    color: var(--primary-color);
+    color: var(--404-error-colour);
     margin-right: var(--spacing-small);
 }
 
