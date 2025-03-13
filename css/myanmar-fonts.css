@@ -13,8 +13,14 @@
 }
 
 
+<!-- Unknown -->
 
 @font-face {
     font-family: 'MyanmarHeadOne';
     src: url('/fonts/unknown/MyanmarHeadOne.ttf');
+}
+
+@font-face {
+    font-family: 'YoeYar-One';
+    src: url('/fonts/unknown/YoeYar-One.ttf');
 }
