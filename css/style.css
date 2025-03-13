@@ -958,7 +958,7 @@ ul#latestPostsList {
     background: var(--bg-light);
     text-align: center;
     animation: fadeIn 1s ease-in-out;
-    font-family: var(--font-primary);
+    font-family: MasterpieceTawWin;
 }
 
 .about h2 {
