@@ -109,7 +109,7 @@ function updateFilterStatus(category) {
         filterStatus.style.display = 'none'; // "all" ဖြစ်ရင် Filter Status ဖျောက်မယ်
     } else {
         filterStatus.style.display = 'block'; // Category တစ်ခုခု ရှိရင် ပြမယ်
-        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category. <a href="#" id="showAllLink">Show All</a>`;
+        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category. <a href="/home" id="showAllLink">Show All</a>`;
     }
 }
 
