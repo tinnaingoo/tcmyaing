@@ -5,31 +5,30 @@
         "language": "my",
         "header": {
             "logo": {
-                "src": "images/logo-white.png",
+                "src": "/images/logo-white.png",
                 "alt": "TC-Myaing Logo"
             },
             "nav": [
                 {"text": "ပင်မစာမျက်နှာ", "url": "/home"},
                 {"text": "အကြောင်းအရာ", "url": "/#about"},
-                {"text": "အမျိုးအစားများ", "url": "/#categories"},
                 {"text": "ဆက်သွယ်ရန်", "url": "/#contact"}
             ]
         },
         "hero": {
             "title": "မင်္ဂလာပါ၊ TC-Myaing မှ ကြိုဆိုပါတယ်",
-            "subtitle": "ဗဟုသုတနဲ့ သတင်းအချက်အလက်များကို မျှဝေသွားပါမယ်။",
+            "subtitle": "နည်းပညာနှင့် ဗဟုသုတများကို ကျတော်တတ်စွမ်းလေ့လာမိသလောက် မျှဝေရန်သွားပါမယ်။",
             "button": {
                 "text": "ပိုမိုဖတ်ရှုရန်",
                 "url": "/home"
             }
         },
         "about": {
-            "title": "ကျွန်ုပ်အကြောင်း",
-            "text": "ကျွန်ုပ်သည် Tin Naing Oo ဖြစ်ပြီး နည်းပညာနှင့် ဗဟုသုတများကို မျှဝေရန်အတွင် ဤ blog ကို ဖန်တီးထားပါသည်။",
+            "title": "About",
+            "text": "ဤဝက်ပေ(ချ်)စာမျက်နှာကို နည်းပညာနှင့် ဗဟုသုတများကို ကျတော်တတ်စွမ်းလေ့လာမိသလောက် မျှဝေရန်အတွက် ဖန်တီးထားခြင်းဖြစ်ပါတယ်။",
             "skills": [
                 "စာစီစာရိုက်နှင့်ပုံနှိပ်",
                 "ဂရပ်ဖစ်ဒီဇိုင်းရေရေးဆွဲခြင်း",
-                "နည်းပညာနှင့်သက်ဆိုင်သည့် အချို့သောဝန်ဆောင်မှုများ"
+                "ကွန်ပျူတာနှင့်သက်ဆိုင်သည့် အချို့သောဝန်ဆောင်မှုများ"
             ],
             "socialLinks": [
                 {"platform": "facebook", "url": "https://www.facebook.com/tc.myaing", "icon": "fab fa-facebook-f"},
@@ -41,28 +40,28 @@
             "title": "အမျိုးအစားများ",
             "items": [
                 {
-                    "title": "နည်းပညာ",
-                    "description": "နောက်ဆုံးပေါ် နည်းပညာသတင်းများ",
+                    "title": "နည်းပညာဗဟုသုတ",
+                    "description": "နည်းပညာနှင့်သက်ဆိုင်တာတေတွေကို ဝါသနာပါသလား?",
                     "icon": "fas fa-microchip",
-                    "url": "/home/category/Technology.html"
+                    "url": "/home/?category=Technology%20Sharing"
                 },
                 {
                     "title": "ကွန်ပျူတာ",
                     "description": "ကွန်ပျူတာနှင့်သက်ဆိုင်သော အကြောင်းအရာများနှင့် Software, Driver များ",
                     "icon": "fas fa-laptop",
-                    "url": "/home/category/Computer.html"
+                    "url": "/home/?category=Computer"
                 },
                 {
                     "title": "Phone",
                     "description": "Phone နှင့်သက်ဆိုင်သော နည်းပညာများနှင့် Application များ",
                     "icon": "fas fa-mobile-alt",
-                    "url": "/home/category/Phone.html"
+                    "url": "/home/?category=Phone"
                 }
             ]
         },
         "contact": {
             "title": "ဆက်သွယ်ရန်",
-            "text": "ကျွန်ုပ်ထံ ဆက်သွယ်လိုပါက အောက်ပါ လင့်များမှ တဆင့် ဆက်သွယ်နိုင်ပါသည်။",
+            "text": "ဆွေးနွေးတိုင်ပင်မေးမြန်းလိုပါက အောက်ပါလင့်များမှတဆင့် ဆက်သွယ်နိုင်ပါသည်။",
             "links": [
                 {"platform": "facebook", "url": "https://www.facebook.com/tc.myaing", "icon": "fab fa-facebook-f"},
                 {"platform": "youtube", "url": "https://www.youtube.com/@tcmyaing", "icon": "fab fa-youtube"},
@@ -71,7 +70,7 @@
             ]
         },
         "footer": {
-            "text": "© 2025 TC-Myaing | Design by Tin naing Oo."
+            "text": "© 2025 TC-Myaing | Design by Tin Naing Oo."
         }
     }
 }

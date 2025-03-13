@@ -24,22 +24,7 @@
 }
 
 .ad-300x250 {
-  width: 300px;
-  height: 250px;
-  background-color: #FFF;
-  border: 1px solid #bbb;
-  display: flex;
-  justify-content: center;
-    flex-direction: column;
-  align-items: center;
-  font-family: sans-serif;
-  font-size: 16px;
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, -0.81);
+    display: none;
 }
 
 .ad-160x600 {
@@ -125,6 +110,28 @@
     .ad-160x600{
         display: none;
     }
+
+    
+    .ad-300x250 {
+        width: 100%;
+        height: 250px;
+        background-color: #FFF;
+        border: 1px solid #bbb;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        font-family: sans-serif;
+        font-size: 16px;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, -0.81);
+        max-width: 300px;
+    }
+    
     .widget-ad {
         margin-top: 10px;
         width: 100%; /* Mobile မှာ full width */

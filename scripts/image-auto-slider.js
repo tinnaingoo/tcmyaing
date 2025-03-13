@@ -52,7 +52,7 @@ function initializeSlider() {
     showSlide(currentIndex);
 
     // Auto-slide အတွက် setInterval ထည့်မယ်
-    const autoSlideInterval = setInterval(nextSlide, 15000); // ၅ စက္ကန့်ခြား ရွှေ့မယ်
+    const autoSlideInterval = setInterval(nextSlide, 30000); // ၅ စက္ကန့်ခြား ရွှေ့မယ်
 
     // Global ထဲကို function တွေ ထည့်မယ်၊ HTML onclick က ခေါ်လို့ရအောင်
     window.nextSlide = nextSlide;

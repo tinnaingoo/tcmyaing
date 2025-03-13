@@ -1,0 +1,97 @@
+.pdf-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-light, #f9f9f9);
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: var(--border-radius-small, 5px);
+    padding: var(--spacing-medium, 20px);
+    margin: var(--spacing-medium, 20px) 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-fast, 0.3s);
+}
+
+.pdf-card:hover {
+    transform: translateY(-5px);
+}
+
+.pdf-icon {
+    font-size: 2rem;
+    color: var(--primary-color, #0073e6);
+    margin-right: var(--spacing-medium, 20px);
+}
+
+.pdf-info {
+    flex: 1;
+}
+
+.pdf-info h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-dark, #333);
+    font-family: var(--font-secondary, "Noto Sans Myanmar");
+}
+
+.pdf-info p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: var(--text-muted, #666);
+}
+
+.pdf-actions {
+    display: flex;
+    gap: var(--spacing-small, 10px);
+}
+
+.pdf-view-btn,
+.pdf-download-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: var(--border-radius-small, 5px);
+    transition: background var(--transition-fast, 0.3s), transform var(--transition-fast, 0.3s);
+}
+
+.pdf-view-btn {
+    background: var(--primary-color, #0073e6);
+    color: var(--text-light, #fff);
+}
+
+.pdf-view-btn:hover {
+    background: var(--primary-hover, #005bb5);
+    transform: scale(1.05);
+}
+
+.pdf-download-btn {
+    background: var(--secondary-color, #28a745);
+    color: var(--text-light, #fff);
+}
+
+.pdf-download-btn:hover {
+    background: var(--secondary-hover, #218838);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pdf-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pdf-icon {
+        margin-right: 0;
+        margin-bottom: var(--spacing-small, 10px);
+    }
+
+    .pdf-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .pdf-view-btn,
+    .pdf-download-btn {
+        width: 100%;
+        padding: 10px;
+    }
+}

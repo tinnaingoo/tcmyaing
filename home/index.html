@@ -21,19 +21,21 @@
 
 <header>
     <div class="header-box">
-        <div class="logo">
+        <div class="logo" id="headerLogo">
             <img src="/images/logo-white.png" alt="Tech with TCM Logo">
         </div>
 
         <!-- Search Box -->
         <div class="search">
-            <div class="search-container">
+            <div class="search-container" id="searchContainer">
                 <i class="fa fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Search..">
             </div>
+            
             <div id="sbutton" class="sbutton">
-                <i class="fa fa-search"></i>
+                <i class="fa fa-search" id="searchIcon"></i>
             </div>
+            <div id="searchResults" class="search-results"></div>
         </div>
 
         <!-- Hamburger Icon for Mobile -->
@@ -54,63 +56,117 @@
     
 <div class="main-body">    
     <section class="all-post">
-        <div class="container">
-            <!-- Loading Indicator -->
-            <div id="loadingIndicator" class="loadingIndicator" style="text-align: center; padding: 20px;">
-                <i class="fas fa-spinner fa-spin"></i> Loading...
-            </div>
-            <div class="post-content-grid" id="post-content-grid">
-                <!-- Posts will be dynamically inserted here -->
-            </div>
-            <div id="noResultsMessage" class="no-results-message" style="display: none;">
-                No results found.
-            </div>
+    <div class="container">
+        <!-- Filter Status ပြဖို့ -->
+        <div id="filterStatus" class="filter-status" style="text-align: center; padding: 10px; color: var(--text-muted);"></div>
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loadingIndicator" style="text-align: center; padding: 20px;">
+            <i class="fas fa-spinner fa-spin"></i> Loading...
         </div>
+        <div class="post-content-grid" id="post-content-grid">
+            <!-- Posts will be dynamically inserted here -->
+        </div>
+        <div id="noResultsMessage" class="no-results-message" style="display: none;">
+            No results found.
+        </div>
+    </div>
     </section>
 
     <section class="aside">
-        <div class="container">
-            <div class="widget-socials">
-                <h4 class="widget-title">Keep up with Us</h4>
-                <ul class="socials">
-                    <li>
-                        <a class="social-facebook" href="https://www.facebook.com/tc.myaing/" title="facebook" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                            <span class="socials__text">Facebook</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="social-youtube" href="https://www.youtube.com/@tcmyaing" title="youtube" target="_blank">
-                            <i class="fab fa-youtube"></i>
-                            <span class="socials__text">YouTube</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <div class="container">
+       
 
-            <div class="widget-ad">
-                <div class="ad-160x600">
-                    <p><b>ဤနေရာမှာ ကြော်ငြာပါ။</b></p>
-                    <p>320x50</p>
-                </div>
+        <!-- Categories Widget -->
+        <div class="widget-categories">
+            <h4 class="widget-title">Categories</h4>
+            <ul class="categories" id="categoriesList">
+                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+            </ul>
+        </div>
+        
+        <!-- Existing Socials Widget -->
+        <div class="widget-socials">
+            <h4 class="widget-title">Keep up with Us</h4>
+            <ul class="socials">
+                <li>
+                    <a class="social-facebook" href="https://www.facebook.com/tc.myaing/" title="facebook" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                        <span class="socials__text">Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-telegram" href="https://t.me/tcmyaing" title="telegram" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                        <span class="socials__text">Telegram</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-youtube" href="https://www.youtube.com/@tcmyaing" title="youtube" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                        <span class="socials__text">YouTube</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="widget-ad">
+            <div class="ad-160x600">
+                <p><b>ဤနေရာမှာ ကြော်ငြာပါ။</b></p>
+                <p>320x50</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 </div>
-    
+<section>
+    <div class="container>
+
+<div class="widget-ad">
+            <div class="ad-300x250">
+                <p><b>ဤနေရာမှာ ကြော်ငြာပါ။</b></p>
+                <p>320x50</p>
+            </div>
+</div>    
+</div>
+    </section>    
+
+
+<section class="subscribe-section">
+    <div class="container">
+        <h2>Subscribe to My YouTube Channel</h2>
+        <p>Stay updated with the latest tech tutorials, software reviews, and more from TC-Myaing!</p>
+        <a href="https://www.youtube.com/@tcmyaing?sub_confirmation=1" target="_blank" class="subscribe-btn">
+            <i class="fab fa-youtube"></i> Subscribe Now
+        </a>
+    </div>
+</section>
+
 <section id="videos" class="videos">
     <div class="container">
         <!-- Image Auto Slider -->
         <div class="slider">
+            <div class="slider-box">
             <div class="slides" id="videoSlides">
                 <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
             </div>
             <button class="prev" onclick="prevSlide()">❮</button>
             <button class="next" onclick="nextSlide()">❯</button>
+            </div>
         </div>
     </div>
 </section>  
 
+ <section id="about" class="about">
+        <div class="container">
+            <h2></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 <section class="contact-section">
     <div class="container">
         <h2></h2>
@@ -121,23 +177,27 @@
     </div>
 </section>
 
+
+
 <!-- Back to Top Button -->
 <button class="back-to-top" title="Back to Top">
     <i class="fas fa-arrow-up"></i>
-</button>
+</button>            
 
 <footer>
     <div class="container">
         <p></p>
     </div>
 </footer>
+    
+<script src="/scripts/fetch-and-display-posts.js"></script>
 
 <!-- JavaScript ဖိုင်များ -->
 <script src="/scripts/nav-toggle.js"></script>
+<script src="/scripts/categories.js"></script>
 <script src="/scripts/image-auto-slider.js"></script>
-<script src="/scripts/fetch-and-display-posts.js"></script>
-<script src="/scripts/search-filtering.js"></script>        
-<script src="/scripts/category-filtering.js"></script>
+<script src="/scripts/search.js"></script>        
+<!-- <script src="/scripts/category-filtering.js"></script> -->
 <script src="/scripts/back-to-top.js"></script>
 <script src="/scripts/home.js"></script>
 
