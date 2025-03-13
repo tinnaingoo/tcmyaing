@@ -59,23 +59,23 @@ async function fetchAndDisplayPosts() {
         loadingIndicator.style.display = 'none';
 
         // Category Tag တွေကို Click လုပ်ရင် Filter လုပ်ဖို့ Event Listener
-        document.querySelectorAll('.category-tag').forEach(tag => {
-            tag.addEventListener('click', function () {
-                const selectedCategory = this.getAttribute('data-category');
-                if (currentFilter === selectedCategory) {
-                    filterPostsByCategory('all');
+       // document.querySelectorAll('.category-tag').forEach(tag => {
+         //   tag.addEventListener('click', function () {
+           //     const selectedCategory = this.getAttribute('data-category');
+             //   if (currentFilter === selectedCategory) {
+               //     filterPostsByCategory('all');
                     // URL ကို Parameter မပါအောင် အပ်ဒိတ်လုပ်မယ်
-                    window.history.pushState({}, document.title, '/home/');
+                 //   window.history.pushState({}, document.title, '/home/');
                     
-                    currentFilter = 'all'; // Reset လုပ်ရင် All ပြန်ပြမယ်
-                    updateFilterStatus(currentFilter);
-                } else {
-                    filterPostsByCategory(selectedCategory);
-                    currentFilter = selectedCategory;
-                    updateFilterStatus(selectedCategory);
-                }
-            });
-        });
+                   // currentFilter = 'all'; // Reset လုပ်ရင် All ပြန်ပြမယ်
+                   // updateFilterStatus(currentFilter);
+                //} else {
+                  //  filterPostsByCategory(selectedCategory);
+                   // currentFilter = selectedCategory;
+                   // updateFilterStatus(selectedCategory);
+              //  }
+           // });
+        //});
 
         // "Show All" Link ကို Click လုပ်ရင် Reset လုပ်ဖို့ Event Listener
         const showAllLink = document.getElementById('showAllLink');
