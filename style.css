@@ -55,6 +55,11 @@
     --transition-medium: 0.4s ease;
 }
 
+@font-face {
+    font-family: 'MyanmarChatu';
+    src: url('/fonts/MyanmarChatu.ttf');
+}
+
 /* ===== 1. General Styles ===== */
 body {
     margin: 0;
@@ -144,6 +149,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     transition: color var(--transition-fast);
+    font-family: MyanmarChatu;
 }
 
 nav ul li a:hover {
