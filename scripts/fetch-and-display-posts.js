@@ -70,7 +70,7 @@ async function fetchAndDisplayPosts() {
                     filterPostsByCategory('all');
                     currentFilter = 'all';
                     updateFilterStatus(currentFilter);
-                    window.history.pushState({}, document.title, '/home/');
+                    window.history.pushState({}, document.title, '/home');
                 } else {
                     filterPostsByCategory(selectedCategory);
                     currentFilter = selectedCategory;
