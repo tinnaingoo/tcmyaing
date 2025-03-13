@@ -4,7 +4,6 @@ async function fetchAndDisplayPosts() {
     const loadingIndicator = document.getElementById('loadingIndicator');
     const postGrid = document.getElementById('post-content-grid');
     const filterStatus = document.getElementById('filterStatus');
-    const noResultsMessage = document.getElementById('noResultsMessage');
 
     if (!loadingIndicator || !postGrid || !filterStatus) {
         console.error('Required DOM elements are missing.');
@@ -59,22 +58,18 @@ async function fetchAndDisplayPosts() {
         postGrid.innerHTML = postHTML;
         loadingIndicator.style.display = 'none';
 
-        // Initial Filter ကို အသက်သွင်းမယ်
-        filterPostsByCategory(currentFilter);
-
         // Category Tag တွေကို Click လုပ်ရင် Filter လုပ်ဖို့ Event Listener
         document.querySelectorAll('.category-tag').forEach(tag => {
             tag.addEventListener('click', function () {
                 const selectedCategory = this.getAttribute('data-category');
                 if (currentFilter === selectedCategory) {
                     filterPostsByCategory('all');
-                    currentFilter = 'all';
+                    currentFilter = 'all'; // Reset လုပ်ရင် All ပြန်ပြမယ်
                     updateFilterStatus(currentFilter);
-                    window.history.pushState({}, document.title, '/index.html');
                 } else {
                     filterPostsByCategory(selectedCategory);
                     currentFilter = selectedCategory;
-                    updateFilterStatus(currentFilter);
+                    updateFilterStatus(selectedCategory);
                 }
             });
         });
@@ -87,15 +82,15 @@ async function fetchAndDisplayPosts() {
                 filterPostsByCategory('all');
                 currentFilter = 'all';
                 updateFilterStatus(currentFilter);
-                window.history.pushState({}, document.title, '/index.html');
+                // URL ကို Parameter မပါအောင် အပ်ဒိတ်လုပ်မယ်
+                window.history.pushState({}, document.title, '/home/');
             });
         }
     } catch (error) {
         console.error('Error fetching or displaying posts:', error.message);
         loadingIndicator.style.display = 'none';
         postGrid.innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
-        filterStatus.style.display = 'none';
-        if (noResultsMessage) noResultsMessage.style.display = 'none';
+        filterStatus.style.display = 'none'; // Error ဖြစ်ရင် Filter Status ဖျောက်မယ်
     }
 }
 
@@ -106,52 +101,21 @@ function updateFilterStatus(category) {
         filterStatus.style.display = 'none'; // "all" ဖြစ်ရင် Filter Status ဖျောက်မယ်
     } else {
         filterStatus.style.display = 'block'; // Category တစ်ခုခု ရှိရင် ပြမယ်
-        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category. <a href="#" id="showAllLink">Show All</a>`;
+        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category. <a href="/home/" id="showAllLink">Show All</a>`;
     }
 }
 
 // Filter Posts လုပ်မယ့် Function
 function filterPostsByCategory(category) {
-    const postGrid = document.getElementById('post-content-grid');
-    const noResultsMessage = document.getElementById('noResultsMessage');
-
-    if (!postGrid) {
-        console.error('Post grid not found.');
-        return;
-    }
-
-    const postCards = postGrid.getElementsByClassName('post-card');
-    const categoryTags = document.querySelectorAll('.category-tag');
-    let hasResults = false;
-
-    // အရင် highlight တွေကို ဖယ်မယ်
-    categoryTags.forEach(tag => tag.classList.remove('highlighted'));
-
-    // Post တွေကို Filter လုပ်မယ်
-    Array.from(postCards).forEach(postCard => {
-        const categories = postCard.getAttribute('data-category'); // Space-separated string အတိုင်း ထားမယ်
-
-        if (category === 'all' || categories.includes(category)) {
-            postCard.style.display = 'block';
-            hasResults = true;
+    const posts = document.querySelectorAll('.post-card');
+    posts.forEach(post => {
+        const postCategories = post.getAttribute('data-category').split(' ');
+        if (category === 'all' || postCategories.includes(category)) {
+            post.style.display = 'block';
         } else {
-            postCard.style.display = 'none';
+            post.style.display = 'none';
         }
     });
-
-    // Category ကို highlight လုပ်မယ် (category !== 'all' ဆိုရင်)
-    if (category !== 'all') {
-        categoryTags.forEach(tag => {
-            if (tag.getAttribute('data-category') === category) {
-                tag.classList.add('highlighted');
-            }
-        });
-    }
-
-    // No Results Message ကို ထိန်းမယ်
-    if (noResultsMessage) {
-        noResultsMessage.style.display = hasResults ? 'none' : 'block';
-    }
 }
 
 document.addEventListener('DOMContentLoaded', fetchAndDisplayPosts);
