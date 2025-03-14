@@ -26,8 +26,8 @@
 }
 
 @font-face {
-    font-family: MyanmarSquare;
-    src: url('/fonts/unknown/MyanmarSquare.woff2');
+    font-family: 'MyanmarSquare';
+    src: url('/fonts/unknown/MyanmarSquare.ttf');
 }
 
 @font-face {
