@@ -26,6 +26,11 @@
 }
 
 @font-face {
+    font-family: 'MyanmarSquare';
+    src: url('/fonts/unknown/MyanmarSquare.ttf');
+}
+
+@font-face {
     font-family: 'YoeYar-One';
     src: url('/fonts/unknown/YoeYar-One.ttf');
 }
