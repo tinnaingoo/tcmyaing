@@ -39,6 +39,9 @@
     /* Typography */
     --font-primary: "Padauk", serif;
     --font-secondary: "Noto Sans Myanmar", serif;
+    --font-mm-primary: MyanmarSquare;
+    --font-mm-secondary: YoeYar-One;
+    --font-mm-beauty: YoeYar-One;
     --font-size-base: 16px;
     --font-size-title: 2em;
     --font-size-subtitle: 1.5rem;
@@ -1034,6 +1037,7 @@ section.post-content {
     font-size: var(--font-size-title);
     color: var(--text-dark);
     margin-bottom: 15px;
+    font-family: MyanmarSquare;
 }
 
 .contact-section p {
