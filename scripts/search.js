@@ -59,7 +59,7 @@ async function initSearch() {
                 results.forEach(post => {
                     const resultItem = document.createElement('div');
                     resultItem.className = 'result-item';
-                    resultItem.innerHTML = `<a href="/${post.PostUrl}.html">${post.title}</a>`;
+                    resultItem.innerHTML = `<a href="${post.PostUrl}.html">${post.title}</a>`;
                     searchResults.appendChild(resultItem);
                 });
             } else {
