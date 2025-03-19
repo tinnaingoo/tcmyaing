@@ -464,7 +464,7 @@ nav ul li a:hover {
 .socials__text {
     font-size: 1rem;
     font-weight: bold;
-    font-family: var(--font-primary);
+    font-family: var(--font-mm-secondary);
 }
 
 /* Responsive Design for Mobile */
