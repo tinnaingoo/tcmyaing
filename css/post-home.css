@@ -988,6 +988,7 @@ section.post-content {
     text-align: center;
     padding: var(--spacing-small);
     font-size: var(--font-size-caption);
+    font-family: var(--font-mm-secondary);
     border-bottom-left-radius: var(--border-radius-large);
     border-bottom-right-radius: var(--border-radius-large);
 }
