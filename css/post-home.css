@@ -697,7 +697,7 @@ section.post-content {
     font-size: var(--font-size-meta);
     color: var(--text-meta);
     margin-bottom: var(--spacing-medium);
-    font-family: var(--font-primary);
+    font-family: var(--font-mm-secondary);
 }
 
 .post-image img {
