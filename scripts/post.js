@@ -33,6 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
             // About Section
             document.querySelector(".about h2").textContent = page.about.title;
             document.querySelector(".about-text p").textContent = page.about.text;
+             // View More Button URL
+            const viewMoreBtn = document.querySelector("#view-more-btn");
+            if (viewMoreBtn && page.about["about-url"]) {
+                viewMoreBtn.href = page.about["about-url"];
+            }
 
             // Categories Widget (Aside)
             //const categoriesList = document.querySelector("#categoriesList");
