@@ -40,7 +40,7 @@
     --font-primary: "Padauk", serif;
     --font-secondary: "Noto Sans Myanmar", serif;
     --font-mm-primary: MyanmarSquare;
-    --font-mm-secondary: YoeYar-One;
+    --font-mm-secondary: Pyidaungsu;
     --font-mm-beauty: YoeYar-One;
     --font-size-base: 16px;
     --font-size-title: 2em;
@@ -521,6 +521,7 @@ ul#latestPostsList {
     color: var(--secondary-color);
     text-align: justify;
     display: flex;
+    font-family: var(--font-mm-secondary);
 }
 
 .latest-posts a:hover {
