@@ -155,7 +155,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     transition: color var(--transition-fast);
-    font-family: var(--font-mm-primary);
+    font-family: var(--font-mm-secondary);
 }
 
 nav ul li a:hover {
