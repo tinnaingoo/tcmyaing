@@ -155,7 +155,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     transition: color var(--transition-fast);
-    font-family: YoeYar-One;
+    font-family: var(--font-mm-primary);
 }
 
 nav ul li a:hover {
