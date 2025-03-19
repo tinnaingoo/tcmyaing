@@ -903,6 +903,7 @@ section.post-content {
     font-size: var(--font-size-title);
     color: var(--text-dark);
     margin-bottom: var(--spacing-small);
+    font-family: var(--font-mm-primary);
 }
 
 .subscribe-section p {
