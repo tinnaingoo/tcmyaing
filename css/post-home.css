@@ -689,7 +689,7 @@ section.post-content {
     width: 100%;
     text-align: left;
     color: var(--text-dark);
-    font-family: var(--font-secondary);
+    font-family: var(--font-mm-primary);
 }
 
 .post-meta {
