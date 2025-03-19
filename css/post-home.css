@@ -724,7 +724,7 @@ section.post-content {
 
 .post-text p {
     text-align: justify;
-    font-family: var(--font-primary);
+    font-family: var(--font-mm-secondary);
 }
 
 .post-text img {
