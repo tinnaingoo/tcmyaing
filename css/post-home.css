@@ -546,7 +546,6 @@ ul#latestPostsList {
     font-size: var(--font-size-subtitle);
     color: var(--text-dark);
     margin-bottom: 15px;
-    font-family: var(--font-secondary);
     border-bottom: 3px dotted var(--text-meta);
 }
 
