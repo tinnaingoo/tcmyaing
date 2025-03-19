@@ -23,19 +23,19 @@
             }
         },
         "about": {
-            "title": "ဤအင်တာနက်စာမျက်နှာအကြောင်း",
-            "text": "ဤအင်တာနက်စာမျက်နှာကို နည်းပညာနှင့် ဗဟုသုတများကို ကျတော်တတ်စွမ်းလေ့လာမိသလောက် မျှဝေရန်အတွက် ဖန်တီးထားခြင်းဖြစ်ပါတယ်။",
-            "about-url": "/about",
-            "skills": [
-                "စာစီစာရိုက်နှင့်ပုံနှိပ်",
-                "ဂရပ်ဖစ်ဒီဇိုင်းရေရေးဆွဲခြင်း",
-                "ကွန်ပျူတာနှင့်သက်ဆိုင်သည့် အချို့သောဝန်ဆောင်မှုများ"
-            ],
-            "socialLinks": [
-                {"platform": "facebook", "url": "https://www.facebook.com/tc.myaing", "icon": "fab fa-facebook-f"},
-                {"platform": "youtube", "url": "https://www.youtube.com/@tcmyaing", "icon": "fab fa-youtube"},
-                {"platform": "telegram", "url": "https://t.me/tcmyaing", "icon": "fab fa-telegram-plane"}
-            ]
+    "title": "ဤအင်တာနက်စာမျက်နှာအကြောင်း",
+    "text": "ဤအင်တာနက်စာမျက်နှာကို နည်းပညာနှင့် ဗဟုသုတများကို ကျတော်တတ်စွမ်းလေ့လာမိသလောက် မျှဝေရန်အတွက် ဖန်တီးထားခြင်းဖြစ်ပါတယ်။",
+    "about-url": "/about",
+    "skills": [
+        "စာစီစာရိုက်နှင့်ပုံနှိပ်",
+        "ဂရပ်ဖစ်ဒီဇိုင်းရေရေးဆွဲခြင်း",
+        "ကွန်ပျူတာနှင့်သက်ဆိုင်သည့် အချို့သောဝန်ဆောင်မှုများ"
+    ],
+    "socialLinks": [
+        {"platform": "facebook", "url": "https://www.facebook.com/tc.myaing", "icon": "fab fa-facebook-f"},
+        {"platform": "youtube", "url": "https://www.youtube.com/@tcmyaing", "icon": "fab fa-youtube"},
+        {"platform": "telegram", "url": "https://t.me/tcmyaing", "icon": "fab fa-telegram-plane"}
+    ]
         },
         "categories": {
             "title": "အမျိုးအစားများ",
