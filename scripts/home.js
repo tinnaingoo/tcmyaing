@@ -28,24 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
             // About Section
             document.querySelector("#about h2").textContent = page.about.title;
             document.querySelector(".about-text p").textContent = page.about.text;
-            const skillsList = document.querySelector(".about-skills ul");
-            //skillsList.innerHTML = "";
-            //page.about.skills.forEach(skill => {
-              //  const li = document.createElement("li");
-              // li.textContent = skill;
-              //  skillsList.appendChild(li);
-            //});
-            //const socialLinks = document.querySelector(".social-links");
-            //socialLinks.innerHTML = "";
-            //page.about.socialLinks.forEach(link => {
-              //  const a = document.createElement("a");
-              //  a.href = link.url;
-              //  a.target = "_blank";
-              //  a.classList.add("social-link");
-              //  a.innerHTML = `<i class="${link.icon}"></i>`;
-              //  socialLinks.appendChild(a);
-            //});
-            
+            // View More Button URL
+            const viewMoreBtn = document.querySelector("#view-more-btn");
+            if (viewMoreBtn && page.about["about-url"]) {
+                viewMoreBtn.href = page.about["about-url"];
+            }
+
             // Contact Section
             document.querySelector(".contact-section h2").textContent = page.contact.title;
             document.querySelector(".contact-section p").textContent = page.contact.text;
@@ -65,12 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Footer
             document.querySelector("footer p").textContent = page.footer.text;
-
-            // Title of the page
-           // document.title = page.title;
-
-            // အခြား section တွေအတွက် ဒေတာမပါတဲ့အတွက် လောလောဆယ် ထည့်မထားပါ
-            // ဥပမာ hero, categories, about စတဲ့ section တွေကို JSON ထဲမှာ အသုံးမပြုထားပုံရပါတယ်
         })
         .catch(error => {
             console.error('Error fetching JSON:', error);
