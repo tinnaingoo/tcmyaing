@@ -547,6 +547,7 @@ ul#latestPostsList {
     color: var(--text-dark);
     margin-bottom: 15px;
     border-bottom: 3px dotted var(--text-meta);
+    font-family: var(--font-mm-primary);
 }
 
 .categories {
