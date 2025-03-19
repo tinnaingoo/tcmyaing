@@ -11,7 +11,7 @@ async function updateNavigation() {
             const prevPostLink = document.getElementById('prevPostLink');
             const prevPostTitle = document.getElementById('prevPostTitle');
             if (currentPost['PrePost-Title'] && currentPost['PrePost-Url']) {
-                prevPostLink.href = `/${currentPost['PrePost-Url']}.html`;
+                prevPostLink.href = `${currentPost['PrePost-Url']}.html`;
                 prevPostTitle.textContent = currentPost['PrePost-Title'];
             } else {
                 prevPostLink.parentElement.style.display = 'none';
