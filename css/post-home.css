@@ -593,6 +593,7 @@ ul#latestPostsList {
 
 .about-content {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     gap: var(--spacing-large);
     max-width: var(--container-max-width);
