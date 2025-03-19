@@ -587,7 +587,7 @@ ul#latestPostsList {
     font-size: var(--font-size-title);
     margin-bottom: var(--spacing-large);
     color: var(--text-dark);
-    font-family: MasterpieceTawWin;
+    font-family: var(--font-mm-primary);
 }
 
 .about-content {
