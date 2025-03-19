@@ -808,11 +808,13 @@ section.post-content {
     font-size: var(--font-size-small);
     color: var(--text-meta);
     margin-bottom: var(--spacing-xs);
+    font-family: var(--font-mm-primary);
 }
 
 .post-navigation .nav-title {
     font-size: var(--font-size-nav-title);
     font-weight: bold;
+    font-family: var(--font-mm-secondary);
     margin: 0;
 }
 
