@@ -669,6 +669,7 @@ ul#latestPostsList {
     font-family: var(--font-mm-secondary);
     transition: background-color 0.3s ease;
     margin-top: 1rem;
+    cursor: pointer;
 }
 
 .view-more-btn:hover {
