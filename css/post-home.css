@@ -656,6 +656,24 @@ ul#latestPostsList {
     }
 }
 
+.view-more-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #0073e6;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--font-mm-secondary);
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.view-more-btn:hover {
+    background-color: #005bb5;
+}
+
 
 /* Container */
 .container {
