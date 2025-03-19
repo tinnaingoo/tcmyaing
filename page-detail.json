@@ -60,6 +60,29 @@
                 }
             ]
         },
+        "subscribe": {
+            "title": "Subscribe to My YouTube Channel",
+            "text": "Stay updated with the latest tech tutorials, software reviews, and more from TC-Myaing!",
+            "button": {
+                "text": "Subscribe Now",
+                "url": "https://www.youtube.com/@tcmyaing?sub_confirmation=1"
+            }
+        },
+        "videos": {
+            "title": "Featured Videos",
+            "items": [
+                {
+                    "title": "Video 1",
+                    "thumbnail": "/images/video1.jpg",
+                    "url": "https://www.youtube.com/watch?v=video1"
+                },
+                {
+                    "title": "Video 2",
+                    "thumbnail": "/images/video2.jpg",
+                    "url": "https://www.youtube.com/watch?v=video2"
+                }
+            ]
+        },
         "contact": {
             "title": "ဆက်သွယ်ရန်",
             "text": "ဆွေးနွေးတိုင်ပင်မေးမြန်းလိုပါက အောက်ပါလင့်များမှတဆင့် ဆက်သွယ်နိုင်ပါသည်။",
