@@ -909,11 +909,13 @@ section.post-content {
     font-size: 1.1em;
     color: var(--text-muted);
     margin-bottom: var(--spacing-medium);
+    font-family: var(--font-mm-secondary);
 }
 
 .subscribe-btn {
     display: inline-flex;
     align-items: center;
+    font-family: var(--font-mm-secondary);
     padding: 12px 24px;
     background-color: var(--youtube-color);
     color: var(--text-light);
@@ -1055,6 +1057,7 @@ section.post-content {
     justify-content: center;
     gap: var(--spacing-medium);
     flex-wrap: wrap;
+    font-family: var(--font-mm-secondary);
 }
 
 .contact-link {
