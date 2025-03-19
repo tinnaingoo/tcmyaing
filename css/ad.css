@@ -1,4 +1,9 @@
 /* Widget Ad Styles */
+:root{
+    --font-mm-primary: MyanmarSquare;
+    --font-mm-secondary: Pyidaungsu;
+    --font-mm-beauty: YoeYar-One;
+}
 .widget-ad {
     width: 100%;
     padding: 10px;
