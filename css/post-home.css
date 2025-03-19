@@ -1153,4 +1153,5 @@ footer {
 
 footer p {
     margin: 0;
+    font-family: var(--font-mm-secondary);
 }
