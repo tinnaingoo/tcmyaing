@@ -22,6 +22,13 @@
 <!-- Unknown -->
 
 @font-face {
+    font-family: 'Pyidaungsu';
+    src: url('/fonts/other/Pyidaungsu.ttf');
+}
+
+<!-- Unknown -->
+
+@font-face {
     font-family: 'MyanmarHeadOne';
     src: url('/fonts/unknown/MyanmarHeadOne.ttf');
 }
