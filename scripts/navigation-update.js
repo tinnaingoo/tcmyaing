@@ -20,7 +20,7 @@ async function updateNavigation() {
             const nextPostLink = document.getElementById('nextPostLink');
             const nextPostTitle = document.getElementById('nextPostTitle');
             if (currentPost['NextPost-Title'] && currentPost['NextPost-Url']) {
-                nextPostLink.href = `/${currentPost['NextPost-Url']}.html`;
+                nextPostLink.href = `${currentPost['NextPost-Url']}.html`;
                 nextPostTitle.textContent = currentPost['NextPost-Title'];
             } else {
                 nextPostLink.parentElement.style.display = 'none';
