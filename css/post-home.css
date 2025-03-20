@@ -77,25 +77,28 @@
     font-family: 'MyanmarChatu';
     src: url('/fonts/MyanmarChatu.ttf');
 }
-/* Accessibility Controls Container */
-.accessibility-controls {
+/* Dark Mode */
+body.dark-mode {
+    --bg-body: #1a1a1a;
+    --bg-light: #2a2a2a;
+    --bg-card: #333;
+    --text-dark: #ddd;
+    --text-light: #fff;
+    --text-muted: #aaa;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
     position: fixed;
     top: 80px;
     right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 1000;
-}
-
-/* Dark Mode Toggle (အရင်ရှိပြီးသား ကုဒ်) */
-.dark-mode-toggle {
     background: var(--primary-color);
     color: var(--text-light);
     border: none;
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 1000;
     width: 40px;
     height: 40px;
     display: flex;
@@ -107,60 +110,6 @@
 .dark-mode-toggle:hover {
     background: var(--primary-hover);
 }
-
-/* Font Size Toggle Buttons */
-.font-size-btn {
-    background: var(--secondary-color);
-    color: var(--text-light);
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background var(--transition-fast), transform var(--transition-fast);
-}
-
-.font-size-btn:hover {
-    background: var(--secondary-hover);
-    transform: scale(1.1);
-}
-
-.increase-font {
-    background: #28a745; /* Green for Increase */
-}
-
-.increase-font:hover {
-    background: #218838;
-}
-
-.decrease-font {
-    background: #dc3545; /* Red for Decrease */
-}
-
-.decrease-font:hover {
-    background: #c82333;
-}
-
-/* Responsive Design for Mobile */
-@media (max-width: 768px) {
-    .accessibility-controls {
-        top: 70px;
-        right: 10px;
-        gap: 8px;
-    }
-
-    .dark-mode-toggle,
-    .font-size-btn {
-        width: 36px;
-        height: 36px;
-        padding: 8px;
-    }
-}
-
 
 /* ===== 1. General Styles ===== */
 body {
