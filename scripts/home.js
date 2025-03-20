@@ -29,11 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
             // About Section
             document.querySelector("#about h2").textContent = page.about.title;
             document.querySelector(".about-text p").textContent = page.about.text;
-             // View More Button URL
-            const viewMoreBtn = document.querySelector("#view-more-btn");
-            if (viewMoreBtn && page.about["about-url"]) {
-                viewMoreBtn.href = page.about["about-url"];
-            }
 
             // Contact Section
             document.querySelector(".contact-section h2").textContent = page.contact.title;
@@ -71,5 +66,22 @@ function toggleDarkMode() {
     } else {
         icon.classList.remove('fa-sun');
         icon.classList.add('fa-moon');
+    }
+}
+
+// Font Size Toggle Functions
+let currentFontSize = 16; // Default font size in pixels
+
+function increaseFontSize() {
+    if (currentFontSize < 20) { // Maximum font size limit
+        currentFontSize += 1;
+        document.documentElement.style.setProperty('--font-size-base', `${currentFontSize}px`);
+    }
+}
+
+function decreaseFontSize() {
+    if (currentFontSize > 12) { // Minimum font size limit
+        currentFontSize -= 1;
+        document.documentElement.style.setProperty('--font-size-base', `${currentFontSize}px`);
     }
 }
