@@ -1,14 +1,15 @@
-// DOM ကို စတင်ချိတ်ဆက်တဲ့အခါ
 document.addEventListener("DOMContentLoaded", function () {
     // JSON ဖိုင်ကနေ ဒေတာကို ဆွဲယူခြင်း
     fetch('/page-detail.json')
         .then(response => {
+            console.log("Response Status:", response.status); // Debugging
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
         .then(data => {
+            console.log("Fetched Data:", data); // Debugging
             const page = data.page;
 
             // Header (Logo and Navigation)
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // About Section
             document.querySelector("#about h2").textContent = page.about.title;
             document.querySelector(".about-text p").textContent = page.about.text;
-            // View More Button URL
+             // View More Button URL
             const viewMoreBtn = document.querySelector("#view-more-btn");
             if (viewMoreBtn && page.about["about-url"]) {
                 viewMoreBtn.href = page.about["about-url"];
@@ -59,3 +60,16 @@ document.addEventListener("DOMContentLoaded", function () {
             alert('ဒေတာကို ဆွဲယူရာမှာ အမှားအယွင်းရှိနေပါတယ်။');
         });
 });
+
+// Dark Mode Toggle
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const icon = document.querySelector('.dark-mode-toggle i');
+    if (document.body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+}
