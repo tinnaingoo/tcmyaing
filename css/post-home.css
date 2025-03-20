@@ -28,9 +28,9 @@
     --overlay-dark: rgba(0, 0, 0, 0.7);
     --overlay-semi: rgba(0, 0, 0, 0.5);
 
-     /* Social Media Colors */
+    /* Social Media Colors */
     --facebook-color: #3b5998;
-    --facebook-hover: #2a4373; /* Darker shade of Facebook Blue for hover */
+    --facebook-hover: #2a4373;
     --youtube-color: #ff0000;
     --youtube-hover: #cc0000;
     --telegram-color: #0088cc;
@@ -73,10 +73,6 @@
     --transition-slow: 0.5s ease;
 }
 
-@font-face {
-    font-family: 'MyanmarChatu';
-    src: url('/fonts/MyanmarChatu.ttf');
-}
 /* Dark Mode */
 body.dark-mode {
     --bg-body: #1a1a1a;
@@ -85,6 +81,10 @@ body.dark-mode {
     --text-dark: #ddd;
     --text-light: #fff;
     --text-muted: #aaa;
+    --text-meta: #999;
+    --border-light: #444;
+    --shadow-light: rgba(255, 255, 255, 0.1);
+    --shadow-medium: rgba(255, 255, 255, 0.2);
 }
 
 /* Dark Mode Toggle */
@@ -111,13 +111,14 @@ body.dark-mode {
     background: var(--primary-hover);
 }
 
-/* ===== 1. General Styles ===== */
+/* General Styles */
 body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
     color: var(--text-light);
     font-family: var(--font-primary);
+    background: var(--bg-body);
     scroll-behavior: smooth;
 }
 
@@ -138,7 +139,7 @@ h1, h2, h3 {
 .padauk-regular { font-family: var(--font-primary); font-weight: 400; font-style: normal; }
 .padauk-bold { font-family: var(--font-primary); font-weight: 700; font-style: normal; }
 
-/* ===== 2. Header Styles ===== */
+/* Header Styles */
 header {
     position: fixed;
     top: 0;
@@ -443,6 +444,10 @@ nav ul li a:hover {
     box-shadow: 0 2px 4px var(--shadow-light);
 }
 
+body.dark-mode .widget-socials {
+    background: var(--bg-card);
+}
+
 .widget-title {
     font-size: var(--font-size-subtitle);
     color: var(--text-dark);
@@ -528,6 +533,11 @@ nav ul li a:hover {
     padding: var(--spacing-small);
     border-radius: 2px;
     width: 100%;
+    background: var(--text-light);
+}
+
+body.dark-mode .widget-latest-posts {
+    background: var(--bg-card);
 }
 
 .latest-posts {
@@ -557,6 +567,10 @@ ul#latestPostsList {
     font-family: var(--font-mm-secondary);
 }
 
+body.dark-mode .latest-posts a {
+    color: var(--text-light);
+}
+
 .latest-posts a:hover {
     text-decoration: underline;
 }
@@ -573,6 +587,11 @@ ul#latestPostsList {
     padding: var(--spacing-small);
     border-radius: 2px;
     width: 100%;
+    background: var(--text-light);
+}
+
+body.dark-mode .widget-categories {
+    background: var(--bg-card);
 }
 
 .widget-categories .widget-title {
@@ -608,13 +627,17 @@ ul#latestPostsList {
     text-decoration: underline;
 }
 
-/* ===== 4. About Section ===== */
+/* About Section */
 .about {
     padding: var(--spacing-xl) 0;
     background: var(--bg-light);
     text-align: center;
     animation: fadeIn 1s ease-in-out;
     font-family: var(--font-primary);
+}
+
+body.dark-mode .about {
+    background: var(--bg-light);
 }
 
 .about h2 {
@@ -640,7 +663,7 @@ ul#latestPostsList {
 }
 
 .about-text p {
-    font-size: var(--font-size-text);
+    font-size: var(--font-size-base);
     line-height: 1.8;
     color: var(--text-muted);
     margin-bottom: var(--spacing-medium);
@@ -709,7 +732,6 @@ ul#latestPostsList {
     background-color: #005bb5;
 }
 
-
 /* Container */
 .container {
     display: flex;
@@ -725,6 +747,11 @@ ul#latestPostsList {
 section.post-content {
     margin-top: 0;
     box-shadow: 0 2px 4px var(--shadow-light);
+    background: var(--text-light);
+}
+
+body.dark-mode section.post-content {
+    background: var(--bg-card);
 }
 
 .post-title-container {
@@ -765,7 +792,7 @@ section.post-content {
     color: var(--text-dark);
     line-height: 1.6;
     font-family: var(--font-primary);
-    width:100%;
+    width: 100%;
 }
 
 .post-text a {
@@ -792,22 +819,30 @@ section.post-content {
 }
 
 .btn {
-  background-color: DodgerBlue;
-  border: none;
-  color: white;
-  padding: 12px 30px;
-  cursor: pointer;
-  font-size: 20px;
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+body.dark-mode .btn {
+    background-color: #1a73e8;
 }
 
 /* Darker background on mouse-over */
 .btn:hover {
-  background-color: RoyalBlue;
+    background-color: RoyalBlue;
+}
+
+body.dark-mode .btn:hover {
+    background-color: #1557b0;
 }
 
 @media (max-width: 768px) {
-    .btn{
-        width:100%;
+    .btn {
+        width: 100%;
     }
     .post-content h2 {
         font-size: var(--font-size-subtitle);
@@ -820,6 +855,12 @@ section.post-content {
 /* Post Navigation Styles */
 .post-navigation {
     padding: 15px 0;
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+body.dark-mode .post-navigation {
     background: var(--bg-light);
     border-top: 1px solid var(--border-light);
     border-bottom: 1px solid var(--border-light);
@@ -851,6 +892,10 @@ section.post-content {
     text-decoration: none;
     color: var(--text-dark);
     transition: color var(--transition-fast);
+}
+
+body.dark-mode .post-navigation .nav-link {
+    color: var(--text-light);
 }
 
 .post-navigation .nav-link:hover {
@@ -901,7 +946,7 @@ section.post-content {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: var(--bg-modal);
+    background-color: rgba(0, 0, 0, 0.9);
     justify-content: center;
     align-items: center;
 }
@@ -947,6 +992,10 @@ section.post-content {
     box-shadow: 0 2px 5px var(--shadow-light);
 }
 
+body.dark-mode .subscribe-section {
+    background-color: var(--bg-light);
+}
+
 .subscribe-section .container {
     max-width: 800px;
     margin: 0 auto;
@@ -987,19 +1036,23 @@ section.post-content {
     background-color: var(--youtube-hover);
 }
 
-/* ===== 7. Slider Styles ===== */
+/* Slider Styles */
 .videos {
     padding: var(--spacing-xl) 0;
     text-align: center;
     background: #f4f4f4;
 }
 
+body.dark-mode .videos {
+    background: var(--bg-light);
+}
+
 .slider {
     max-width: 800px;
-    width:100%;
+    width: 100%;
     margin: 0 auto;
     overflow: hidden;
-    border-radius: var(--border-radius-large);
+    border-radius: var(--border-radius-medium);
     box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
@@ -1008,7 +1061,7 @@ section.post-content {
     max-width: 800px;
     margin: 0 auto;
     overflow: hidden;
-    border-radius: var(--border-radius-large);
+    border-radius: var(--border-radius-medium);
     box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
@@ -1028,7 +1081,7 @@ section.post-content {
 .slide img {
     width: 100%;
     display: block;
-    border-radius: var(--border-radius-large);
+    border-radius: var(--border-radius-medium);
 }
 
 .slide .caption {
@@ -1040,10 +1093,10 @@ section.post-content {
     color: var(--text-light);
     text-align: center;
     padding: var(--spacing-small);
-    font-size: var(--font-size-caption);
+    font-size: var(--font-size-base);
     font-family: var(--font-mm-secondary);
-    border-bottom-left-radius: var(--border-radius-large);
-    border-bottom-right-radius: var(--border-radius-large);
+    border-bottom-left-radius: var(--border-radius-medium);
+    border-bottom-right-radius: var(--border-radius-medium);
 }
 
 .prev, .next {
@@ -1077,7 +1130,6 @@ section.post-content {
     right: var(--spacing-small);
 }
 
-
 /* Contact Section */
 .contact-section {
     background-color: #f4f4f4;
@@ -1086,6 +1138,10 @@ section.post-content {
     margin: var(--spacing-medium) 0;
     border-radius: var(--border-radius-medium);
     box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+body.dark-mode .contact-section {
+    background-color: var(--bg-light);
 }
 
 .contact-section .container {
@@ -1128,6 +1184,11 @@ section.post-content {
     box-shadow: 0 1px 3px var(--shadow-light);
 }
 
+body.dark-mode .contact-link {
+    background-color: var(--bg-card);
+    color: var(--text-light);
+}
+
 .contact-link i {
     margin-right: var(--spacing-small);
     font-size: 1.2em;
@@ -1141,6 +1202,7 @@ section.post-content {
 .contact-link.facebook:hover {
     background-color: var(--facebook-color);
 }
+
 .contact-link.youtube:hover {
     background-color: var(--youtube-color);
 }
