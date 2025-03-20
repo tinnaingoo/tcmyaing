@@ -104,15 +104,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
-// Dark Mode Toggle
+// Dark Mode Toggle Function
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     const icon = document.querySelector('.dark-mode-toggle i');
+    
+    // Dark Mode ဖြစ်မဖြစ်ကို စစ်ပြီး Icon ပြောင်းမယ်
     if (document.body.classList.contains('dark-mode')) {
         icon.classList.remove('fa-moon');
         icon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark'); // Local Storage မှာ သိမ်းမယ်
     } else {
         icon.classList.remove('fa-sun');
         icon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light'); // Local Storage မှာ သိမ်းမယ်
     }
 }
+
+// Page Load တဲ့အခါ Local Storage က Theme ကို စစ်ပြီး Apply လုပ်မယ်
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    const icon = document.querySelector('.dark-mode-toggle i');
+    
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        document.body.classList.remove('dark-mode');
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+});
