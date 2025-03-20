@@ -71,25 +71,28 @@
     --transition-slow: 0.5s ease;
 }
 
-/* Accessibility Controls Container */
-.accessibility-controls {
+/* Dark Mode */
+body.dark-mode {
+    --bg-body: #1a1a1a;
+    --bg-light: #2a2a2a;
+    --bg-card: #333;
+    --text-dark: #ddd;
+    --text-light: #fff;
+    --text-muted: #aaa;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
     position: fixed;
     top: 80px;
     right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 1000;
-}
-
-/* Dark Mode Toggle (အရင်ရှိပြီးသား ကုဒ်) */
-.dark-mode-toggle {
     background: var(--primary-color);
     color: var(--text-light);
     border: none;
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 1000;
     width: 40px;
     height: 40px;
     display: flex;
@@ -100,59 +103,6 @@
 
 .dark-mode-toggle:hover {
     background: var(--primary-hover);
-}
-
-/* Font Size Toggle Buttons */
-.font-size-btn {
-    background: var(--secondary-color);
-    color: var(--text-light);
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background var(--transition-fast), transform var(--transition-fast);
-}
-
-.font-size-btn:hover {
-    background: var(--secondary-hover);
-    transform: scale(1.1);
-}
-
-.increase-font {
-    background: #28a745; /* Green for Increase */
-}
-
-.increase-font:hover {
-    background: #218838;
-}
-
-.decrease-font {
-    background: #dc3545; /* Red for Decrease */
-}
-
-.decrease-font:hover {
-    background: #c82333;
-}
-
-/* Responsive Design for Mobile */
-@media (max-width: 768px) {
-    .accessibility-controls {
-        top: 70px;
-        right: 10px;
-        gap: 8px;
-    }
-
-    .dark-mode-toggle,
-    .font-size-btn {
-        width: 36px;
-        height: 36px;
-        padding: 8px;
-    }
 }
 
 /* General Styles */
@@ -414,67 +364,6 @@ nav ul li a:hover {
     .search.active .logo#headerLogo {
         display: none !important;
     }
-}
-
-/* ===== 14. Filter Styles ===== */
-.category-tag {
-    background-color: #e0f7fa;
-    padding: 4px 8px;
-    border-radius: 6px;
-    margin-right: var(--spacing-small);
-    font-size: 0.9em;
-    color: var(--secondary-color);
-    cursor: pointer;
-    transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-    
-}
-
-.category-tag:hover {
-    background-color: #b3e5fc;
-    color: var(--primary-hover);
-}
-
-.category-tag:active {
-    transform: scale(0.95); /* Click လုပ်တဲ့အခါ ခပ်သေးသွားမယ် */
-}
-
-.active-category {
-    font-weight: bold;
-    color: var(--primary-hover); /* သို့မဟုတ် မင်းလိုချင်တဲ့ အရောင် */
-    text-decoration: underline; /* သို့မဟုတ် မင်းလိုချင်တဲ့ Style */
-}
-
-
-
-.category-tag.highlighted {
-    background-color: #0288d1;
-    color: var(--text-light);
-    font-weight: bold;
-}
-
-.post-category {
-    margin-bottom: var(--spacing-small);
-}
-
-.filter-status {
-    font-size: var(--font-size-base);
-    margin-bottom: var(--spacing-small);
-    background: var(--bg-light);
-    border-radius: var(--border-radius-small);
-    padding: var(--spacing-small);
-}
-
-#showAllLink {
-    text-decoration: underline;
-    color: var(--secondary-color);
-    font-weight: bold;
-    margin-left: var(--spacing-medium);
-    transition: color var(--transition-fast);
-}
-
-#showAllLink:hover {
-    color: var(--primary-hover);
-    text-decoration: underline;
 }
 
 /* Main Body Layout */
