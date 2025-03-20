@@ -103,3 +103,33 @@ document.addEventListener("DOMContentLoaded", function () {
             alert('ဒေတာကို ဆွဲယူရာမှာ အမှားအယွင်းရှိနေပါတယ်။');
         });
 });
+
+// Dark Mode Toggle
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const icon = document.querySelector('.dark-mode-toggle i');
+    if (document.body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+}
+
+// Font Size Toggle Functions
+let currentFontSize = 16; // Default font size in pixels
+
+function increaseFontSize() {
+    if (currentFontSize < 20) { // Maximum font size limit
+        currentFontSize += 1;
+        document.documentElement.style.setProperty('--font-size-base', `${currentFontSize}px`);
+    }
+}
+
+function decreaseFontSize() {
+    if (currentFontSize > 12) { // Minimum font size limit
+        currentFontSize -= 1;
+        document.documentElement.style.setProperty('--font-size-base', `${currentFontSize}px`);
+    }
+}
