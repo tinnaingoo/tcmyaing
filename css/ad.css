@@ -1,152 +1,54 @@
-/* Widget Ad Styles */
-:root{
-    --font-mm-primary: MyanmarSquare;
-    --font-mm-secondary: Pyidaungsu;
-    --font-mm-beauty: YoeYar-One;
-}
 .widget-ad {
     width: 100%;
     padding: 10px;
+    margin-bottom: 30px;
 }
 
-.ad-728x90 {
-  width: 728px;
-  height: 90px;
-  background-color: #FFF;
-  border: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
+.ad-300x250, .ad-160x600 {
+    background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius-medium);
+    display: flex;
+    justify-content: center;
     flex-direction: column;
-  align-items: center;
-  font-family: sans-serif;
-  font-size: 16px;
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px; /* ကြော်ငြာတစ်ခုနဲ့တစ်ခုကြား နေရာချန် */
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, -0.81);
+    align-items: center;
+    font-family: var(--font-primary);
+    font-size: 16px;
+    color: var(--primary-color);
+    text-align: center;
+    margin: 0 auto;
+    transition: transform var(--transition-fast);
 }
 
 .ad-300x250 {
     display: none;
+    width: 100%;
+    height: 250px;
+    max-width: 300px;
 }
 
 .ad-160x600 {
-  width: 160px;
-  height: 600px;
-  background-color: #FFF;
-  border: 1px solid #aaa;
-  display: flex;
-  justify-content: center;
-    flex-direction: column;
-  align-items: center;
-  font-family: sans-serif;
-  font-size: 16px;
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, -0.81);
+    width: 160px;
+    height: 600px;
 }
 
-.widget-title {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 15px;
-    font-family: var(--font-mm-primary);
+.ad-300x250:hover, .ad-160x600:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px var(--shadow-medium);
 }
 
-.ad-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+.ad-300x250 p, .ad-160x600 p {
+    font-size: 18px;
+    font-weight: bold;
 }
 
-.ad-size-square {
-    width: 100%;
-    height: 0;
-    padding-bottom: 83.33%; /* 336:280 aspect ratio (336/280 = 1.2, 100/1.2 = 83.33%) */
-    background: #f4f4f4;
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-}
-
-.ad-size-square img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.ad-content {
-    padding: 15px 0;
-    text-align: center;
-}
-
-.ad-content p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 10px;
-    font-family: "Padauk", serif;
-}
-
-.ad-content .btn {
-    background: #0073e6;
-    color: #fff;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.ad-content .btn:hover {
-    background: #005bb5;
-    transform: translateY(-2px);
-}
-
-/* Responsive Design for Mobile (Ad-Specific) */
+/* Responsive Design for Mobile */
 @media (max-width: 768px) {
-    .ad-160x600{
+    .ad-160x600 {
         display: none;
     }
 
-    
     .ad-300x250 {
-        width: 100%;
-        height: 250px;
-        background-color: #FFF;
-        border: 1px solid #bbb;
         display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        font-family: sans-serif;
-        font-size: 16px;
-        color: #333;
-        text-align: center;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, -0.81);
-        max-width: 300px;
-    }
-    
-    .widget-ad {
-        margin-top: 10px;
-        width: 100%; /* Mobile မှာ full width */
-    }
-
-    .ad-size-square {
-        padding-bottom: 83.33%; /* Mobile မှာ 336:280 aspect ratio သုံးပါ */
-    }
-
-    .ad-content .btn {
-        padding: 6px 12px; /* Mobile မှာ သုံးရလွယ်ပါ */
     }
 }
