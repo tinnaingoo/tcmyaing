@@ -1,32 +1,22 @@
-
 @font-face {
     font-family: 'MyanmarAngoun';
     src: url('/fonts/KhmerType/MyanmarAngoun.ttf');
 }
-@font-face {
-    font-family: 'MyanmarChatu';
-    src: url('/fonts/KhmerType/MyanmarChatu.ttf');
-}
-@font-face {
-    font-family: 'MyanmarChatu';
-    src: url('/fonts/KhmerType/MyanmarChatu.ttf');
-}
 
-<!-- Masterpiece -->
+@font-face {
+    font-family: 'MyanmarChatu';
+    src: url('/fonts/KhmerType/MyanmarChatu.ttf');
+}
 
 @font-face {
     font-family: 'MasterpieceTawWin';
     src: url('/fonts/masterpiece/MasterpieceTawWin.ttf');
 }
 
-<!-- Unknown -->
-
 @font-face {
     font-family: 'Pyidaungsu';
     src: url('/fonts/other/Pyidaungsu.ttf');
 }
-
-<!-- Unknown -->
 
 @font-face {
     font-family: 'MyanmarHeadOne';
