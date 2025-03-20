@@ -104,35 +104,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
-// Dark Mode Toggle Function
+document.addEventListener("DOMContentLoaded", function () {
+    // Check for saved Dark Mode preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        const icon = document.querySelector('.dark-mode-toggle i');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+
+    // Rest of your existing code...
+});
+
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     const icon = document.querySelector('.dark-mode-toggle i');
-    
-    // Dark Mode ဖြစ်မဖြစ်ကို စစ်ပြီး Icon ပြောင်းမယ်
     if (document.body.classList.contains('dark-mode')) {
         icon.classList.remove('fa-moon');
         icon.classList.add('fa-sun');
-        localStorage.setItem('theme', 'dark'); // Local Storage မှာ သိမ်းမယ်
+        localStorage.setItem('darkMode', 'enabled');
     } else {
         icon.classList.remove('fa-sun');
         icon.classList.add('fa-moon');
-        localStorage.setItem('theme', 'light'); // Local Storage မှာ သိမ်းမယ်
+        localStorage.setItem('darkMode', 'disabled');
     }
 }
-
-// Page Load တဲ့အခါ Local Storage က Theme ကို စစ်ပြီး Apply လုပ်မယ်
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
-    const icon = document.querySelector('.dark-mode-toggle i');
-    
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    } else {
-        document.body.classList.remove('dark-mode');
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-    }
-});
