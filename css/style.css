@@ -366,6 +366,67 @@ nav ul li a:hover {
     }
 }
 
+/* ===== 14. Filter Styles ===== */
+.category-tag {
+    background-color: #e0f7fa;
+    padding: 4px 8px;
+    border-radius: 6px;
+    margin-right: var(--spacing-small);
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    
+}
+
+.category-tag:hover {
+    background-color: #b3e5fc;
+    color: var(--primary-hover);
+}
+
+.category-tag:active {
+    transform: scale(0.95); /* Click လုပ်တဲ့အခါ ခပ်သေးသွားမယ် */
+}
+
+.active-category {
+    font-weight: bold;
+    color: var(--primary-hover); /* သို့မဟုတ် မင်းလိုချင်တဲ့ အရောင် */
+    text-decoration: underline; /* သို့မဟုတ် မင်းလိုချင်တဲ့ Style */
+}
+
+
+
+.category-tag.highlighted {
+    background-color: #0288d1;
+    color: var(--text-light);
+    font-weight: bold;
+}
+
+.post-category {
+    margin-bottom: var(--spacing-small);
+}
+
+.filter-status {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-small);
+    background: var(--bg-light);
+    border-radius: var(--border-radius-small);
+    padding: var(--spacing-small);
+}
+
+#showAllLink {
+    text-decoration: underline;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-left: var(--spacing-medium);
+    transition: color var(--transition-fast);
+}
+
+#showAllLink:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
 /* Main Body Layout */
 .main-body {
     display: flex;
