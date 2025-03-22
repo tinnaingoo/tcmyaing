@@ -422,7 +422,7 @@ nav ul li a:hover {
 .all-post {
     flex: 0 0 var(--post-width);
     padding: var(--spacing-small) 0;
-    background: var(--text-light);
+    background: var(--bg-light);
     text-align: center;
 }
 
