@@ -638,12 +638,37 @@ nav ul li a:hover {
     overflow: hidden;
 }
 
+.post-image {
+    position: relative;
+    overflow: hidden;
+}
+
 .post-image img {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform var(--transition-fast);
 }
 
+.post-image:hover img {
+    transform: scale(1.05);
+}
+
+.post-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-semi);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.post-image:hover::after {
+    opacity: 1;
+}
 .post-content {
     padding: 16px;
     text-align: center;
