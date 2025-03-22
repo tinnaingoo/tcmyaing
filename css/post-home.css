@@ -429,7 +429,7 @@ nav ul li a:hover {
 .aside {
     flex: 0 0 var(--aside-width);
     padding: var(--spacing-small) 0;
-    padding-top: 80px;
+    padding-top: 50px;
     text-align: center;
     background: var(--bg-card);
     margin-left: var(--spacing-xs);
@@ -512,9 +512,14 @@ body.dark-mode .widget-socials {
         width: 100%;
     }
 
-    .all-post, .aside {
+    .all-post{
         flex: 0 0 100%;
         margin-left: 0;
+    }
+    .aside {
+        flex: 0 0 100%;
+        margin-left: 0;
+        padding-top: 0px;
     }
 
     .widget-socials {
