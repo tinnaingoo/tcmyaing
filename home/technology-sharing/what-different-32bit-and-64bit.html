@@ -7,6 +7,8 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <link rel="stylesheet" href="/css/post-home.css">
     <link rel="stylesheet" href="/css/ad.css">
+    <link rel="stylesheet" href="/css/myanmar-fonts.css">
+    <link rel="stylesheet" href="/css/pdf-live-view.css">
     
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -15,6 +17,10 @@
 </head>
 <body>
 
+<button class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+</button>
+    
 <header>
     <div class="header-box">
         <div class="logo" id="headerLogo">
@@ -58,7 +64,7 @@
     <div class="container">
         <div class="post-title-container">
         <h1 class="post-title" id="post-title">32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?</h1>
-        <p class="post-meta">By <a href="#">tinnaingoo</a> • Feb 28, 2025</p>
+        <p class="post-meta">By <a >tinnaingoo</a> • Feb 28, 2025</p>
         </div>
         <div class="post-image">
             <img src="https://i.pinimg.com/1200x/da/99/98/da999890c4e3385daac0b30c7734d098.jpg" alt="Difference Between 32bit & 64bit">
@@ -166,7 +172,7 @@
             </ul>
         </div>
 
-        <div class="widget-ad">
+         <div class="widget-ad">
             <div class="ad-160x600">
                 <p><b>ဤနေရာမှာ ကြော်ငြာပါ။</b></p>
                 <p>320x50</p>
@@ -186,7 +192,6 @@
             </div>    
             </div>
         </section>  
-
 
 <section class="subscribe-section">
     <div class="container">
@@ -213,16 +218,18 @@
     </div>
 </section>  
 
- <section id="about" class="about">
-        <div class="container">
-            <h2></h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p></p>
-                </div>
+<section id="about" class="about">
+    <div class="container">
+        <h2></h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p></p>
             </div>
+            <!-- View More Button -->
+            <a id="view-more-btn" href="#" class="view-more-btn">View More</a>
         </div>
-    </section>
+    </div>
+</section>
     
 <section class="contact-section">
     <div class="container">
