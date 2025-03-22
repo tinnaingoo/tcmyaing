@@ -150,20 +150,20 @@ h1, h2, h3 {
     width: var(--container-width);
     max-width: var(--container-max-width);
     margin: 0 auto;
-    padding-top: 80px;
-}
+    }
 
 .all-post {
     flex: 0 0 var(--post-width);
     padding: var(--spacing-small) 0;
     background: var(--bg-card);
     text-align: center;
+    padding-top: 80px;
 }
 
 .aside {
     flex: 0 0 var(--aside-width);
     padding: var(--spacing-small) 0;
-    padding-top: 0px;
+    padding-top: 80px;
     text-align: center;
     background: var(--bg-card);
     margin-left: var(--spacing-xs);
