@@ -163,7 +163,7 @@ h1, h2, h3 {
 .aside {
     flex: 0 0 var(--aside-width);
     padding: var(--spacing-small) 0;
-    padding-top: 80px;
+    padding-top: 60px;
     text-align: center;
     background: var(--bg-card);
     margin-left: var(--spacing-xs);
