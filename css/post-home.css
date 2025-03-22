@@ -430,7 +430,7 @@ nav ul li a:hover {
     flex: 0 0 var(--aside-width);
     padding: var(--spacing-small) 0;
     text-align: center;
-    background: var(--text-light);
+    background: var(--bg-light);
     margin-left: var(--spacing-xs);
     font-family: var(--font-primary);
 }
