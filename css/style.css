@@ -245,7 +245,7 @@ h1, h2, h3 {
     .aside {
         flex: 0 0 100%;
         margin-left: 0;
-        margin-top:0px;        
+        padding-top: 50px;
     }
 
     .widget-socials {
