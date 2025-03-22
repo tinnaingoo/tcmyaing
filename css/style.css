@@ -678,8 +678,16 @@ nav ul li a:hover {
 
 .read-more {
     text-decoration: none;
-    color: var(--secondary-color);
+    color: var(--text-light);
     font-weight: bold;
+    background: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: var(--border-radius-small);
+    transition: background var(--transition-fast);
+}
+
+.read-more:hover {
+    background: var(--primary-hover);
 }
 
 .post-meta a {
