@@ -602,7 +602,7 @@ nav ul li a:hover {
     flex-wrap: wrap;
     gap: 30px;
     margin: var(--spacing-small) 0;
-    max-width: var(--modal-max-width);
+    max-width: var(--container-max-width);
 }
 }
 /* No Results Message */
