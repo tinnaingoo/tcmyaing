@@ -147,7 +147,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     transition: color var(--transition-fast);
-    font-family: var(var(--font-mm-secondary);
+    font-family: YoeYar-One;
 }
 
 nav ul li a:hover {
@@ -232,13 +232,12 @@ nav ul li a:hover {
 .hero h2 {
     font-size: var(--font-size-large);
     margin-bottom: var(--spacing-medium);
-    font-family: var(--font-mm-primary);
+    font-family: var(--font-secondary);
 }
 
 .hero p {
     font-size: var(--font-size-hero-p);
     margin-bottom: 30px;
-    font-family: var(--font-mm-beauty);
 }
 
 .hero .btn {
@@ -397,14 +396,12 @@ nav ul li a:hover {
     font-size: var(--font-size-subtitle);
     margin-bottom: 15px;
     color: var(--primary-color);
-    font-family: var(--font-mm-primary);
 }
 
 .category-card p {
     font-size: 1rem;
     color: var(--text-muted);
     margin-bottom: var(--spacing-medium);
-    font-family: var(--font-mm-secondary);
 }
 
 .category-card .btn {
@@ -445,7 +442,6 @@ nav ul li a:hover {
     font-size: var(--font-size-title);
     color: var(--text-dark);
     margin-bottom: 15px;
-    font-family: var(--font-mm-primary);
 }
 
 .contact-section p {
