@@ -140,6 +140,7 @@ h1, h2, h3 {
 .padauk-bold { font-family: var(--font-primary); font-weight: 700; font-style: normal; }
 
 /* Header Styles */
+/* ===== 2. Header Styles ===== */
 header {
     position: fixed;
     top: 0;
@@ -149,8 +150,16 @@ header {
     color: var(--text-light);
     padding: var(--spacing-small) 0;
     z-index: 1000;
-    box-shadow: 0 4px 15px var(--shadow-medium);
-    font-family: var(--font-primary);
+    box-shadow: 0 4px 15px var(--shadow-dark);
+}
+
+.header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: var(--container-width);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
 }
 
 header .header-box h1 {
@@ -158,9 +167,8 @@ header .header-box h1 {
     text-align: center;
     padding: 0;
     margin: 0;
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
 }
-
 .logo {
     display: flex;
     align-items: center;
