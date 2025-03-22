@@ -240,7 +240,7 @@ h1, h2, h3 {
     .all-post, .aside {
         flex: 0 0 100%;
         margin-left: 0;
-        padding-top: 2px;
+        
     }
 
     .widget-socials {
