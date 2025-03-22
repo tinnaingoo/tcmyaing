@@ -237,10 +237,15 @@ h1, h2, h3 {
         width: 100%;
     }
 
-    .all-post, .aside {
+    .all-post{
         flex: 0 0 100%;
         margin-left: 0;
         
+    }
+    .aside {
+        flex: 0 0 100%;
+        margin-left: 0;
+        margin-top:0px;        
     }
 
     .widget-socials {
