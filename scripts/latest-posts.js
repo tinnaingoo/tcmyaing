@@ -13,7 +13,7 @@ async function updateLatestPosts() {
         latestPosts.forEach(post => {
             const li = document.createElement('li');
             // Marker အနေနဲ့ • ကို ထည့်မယ်
-            li.innerHTML = `<span class="marker">• </span><a href="/${post.PostUrl}.html" title="${post.title}">${post.title}</a>`;
+            li.innerHTML = `<span class="marker">• </span><a href="${post.PostUrl}.html" title="${post.title}">${post.title}</a>`;
             latestPostsList.appendChild(li);
         });
     } catch (error) {
