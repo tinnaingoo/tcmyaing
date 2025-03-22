@@ -626,7 +626,7 @@ nav ul li a:hover {
     transition: transform var(--transition-fast);
 }
 
-.post-card:hover{
+.post-image:hover img{
     transform: scale(1.05);
 }
 
