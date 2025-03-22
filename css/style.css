@@ -528,12 +528,11 @@ nav ul li a:hover {
 }
 
 
-/* ===== 4. About Section ===== */
+/* About Section */
 .about {
     padding: var(--spacing-xl) 0;
     background: var(--bg-light);
     text-align: center;
-    animation: fadeIn 1s ease-in-out;
 }
 
 .about h2 {
@@ -544,69 +543,18 @@ nav ul li a:hover {
 }
 
 .about-content {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--spacing-large);
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 0 var(--spacing-medium);
 }
 
-.about-text, .about-skills {
-    flex: 1;
-    text-align: left;
-}
-
 .about-text p {
-    font-size: 1.1rem;
+    font-size: 16px;
     line-height: 1.8;
     color: var(--text-muted);
     margin-bottom: var(--spacing-medium);
+    font-family: var(--font-primary);
 }
-
-.about-skills h3 {
-    font-size: 1.8rem;
-    margin-bottom: var(--spacing-medium);
-    color: var(--primary-color);
-}
-
-.about-skills ul {
-    list-style: none;
-    padding: 0;
-}
-
-.about-skills li {
-    font-size: 1.1rem;
-    margin-bottom: var(--spacing-small);
-    color: var(--text-dark);
-}
-
-.social-links {
-    margin-top: var(--spacing-large);
-}
-
-.social-links a {
-    display: inline-block;
-    margin: 0 var(--spacing-small);
-    font-size: var(--font-size-subtitle);
-    color: var(--primary-color);
-    transition: color var(--transition-fast);
-}
-
-.social-links a:hover {
-    color: var(--primary-hover);
-}
-
-@media (max-width: 768px) {
-    .about-content {
-        flex-direction: column;
-    }
-
-    .about-text, .about-skills {
-        text-align: center;
-    }
-}
-
 /* ===== 6. Post Content Styles ===== */
 .loadingIndicator {
     font-size: var(--font-size-caption);
