@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/post-home.css">
     <link rel="stylesheet" href="/css/ad.css">
     <link rel="stylesheet" href="/css/myanmar-fonts.css">
+    <link rel="stylesheet" href="/css/pdf-live-view.css">
     
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,6 +17,10 @@
 </head>
 <body>
 
+<button class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+</button>
+    
 <header>
     <div class="header-box">
         <div class="logo" id="headerLogo">
@@ -194,7 +199,7 @@
             </ul>
         </div>
 
-        <div class="widget-ad">
+         <div class="widget-ad">
             <div class="ad-160x600">
                 <p><b>ဤနေရာမှာ ကြော်ငြာပါ။</b></p>
                 <p>320x50</p>
@@ -240,16 +245,18 @@
     </div>
 </section>  
 
- <section id="about" class="about">
-        <div class="container">
-            <h2></h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p></p>
-                </div>
+<section id="about" class="about">
+    <div class="container">
+        <h2></h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p></p>
             </div>
+            <!-- View More Button -->
+            <a id="view-more-btn" href="#" class="view-more-btn">View More</a>
         </div>
-    </section>
+    </div>
+</section>
     
 <section class="contact-section">
     <div class="container">
