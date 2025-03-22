@@ -821,7 +821,7 @@ nav ul li a:hover {
 .videos {
     padding: var(--spacing-xl) 0;
     text-align: center;
-    background: #f4f4f4;
+    background: var(--bg-light);
 }
 
 .slider {
@@ -1162,7 +1162,7 @@ nav ul li a:hover {
 
 /* Contact Section */
 .contact-section {
-    background-color: #f4f4f4;
+    background-color: var(--bg-light);
     padding: var(--spacing-large) var(--spacing-medium);
     text-align: center;
     margin: var(--spacing-medium) 0;
