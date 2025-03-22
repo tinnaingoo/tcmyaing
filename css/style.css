@@ -621,12 +621,6 @@ nav ul li a:hover {
     box-shadow: 0 0 var(--spacing-small) var(--shadow-light);
 }
 
-.all-post {
-    padding: var(--spacing-small) 0;
-    background: var(--bg-card);
-    text-align: center;
-    padding-top: 0px;
-}
 
 .post-content-grid {
     display: flex;
