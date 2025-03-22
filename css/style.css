@@ -127,6 +127,12 @@ body.dark-mode .read-more {
     color: var(--primary-color);
 }
 
+body.dark-mode .result-item a {
+    text-decoration: none;
+    color: #333;
+    font-family: var(--font-secondary);
+}
+
 /* ===== 1. General Styles ===== */
 body {
     margin: 0;
