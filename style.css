@@ -232,12 +232,13 @@ nav ul li a:hover {
 .hero h2 {
     font-size: var(--font-size-large);
     margin-bottom: var(--spacing-medium);
-    font-family: var(--font-secondary);
+    font-family: var(--font-mm-primary);
 }
 
 .hero p {
     font-size: var(--font-size-hero-p);
     margin-bottom: 30px;
+    font-family: var(--font-mm-beauty);
 }
 
 .hero .btn {
