@@ -950,6 +950,11 @@ nav ul li a:hover {
     box-shadow: 0 1px 3px var(--shadow-light);
 }
 
+body.dark-mode .contact-link {
+    background-color: var(--bg-card);
+    color: var(--text-light);
+}
+
 .contact-link i {
     margin-right: var(--spacing-small);
     font-size: 1.2em;
