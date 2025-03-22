@@ -594,6 +594,17 @@ nav ul li a:hover {
     font-family: var(--font-primary);
 }
 
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .post-content-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: var(--spacing-small) 0;
+    max-width: var(--modal-max-width);
+}
+}
 /* No Results Message */
 .no-results-message {
     text-align: center;
