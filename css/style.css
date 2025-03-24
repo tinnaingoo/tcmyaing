@@ -615,7 +615,7 @@ nav ul li a:hover {
 .post-card {
     flex: 1 1 100%;
     background: var(--bg-card);
-    border-radius: var(--border-radius-medium);
+    border-radius: var(--border-radius-small);
     box-shadow: 0 4px 8px var(--shadow-light);
     overflow: hidden;
 }
@@ -845,7 +845,7 @@ nav ul li a:hover {
     max-width: 800px;
     margin: 0  auto;
     overflow: hidden;
-    border-radius: var(--border-radius-large);
+    border-radius: var(--border-radius-small);
     box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
