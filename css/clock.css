@@ -13,6 +13,14 @@ body.dark-mode {
   --red-color: #e74c3c;
 }
 
+.widget-clock {
+    background: var(--text-light);
+    padding: var(--spacing-small);
+    border-radius: 2px;
+    width: 100%;
+    box-shadow: 0 2px 4px var(--shadow-light);
+}
+
 #digitalClock {
     font-family: var(--font-mm-secondary); /* မြန်မာဖောင့်ကို သုံးမယ် */
     color: var(--black-color);
