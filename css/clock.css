@@ -46,6 +46,7 @@ body.dark-mode #digitalClock {
   font-weight: 600;
   color: var(--black-color);
   transform: rotate(calc(var(--i) * (-360deg / 12)));
+  font-family: var(--font-mm-secondary); /* မြန်မာဖောင့်ကို သုံးမယ် */
 }
 .container .indicator {
   position: absolute;
