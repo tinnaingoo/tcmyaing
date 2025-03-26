@@ -22,8 +22,8 @@ body.dark-mode {
 
 .clock {
   display: flex;
-  height: 400px;
-  width: 400px;
+  height: 250px;
+  width: 250px;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
@@ -63,7 +63,7 @@ body.dark-mode {
 }
 .indicator .hand {
   position: absolute;
-  height: 130px;
+  height: 100px;
   width: 4px;
   bottom: 0;
   border-radius: 25px;
@@ -71,12 +71,12 @@ body.dark-mode {
   background: var(--red-color);
 }
 .hand.minute {
-  height: 120px;
+  height: 90px;
   width: 5px;
   background: var(--black-color);
 }
 .hand.hour {
-  height: 100px;
+  height: 70px;
   width: 8px;
   background: var(--black-color);
 }
