@@ -4,6 +4,12 @@ const hourHand = document.querySelector(".hour"),
   secondHand = document.querySelector(".second"),
   digitalClock = document.querySelector("#digitalClock");
 
+// Function to convert English numbers to Myanmar numbers
+const toMyanmarNumber = (num) => {
+  const myanmarNumbers = ["၀", "၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"];
+  return num.toString().split("").map(digit => myanmarNumbers[parseInt(digit)]).join("");
+};
+
 // Function to get the current time in a specific time zone
 const getTimeInTimeZone = (timeZone) => {
   const options = {
@@ -11,7 +17,7 @@ const getTimeInTimeZone = (timeZone) => {
     hour: "numeric",
     minute: "numeric",
     second: "numeric",
-    hour12: false,
+    hour12: true, // Use 12-hour format with AM/PM
   };
   const formatter = new Intl.DateTimeFormat([], options);
   const parts = formatter.formatToParts(new Date());
@@ -21,14 +27,23 @@ const getTimeInTimeZone = (timeZone) => {
     if (part.type === "hour") time.hour = parseInt(part.value);
     if (part.type === "minute") time.minute = parseInt(part.value);
     if (part.type === "second") time.second = parseInt(part.value);
+    if (part.type === "dayPeriod") time.dayPeriod = part.value; // AM or PM
   });
 
   return time;
 };
 
-// Function to format the time for digital display
+// Function to format the time for digital display in Myanmar format
 const formatTimeForDigital = (time) => {
-  return `${time.hour.toString().padStart(2, "0")}:${time.minute.toString().padStart(2, "0")}:${time.second.toString().padStart(2, "0")}`;
+  // Convert AM/PM to Myanmar
+  const period = time.dayPeriod === "AM" ? "နံနက်" : "ညနေ";
+
+  // Convert numbers to Myanmar numbers
+  const hour = toMyanmarNumber(time.hour);
+  const minute = toMyanmarNumber(time.minute.toString().padStart(2, "0"));
+  const second = toMyanmarNumber(time.second.toString().padStart(2, "0"));
+
+  return `${hour}:${minute}:${second} ${period}`;
 };
 
 // Function to update the clock hands and digital clock
