@@ -31,6 +31,7 @@ body.dark-mode {
     background: var(--bg-light);
     color: var(--text-dark);
     font-weight: 500;
+    padding: 20px;
 }
 
 body.dark-mode #digitalClock {
