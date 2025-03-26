@@ -42,7 +42,7 @@ body.dark-mode #digitalClock {
 }
 .clock label span {
   display: inline-block;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--black-color);
   transform: rotate(calc(var(--i) * (-360deg / 12)));
