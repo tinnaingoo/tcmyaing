@@ -2,7 +2,7 @@
 const body = document.querySelector("body"),
   hourHand = document.querySelector(".hour"),
   minuteHand = document.querySelector(".minute"),
-  secondHand = document.querySelector(".second"),
+  secondHand = document.querySelector(".second");
   
 
 // check if the mode is already set to "Dark Mode" in localStorage
