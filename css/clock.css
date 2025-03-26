@@ -28,7 +28,7 @@ body.dark-mode {
 
 #digitalClock {
     font-family: var(--font-mm-secondary); /* မြန်မာဖောင့်ကို သုံးမယ် */
-    color: var(--black-color);
+    color: var(--bg-light);
     font-weight: 500;
 }
 
