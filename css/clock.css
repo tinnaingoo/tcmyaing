@@ -19,6 +19,11 @@ body.dark-mode {
     border-radius: 2px;
     width: 100%;
     box-shadow: 0 2px 4px var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 #digitalClock {
