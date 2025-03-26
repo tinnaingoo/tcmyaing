@@ -17,7 +17,7 @@ const getTimeInTimeZone = (timeZone) => {
     hour: "numeric",
     minute: "numeric",
     second: "numeric",
-    hour12: true, // Use 12-hour format with AM/PM
+    hour12: true, // Use 12-hour format
   };
   const formatter = new Intl.DateTimeFormat([], options);
   const parts = formatter.formatToParts(new Date());
@@ -30,20 +30,42 @@ const getTimeInTimeZone = (timeZone) => {
     if (part.type === "dayPeriod") time.dayPeriod = part.value; // AM or PM
   });
 
+  // Get the 24-hour format to determine the period
+  const options24 = {
+    timeZone: timeZone,
+    hour: "numeric",
+    hour12: false,
+  };
+  const formatter24 = new Intl.DateTimeFormat([], options24);
+  const parts24 = formatter24.formatToParts(new Date());
+  time.hour24 = parseInt(parts24.find(part => part.type === "hour").value);
+
   return time;
+};
+
+// Function to determine the time period in Myanmar
+const getMyanmarPeriod = (hour24, minute, second) => {
+  if (hour24 === 0 && minute === 0 && second === 0) {
+    return "ညမွန်းတည့်"; // Exactly 12:00:00 AM
+  } else if (hour24 === 12 && minute === 0 && second === 0) {
+    return "မွန်းတည့်"; // Exactly 12:00:00 PM
+  } else if (hour24 >= 0 && hour24 < 12) {
+    return "နံနက်"; // Before 12 PM
+  } else {
+    return "ညနေ"; // After 12 PM
+  }
 };
 
 // Function to format the time for digital display in Myanmar format
 const formatTimeForDigital = (time) => {
-  // Convert AM/PM to Myanmar
-  const period = time.dayPeriod === "AM" ? "နံနက်" : "ညနေ";
+  const period = getMyanmarPeriod(time.hour24, time.minute, time.second);
 
   // Convert numbers to Myanmar numbers
   const hour = toMyanmarNumber(time.hour);
   const minute = toMyanmarNumber(time.minute.toString().padStart(2, "0"));
   const second = toMyanmarNumber(time.second.toString().padStart(2, "0"));
 
-  return `${hour}:${minute}:${second} ${period}`;
+  return `${period} (${hour})နာရီ (${minute})မီနစ် (${second})စက္ကန့်`;
 };
 
 // Function to update the clock hands and digital clock
