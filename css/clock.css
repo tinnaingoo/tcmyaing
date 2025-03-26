@@ -14,7 +14,7 @@ body.dark-mode {
 }
 
 .widget-clock {
-    background: var(--text-light);
+    background: var(--white-color);
     padding: var(--spacing-small);
     border-radius: 2px;
     width: 100%;
