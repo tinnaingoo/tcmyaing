@@ -1,4 +1,4 @@
-//Get references to DOM elements
+// Get references to DOM elements
 const mmYear = document.querySelector("#mmYear"),
   mmYearName = document.querySelector("#mmYearName"),
   mmMonth = document.querySelector("#mmMonth"),
@@ -6,13 +6,7 @@ const mmYear = document.querySelector("#mmYear"),
   mmNakhat = document.querySelector("#mmNakhat"),
   mmSpecialDay = document.querySelector("#mmSpecialDay");
 
-//Function to convert English numbers to Myanmar numbers
-const toMyanmarNumber = (num) => {
-  const myanmarNumbers = ["၀", "၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"];
-  return num.toString().split("").map(digit => myanmarNumbers[parseInt(digit)]).join("");
-};
-
-//Function to calculate Julian Day Number (JDN) from Gregorian date
+// Function to calculate Julian Day Number (JDN) from Gregorian date
 const gregorianToJDN = (year, month, day) => {
   const a = Math.floor((14 - month) / 12);
   const y = year + 4800 - a;
@@ -20,7 +14,7 @@ const gregorianToJDN = (year, month, day) => {
   return day + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045;
 };
 
-//Function to calculate Myanmar Calendar Information based on JDN
+// Function to calculate Myanmar Calendar Information based on JDN
 const getMyanmarCalendarInfo = () => {
   const today = new Date();
   const year = today.getFullYear();
@@ -36,7 +30,7 @@ const getMyanmarCalendarInfo = () => {
   // Myanmar Months
   const myanmarMonths = [
     "တန်ခူး", "ကဆုန်", "နယုန်", "ဝါဆို", "ဝါခေါင်", "တော်သလင်း",
-    "သီတင်းကျွတ်", "တန်ဆောင်မုန်း", "နတ်တော်", "ပြာသို", "မရှင်", "ဖွတ်ခူး"
+    "သီတင်းကျွတ်", "တန်ဆောင်မုန်း", "နတ်တော်", "ပြာသို", "တပို့တွဲ", "တပေါင်း"
   ];
 
   // Simplified month mapping (in reality, this requires more complex calculation)
