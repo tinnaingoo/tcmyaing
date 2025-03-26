@@ -1,11 +1,6 @@
 /* Import Google font - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+
 :root {
   --white-color: #fff;
   --black-color: #18191a;
@@ -77,15 +72,4 @@ body.dark-mode {
   height: 70px;
   width: 8px;
   background: var(--black-color);
-}
-.mode-switch {
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 22px;
-  font-weight: 400;
-  display: inline-block;
-  color: var(--white-color);
-  background: var(--black-color);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
 }
