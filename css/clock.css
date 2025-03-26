@@ -13,6 +13,16 @@ body.dark-mode {
   --red-color: #e74c3c;
 }
 
+#digitalClock {
+    font-family: var(--font-mm-secondary); /* မြန်မာဖောင့်ကို သုံးမယ် */
+    color: var(--black-color);
+    font-weight: 500;
+}
+
+body.dark-mode #digitalClock {
+    color: var(--black-color); /* Dark Mode မှာ ဖြူဖွေးတဲ့ အရောင် */
+}
+
 .clock {
   display: flex;
   height: 250px;
