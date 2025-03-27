@@ -56,6 +56,9 @@ const populateAside = () => {
 
 
         <!-- Ad Widget -->
+        <style type="text/css">
+            @import url("/css/ad.css");
+        </style>
         <div class="widget-ad">
             <div class="ad-160x600">
                 <p><b>ဤနေရာမှာ ကြော်ငြာပါ။</b></p>
