@@ -132,6 +132,14 @@ body {
     font-family: var(--font-mm-secondary);
 }
 
+/*Secondary Content*/
+.secondary {
+    background: var(--bg-light);
+    max-width: 1200px;
+    margin: auto;
+    align-items: center;
+}
+
 /* Font Classes */
 .noto-sans-myanmar-thin { font-family: var(--font-secondary); font-weight: 100; font-style: normal; }
 .noto-sans-myanmar-extralight { font-family: var(--font-secondary); font-weight: 200; font-style: normal; }
