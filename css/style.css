@@ -468,7 +468,7 @@ nav ul li a:hover {
         top: 70px;
         right: -100%;
         width: 100%;
-        background: var(--primary-color);
+        background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
         transition: right var(--transition-fast);
     }
 
