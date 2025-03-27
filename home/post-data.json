@@ -1,5 +1,21 @@
 [
-          {
+
+
+{
+        "Category": ["Computer"],
+        "title": "Windows အသုံးပြုထားတဲ့ Laptop မှာ Battery Report ကို ဘယ်လိုစစ်ဆေးရမလဲ",
+        "Description": "ဒီနေ့ခေတ်မှာ နည်းပညာက တစ်နေ့တစ်ခြား တိုးတက်လာနေပြီး အဲဒီထဲမှာ အထူးခြားဆုံးတစ်ခုကတော့ Artificial Intelligence (AI) လို့ခေါ်တဲ့ ဉာဏ်ရည်တု နည်းပညာပါပဲ။ AI ဆိုတာဘာလဲ၊ ဘာတွေလုပ်လို့ရလဲ၊ ဘယ်လိုအခမဲ့ AI တွေကို သုံးလို့ရလဲဆိုတ...",
+        "ImageUrl": "https://i.pcmag.com/imagery/articles/06pAOqu8HjHsQpUe1Xc8AbF-1.fit_lim.size_1600x900.v1742833565.jpg",
+        "ImageCaption": "HTML & CSS - Beginner To Super Beginner",
+        "Author": "tinnaingoo",
+        "Date": "March 13, 2025",
+        "PostUrl": "/home/computer/how-to-check-the-health-of-your-laptop-battery-in-windows",
+        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
+        "NextPost-Url": "/home/technology-sharing/what-is-computer",
+        "PrePost-Title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
+        "PrePost-Url": "/home/technology-sharing/what-different-32bit-and-64bit"
+},
+{
         "Category": ["E-book"],
         "title": "HTML & CSS - Beginner To Super Beginner by Lwin Moe Paing",
         "Description": "ဒီနေ့ခေတ်မှာ နည်းပညာက တစ်နေ့တစ်ခြား တိုးတက်လာနေပြီး အဲဒီထဲမှာ အထူးခြားဆုံးတစ်ခုကတော့ Artificial Intelligence (AI) လို့ခေါ်တဲ့ ဉာဏ်ရည်တု နည်းပညာပါပဲ။ AI ဆိုတာဘာလဲ၊ ဘာတွေလုပ်လို့ရလဲ၊ ဘယ်လိုအခမဲ့ AI တွေကို သုံးလို့ရလဲဆိုတ...",
