@@ -1,4 +1,4 @@
-const Secondary = () => {
+const populateSecondary = () => {
     const secondarySection = document.querySelector("#secondary .container");
 
     if (!secondarySection) {
@@ -72,4 +72,4 @@ const Secondary = () => {
     secondarySection.innerHTML = secondaryContent;
 };
 
-document.addEventListener("DOMContentLoaded", Secondary);
+document.addEventListener("DOMContentLoaded", populateSecondary);
