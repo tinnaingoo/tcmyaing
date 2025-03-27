@@ -1,5 +1,5 @@
 const Secondary = () => {
-    const secondarySection = document.querySelector("#content-secondary .content-secondary");
+    const secondarySection = document.querySelector("#secondary .secondary");
 
     if (!secondarySection) {
         console.error("Secondary Content not found!");
