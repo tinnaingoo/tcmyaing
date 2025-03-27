@@ -65,7 +65,7 @@
         "ImageCaption": "Learning Windows Boot",
         "Author": "tinnaingoo",
         "Date": "March 3, 2025",
-        "PostUrl": "/home/technology-sharing/buy-a-laptop",
+        "PostUrl": "/home/computer/buy-a-laptop",
         "NextPost-Title": "Computer ဆိုတာဘာလဲ",
         "NextPost-Url": "/home/technology-sharing/what-is-computer",
         "PrePost-Title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
@@ -154,7 +154,7 @@
         "NextPost-Title": "Computer OS အကြောင်း",
         "NextPost-Url": "/home/technology-sharing/about-computer-os",
         "PrePost-Title": "Computer Keyboard အကြောင်း",
-        "PrePost-Url": "/home/technology-sharing/about-computer-keyboard"
+        "PrePost-Url": "/home/computer/about-computer-keyboard"
     },
     {
         "Category": ["Technology Sharing", "Computer"],
