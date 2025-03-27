@@ -657,11 +657,12 @@ body.dark-mode .widget-categories {
 
 /* About Section */
 .about {
-    padding: var(--spacing-xl) 0;
-    background: var(--bg-light);
+    background-color: #f4f4f4;
+    padding: var(--spacing-large) var(--spacing-medium);
     text-align: center;
-    animation: fadeIn 1s ease-in-out;
-    font-family: var(--font-primary);
+    margin: var(--spacing-medium) 0;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 2px 5px var(--shadow-light);
     width: 100%;
     max-width: 1200px;
 }
@@ -1070,11 +1071,14 @@ body.dark-mode .subscribe-section {
 
 /* Slider Styles */
 .videos {
-    padding: var(--spacing-xl) 0;
+    background-color: #f4f4f4;
+    padding: var(--spacing-large) var(--spacing-medium);
     text-align: center;
-    background: #f4f4f4;
+    margin: var(--spacing-medium) 0;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 2px 5px var(--shadow-light);
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
 }
 
 body.dark-mode .videos {
