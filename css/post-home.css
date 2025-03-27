@@ -662,6 +662,8 @@ body.dark-mode .widget-categories {
     text-align: center;
     animation: fadeIn 1s ease-in-out;
     font-family: var(--font-primary);
+    width: 100%;
+    max-width: 1200px;
 }
 
 body.dark-mode .about {
@@ -1018,6 +1020,8 @@ body.dark-mode .post-navigation .nav-link {
     margin: var(--spacing-medium) 0;
     border-radius: var(--border-radius-medium);
     box-shadow: 0 2px 5px var(--shadow-light);
+    width: 100%;
+    max-width: 1200px;
 }
 
 body.dark-mode .subscribe-section {
@@ -1069,6 +1073,8 @@ body.dark-mode .subscribe-section {
     padding: var(--spacing-xl) 0;
     text-align: center;
     background: #f4f4f4;
+    width: 100%;
+    max-width: 800px;
 }
 
 body.dark-mode .videos {
@@ -1166,6 +1172,8 @@ body.dark-mode .videos {
     margin: var(--spacing-medium) 0;
     border-radius: var(--border-radius-medium);
     box-shadow: 0 2px 5px var(--shadow-light);
+    width: 100%;
+    max-width: 1200px;
 }
 
 body.dark-mode .contact-section {
