@@ -149,8 +149,12 @@ h1, h2, h3 {
     font-family: var(--font-secondary);
 }
 
-section#about-body {
-    padding-top: 70px;
+.about-body {
+    flex: 0 0 var(--post-width);
+    padding: var(--spacing-small) 0;
+    background: var(--bg-card);
+    text-align: center;
+    padding-top: 80px;
 }
 
 /* Main Body Layout */
