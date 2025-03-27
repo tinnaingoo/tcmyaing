@@ -128,8 +128,8 @@ body {
     scroll-behavior: smooth;
 }
 
-h1, h2, h3 {
-    font-family: var(--font-secondary), var(--font-primary);
+.post-content h1, h2, h3 {
+    font-family: var(--font-mm-secondary);
 }
 
 /* Font Classes */
