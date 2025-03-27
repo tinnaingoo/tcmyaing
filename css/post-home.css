@@ -134,7 +134,7 @@ body {
 
 /*Secondary Content*/
 .secondary {
-    background: var(--bg-light);
+    background: var(--bg-dark);
     max-width: 1200px;
     margin: auto;
     align-items: center;
