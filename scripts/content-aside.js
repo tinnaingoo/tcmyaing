@@ -52,6 +52,31 @@ const populateAside = () => {
             </ul>
         </div>
 
+        <div class="widget-clock">
+    <h4 class="widget-title">မြန်မာစံတော်ချိန်</h4>
+    <div id="digitalClock" style="text-align: center; font-size: 1.2rem; margin-bottom: 10px;"></div>
+    <div class="clock">
+        <label style="--i: 1"><span>၁</span></label>
+        <label style="--i: 2"><span>၂</span></label>
+        <label style="--i: 3"><span>၃</span></label>
+        <label style="--i: 4"><span>၄</span></label>
+        <label style="--i: 5"><span>၅</span></label>
+        <label style="--i: 6"><span>၆</span></label>
+        <label style="--i: 7"><span>၇</span></label>
+        <label style="--i: 8"><span>၈</span></label>
+        <label style="--i: 9"><span>၉</span></label>
+        <label style="--i: 10"><span>၁၀</span></label>
+        <label style="--i: 11"><span>၁၁</span></label>
+        <label style="--i: 12"><span>၁၂</span></label>
+        <div class="indicator">
+            <span class="hand hour"></span>
+            <span class="hand minute"></span>
+            <span class="hand second"></span>
+        </div>
+    </div>
+</div>
+<script src="/scripts/clock.js"></script>
+
         <!-- Ad Widget -->
         <div class="widget-ad">
             <div class="ad-160x600">
