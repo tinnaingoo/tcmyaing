@@ -52,7 +52,10 @@ const populateAside = () => {
             </ul>
         </div>
 
-        <div class="widget-clock">
+<style type="text/css">
+    @import url("/css/clock.css");
+</style>
+<div class="widget-clock">
     <h4 class="widget-title">မြန်မာစံတော်ချိန်</h4>
     <div id="digitalClock" style="text-align: center; font-size: 1.2rem; margin-bottom: 10px;"></div>
     <div class="clock">
