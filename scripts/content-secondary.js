@@ -6,40 +6,70 @@ const Secondary = () => {
         return;
     }
 
-    const secondarySection = `
-        <div class="logo" id="headerLogo">
-            <img src="/images/logo-white.png" alt="Tech with TCM Logo">
-        </div>
-
-        <!-- Search Box -->
-        <div class="search">
-            <div class="search-container" id="searchContainer">
-                <i class="fa fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Search..">
+    const secondaryContent = `
+    
+        <section>
+            <div class="container>
+            <div class="widget-ad">
+            <div class="ad-300x250">
+                <p><b>ဤနေရာမှာ ကြော်ငြာပါ။</b></p>
+                <p>320x50</p>
             </div>
-            
-            <div id="sbutton" class="sbutton">
-                <i class="fa fa-search" id="searchIcon"></i>
+            </div>    
             </div>
-            <div id="searchResults" class="search-results"></div>
-        </div>
+        </section>  
 
-        <!-- Hamburger Icon for Mobile -->
-        <div class="hamburger" onclick="toggleMenu()">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
+<section class="subscribe-section">
+    <div class="container">
+        <h2>Subscribe to My YouTube Channel</h2>
+        <p>Stay updated with the latest tech tutorials, software reviews, and more from TC-Myaing!</p>
+        <a href="https://www.youtube.com/@tcmyaing?sub_confirmation=1" target="_blank" class="subscribe-btn">
+            <i class="fab fa-youtube"></i> Subscribe Now
+        </a>
+    </div>
+</section>
 
-        <!-- Navigation Menu -->
-        <nav style="top: 60px;" id="navMenu">
-            <ul>
-                <!-- Navigation items will be dynamically inserted here -->
-            </ul>
-        </nav>
+<section id="videos" class="videos">
+    <div class="container">
+        <!-- Image Auto Slider -->
+        <div class="slider">
+            <div class="slider-box">
+            <div class="slides" id="videoSlides">
+                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+            </div>
+            <button class="prev" onclick="prevSlide()">❮</button>
+            <button class="next" onclick="nextSlide()">❯</button>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<section id="about" class="about">
+    <div class="container">
+        <h2></h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p></p>
+            </div>
+            <!-- View More Button -->
+            <a id="view-more-btn" href="#" class="view-more-btn">View More</a>
+        </div>
+    </div>
+</section>
+    
+<section class="contact-section">
+    <div class="container">
+        <h2></h2>
+        <p></p>
+        <div class="contact-links">
+            <!-- Contact links will be dynamically inserted here -->
+        </div>
+    </div>
+</section>
+
     `;
 
-    headerSection.innerHTML = headerContent;
+    secondarySection.innerHTML = secondaryContent;
 };
 
-document.addEventListener("DOMContentLoaded", populateHeader);
+document.addEventListener("DOMContentLoaded", Secondary);
