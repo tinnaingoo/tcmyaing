@@ -78,7 +78,7 @@ const populateAside = () => {
         </div>
     </div>
 </div>
-<script src="/scripts/clock.js"></script>
+
 
         <!-- Ad Widget -->
         <div class="widget-ad">
