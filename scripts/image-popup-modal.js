@@ -1,6 +1,6 @@
 // ===== 5. Image Popup Modal =====
 // Modal နဲ့ image popup ကို control လုပ်ဖို့ logic
-const modal = document.getElementById('myModal');
+const imageModal = document.getElementById('myModal');
 const img = document.getElementById('post-img');
 const modalImg = document.getElementById('img01');
 const closeBtn = document.querySelector('.close');
@@ -8,7 +8,7 @@ const closeBtn = document.querySelector('.close');
 // Post ထဲက ပုံအားလုံးကို modal နဲ့ ချိတ်မယ်
 document.querySelectorAll('.post-text img').forEach(img => {
     img.addEventListener('click', function() {
-        modal.style.display = 'flex';
+        imageModal.style.display = 'flex';
         modalImg.src = this.src;
     });
 });
@@ -16,7 +16,7 @@ document.querySelectorAll('.post-text img').forEach(img => {
 // Specific image ကို နှိပ်ရင် modal ဖွင့်မယ်
 if (img) {
     img.addEventListener('click', function() {
-        modal.style.display = 'block';
+        imageModal.style.display = 'block';
         modalImg.src = this.src;
     });
 }
@@ -24,21 +24,21 @@ if (img) {
 // Close button ကို နှိပ်ရင် modal ပိတ်မယ်
 if (closeBtn) {
     closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
+        imageModal.style.display = 'none';
     });
 }
 
 // Modal ပြင်ပကို နှိပ်ရင် ပိတ်မယ်
 window.addEventListener('click', function(event) {
-    if (event.target === modal) {
-        modal.style.display = 'none';
+    if (event.target === imageModal) {
+        imageModal.style.display = 'none';
     }
 });
 
 // Esc key နှိပ်ရင် modal ပိတ်မယ်
 window.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
-        modal.style.display = 'none';
+        imageModal.style.display = 'none';
     }
 });
 
