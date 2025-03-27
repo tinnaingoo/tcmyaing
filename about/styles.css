@@ -149,6 +149,10 @@ h1, h2, h3 {
     font-family: var(--font-secondary);
 }
 
+section#about-body {
+    padding-top: 70px;
+}
+
 /* Main Body Layout */
 .main-body {
     display: flex;
