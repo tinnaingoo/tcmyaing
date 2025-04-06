@@ -23,65 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             heroBtn.textContent = page.hero.button.text;
             heroBtn.href = page.hero.button.url;
 
-            // Categories Section
-            const categoryGrid = document.querySelector(".category-grid");
-            categoryGrid.innerHTML = ""; // ရှိပြီးသား အကြောင်းအရာကို ရှင်းလင်းပါ
-            page.categories.items.forEach(category => {
-                const article = document.createElement("article");
-                article.classList.add("category-card");
-
-                article.innerHTML = `
-                    <div class="category-icon">
-                        <i class="${category.icon} fa-3x"></i>
-                    </div>
-                    <h3>${category.title}</h3>
-                    <p>${category.description}</p>
-                    <a href="${category.url}" class="category-link">Learn More</a>
-                `;
-                categoryGrid.appendChild(article);
-            });
-
-            // About Section
-            document.querySelector("#about h2").textContent = page.about.title;
-            document.querySelector(".about-text p").textContent = page.about.text;
-            //const skillsList = document.querySelector(".about-skills ul");
-            //skillsList.innerHTML = "";
-            //page.about.skills.forEach(skill => {
-              //  const li = document.createElement("li");
-              //  li.textContent = skill;
-              //  skillsList.appendChild(li);
-            //});
-            //const socialLinks = document.querySelector(".social-links");
-            //socialLinks.innerHTML = "";
-            //page.about.socialLinks.forEach(link => {
-              //  const a = document.createElement("a");
-              //  a.href = link.url;
-              //  a.target = "_blank";
-              //  a.classList.add("social-link");
-              //  a.innerHTML = `<i class="${link.icon}"></i>`;
-              //  socialLinks.appendChild(a);
-            //});
-
-            // Contact Section
-            document.querySelector(".contact-section h2").textContent = page.contact.title;
-            document.querySelector(".contact-section p").textContent = page.contact.text;
-            const contactLinks = document.querySelector(".contact-links");
-            contactLinks.innerHTML = "";
-            page.contact.links.forEach(link => {
-                const a = document.createElement("a");
-                a.href = link.url;
-                a.target = "_blank";
-                a.classList.add("contact-link", link.platform);
-                a.innerHTML = `
-                    <i class="${link.icon}"></i>
-                    <span>${link.platform.charAt(0).toUpperCase() + link.platform.slice(1)}</span>
-                `;
-                contactLinks.appendChild(a);
-            });
-
-            // Footer
-            document.querySelector("footer p").textContent = page.footer.text;
-
+            
             // Title of the page
             document.title = page.title;
         })
