@@ -15,16 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Header (Logo and Navigation)
             document.querySelector(".logo img").src = page.header.logo.src;
             document.querySelector(".logo img").alt = page.header.logo.alt;
-            const navMenu = document.querySelector("#navMenu ul");
-            navMenu.innerHTML = "";
-            page.header.nav.forEach(item => {
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = item.url;
-                a.textContent = item.text;
-                li.appendChild(a);
-                navMenu.appendChild(li);
-            });
+            
 
             // About Section
             document.querySelector("#about h2").textContent = page.about.title;
