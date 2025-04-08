@@ -817,6 +817,12 @@ body.dark-mode section.post-content {
     display: block;
 }
 
+.post-cover-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .post-text {
     text-align: justify;
     font-size: var(--font-size-base);
