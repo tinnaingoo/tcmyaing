@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set cover image
     const coverImageContainer = document.getElementById("post-cover-image");
     if (coverImageContainer) {
-        coverImageContainer.innerHTML = `<img src="${postData.coverImage}" alt="${imageAlt}" />`;
+        coverImageContainer.innerHTML = `<img src="${postData.coverImage}" alt="${postData.imageAlt}" />`;
     }
 
     // Set post content
