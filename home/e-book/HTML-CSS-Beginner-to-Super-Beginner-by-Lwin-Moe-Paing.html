@@ -119,6 +119,7 @@ const postData = {
     author: "tinnaingoo",
     date: "April 8, 2025",
     coverImage: "https://i.pinimg.com/1200x/29/c5/8e/29c58e694ad68e6ebdef728e586db15e.jpg",
+    imageAlt: "HTML & CSS",
     content: `
         <p>ဒီစာအုပ်က အခုမှ Web Development ကို စတင်လေ့လာမည့်သူ့တွေအတွက် အရမ်းသင့်တော်တဲ့ စာအုပ်တစ်အုပ်ဖြစ်ပါတယ်။ ...</p>
         <p class="break-words"><strong>ဒီ eBook က ဘယ်သူ့အတွက်လဲ?</strong></p>
@@ -154,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set cover image
     const coverImageContainer = document.getElementById("post-cover-image");
     if (coverImageContainer) {
-        coverImageContainer.innerHTML = `<img src="${postData.coverImage}" alt="Post Cover" />`;
+        coverImageContainer.innerHTML = `<img src="${postData.coverImage}" alt="${imageAlt}" />`;
     }
 
     // Set post content
