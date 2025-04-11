@@ -61,9 +61,19 @@ const populateSecondary = () => {
     <div class="container">
         <h2>ဆက်သွယ်ရန်</h2>
         <p>ဆွေးနွေးတိုင်ပင်မေးမြန်းလိုပါက အောက်ပါလင့်များမှတဆင့် ဆက်သွယ်နိုင်ပါသည်။</p>
-        <div class="contact-links">
-            <!-- Contact links will be dynamically inserted here -->
-        </div>
+        <div class="contact-links"><a href="https://www.facebook.com/tc.myaing" target="_blank" class="contact-link facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a><a href="https://www.youtube.com/@tcmyaing" target="_blank" class="contact-link youtube">
+                    <i class="fab fa-youtube"></i>
+                    <span>Youtube</span>
+                </a><a href="https://t.me/tcmyaing" target="_blank" class="contact-link telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>Telegram</span>
+                </a><a href="mailto:tcmyaing8@gmail.com" target="_blank" class="contact-link email">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a></div>
     </div>
 </section>
 
