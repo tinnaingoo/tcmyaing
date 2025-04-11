@@ -127,5 +127,5 @@ function toggleDarkMode() {
         icon.classList.remove('fa-sun');
         icon.classList.add('fa-moon');
         localStorage.setItem('darkMode', 'disabled');
-    }
+        }
 }
