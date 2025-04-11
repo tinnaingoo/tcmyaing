@@ -164,11 +164,52 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+// ===== 4. Navigation Update =====
+// Navigation link တွေကို JSON ကနေ update လုပ်ဖို့ function
+async function updateNavigation() {
+    try {
+        const response = await fetch('/home/post-data.json');
+        const postsData = await response.json();
+        
+        // Get current post title from the inline postData object
+        const currentTitle = postData.title;
+        const currentPost = postsData.find(post => post.title === currentTitle);
+
+        if (currentPost) {
+            const prevPostLink = document.getElementById('prevPostLink');
+            const prevPostTitle = document.getElementById('prevPostTitle');
+            if (currentPost['PrePost-Title'] && currentPost['PrePost-Url']) {
+                prevPostLink.href = `${currentPost['PrePost-Url']}.html`;
+                prevPostTitle.textContent = currentPost['PrePost-Title'];
+            } else {
+                prevPostLink.parentElement.style.display = 'none';
+            }
+
+            const nextPostLink = document.getElementById('nextPostLink');
+            const nextPostTitle = document.getElementById('nextPostTitle');
+            if (currentPost['NextPost-Title'] && currentPost['NextPost-Url']) {
+                nextPostLink.href = `${currentPost['NextPost-Url']}.html`;
+                nextPostTitle.textContent = currentPost['NextPost-Title'];
+            } else {
+                nextPostLink.parentElement.style.display = 'none';
+            }
+        } else {
+            console.error('Current post not found in JSON data');
+        }
+    } catch (error) {
+        console.error('Error fetching navigation data:', error);
+    }
+}
+
+// ===== Run Navigation =====
+// Navigation update ကို ခေါ်မယ်
+updateNavigation();
+    
 </script>
 <!-- JavaScript ဖိုင်များ -->
 <script src="/scripts/back-to-top.js"></script>      
 <script src="/scripts/dynmic-title-update.js"></script>
-<script src="/scripts/navigation-update.js"></script>
 <script src="/scripts/image-popup-modal.js"></script>
 <script src="/scripts/post.js"></script>
 
