@@ -46,13 +46,13 @@ const populateSecondary = () => {
 
 <section id="about" class="about">
     <div class="container">
-        <h2></h2>
+        <h2>ဤအင်တာနက်စာမျက်နှာအကြောင်း</h2>
         <div class="about-content">
             <div class="about-text">
-                <p></p>
+                <p>ဤအင်တာနက်စာမျက်နှာကို နည်းပညာနှင့် ဗဟုသုတများကို ကျတော်တတ်စွမ်းလေ့လာမိသလောက် မျှဝေရန်အတွက် ဖန်တီးထားခြင်းဖြစ်ပါတယ်။</p>
             </div>
             <!-- View More Button -->
-            <a id="view-more-btn" href="#" class="view-more-btn">View More</a>
+            <a id="view-more-btn" href="/about" class="view-more-btn">View More</a>
         </div>
     </div>
 </section>
