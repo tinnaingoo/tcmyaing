@@ -59,8 +59,8 @@ const populateSecondary = () => {
     
 <section class="contact-section">
     <div class="container">
-        <h2></h2>
-        <p></p>
+        <h2>ဆက်သွယ်ရန်</h2>
+        <p>ဆွေးနွေးတိုင်ပင်မေးမြန်းလိုပါက အောက်ပါလင့်များမှတဆင့် ဆက်သွယ်နိုင်ပါသည်။</p>
         <div class="contact-links">
             <!-- Contact links will be dynamically inserted here -->
         </div>
