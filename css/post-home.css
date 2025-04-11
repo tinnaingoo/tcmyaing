@@ -40,8 +40,40 @@
     /* Typography */
     --font-primary: "Padauk", serif;
     --font-secondary: "Noto Sans Myanmar", serif;
-    /* ... other non-color variables ... */
+    --font-mm-primary: MyanmarSquare;
+    --font-mm-secondary: Pyidaungsu;
+    --font-mm-beauty: YoeYar-One;
+    --font-size-base: 16px;
+    --font-size-title: 2em;
+    --font-size-subtitle: 1.5rem;
+    --font-size-meta: 14px;
+    --font-size-small: 0.9rem;
+    --font-size-nav-title: 1.2rem;
+
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 40px;
+    --spacing-xl: 50px;
+
+    /* Layout */
+    --container-width: 90%;
+    --container-max-width: 1200px;
+    --aside-width: 25%;
+    --post-width: 75%;
+    --modal-max-width: 90%;
+    --modal-max-height: 90vh;
+
+    /* Miscellaneous */
+    --border-radius-small: 5px;
+    --border-radius-medium: 8px;
+    --border-radius-circle: 50%;
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.4s ease;
+    --transition-slow: 0.5s ease;
 }
+
 
 /* Dark Mode - Updated to use darker shades */
 body.dark-mode {
