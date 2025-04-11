@@ -77,14 +77,14 @@
 
 /* Dark Mode - Updated to use darker shades */
 body.dark-mode {
-    --bg-body: #212529;
-    --bg-light: #343a40;
-    --bg-card: #495057;
-    --text-dark: #f8f9fa;
-    --text-light: #ffffff;
-    --text-muted: #adb5bd;
-    --text-meta: #868e96;
-    --border-light: #495057;
+    --bg-body: #1a1a1a;
+    --bg-light: #2a2a2a;
+    --bg-card: #333;
+    --text-dark: #ddd;
+    --text-light: #fff;
+    --text-muted: #aaa;
+    --text-meta: #999;
+    --border-light: #444;
     --shadow-light: rgba(255, 255, 255, 0.05);
     --shadow-medium: rgba(255, 255, 255, 0.1);
 }
