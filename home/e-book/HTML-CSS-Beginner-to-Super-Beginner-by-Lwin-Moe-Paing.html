@@ -206,11 +206,20 @@ async function updateNavigation() {
 // ===== Run Navigation =====
 // Navigation update ကို ခေါ်မယ်
 updateNavigation();
+
+
+// ===== 6. Dynamic Title Update =====
+const postTitle = postData.title;
+if (postTitle) {
+    document.title = postTitle.textContent.trim() + " | TC-Myaing";
+} else {
+    console.error('Post title element not found');
+}
+
     
 </script>
 <!-- JavaScript ဖိုင်များ -->
 <script src="/scripts/back-to-top.js"></script>      
-<script src="/scripts/dynmic-title-update.js"></script>
 <script src="/scripts/image-popup-modal.js"></script>
 <script src="/scripts/post.js"></script>
 
