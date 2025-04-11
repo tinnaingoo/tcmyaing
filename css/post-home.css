@@ -85,8 +85,8 @@ body.dark-mode {
     --text-muted: #aaa;
     --text-meta: #999;
     --border-light: #444;
-    --shadow-light: rgba(255, 255, 255, 0.05);
-    --shadow-medium: rgba(255, 255, 255, 0.1);
+    --shadow-light: rgba(255, 255, 255, 0.1);
+    --shadow-medium: rgba(255, 255, 255, 0.2);
 }
 
 /* Dark Mode Toggle */
