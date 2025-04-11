@@ -794,7 +794,7 @@ body.dark-mode section.post-content {
     margin-bottom: var(--spacing-medium);
 }
 
-.post-title {
+#post-title {
     font-size: 23px;
     font-weight: bold;
     margin-bottom: var(--spacing-small);
