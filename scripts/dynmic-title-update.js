@@ -1,1 +1,8 @@
-//\20\3D\3D\3D\3D\3D\206.\20Dynamic\20Title\20Update\20\3D\3D\3D\3D\3D\20//\20\3Ch1\3E\20\u1000\20\u1005\u102C\u101E\u102C\u1038\u1000\u102D\u102F\20\3Ctitle\3E\20\u1011\u1032\20\u1011\u100A\u1037\u103A\u1016\u102D\u102F\u1037\20const\20postTitle\20\3D\20document.getElementById\28\27post-title\27\29\3B\20if\20\28postTitle\29\20\7B\20\20\20\20\20document.title\20\3D\20postTitle.textContent.trim\28\29\20+\20\22\20\7C\20TC-Myaing\22\3B\20\7D\20else\20\7B\20\20\20\20\20console.error\28\27Post\20title\20element\20not\20found\27\29\3B\20\7D
+// ===== 6. Dynamic Title Update =====
+// <h1> က စာသားကို <title> ထဲ ထည့်ဖို့
+const postTitle = document.getElementById('post-title');
+if (postTitle) {
+    document.title = postTitle.textContent.trim() + " | TC-Myaing";
+} else {
+    console.error('Post title element not found');
+}
