@@ -31,13 +31,13 @@ document.addEventListener("DOMContentLoaded", function () {
             authorLink.textContent = page.admin;
 
             // About Section
-            document.querySelector(".about h2").textContent = page.about.title;
-            document.querySelector(".about-text p").textContent = page.about.text;
+            //document.querySelector(".about h2").textContent = page.about.title;
+            //document.querySelector(".about-text p").textContent = page.about.text;
              // View More Button URL
-            const viewMoreBtn = document.querySelector("#view-more-btn");
-            if (viewMoreBtn && page.about["about-url"]) {
-                viewMoreBtn.href = page.about["about-url"];
-            }
+            //const viewMoreBtn = document.querySelector("#view-more-btn");
+            //if (viewMoreBtn && page.about["about-url"]) {
+                //viewMoreBtn.href = page.about["about-url"];
+            //}
 
             // Categories Widget (Aside)
             //const categoriesList = document.querySelector("#categoriesList");
@@ -52,18 +52,18 @@ document.addEventListener("DOMContentLoaded", function () {
             //});
 
             // Contact Section
-            document.querySelector(".contact-section h2").textContent = page.contact.title;
-            document.querySelector(".contact-section p").textContent = page.contact.text;
-            const contactLinks = document.querySelector(".contact-section .contact-links");
-            contactLinks.innerHTML = "";
-            page.contact.links.forEach(link => {
-                const a = document.createElement("a");
-                a.href = link.url;
-                a.target = "_blank";
-                a.classList.add("contact-link", link.platform);
-                a.innerHTML = `
-                    <i class="${link.icon}"></i>
-                    <span>${link.platform.charAt(0).toUpperCase() + link.platform.slice(1)}</span>
+            //document.querySelector(".contact-section h2").textContent = page.contact.title;
+            //document.querySelector(".contact-section p").textContent = page.contact.text;
+            //const contactLinks = document.querySelector(".contact-section .contact-links");
+            //contactLinks.innerHTML = "";
+            //page.contact.links.forEach(link => {
+                //const a = document.createElement("a");
+                //a.href = link.url;
+                //a.target = "_blank";
+                //a.classList.add("contact-link", link.platform);
+                //a.innerHTML = `
+                    //<i class="${link.icon}"></i>
+                    //<span>${link.platform.charAt(0).toUpperCase() + link.platform.slice(1)}</span>
                 `;
                 contactLinks.appendChild(a);
             });
