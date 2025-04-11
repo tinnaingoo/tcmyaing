@@ -34,7 +34,9 @@ const populateHeader = () => {
         <!-- Navigation Menu -->
         <nav style="top: 60px;" id="navMenu">
             <ul>
-                <!-- Navigation items will be dynamically inserted here -->
+                <li><a href="/">ပင်မစာမျက်နှာ</a></li>
+                <li><a href="/about">အကြောင်းအရာ</a></li>
+                <li><a href="/#contact">ဆက်သွယ်ရန်</a></li>
             </ul>
         </nav>
     `;
