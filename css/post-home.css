@@ -1,42 +1,41 @@
-/* Updated CSS Variables in :root for global scope */
+/* Define CSS Variables in :root for global scope */
 :root {
-    /* Colors - Updated to match Bootstrap scheme */
-    --primary-gradient-start: #0069d9; /* Darker shade of primary */
-    --primary-gradient-end: #0056b3; /* Even darker shade of primary */
-    --primary-color: #007bff;
-    --primary-hover: #0069d9;
-    --secondary-color: #6c757d;
-    --secondary-hover: #5a6268;
-    --text-dark: #343a40;
-    --text-light: #f8f9fa;
-    --text-muted: #6c757d;
-    --text-meta: #868e96;
-    --text-placeholder: #adb5bd;
-    --bg-body: #f8f9fa;
-    --bg-light: #e9ecef;
-    --bg-footer: #343a40;
+    /* Colors */
+    --primary-gradient-start: #111184;
+    --primary-gradient-end: #004d99;
+    --primary-color: #0073e6;
+    --primary-hover: #005bb5;
+    --secondary-color: #3498db;
+    --secondary-hover: #2980b9;
+    --text-dark: #333;
+    --text-light: #fff;
+    --text-muted: #555;
+    --text-meta: #777;
+    --text-placeholder: #999;
+    --bg-body: #F8F8F8;
+    --bg-light: #f9f9f9;
+    --bg-footer: #111184;
     --bg-card: #fff;
     --shadow-light: rgba(0, 0, 0, 0.1);
-    --shadow-medium: rgba(0, 0, 0, 0.15);
-    --shadow-dark: rgba(0, 0, 0, 0.2);
-    --border-light: #dee2e6;
-    --border-dotted: #ced4da;
-    --category-color: #fd7e14; /* Using warning orange */
-    --success-color: #28a745;
-    --danger-color: #dc3545;
-    --warning-color: #ffc107;
-    --info-color: #17a2b8;
-    
-    /* Social Media Colors - Updated to be more vibrant */
-    --facebook-color: #3b5998;
-    --facebook-hover: #344e86;
+    --shadow-medium: rgba(0, 0, 0, 0.2);
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+    --border-light: #ddd;
+    --border-dotted: gray;
+    --category-color: #e67e22;
     --youtube-color: #ff0000;
-    --youtube-hover: #e60000;
+    --youtube-hover: #cc0000;
+    --facebook-color: #3b5998;
+    --overlay-dark: rgba(0, 0, 0, 0.7);
+    --overlay-semi: rgba(0, 0, 0, 0.5);
+
+    /* Social Media Colors */
+    --facebook-color: #3b5998;
+    --facebook-hover: #2a4373;
+    --youtube-color: #ff0000;
+    --youtube-hover: #cc0000;
     --telegram-color: #0088cc;
-    --telegram-hover: #0077b3;
-    --email-hover: #495057;
+    --email-hover: #555;
     
-    /* Rest of your variables remain the same */
     /* Typography */
     --font-primary: "Padauk", serif;
     --font-secondary: "Noto Sans Myanmar", serif;
@@ -74,8 +73,7 @@
     --transition-slow: 0.5s ease;
 }
 
-
-/* Dark Mode - Updated to use darker shades */
+/* Dark Mode */
 body.dark-mode {
     --bg-body: #1a1a1a;
     --bg-light: #2a2a2a;
