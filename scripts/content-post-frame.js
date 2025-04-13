@@ -1,5 +1,5 @@
 const populatePost = () => {
-    const postSection = document.querySelector("#postbody");
+    const postSection = document.querySelector("#postbody .post-content ");
 
     if (!postSection) {
         console.error("Post section not found!");
@@ -8,7 +8,6 @@ const populatePost = () => {
 
     const postContent = `
         
-<section class="post-content">
     <div class="container">
         <div class="post-title-container">
         <h1 class="post-title" id="post-title">Title</h1>
@@ -22,7 +21,6 @@ const populatePost = () => {
             
        </div>
     </div>
-</section>
 
     `;
 
