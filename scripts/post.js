@@ -54,12 +54,4 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Error fetching JSON:', error);
             alert('ဒေတာကို ဆွဲယူရာမှာ အမှားအယွင်းရှိနေပါတယ်။');
         });
-
-    // Dark Mode Preference
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-        const icon = document.querySelector('.dark-mode-toggle i');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    }
 });
