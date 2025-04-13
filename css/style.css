@@ -126,7 +126,6 @@ body.dark-mode .read-more {
 body.dark-mode .result-item a {
     text-decoration: none;
     color: #333;
-    font-family: var(--font-secondary);
 }
 
 /* ===== 1. General Styles ===== */
@@ -993,7 +992,7 @@ nav ul li a:hover {
 .result-item a {
     text-decoration: none;
     color: var(--text-dark);
-    font-family: var(--font-secondary);
+    font-family: var(--font-mm-secondary);
 }
 
 .result-item a:hover {
