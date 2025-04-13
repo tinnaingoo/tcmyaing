@@ -288,15 +288,6 @@
             display: block;
         }
 
-        .export-options {
-            margin-top: var(--spacing-medium);
-            display: none;
-        }
-
-        .export-option {
-            margin-bottom: var(--spacing-small);
-        }
-
         @media (max-width: 768px) {
             .admin-panel {
                 flex-direction: column;
@@ -342,7 +333,6 @@
                 <div class="tabs">
                     <div class="tab active" onclick="switchTab('form')">Form</div>
                     <div class="tab" onclick="switchTab('preview')">Preview</div>
-                    <div class="tab" onclick="switchTab('export')">Export</div>
                 </div>
                 
                 <div id="alert-success" class="alert alert-success"></div>
@@ -383,7 +373,7 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-success" onclick="previewPost()">Preview</button>
                             <button type="button" class="btn btn-secondary" onclick="clearForm()">Clear</button>
-                            <button type="button" class="btn btn-primary" onclick="prepareExport()">Export</button>
+                            <button type="button" class="btn btn-primary" onclick="copyPostData()">Copy Post Data</button>
                         </div>
                     </form>
                 </div>
@@ -398,44 +388,7 @@
                     
                     <div class="btn-group">
                         <button type="button" class="btn btn-secondary" onclick="switchTab('form')">Back to Form</button>
-                        <button type="button" class="btn btn-primary" onclick="prepareExport()">Export</button>
-                    </div>
-                </div>
-                
-                <div id="export-tab" class="tab-content">
-                    <div class="export-options" id="export-options">
-                        <div class="export-option">
-                            <button class="btn btn-primary" onclick="exportAsHTML()">
-                                <i class="fas fa-file-code"></i> Export Complete HTML
-                            </button>
-                            <p>Exports the entire HTML template with your post data embedded</p>
-                        </div>
-                        
-                        <div class="export-option">
-                            <button class="btn btn-success" onclick="exportAsJSON()">
-                                <i class="fas fa-file-code"></i> Export as JSON Data
-                            </button>
-                            <p>Exports just the post data in JSON format</p>
-                        </div>
-                        
-                        <div class="export-option">
-                            <button class="btn btn-secondary" onclick="copyHTMLToClipboard()">
-                                <i class="fas fa-copy"></i> Copy HTML to Clipboard
-                            </button>
-                            <p>Copies the complete HTML to your clipboard</p>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="export-code">Generated Code:</label>
-                        <textarea id="export-code" readonly style="min-height: 300px;"></textarea>
-                    </div>
-                    
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary" onclick="switchTab('form')">Back to Form</button>
-                        <button type="button" class="btn btn-primary" onclick="copyToClipboard()">
-                            <i class="fas fa-copy"></i> Copy Code
-                        </button>
+                        <button type="button" class="btn btn-primary" onclick="copyPostData()">Copy Post Data</button>
                     </div>
                 </div>
             </div>
@@ -467,13 +420,9 @@
             if (tabId === 'form') {
                 document.querySelector('.tab:nth-child(1)').classList.add('active');
                 document.getElementById('form-tab').classList.add('active');
-            } else if (tabId === 'preview') {
+            } else {
                 document.querySelector('.tab:nth-child(2)').classList.add('active');
                 document.getElementById('preview-tab').classList.add('active');
-            } else {
-                document.querySelector('.tab:nth-child(3)').classList.add('active');
-                document.getElementById('export-tab').classList.add('active');
-                prepareExport();
             }
         }
 
@@ -507,8 +456,8 @@
             showAlert('Form cleared', 'success');
         }
 
-        // Prepare Export
-        function prepareExport() {
+        // Copy Post Data
+        function copyPostData() {
             const title = document.getElementById('post-title').value;
             const author = document.getElementById('post-author').value;
             const date = document.getElementById('post-date').value;
@@ -517,205 +466,9 @@
             const content = document.getElementById('post-content').value;
             
             if (!title || !author || !date || !coverImage || !imageAlt || !content) {
-                showAlert('Please fill in all fields before exporting', 'danger');
-                switchTab('form');
+                showAlert('Please fill in all fields before copying', 'danger');
                 return;
             }
-            
-            document.getElementById('export-options').style.display = 'block';
-            switchTab('export');
-        }
-
-        // Export as Complete HTML
-        function exportAsHTML() {
-            const title = document.getElementById('post-title').value;
-            const author = document.getElementById('post-author').value;
-            const date = document.getElementById('post-date').value;
-            const coverImage = document.getElementById('post-cover-image').value;
-            const imageAlt = document.getElementById('post-image-alt').value;
-            const content = document.getElementById('post-content').value;
-            
-            // Escape special characters in content for JavaScript string
-            const escapedContent = content
-                .replace(/\\/g, '\\\\')
-                .replace(/'/g, "\\'")
-                .replace(/"/g, '\\"')
-                .replace(/\n/g, '\\n')
-                .replace(/\r/g, '\\r')
-                .replace(/\t/g, '\\t');
-            
-            const htmlTemplate = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title} | TC-Myaing</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-    <link rel="stylesheet" href="/css/post-home.css">
-    <link rel="stylesheet" href="/css/myanmar-fonts.css">
-        
-    <!-- Font -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-</head>
-<body>
-
-<button class="dark-mode-toggle" onclick="toggleDarkMode()">
-    <i class="fas fa-moon"></i>
-</button>
-<script src="/scripts/dark-mode-toggle.js"></script>
-    
-<header id="header">
-    <div class="header-box">
-        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
-    </div>
-</header>
-<script src="/scripts/content-header.js"></script>
-
-<div class="main-body">
-<section class="all-post">
-
-<section class="post-content">
-    <div class="container">
-        <div class="post-title-container">
-        <h1 class="post-title" id="post-title">${title}</h1>
-        <p class="post-meta">By <a>${author}</a> • ${date}</p>
-        </div>
-        <div class="post-cover-image" id="post-cover-image">
-            <img src="${coverImage}" alt="${imageAlt}" />
-        </div>
-
-        <div class="post-text" id="post-text">
-            ${content}
-       </div>
-    </div>
-</section>
-
-<section id="post-navigation" class="post-navigation">
-    <div class="container">
-        <div class="nav-links">
-            <!-- Previous Post -->
-            <div class="prev-post">
-                <a href="#" class="nav-link" id="prevPostLink">
-                    <div class="nav-content">
-                        <span class="nav-label">Previous Post</span>
-                        <h3 class="nav-title" id="prevPostTitle"></h3>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Next Post -->
-            <div class="next-post">
-                <a href="#" class="nav-link" id="nextPostLink">
-                    <div class="nav-content">
-                        <span class="nav-label">Next Post</span>
-                        <h3 class="nav-title" id="nextPostTitle"></h3>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-</section>
-    
-<section class="aside" id="aside">
-    <div class="container">
-        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
-    </div>
-</section>
-<script src="/scripts/content-aside.js"></script>
-  
-</div>
-    
-<section class="secondary" id="secondary">
-    <div class="container">
-        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
-    </div>
-</section>
-<script src="/scripts/content-secondary.js"></script>
-    
-
-
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01" alt="Modal Image">
-</div>
-<script src="/scripts/image-popup-modal.js"></script>
-
-<footer id="footer">
-    <div class="container">
-        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
-    </div>
-</footer>
-<script src="/scripts/content-footer.js"></script>
-
-<!-- Back to Top Button -->
-<button class="back-to-top" title="Back to Top">
-    <i class="fas fa-arrow-up"></i>
-</button>            
-
-<script>
-    // Post Data
-    const postData = {
-        title: "${title}",
-        author: "${author}",
-        date: "${date}",
-        coverImage: "${coverImage}",
-        imageAlt: "${imageAlt}",
-        content: \`${escapedContent}\`
-    };
-
-    // DOM content loaded
-    document.addEventListener("DOMContentLoaded", () => {
-        // Set title
-        document.getElementById("post-title").textContent = postData.title;
-
-        // Set author and date
-        const postMeta = document.querySelector(".post-meta");
-        if (postMeta) {
-            postMeta.innerHTML = \`By <a>\${postData.author}</a> • \${postData.date}\`;
-        }
-
-        // Set cover image
-        const coverImageContainer = document.getElementById("post-cover-image");
-        if (coverImageContainer) {
-            coverImageContainer.innerHTML = \`<img src="\${postData.coverImage}" alt="\${postData.imageAlt}" />\`;
-        }
-
-        // Set post content
-        const postText = document.getElementById("post-text");
-        if (postText) {
-            postText.innerHTML = postData.content;
-        }
-    });
-
-    // ===== 6. Dynamic Title Update =====
-    const postTitle = document.getElementById('post-title');
-    if (postTitle) {
-        document.title = postData.title + " | TC-Myaing";
-    }
-</script>
-
-<!-- JavaScript ဖိုင်များ -->
-<script src="/scripts/back-to-top.js"></script>      
-<script src="/scripts/image-popup-modal.js"></script>
-<script src="/scripts/post.js"></script>
-
-</body>
-</html>`;
-            
-            document.getElementById('export-code').value = htmlTemplate;
-            showAlert('HTML template generated successfully', 'success');
-        }
-
-        // Export as JSON
-        function exportAsJSON() {
-            const title = document.getElementById('post-title').value;
-            const author = document.getElementById('post-author').value;
-            const date = document.getElementById('post-date').value;
-            const coverImage = document.getElementById('post-cover-image').value;
-            const imageAlt = document.getElementById('post-image-alt').value;
-            const content = document.getElementById('post-content').value;
             
             const postData = {
                 title: title,
@@ -726,22 +479,15 @@
                 content: content
             };
             
-            document.getElementById('export-code').value = JSON.stringify(postData, null, 4);
-            showAlert('JSON data generated successfully', 'success');
-        }
-
-        // Copy HTML to Clipboard
-        function copyHTMLToClipboard() {
-            exportAsHTML();
-            copyToClipboard();
-        }
-
-        // Copy to Clipboard
-        function copyToClipboard() {
-            const exportCode = document.getElementById('export-code');
-            exportCode.select();
-            document.execCommand('copy');
-            showAlert('Code copied to clipboard!', 'success');
+            const postDataString = `const postData = ${JSON.stringify(postData, null, 4)};\n\n// DOM content loaded\ndocument.addEventListener("DOMContentLoaded", () => {\n    // Set title\n    document.getElementById("post-title").textContent = postData.title;\n\n    // Set author and date\n    const postMeta = document.querySelector(".post-meta");\n    if (postMeta) {\n        postMeta.innerHTML = \`By <a>\${postData.author}</a> • \${postData.date}\`;\n    }\n\n    // Set cover image\n    const coverImageContainer = document.getElementById("post-cover-image");\n    if (coverImageContainer) {\n        coverImageContainer.innerHTML = \`<img src="\${postData.coverImage}" alt="\${postData.imageAlt}" />\`;\n    }\n\n    // Set post content\n    const postText = document.getElementById("post-text");\n    if (postText) {\n        postText.innerHTML = postData.content;\n    }\n});`;
+            
+            navigator.clipboard.writeText(postDataString)
+                .then(() => {
+                    showAlert('Post data copied to clipboard!', 'success');
+                })
+                .catch(err => {
+                    showAlert('Failed to copy: ' + err, 'danger');
+                });
         }
 
         // Show Alert
