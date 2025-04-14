@@ -479,7 +479,7 @@
                 content: content
             };
             
-            const postDataString = `const postData = ${JSON.stringify(postData, null, 4)};\n\n }\n});`;
+            const postDataString = `const postData = ${JSON.stringify(postData, null, 4)};\n\n`;
             
             navigator.clipboard.writeText(postDataString)
                 .then(() => {
