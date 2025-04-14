@@ -119,57 +119,88 @@ const postData = {
     "date": "April 14, 2025",
     "coverImage": "Check Battery Report",
     "imageAlt": "https://i.pcmag.com/imagery/articles/06pAOqu8HjHsQpUe1Xc8AbF-1.fit_lim.size_1600x900.v1742833565.jpg",
-    "content": "<p>Laptop တစ်လုံးဝယ်တဲ့အခါ CPU, RAM, Storage စတဲ့ Specifications တွေကို လူတိုင်းသေချာစစ်ဆေးကြပေမယ့် <strong>Battery Health</strong> ကိုတော့ မေ့ထားတတ်ကြပါတယ်။ တကယ်တော့ Laptop ရဲ့ အရေးအကြီးဆုံး အစိတ်အပိုင်းတစ်ခုက <strong>Battery</strong> ပါ။</p>
-
-        <div class="post-image">
-            <img src="https://example.com/battery-health.jpg" alt="Laptop Battery Health Check" loading="lazy">
-        </div>
-
-        <h2>Windows Built-in Battery Report သုံးပြီးစစ်ဆေးနည်း</h2>
-        <p>ဒီနည်းက <strong>အသုံးအများဆုံးနဲ့ အလွယ်ကူဆုံး</strong> နည်းလမ်းဖြစ်ပါတယ်။</p>
-        
-        <ol>
-            <li><strong>Win + R</strong> ကိုနှိပ်ပြီး <code>cmd</code> ရိုက်ထည့်ပါ</li>
-            <li>အောက်ပါ Command ကိုရိုက်ထည့်ပါ:
-                <pre><code>powercfg /batteryreport /output "C:\battery_report.html"</code></pre>
-            </li>
-            <li><code>C:\battery_report.html</code> ဖိုင်ကို Browser နဲ့ဖွင့်ပါ</li>
-        </ol>
-
-        <div class="important-box">
-            <h3>Battery Report မှာကြည့်ရမယ့် အရေးကြီးအချက်များ</h3>
-            <ul>
-                <li><strong>DESIGN CAPACITY</strong> - Battery ရဲ့ မူလစွမ်းရည်</li>
-                <li><strong>FULL CHARGE CAPACITY</strong> - အခုအချိန်မှာ 100% အားပြည့်နေချိန်မှာရှိတဲ့ အမှန်တကယ် Capacity</li>
-                <li><strong>BATTERY HEALTH (%)</strong> = (FULL CHARGE ÷ DESIGN CAPACITY) × 100</li>
-            </ul>
-        </div>
-
-        <h2>Battery Health ဘယ်လိုအခြေအနေမှာ အစားထိုးသင့်လဲ?</h2>
-        <div class="comparison-table">
-            <table>
-                <tr>
-                    <th>Battery Health</th>
-                    <th>အခြေအနေ</th>
-                    <th>အကြံပြုချက်</th>
-                </tr>
-                <tr>
-                    <td>80% အထက်</td>
-                    <td>ကောင်းနေသေးတယ်</td>
-                    <td>ပုံမှန်သုံးနိုင်ပါတယ်</td>
-                </tr>
-                <tr>
-                    <td>50-80%</td>
-                    <td>သတိထားစောင့်ကြည့်ရမယ်</td>
-                    <td>အားသွင်းနည်းလမ်းမှန်အောင်သုံးပါ</td>
-                </tr>
-                <tr>
-                    <td>50% အောက်</td>
-                    <td>အားနည်းနေပြီ</td>
-                    <td>အစားထိုးဖို့လိုနိုင်တယ်</td>
-                </tr>
-            </table>
-</div>
+    "content": "<h1><strong>Windows Laptop တစ်လုံးမှာ Battery Health ကို ဘယ်လိုစစ်ဆေးမလဲ?</strong></h1>
+<h2><strong>မိတ်ဆွေ Laptop ဝယ်တဲ့အခါ Battery ကို ဘာကြောင့်ဂရုစိုက်သင့်တာလဲ?</strong></h2>
+<p>Laptop တစ်လုံးဝယ်တဲ့အခါ CPU, RAM, Storage စတဲ့ Specifications တွေကို လူတိုင်းသေချာစစ်ဆေးကြပေမယ့်&nbsp;<strong>Battery Health</strong>&nbsp;ကိုတော့ မေ့ထားတတ်ကြပါတယ်။ တကယ်တော့ Laptop ရဲ့ အရေးအကြီးဆုံး အစိတ်အပိုင်းတစ်ခုက&nbsp;<strong>Battery</strong>&nbsp;ပါ။ Battery မကောင်းရင် သင့်ရဲ့ Laptop က ပါဝါကြိုးမပါဘဲ အလုပ်လုပ်နိုင်ချိန် (Battery Life) နည်းသွားမယ်၊ တဖြည်းဖြည်း Performance ကျလာမယ်၊ နောက်ဆုံး Battery ကိုလုံးဝအစားထိုးရတဲ့အထိ ဖြစ်သွားနိုင်ပါတယ်။</p>
+<p>ဒါကြောင့်&nbsp;<strong>အသစ်ဝယ်မယ့် Laptop</strong>&nbsp;(သို့)&nbsp;<strong>အခုသုံးနေတဲ့ Laptop</strong>&nbsp;ရဲ့ Battery Health ကို ပုံမှန်စစ်ဆေးဖို့လိုပါတယ်။ Windows OS မှာ Battery Report ထုတ်ကြည့်လို့ရတဲ့ နည်းလမ်းတွေရှိပါတယ်။ ဒီဆောင်းပါးမှာ အလွယ်ကူဆုံးနည်းလမ်းတွေကို ရှင်းပြပေးသွားမှာပါ။</p>
+<hr />
+<h2><strong>Windows Laptop မှာ Battery Health စစ်ဆေးနည်း (၃) မျိုး</strong></h2>
+<h3><strong>နည်းလမ်း (၁) &ndash; Windows Built-in Battery Report သုံးပြီးစစ်ဆေးနည်း</strong></h3>
+<p>ဒီနည်းက&nbsp;<strong>အသုံးအများဆုံးနဲ့ အလွယ်ကူဆုံး</strong>&nbsp;နည်းလမ်းဖြစ်ပြီး Command Prompt ကနေ Battery ရဲ့ အချက်အလက်တွေကို HTML File အဖြစ်ထုတ်ပေးနိုင်ပါတယ်။</p>
+<ol start="1">
+<li>
+<p><strong>Win + R</strong>&nbsp;ကိုနှိပ်ပြီး&nbsp;<strong><code>cmd</code></strong>&nbsp;ရိုက်ထည့်ကာ&nbsp;<strong>Command Prompt</strong>&nbsp;ကိုဖွင့်ပါ။</p>
+</li>
+<li>
+<p>အောက်ပါ Command ကိုရိုက်ထည့်ပါ။</p>
+<p><strong>powercfg /batteryreport /output "C:\battery_report.html"</strong></p>
+</li>
+<li>
+<p><strong>Enter</strong>&nbsp;နှိပ်လိုက်ရင် Battery Report က&nbsp;<code>C:\</code>&nbsp;Drive မှာ&nbsp;<code>battery_report.html</code>&nbsp;အဖြစ်သိမ်းပေးထားပါလိမ့်မယ်။</p>
+</li>
+<li>
+<p><strong>File Explorer</strong>&nbsp;ဖွင့်ပြီး&nbsp;<code>C:\battery_report.html</code>&nbsp;ကိုရှာကာ&nbsp;<strong>Browser (Chrome, Edge) နဲ့ဖွင့်ပါ</strong>။</p>
+</li>
+</ol>
+<h4><strong>Battery Report မှာကြည့်ရမယ့် အရေးကြီးအချက်များ</strong></h4>
+<ul>
+<li>
+<p><strong>DESIGN CAPACITY</strong>&nbsp;&ndash; Battery ရဲ့ မူလစွမ်းရည် (အသစ်ဝယ်စဉ်က သတ်မှတ်ထားတဲ့ Capacity)</p>
+</li>
+<li>
+<p><strong>FULL CHARGE CAPACITY</strong>&nbsp;&ndash; အခုအချိန်မှာ 100% အားပြည့်နေချိန်မှာရှိတဲ့ အမှန်တကယ် Capacity</p>
+</li>
+<li>
+<p><strong>BATTERY HEALTH (%)</strong>&nbsp;= (FULL CHARGE CAPACITY &divide; DESIGN CAPACITY) &times; 100</p>
+<ul>
+<li>
+<p><strong>80% အထက်</strong>&nbsp;&rarr; ကောင်းနေသေးတယ်</p>
+</li>
+<li>
+<p><strong>50-80%</strong>&nbsp;&rarr; သတိထားစောင့်ကြည့်ရမယ်</p>
+</li>
+<li>
+<p><strong>50% အောက်</strong>&nbsp;&rarr; Battery အားနည်းနေပြီ၊ အစားထိုးဖို့လိုနိုင်တယ်</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><strong>နည်းလမ်း (၂) &ndash; Windows Settings ကနေတိုက်ရိုက်စစ်ဆေးနည်း</strong></h3>
+<ol start="1">
+<li>
+<p><strong>Win + I</strong>&nbsp;နှိပ်ပြီး&nbsp;<strong>Settings</strong>&nbsp;ဖွင့်ပါ။</p>
+</li>
+<li>
+<p><strong>System</strong>&nbsp;&gt;&nbsp;<strong>Power &amp; Battery</strong>&nbsp;&gt;&nbsp;<strong>Battery</strong>&nbsp;ကိုဝင်ပါ။</p>
+</li>
+<li>
+<p><strong>Battery Usage</strong>&nbsp;နဲ့&nbsp;<strong>Battery Health</strong>&nbsp;အချက်အလက်တွေကိုကြည့်နိုင်ပါတယ်။</p>
+</li>
+</ol>
+<p><em>(Windows Version အလိုက် အနည်းငယ်ကွဲသွားနိုင်ပါတယ်။)</em></p>
+<h3><strong>နည်းလမ်း (၃) &ndash; Third-Party Software (BatteryInfoView, HWMonitor) သုံးပြီးစစ်ဆေးနည်း</strong></h3>
+<p>Windows Built-in Tools တွေနဲ့ မလုံလောက်ဘူးဆိုရင်&nbsp;<strong>Third-Party Software</strong>&nbsp;တွေသုံးပြီး Battery ကို အသေးစိတ်စစ်ဆေးနိုင်ပါတယ်။</p>
+<ul>
+<li>
+<p><strong><a href="https://www.nirsoft.net/utils/battery_information_view.html" target="_blank" rel="noopener noreferrer">BatteryInfoView</a></strong>&nbsp;&ndash; Battery Wear Level, Charge Cycles တွေကိုကြည့်လို့ရတယ်။</p>
+</li>
+<li>
+<p><strong><a href="https://www.cpuid.com/softwares/hwmonitor.html" target="_blank" rel="noopener noreferrer">HWMonitor</a></strong>&nbsp;&ndash; Battery Voltage, Temperature အထိ စစ်ဆေးနိုင်တယ်။</p>
+</li>
+</ul>
+<h2><strong>ဘယ်အချိန်မှာ Battery ကိုအစားထိုးဖို့လိုအပ်လဲ?</strong></h2>
+<ul>
+<li>
+<p>Battery Health 50% အောက်ကျသွားရင်</p>
+</li>
+<li>
+<p>အားပြည့်နေတုန်းမှာပဲ ခဏခဏအားကုန်သွားရင်</p>
+</li>
+<li>
+<p>Battery ဖောင်းလာရင် (Swollen Battery) &ndash; အန္တရာယ်ရှိတာကြောင့် အမြန်အစားထိုးပါ!</p>
+</li>
+</ul>
+<p>Laptop Battery က သင့်ရဲ့ အလုပ်လုပ်နိုင်စွမ်းကို တိုက်ရိုက်သက်ရောက်မှုရှိတာကြောင့်&nbsp;<strong>ပုံမှန်စစ်ဆေးဖို့ အရေးကြီးပါတယ်</strong>။ Windows Built-in Tools တွေနဲ့ အလွယ်တကူစစ်ဆေးနိုင်တဲ့အတွက် ဒီနည်းလမ်းတွေကို အသုံးပြုပြီး သင့် Laptop Battery ရဲ့ Battery Health ကို လွယ်ကူစွာစစ်ဆေးနိုင်ကြမယ်လို့ မျှော်လင့်မိပါတယ်။</p>
 <p>#tcmyaing</p>"
 };
 
