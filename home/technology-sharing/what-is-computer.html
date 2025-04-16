@@ -6,169 +6,44 @@
     <title></title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <link rel="stylesheet" href="/css/post-home.css">
-    <link rel="stylesheet" href="/css/ad.css">
     <link rel="stylesheet" href="/css/myanmar-fonts.css">
-    <link rel="stylesheet" href="/css/pdf-live-view.css">
-    
+        
     <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    
 </head>
 <body>
 
 <button class="dark-mode-toggle" onclick="toggleDarkMode()">
     <i class="fas fa-moon"></i>
 </button>
+<script src="/scripts/dark-mode-toggle.js"></script>
     
-<header>
+<header id="header">
     <div class="header-box">
-        <div class="logo" id="headerLogo">
-            <img src="/images/logo-white.png" alt="Tech with TCM Logo">
-        </div>
-
-        <!-- Search Box -->
-        <div class="search">
-            <div class="search-container" id="searchContainer">
-                <i class="fa fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Search..">
-            </div>
-            
-            <div id="sbutton" class="sbutton">
-                <i class="fa fa-search" id="searchIcon"></i>
-            </div>
-            <div id="searchResults" class="search-results"></div>
-        </div>
-
-        <!-- Hamburger Icon for Mobile -->
-        <div class="hamburger" onclick="toggleMenu()">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
-
-        <!-- Navigation Menu -->
-        <nav style="top: 60px;" id="navMenu">
-            <ul>
-                <!-- Navigation items will be dynamically inserted here -->
-            </ul>
-        </nav>
+        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
     </div>
 </header>
+<script src="/scripts/content-header.js"></script>
 
 <div class="main-body">
 <section class="all-post">
-    
 
 <section class="post-content">
     <div class="container">
         <div class="post-title-container">
-        <h1 class="post-title" id="post-title">Computer ဆိုတာဘာလဲ</h1>
-        <p class="post-meta">By <a href="#">tinnaingoo</a> • Feb 23, 2025</p>
+        <h1 class="post-title" id="post-title">Title</h1>
+        <p class="post-meta">By <a>tinnaingoo</a> • Date</p>
         </div>
-        <div class="post-image">
-            <img src="https://i.pinimg.com/1200x/d2/e3/d7/d2e3d70daea2a86a742311ca1f7584b7.jpg" alt="What is Computer?">
+        <div class="post-cover-image" id="post-cover-image">
+            
         </div>
 
-        <div class="post-text">
-<!-- Post Start-->            
-<p>ကွန်ပျူတာဆိုသည်မှာ အချက်အလက်များကို လျင်မြန်စွာနှင့် တိကျစွာ လုပ်ဆောင်နိုင်သော လျှပ်စစ်စက်ကိရိယာတစ်မျိုးဖြစ်သည်။ ကွန်ပျူတာသည် လူသားတို့၏ လုပ်ဆောင်ချက်များကို အထောက်အကူပြုရန် ဒီဇိုင်းထုတ်ထားသော စက်ဖြစ်ပြီး၊ သတင်းအချက်အလက်များကို သိမ်းဆည်းခြင်း၊ ပြန်လည်ရယူခြင်း၊ နှင့် လုပ်ဆောင်ခြင်းတို့ကို ပြုလုပ်နိုင်သည်။ ကွန်ပျူတာသည် လူသားတို့၏ ဘဝကို အများကြီး အထောက်အကူပြုပြီး၊ နည်းပညာတိုးတက်မှုနှင့်အတူ လူ့အဖွဲ့အစည်းတစ်ခုလုံးကို ပြောင်းလဲစေခဲ့သည်။</p>
-<h3>ကွန်ပျူတာတွေက လူသားတွေကို ဘယ်လိုတွေအကျိုးပြုနိုင်သလဲ</h3>
-<p>ကွန်ပျူတာများသည် လူသားတို့အတွက် အကျိုးကျေးဇူးများစွာကို ဖြစ်စေသည်။ ပထမဦးစွာ၊ ကွန်ပျူတာများသည် အချက်အလက်များကို လျင်မြန်စွာနှင့် တိကျစွာ လုပ်ဆောင်နိုင်သောကြောင့်၊ လုပ်ငန်းဆောင်တာများကို ပိုမိုမြန်ဆန်စွာ ပြီးမြောက်စေသည်။ ဒုတိယအနေဖြင့်၊ ကွန်ပျူတာများသည် သတင်းအချက်အလက်များကို သိမ်းဆည်းခြင်းနှင့် ပြန်လည်ရယူခြင်းတို့ကို လွယ်ကူစေသည်။ တတိယအနေဖြင့်၊ ကွန်ပျူတာများသည် ဆက်သွယ်ရေးနှင့် သတင်းအချက်အလက်များကို မျှဝေခြင်းတို့ကို လွယ်ကူစေသည်။ နောက်ဆုံးအနေဖြင့်၊ ကွန်ပျူတာများသည် ပညာရေးနှင့် သုတေသနလုပ်ငန်းများကို အထောက်အကူပြုသည်။</p>
-<h3>ကွန်ပျူတာကို ဘယ်သူက ဘယ်နေရာမှာ ဘယ်နှစ်လောက်ကစတင်ခဲ့တာလဲ</h3>
-<p>ကွန်ပျူတာကို စတင်တီထွင်ခဲ့သူမှာ Charles Babbage ဖြစ်ပြီး၊ သူသည် 1822 ခုနှစ်တွင် Analytical Engine ကို တီထွင်ခဲ့သည်။ သို့သော်၊ ပထမဆုံးသော အီလက်ထရွန်းနစ် ကွန်ပျူတာကို 1940 ခုနှစ်များတွင် တီထွင်ခဲ့သည်။ ENIAC (Electronic Numerical Integrator and Computer) သည် ပထမဆုံးသော အီလက်ထရွန်းနစ် ကွန်ပျူတာဖြစ်ပြီး၊ 1945 ခုနှစ်တွင် တီထွင်ခဲ့သည်။</p>
-<h3>ကွန်ပျူတာတွေ စတင်တီထွင်ဖို့ ဘယ်လိုတွေစိတ်ကူးရခဲ့တာလဲ</h3>
-<p>ကွန်ပျူတာတွေ စတင်တီထွင်ဖို့ စိတ်ကူးရခဲ့သည်မှာ လူသားတို့၏ လုပ်ဆောင်ချက်များကို အထောက်အကူပြုရန် ဖြစ်သည်။ ပထမဦးစွာ၊ သင်္ချာနှင့် သိပ္ပံပညာရပ်များတွင် ရှုပ်ထွေးသော တွက်ချက်မှုများကို လျင်မြန်စွာ လုပ်ဆောင်နိုင်ရန် လိုအပ်ချက်ကြောင့် ကွန်ပျူတာကို တီထွင်ခဲ့သည်။ ဒုတိယအနေဖြင့်၊ စီးပွားရေးနှင့် စာရင်းအင်းများကို စနစ်တကျ စီမံခန့်ခွဲနိုင်ရန် လိုအပ်ချက်ကြောင့် ကွန်ပျူတာကို တီထွင်ခဲ့သည်။</p>
-<h3>ကွန်ပျူတာဆင့်ကဲပြောင်းလဲလာပုံနဲ့ တစ်ဆင့်ခြင်းစီရဲ့ အလုပ်လုပ်ပုံကွာခြားချက်၊ ပုံစံနဲ့အသုံးဝင်မှု</h3>
-<p>ကွန်ပျူတာများသည် ဆင့်ကဲပြောင်းလဲလာခဲ့ပြီး၊ တစ်ဆင့်ခြင်းစီတွင် အလုပ်လုပ်ပုံ၊ ပုံစံနှင့် အသုံးဝင်မှုများ ကွာခြားခဲ့သည်။</p>
-<ol start="1">
-<li>
-<p><strong>ပထမမျိုးဆက် (1940-1956)</strong>: Vacuum Tubes များကို အသုံးပြုထားသော ကွန်ပျူတာများ။ ဥပမာ - ENIAC။</p>
-</li>
-<li>
-<p><strong>ဒုတိယမျိုးဆက် (1956-1963)</strong>: Transistors များကို အသုံးပြုထားသော ကွန်ပျူတာများ။</p>
-</li>
-<li>
-<p><strong>တတိယမျိုးဆက် (1964-1971)</strong>: Integrated Circuits (ICs) များကို အသုံးပြုထားသော ကွန်ပျူတာများ။</p>
-</li>
-<li>
-<p><strong>စတုတ္ထမျိုးဆက် (1971-ယနေ့)</strong>: Microprocessors များကို အသုံးပြုထားသော ကွန်ပျူတာများ။</p>
-</li>
-</ol>
-<h3>မြန်မာနိုင်ငံမှာ ကွန်ပျူတာကို ဘယ်အချိန်မှ စတင်အသုံးပြုပြီး အများအပြားဘယ်အချိန်က အသုံးပြုခဲ့သလဲ</h3>
-<p>မြန်မာနိုင်ငံတွင် ကွန်ပျူတာကို 1970 ခုနှစ်များတွင် စတင်အသုံးပြုခဲ့သည်။ သို့သော်၊ 1990 ခုနှစ်များတွင် ကွန်ပျူတာများကို အများအပြား အသုံးပြုလာခဲ့သည်။ ယနေ့ခေတ်တွင်၊ ကွန်ပျူတာများသည် မြန်မာနိုင်ငံ၏ ပညာရေး၊ စီးပွားရေးနှင့် လူမှုရေးကဏ္ဍများတွင် အရေးပါသော အခန်းကဏ္ဍမှ ပါဝင်နေသည်။</p>
-<h3>ယနေ့ခေတ်ကွန်ပျူတာတွေနဲ့ ကွန်ပျူတာအမျိုးအစား၊ Brand များ</h3>
-<p>ယနေ့ခေတ်တွင်၊ ကွန်ပျူတာများသည် အမျိုးအစားများစွာရှိပြီး၊ လူသုံးများသော Brand များမှာ Dell, HP, Lenovo, Apple, Asus, Acer တို့ဖြစ်သည်။</p>
-<h3>ကွန်ပျူတာတွေက ဘယ်လိုအလုပ်လုပ်သလဲ</h3>
-<p>ကွန်ပျူတာများသည် Input, Processing, Output, နှင့် Storage ဟူသော အဆင့်လေးဆင့်ဖြင့် အလုပ်လုပ်သည်။</p>
-<ol start="1">
-<li>
-<p><strong>Input</strong>: ကွန်ပျူတာထဲသို့ အချက်အလက်များကို ထည့်သွင်းခြင်း။</p>
-</li>
-<li>
-<p><strong>Processing</strong>: အချက်အလက်များကို လုပ်ဆောင်ခြင်း။</p>
-</li>
-<li>
-<p><strong>Output</strong>: လုပ်ဆောင်ပြီးသော အချက်အလက်များကို ထုတ်ပေးခြင်း။</p>
-</li>
-<li>
-<p><strong>Storage</strong>: အချက်အလက်များကို သိမ်းဆည်းခြင်း။</p>
-</li>
-</ol>
-<h3>ကွန်ပျူတာအတွင်းမှာ ပါဝင်တဲ့ပစ္စည်းများနဲ့ အလုပ်လုပ်ပုံ</h3>
-<p>ကွန်ပျူတာအတွင်းတွင် ပါဝင်သော ပစ္စည်းများမှာ -</p>
-<ol start="1">
-<li>
-<p><strong>CPU (Central Processing Unit)</strong>: ကွန်ပျူတာ၏ ဦးနှောက်ဖြစ်ပြီး၊ အချက်အလက်များကို လုပ်ဆောင်သည်။</p>
-</li>
-<li>
-<p><strong>RAM (Random Access Memory)</strong>: အချက်အလက်များကို ယာယီသိမ်းဆည်းထားသည်။</p>
-</li>
-<li>
-<p><strong>Hard Drive</strong>: အချက်အလက်များကို အမြဲတမ်းသိမ်းဆည်းထားသည်။</p>
-</li>
-<li>
-<p><strong>Motherboard</strong>: ကွန်ပျူတာ၏ အဓိက ပါဝင်ပစ္စည်းများကို ချိတ်ဆက်ထားသည်။</p>
-</li>
-</ol>
-<h3>ကွန်ပျူတာတစ်ခုရဲ့ Basic Function များ</h3>
-<p>ကွန်ပျူတာတစ်ခု၏ Basic Function များမှာ -</p>
-<ol start="1">
-<li>
-<p><strong>Data Input</strong>: အချက်အလက်များကို ထည့်သွင်းခြင်း။</p>
-</li>
-<li>
-<p><strong>Data Processing</strong>: အချက်အလက်များကို လုပ်ဆောင်ခြင်း။</p>
-</li>
-<li>
-<p><strong>Data Output</strong>: လုပ်ဆောင်ပြီးသော အချက်အလက်များကို ထုတ်ပေးခြင်း။</p>
-</li>
-<li>
-<p><strong>Data Storage</strong>: အချက်အလက်များကို သိမ်းဆည်းခြင်း။</p>
-</li>
-</ol>
-<h3>ကွန်ပျူတာအသုံးပြုသင့်ကြောင်း အကြံပြုချက်</h3>
-<img id="post-img" src="https://i.pinimg.com/1200x/50/26/93/5026933ec454f52eeca3006b6291c12d.jpg" alt="computer-useful"/>            
-<p>ကွန်ပျူတာအသုံးပြုခြင်းသည် လူသားတို့၏ ဘဝကို အများကြီး အထောက်အကူပြုသည်။ ထို့ကြောင့်၊ ကွန်ပျူတာအသုံးပြုသင့်ပါတယ်။</p>
-<ol start="1">
-<li>
-<p><strong>ပညာရေး</strong>: ကွန်ပျူတာသည် အလုပ်လုပ်ဆောင်မှု အကျိုးကျေးဇူး၊ ပညာရေး လေ့လာမှုနှင့် အချက်အလက် ထိန်းသိမ်းမှုတို့တွင် အရေးကြီးသော ကိရိယာဖြစ်သလို အချိန်နှင့် အရင်းအမြစ်များကို ထိရောက်စွာ စီမံခန့်ခွဲနိုင်စေသည်။</p>
-</li>
-<li>
-<p><strong>စီးပွားရေး</strong>: Software Development, Data Analysis, Digital Marketing စသည့် နယ်ပယ်များတွင် ကွန်ပျူတာကို အသုံးပြုခြင်းဖြင့် စီးပွားရေးတိုးတက်စေပြီး ဖန်တီးမှုကို တိုးတက်စေသည်။</p>
-</li>
-<li>
-<p><strong>ဆက်သွယ်ရေး</strong>: ကွန်ပျူတာများသည် ဆက်သွယ်ရေးကို လွယ်ကူစေသည်။</p>
-</li>
-<li>
-<p><strong>သုတေသန</strong>: ကွန်ပျူတာများသည် သုတေသနလုပ်ငန်းများအတွက် များစွာအထောက်အကူပြုသည်။</p>
-</li>
-</ol>
-<p>#tcmyaing</p>  
+        <div class="post-text" id="post-text">
+            
        </div>
     </div>
 </section>
-
 
 <section id="post-navigation" class="post-navigation">
     <div class="container">
@@ -197,145 +72,129 @@
 </section>
 </section>
     
-<section class="aside">
+<section class="aside" id="aside">
     <div class="container">
-        <!-- Latest Posts Widget -->
-        <div class="widget-latest-posts">
-            <h4 class="widget-title">Latest Posts</h4>
-            <ul class="latest-posts" id="latestPostsList">
-                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
-            </ul>
-        </div>
-
-        <!-- Categories Widget -->
-        <div class="widget-categories">
-            <h4 class="widget-title">Categories</h4>
-            <ul class="categories" id="categoriesList">
-                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
-            </ul>
-        </div>
-        
-        <!-- Existing Socials Widget -->
-        <div class="widget-socials">
-            <h4 class="widget-title">Keep up with Us</h4>
-            <ul class="socials">
-                <li>
-                    <a class="social-facebook" href="https://www.facebook.com/tc.myaing/" title="facebook" target="_blank">
-                        <i class="fab fa-facebook-f"></i>
-                        <span class="socials__text">Facebook</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="social-telegram" href="https://t.me/tcmyaing" title="telegram" target="_blank">
-                        <i class="fab fa-telegram"></i>
-                        <span class="socials__text">Telegram</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="social-youtube" href="https://www.youtube.com/@tcmyaing" title="youtube" target="_blank">
-                        <i class="fab fa-youtube"></i>
-                        <span class="socials__text">YouTube</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-         <div class="widget-ad">
-            <div class="ad-160x600">
-                <p><b>ဤနေရာမှာ ကြော်ငြာပါ။</b></p>
-                <p>320x50</p>
-            </div>
-        </div>
+        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
     </div>
 </section>
+<script src="/scripts/content-aside.js"></script>
+  
 </div>
     
-<section>
-            <div class="container>
-            <div class="widget-ad">
-            <div class="ad-300x250">
-                <p><b>ဤနေရာမှာ ကြော်ငြာပါ။</b></p>
-                <p>320x50</p>
-            </div>
-            </div>    
-            </div>
-        </section>  
-
-<section class="subscribe-section">
+<section class="secondary" id="secondary">
     <div class="container">
-        <h2>Subscribe to My YouTube Channel</h2>
-        <p>Stay updated with the latest tech tutorials, software reviews, and more from TC-Myaing!</p>
-        <a href="https://www.youtube.com/@tcmyaing?sub_confirmation=1" target="_blank" class="subscribe-btn">
-            <i class="fab fa-youtube"></i> Subscribe Now
-        </a>
+        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
     </div>
 </section>
-
-<section id="videos" class="videos">
-    <div class="container">
-        <!-- Image Auto Slider -->
-        <div class="slider">
-            <div class="slider-box">
-            <div class="slides" id="videoSlides">
-                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
-            </div>
-            <button class="prev" onclick="prevSlide()">❮</button>
-            <button class="next" onclick="nextSlide()">❯</button>
-            </div>
-        </div>
-    </div>
-</section>  
-
-<section id="about" class="about">
-    <div class="container">
-        <h2></h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p></p>
-            </div>
-            <!-- View More Button -->
-            <a id="view-more-btn" href="#" class="view-more-btn">View More</a>
-        </div>
-    </div>
-</section>
+<script src="/scripts/content-secondary.js"></script>
     
-<section class="contact-section">
-    <div class="container">
-        <h2></h2>
-        <p></p>
-        <div class="contact-links">
-            <!-- Contact links will be dynamically inserted here -->
-        </div>
-    </div>
-</section>
 
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01" alt="Modal Image">
-</div>
-<script src="/scripts/image-popup-modal.js"></script>
-
-<footer>
+<footer id="footer">
     <div class="container">
-        <p></p>
+        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
     </div>
 </footer>
+<script src="/scripts/content-footer.js"></script>
 
 <!-- Back to Top Button -->
 <button class="back-to-top" title="Back to Top">
     <i class="fas fa-arrow-up"></i>
 </button>            
 
+<script>
+    <!--Post Data Script-->
+    // post.js
+
+// Post data
+const postData = {
+    "title": "Computer ဆိုတာဘာလဲ",
+    "author": "tinnaingoo",
+    "date": "Feb 23, 2025",
+    "coverImage": "https://i.pinimg.com/1200x/d2/e3/d7/d2e3d70daea2a86a742311ca1f7584b7.jpg",
+    "imageAlt": "What is Computer",
+    "content": "<p>ကွန်ပျူတာဆိုသည်မှာ အချက်အလက်များကို လျင်မြန်စွာနှင့် တိကျစွာ လုပ်ဆောင်နိုင်သော လျှပ်စစ်စက်ကိရိယာတစ်မျိုးဖြစ်သည်။ ကွန်ပျူတာသည် လူသားတို့၏ လုပ်ဆောင်ချက်များကို အထောက်အကူပြုရန် ဒီဇိုင်းထုတ်ထားသော စက်ဖြစ်ပြီး၊ သတင်းအချက်အလက်များကို သိမ်းဆည်းခြင်း၊ ပြန်လည်ရယူခြင်း၊ နှင့် လုပ်ဆောင်ခြင်းတို့ကို ပြုလုပ်နိုင်သည်။ ကွန်ပျူတာသည် လူသားတို့၏ ဘဝကို အများကြီး အထောက်အကူပြုပြီး၊ နည်းပညာတိုးတက်မှုနှင့်အတူ လူ့အဖွဲ့အစည်းတစ်ခုလုံးကို ပြောင်းလဲစေခဲ့သည်။</p>\n<h3>ကွန်ပျူတာတွေက လူသားတွေကို ဘယ်လိုတွေအကျိုးပြုနိုင်သလဲ</h3>\n<p>ကွန်ပျူတာများသည် လူသားတို့အတွက် အကျိုးကျေးဇူးများစွာကို ဖြစ်စေသည်။ ပထမဦးစွာ၊ ကွန်ပျူတာများသည် အချက်အလက်များကို လျင်မြန်စွာနှင့် တိကျစွာ လုပ်ဆောင်နိုင်သောကြောင့်၊ လုပ်ငန်းဆောင်တာများကို ပိုမိုမြန်ဆန်စွာ ပြီးမြောက်စေသည်။ ဒုတိယအနေဖြင့်၊ ကွန်ပျူတာများသည် သတင်းအချက်အလက်များကို သိမ်းဆည်းခြင်းနှင့် ပြန်လည်ရယူခြင်းတို့ကို လွယ်ကူစေသည်။ တတိယအနေဖြင့်၊ ကွန်ပျူတာများသည် ဆက်သွယ်ရေးနှင့် သတင်းအချက်အလက်များကို မျှဝေခြင်းတို့ကို လွယ်ကူစေသည်။ နောက်ဆုံးအနေဖြင့်၊ ကွန်ပျူတာများသည် ပညာရေးနှင့် သုတေသနလုပ်ငန်းများကို အထောက်အကူပြုသည်။</p>\n<h3>ကွန်ပျူတာကို ဘယ်သူက ဘယ်နေရာမှာ ဘယ်နှစ်လောက်ကစတင်ခဲ့တာလဲ</h3>\n<p>ကွန်ပျူတာကို စတင်တီထွင်ခဲ့သူမှာ Charles Babbage ဖြစ်ပြီး၊ သူသည် 1822 ခုနှစ်တွင် Analytical Engine ကို တီထွင်ခဲ့သည်။ သို့သော်၊ ပထမဆုံးသော အီလက်ထရွန်းနစ် ကွန်ပျူတာကို 1940 ခုနှစ်များတွင် တီထွင်ခဲ့သည်။ ENIAC (Electronic Numerical Integrator and Computer) သည် ပထမဆုံးသော အီလက်ထရွန်းနစ် ကွန်ပျူတာဖြစ်ပြီး၊ 1945 ခုနှစ်တွင် တီထွင်ခဲ့သည်။</p>\n<h3>ကွန်ပျူတာတွေ စတင်တီထွင်ဖို့ ဘယ်လိုတွေစိတ်ကူးရခဲ့တာလဲ</h3>\n<p>ကွန်ပျူတာတွေ စတင်တီထွင်ဖို့ စိတ်ကူးရခဲ့သည်မှာ လူသားတို့၏ လုပ်ဆောင်ချက်များကို အထောက်အကူပြုရန် ဖြစ်သည်။ ပထမဦးစွာ၊ သင်္ချာနှင့် သိပ္ပံပညာရပ်များတွင် ရှုပ်ထွေးသော တွက်ချက်မှုများကို လျင်မြန်စွာ လုပ်ဆောင်နိုင်ရန် လိုအပ်ချက်ကြောင့် ကွန်ပျူတာကို တီထွင်ခဲ့သည်။ ဒုတိယအနေဖြင့်၊ စီးပွားရေးနှင့် စာရင်းအင်းများကို စနစ်တကျ စီမံခန့်ခွဲနိုင်ရန် လိုအပ်ချက်ကြောင့် ကွန်ပျူတာကို တီထွင်ခဲ့သည်။</p>\n<h3>ကွန်ပျူတာဆင့်ကဲပြောင်းလဲလာပုံနဲ့ တစ်ဆင့်ခြင်းစီရဲ့ အလုပ်လုပ်ပုံကွာခြားချက်၊ ပုံစံနဲ့အသုံးဝင်မှု</h3>\n<p>ကွန်ပျူတာများသည် ဆင့်ကဲပြောင်းလဲလာခဲ့ပြီး၊ တစ်ဆင့်ခြင်းစီတွင် အလုပ်လုပ်ပုံ၊ ပုံစံနှင့် အသုံးဝင်မှုများ ကွာခြားခဲ့သည်။</p>\n<ol start=\"1\">\n<li>\n<p><strong>ပထမမျိုးဆက် (1940-1956)</strong>: Vacuum Tubes များကို အသုံးပြုထားသော ကွန်ပျူတာများ။ ဥပမာ - ENIAC။</p>\n</li>\n<li>\n<p><strong>ဒုတိယမျိုးဆက် (1956-1963)</strong>: Transistors များကို အသုံးပြုထားသော ကွန်ပျူတာများ။</p>\n</li>\n<li>\n<p><strong>တတိယမျိုးဆက် (1964-1971)</strong>: Integrated Circuits (ICs) များကို အသုံးပြုထားသော ကွန်ပျူတာများ။</p>\n</li>\n<li>\n<p><strong>စတုတ္ထမျိုးဆက် (1971-ယနေ့)</strong>: Microprocessors များကို အသုံးပြုထားသော ကွန်ပျူတာများ။</p>\n</li>\n</ol>\n<h3>မြန်မာနိုင်ငံမှာ ကွန်ပျူတာကို ဘယ်အချိန်မှ စတင်အသုံးပြုပြီး အများအပြားဘယ်အချိန်က အသုံးပြုခဲ့သလဲ</h3>\n<p>မြန်မာနိုင်ငံတွင် ကွန်ပျူတာကို 1970 ခုနှစ်များတွင် စတင်အသုံးပြုခဲ့သည်။ သို့သော်၊ 1990 ခုနှစ်များတွင် ကွန်ပျူတာများကို အများအပြား အသုံးပြုလာခဲ့သည်။ ယနေ့ခေတ်တွင်၊ ကွန်ပျူတာများသည် မြန်မာနိုင်ငံ၏ ပညာရေး၊ စီးပွားရေးနှင့် လူမှုရေးကဏ္ဍများတွင် အရေးပါသော အခန်းကဏ္ဍမှ ပါဝင်နေသည်။</p>\n<h3>ယနေ့ခေတ်ကွန်ပျူတာတွေနဲ့ ကွန်ပျူတာအမျိုးအစား၊ Brand များ</h3>\n<p>ယနေ့ခေတ်တွင်၊ ကွန်ပျူတာများသည် အမျိုးအစားများစွာရှိပြီး၊ လူသုံးများသော Brand များမှာ Dell, HP, Lenovo, Apple, Asus, Acer တို့ဖြစ်သည်။</p>\n<h3>ကွန်ပျူတာတွေက ဘယ်လိုအလုပ်လုပ်သလဲ</h3>\n<p>ကွန်ပျူတာများသည် Input, Processing, Output, နှင့် Storage ဟူသော အဆင့်လေးဆင့်ဖြင့် အလုပ်လုပ်သည်။</p>\n<ol start=\"1\">\n<li>\n<p><strong>Input</strong>: ကွန်ပျူတာထဲသို့ အချက်အလက်များကို ထည့်သွင်းခြင်း။</p>\n</li>\n<li>\n<p><strong>Processing</strong>: အချက်အလက်များကို လုပ်ဆောင်ခြင်း။</p>\n</li>\n<li>\n<p><strong>Output</strong>: လုပ်ဆောင်ပြီးသော အချက်အလက်များကို ထုတ်ပေးခြင်း။</p>\n</li>\n<li>\n<p><strong>Storage</strong>: အချက်အလက်များကို သိမ်းဆည်းခြင်း။</p>\n</li>\n</ol>\n<h3>ကွန်ပျူတာအတွင်းမှာ ပါဝင်တဲ့ပစ္စည်းများနဲ့ အလုပ်လုပ်ပုံ</h3>\n<p>ကွန်ပျူတာအတွင်းတွင် ပါဝင်သော ပစ္စည်းများမှာ -</p>\n<ol start=\"1\">\n<li>\n<p><strong>CPU (Central Processing Unit)</strong>: ကွန်ပျူတာ၏ ဦးနှောက်ဖြစ်ပြီး၊ အချက်အလက်များကို လုပ်ဆောင်သည်။</p>\n</li>\n<li>\n<p><strong>RAM (Random Access Memory)</strong>: အချက်အလက်များကို ယာယီသိမ်းဆည်းထားသည်။</p>\n</li>\n<li>\n<p><strong>Hard Drive</strong>: အချက်အလက်များကို အမြဲတမ်းသိမ်းဆည်းထားသည်။</p>\n</li>\n<li>\n<p><strong>Motherboard</strong>: ကွန်ပျူတာ၏ အဓိက ပါဝင်ပစ္စည်းများကို ချိတ်ဆက်ထားသည်။</p>\n</li>\n</ol>\n<h3>ကွန်ပျူတာတစ်ခုရဲ့ Basic Function များ</h3>\n<p>ကွန်ပျူတာတစ်ခု၏ Basic Function များမှာ -</p>\n<ol start=\"1\">\n<li>\n<p><strong>Data Input</strong>: အချက်အလက်များကို ထည့်သွင်းခြင်း။</p>\n</li>\n<li>\n<p><strong>Data Processing</strong>: အချက်အလက်များကို လုပ်ဆောင်ခြင်း။</p>\n</li>\n<li>\n<p><strong>Data Output</strong>: လုပ်ဆောင်ပြီးသော အချက်အလက်များကို ထုတ်ပေးခြင်း။</p>\n</li>\n<li>\n<p><strong>Data Storage</strong>: အချက်အလက်များကို သိမ်းဆည်းခြင်း။</p>\n</li>\n</ol>\n<h3>ကွန်ပျူတာအသုံးပြုသင့်ကြောင်း အကြံပြုချက်</h3>\n<img id=\"post-img\" src=\"https://i.pinimg.com/1200x/50/26/93/5026933ec454f52eeca3006b6291c12d.jpg\" alt=\"computer-useful\">            \n<p>ကွန်ပျူတာအသုံးပြုခြင်းသည် လူသားတို့၏ ဘဝကို အများကြီး အထောက်အကူပြုသည်။ ထို့ကြောင့်၊ ကွန်ပျူတာအသုံးပြုသင့်ပါတယ်။</p>\n<ol start=\"1\">\n<li>\n<p><strong>ပညာရေး</strong>: ကွန်ပျူတာသည် အလုပ်လုပ်ဆောင်မှု အကျိုးကျေးဇူး၊ ပညာရေး လေ့လာမှုနှင့် အချက်အလက် ထိန်းသိမ်းမှုတို့တွင် အရေးကြီးသော ကိရိယာဖြစ်သလို အချိန်နှင့် အရင်းအမြစ်များကို ထိရောက်စွာ စီမံခန့်ခွဲနိုင်စေသည်။</p>\n</li>\n<li>\n<p><strong>စီးပွားရေး</strong>: Software Development, Data Analysis, Digital Marketing စသည့် နယ်ပယ်များတွင် ကွန်ပျူတာကို အသုံးပြုခြင်းဖြင့် စီးပွားရေးတိုးတက်စေပြီး ဖန်တီးမှုကို တိုးတက်စေသည်။</p>\n</li>\n<li>\n<p><strong>ဆက်သွယ်ရေး</strong>: ကွန်ပျူတာများသည် ဆက်သွယ်ရေးကို လွယ်ကူစေသည်။</p>\n</li>\n<li>\n<p><strong>သုတေသန</strong>: ကွန်ပျူတာများသည် သုတေသနလုပ်ငန်းများအတွက် များစွာအထောက်အကူပြုသည်။</p>\n</li>\n</ol>\n<p>#tcmyaing</p>"
+};
+
+// DOM content loaded
+document.addEventListener("DOMContentLoaded", () => {
+    // Set title
+    document.getElementById("post-title").textContent = postData.title;
+
+    // Set author and date
+    const postMeta = document.querySelector(".post-meta");
+    if (postMeta) {
+        postMeta.innerHTML = `By <a>${postData.author}</a> • ${postData.date}`;
+    }
+
+    // Set cover image
+    const coverImageContainer = document.getElementById("post-cover-image");
+    if (coverImageContainer) {
+        coverImageContainer.innerHTML = `<img src="${postData.coverImage}" alt="${postData.imageAlt}" />`;
+    }
+
+    // Set post content
+    const postText = document.getElementById("post-text");
+    if (postText) {
+        postText.innerHTML = postData.content;
+    }
+});
+    
+// ===== 4. Navigation Update =====
+// Navigation link တွေကို JSON ကနေ update လုပ်ဖို့ function
+async function updateNavigation() {
+    try {
+        const response = await fetch('/home/post-data.json');
+        const postsData = await response.json();
+        
+        // Get current post title from the inline postData object
+        const currentTitle = postData.title;
+        const currentPost = postsData.find(post => post.title === currentTitle);
+
+        if (currentPost) {
+            const prevPostLink = document.getElementById('prevPostLink');
+            const prevPostTitle = document.getElementById('prevPostTitle');
+            if (currentPost['PrePost-Title'] && currentPost['PrePost-Url']) {
+                prevPostLink.href = `${currentPost['PrePost-Url']}.html`;
+                prevPostTitle.textContent = currentPost['PrePost-Title'];
+            } else {
+                prevPostLink.parentElement.style.display = 'none';
+            }
+
+            const nextPostLink = document.getElementById('nextPostLink');
+            const nextPostTitle = document.getElementById('nextPostTitle');
+            if (currentPost['NextPost-Title'] && currentPost['NextPost-Url']) {
+                nextPostLink.href = `${currentPost['NextPost-Url']}.html`;
+                nextPostTitle.textContent = currentPost['NextPost-Title'];
+            } else {
+                nextPostLink.parentElement.style.display = 'none';
+            }
+        } else {
+            console.error('Current post not found in JSON data');
+        }
+    } catch (error) {
+        console.error('Error fetching navigation data:', error);
+    }
+}
+
+// ===== Run Navigation =====
+// Navigation update ကို ခေါ်မယ်
+updateNavigation();
+
+
+// ===== 6. Dynamic Title Update =====
+// <h1> က စာသားကို <title> ထဲ ထည့်ဖို့
+const postTitle = document.getElementById('post-title');
+if (postTitle) {
+    document.title = postData.title + " | TC-Myaing";
+} else {
+    console.error('Post title element not found');
+}
+
+
+    
+</script>
 <!-- JavaScript ဖိုင်များ -->
-<script src="/scripts/back-to-top.js"></script>      
-<script src="/scripts/nav-toggle.js"></script>
-<script src="/scripts/dynmic-title-update.js"></script>
-<script src="/scripts/navigation-update.js"></script>
-<script src="/scripts/image-auto-slider.js"></script>
-<script src="/scripts/latest-posts.js"></script>    
-<script src="/scripts/categories.js"></script>
-<script src="/scripts/search.js"></script>
-<script src="/scripts/image-popup-modal.js"></script>
+<script src="/scripts/back-to-top.js"></script>
 <script src="/scripts/post.js"></script>
 
 </body>
