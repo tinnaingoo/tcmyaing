@@ -1307,7 +1307,8 @@ nav ul li a:hover {
     padding: 8px 16px;
     border-radius: var(--border-radius-small);
     cursor: pointer;
-    font-size: var(--font-size-small);
+            padding: 6px 10px;
+        font-size: 0.9rem;
     transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
