@@ -17,6 +17,7 @@
 <button class="dark-mode-toggle" onclick="toggleDarkMode()">
     <i class="fas fa-moon"></i>
 </button>
+<script src="/scripts/dark-mode-toggle.js"></script>
     
 <header id="header">
     <div class="header-box">
@@ -27,105 +28,22 @@
 
 <div class="main-body">
 <section class="all-post">
-    
 
 <section class="post-content">
     <div class="container">
         <div class="post-title-container">
-        <h1 class="post-title" id="post-title">Operating System (OS) အကြောင်း</h1>
-        <p class="post-meta">By <a>tinnaingoo</a> • Feb 23, 2025</p>
+        <h1 class="post-title" id="post-title">Title</h1>
+        <p class="post-meta">By <a>tinnaingoo</a> • Date</p>
         </div>
-        <div class="post-image">
-            <img src="https://i.pinimg.com/1200x/8a/aa/dd/8aaaddd94e13c535d7580d2cf6e4c456.jpg" alt="What is Computer?">
+        <div class="post-cover-image" id="post-cover-image">
+            
         </div>
 
-        <div class="post-text">
-<!-- Post Start-->            
-<p>Operating System (OS) ဆိုသည်မှာ user နှင့် computer စက်ပစ္စည်းများအကြား ဆက်သွယ်မှု အဖြစ် လုပ်ဆောင်သော software တစ်ခုဖြစ်သည်။ အခြား application များ (Chrome, MS Word, Games စသည်) ကို run လုပ်ရန်နှင့် လုပ်ဆောင်ချက်များကို ဆောင်ရွက်ရန် OS က environment ပေးထားပြီး၊ computer ၏ hardware နှင့် software တို့ကို ချိတ်ဆက်စီမံခန့်ခွဲပေးသည်။ အဲဒါကြောင့် computer သို့မဟုတ် mobile device တစ်ခုတွင် OS မရှိဘဲ အသုံးပြု၍မရနိုင်ပါ။</p>
-<h3>1. History Of OS</h3>
-<p>၁၉၅၀ နှောင်းပိုင်းတွင် tape storage ကို စီမံရန် OS များကို စတင်တီထွင်ခဲ့ပြီး၊ General Motors Research Lab သည် ၁၉၅၀ ပြည့်နှစ်များအစောပိုင်းတွင် IBM 701 အတွက် ပထမဆုံး OS ကို အကောင်အထည်ဖော်ခဲ့သည်။ ၁၉၆၀ ပြည့်လွန်နှစ်များအလယ်ပိုင်းတွင် disk storage ကို အသုံးပြုစတင်ပြီး၊ ၁၉၆၀ ပြည့်လွန်နှစ်များနှောင်းပိုင်းတွင် Unix OS ၏ ပထမဆုံးမူကွဲကို တီထွင်ခဲ့ကြသည်။ Microsoft ၏ ပထမဆုံး OS သည် DOS ဖြစ်ပြီး၊ Seattle ကုမ္ပဏီမှ 86-DOS software ကို ဝယ်ယူပြီး ၁၉၈၁ ခုနှစ်တွင် တည်ဆောက်ခဲ့သည်။ နောက်ပြီး Windows OS ကို ၁၉၈၅ ခုနှစ်တွင် GUI (Graphical User Interface) အခြေခံ၍ MS-DOS နှင့် တွဲဖက်အသုံးပြုခဲ့သည်။</p>
-<h3>2. Operating System ၏ Features</h3>
-<p>OS များသည် အောက်ပါအဓိက လုပ်ဆောင်ချက်များကို ဆောင်ရွက်ပေးသည်။</p>
-<ul>
-<li><strong>Protected and Supervisor Mode:</strong> Hardware resources များကို ထိန်းချုပ်ရန်</li>
-<li><strong>Disk Access and File Systems:</strong> File management နှင့် device drivers</li>
-<li><strong>Networking and Security:</strong> Network connections နှင့် data protection</li>
-<li><strong>Program Execution:</strong> Process management, scheduling, and context switching</li>
-<li><strong>Memory Management:</strong> Virtual memory, allocation, and multitasking</li>
-<li><strong>I/O Operations:</strong> Input/Output device handling</li>
-<li><strong>Error Detection and Resource Allocation:</strong> System stabilityနှင့် performance</li>
-</ul>
-<h3>3. What is a Kernel?</h3>
-<p>Kernel သည် operating system ၏ အတွင်းအကျဆုံးအစိတ်အပိုင်းဖြစ်ပြီး၊ hardware နှင့် software အကြား ဆက်သွယ်မှုကို စီမံခန့်ခွဲရန် တာဝန်ရှိသည်။ OS ၏ shell သည် user interface အပြင်ဘက်တွင် ရှိသော်လည်း kernel သည် core functionality များကို low-level scheduling, inter-process communication, process synchronization နှင့် context switching စသည့် လုပ်ငန်းများကို လုပ်ဆောင်သည်။</p>
-<p>Kernel အမျိုးအစားများ</p>
-<ul>
-<li><strong>Monolithic Kernel:&nbsp;</strong>အားလုံးသော OS services များကို single code block အဖြစ် ဖော်ပြပြီး၊ hardware နှင့် software အကြား distinct communication layer ရှိစေသည်။</li>
-<li><strong>Microkernel:</strong> Kernel services များကို အနည်းငယ်သာ kernel space တွင်ထား၍၊ user services များကို different address space တွင် run နိုင်ရန် ခွဲထုတ်ထားသည်။</li>
-</ul>
-<h3>4. Operating System ၏ လုပ်ဆောင်ချက်များ</h3>
-<ul>
-<li><strong>Process Management</strong></li>
-</ul>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Process များကို create, delete, synchronize နှင့် communicate လုပ်ရန်</p>
-<ul>
-<li><strong>Memory Management</strong></li>
-</ul>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Program များအတွက် memory allocation နှင့် de-allocation</p>
-<ul>
-<li><strong>File Management</strong></li>
-</ul>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Files များကို organize, store, retrieve, name, share နှင့် protect လုပ်ခြင်း</p>
-<ul>
-<li><strong>Device Management</strong></li>
-</ul>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Input/Output devices များကို track, allocate နှင့် de-allocate လုပ်ခြင်း</p>
-<ul>
-<li><strong>I/O System Management</strong></li>
-</ul>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Input/Output devices အတွက် driver နှင့် interface များဖြင့် စီမံခြင်း</p>
-<ul>
-<li><strong>Secondary Storage Management</strong></li>
-</ul>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Primary, secondary နှင့် cache storage များ၏ သုံးစွဲမှုကို စီမံခြင်း</p>
-<ul>
-<li><strong>Security</strong></li>
-</ul>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Malware နှင့် unauthorized access များမှ data ကို ကာကွယ်ခြင်း</p>
-<ul>
-<li><strong>Command Interpretation</strong></li>
-</ul>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; User commands များကို translate ပြုလုပ်၍ system resources ကို ခိုင်းခြင်း</p>
-<ul>
-<li><strong>Networking</strong></li>
-</ul>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Distributed systems နှင့် network communication ကို စီမံခြင်း</p>
-<ul>
-<li><strong>Job Accounting</strong></li>
-</ul>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Resource နှင့် time usage ကို track လုပ်ခြင်း</p>
-<ul>
-<li><strong>Communication Management</strong></li>
-</ul>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; အခြား computer များနှင့် Devices များအကြား ဆက်သွယ်မှု</p>
-<h3>5. Firmware နှင့် Operating System အကြား ကွာခြားချက်</h3>
-<p>&nbsp; &nbsp; &nbsp;Smartphone တွေမှာရှိတဲ့ Android တို့ IOS တို့ Window တို့တွေဟာအမှန်တကယ်တော့ OS တွေပါ။ Firmware မဟုတ်ပါဘူး။ OS နဲ့ Firmware တစ်ခါတည်းတွဲပါတာတွေ&nbsp;အချို့ Phone တွေတော့ရှိတယ်။</p>
-<img id="post-img" src="/images/Difference between Firmware and Operating System.png" alt="Difference between Firmware and Operating System"/>
-<h3>6. 32-Bit vs. 64-Bit Operating System</h3>
-<img id="post-img" src="/images/Difference between 32-Bit vs. 64 Bit Operating System.png" alt="Difference between 32-Bit vs. 64 Bit Operating System" />
-<h3>7. OS အသုံးပြုမှုနှင့် Computer / Mobile အမျိုးအစားအလိုက် ရေပန်းစားမှု</h3>
-<p><strong>Computer များ:</strong> Windows, macOS နှင့် Linux distributions များ သုံးဆောင်ကြသည်။ Desktop နှင့် Laptop များတွင် အမျိုးအစားအလိုက် OS များကို optimize ပြုလုပ်ထားသည်။</p>
-<p><strong>Smartphones:</strong> Android နှင့် iOS ကို အဓိက အသုံးပြုကြပြီး၊ touch-based interface နှင့် low power consumption အတွက် အထူးသင့်လျော်သည်။</p>
-<h3>8. OS အသုံးပြုနိုင်ရန် System လိုအပ်ချက်များ</h3>
-<p>OS တစ်ခုချင်းစီသည် hardware (CPU, RAM, Storage, GPU) အတွက် သတ်မှတ်ထားသော requirements များရှိသည်။ ဥပမာ Windows 11 သည် 64-bit CPU, 4GB RAM, 64GB storage, TPM 2.0 နှင့် Secure Boot support များလိုအပ်သည်။ macOS သည် Apple hardware တွင်သာ run ဖြစ်သည်။</p>
-<h3>9. ယနေ့ခေတ် OS အသုံးပြုမှုနှင့် အကြံပြုချက်</h3>
-<p>ယနေ့ခေတ်တွင် Desktop နှင့် Laptop များအတွက် Windows 10/11, macOS, Linux distributions များ၊ Server များအတွက် Linux-based OS များနှင့် Windows Server, Mobile devices အတွက် Android နှင့် iOS ကို အထူးသင့်လျော်စွာ အသုံးပြုကြသည်။</p>
+        <div class="post-text" id="post-text">
             
-<!--Post End-->  
-<p>#tcmyaing</p>  
        </div>
     </div>
 </section>
-
 
 <section id="post-navigation" class="post-navigation">
     <div class="container">
@@ -171,13 +89,6 @@
 <script src="/scripts/content-secondary.js"></script>
     
 
-
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01" alt="Modal Image">
-</div>
-<script src="/scripts/image-popup-modal.js"></script>
-
 <footer id="footer">
     <div class="container">
         <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
@@ -190,11 +101,108 @@
     <i class="fas fa-arrow-up"></i>
 </button>            
 
-<!-- JavaScript ဖိုင်များ -->
-<script src="/scripts/back-to-top.js"></script>      
-<script src="/scripts/dynmic-title-update.js"></script>
-<script src="/scripts/navigation-update.js"></script>
+<script>
+    <!--Post Data Script-->
+    // post.js
+
+// Post data
+const postData = {
+    "title": "Operating System (OS) အကြောင်း",
+    "author": "tinnaingoo",
+    "date": "Feb 23, 2025",
+    "coverImage": "https://i.pinimg.com/1200x/8a/aa/dd/8aaaddd94e13c535d7580d2cf6e4c456.jpg",
+    "imageAlt": "About Operating Systel",
+    "content": "<p>Operating System (OS) ဆိုသည်မှာ user နှင့် computer စက်ပစ္စည်းများအကြား ဆက်သွယ်မှု အဖြစ် လုပ်ဆောင်သော software တစ်ခုဖြစ်သည်။ အခြား application များ (Chrome, MS Word, Games စသည်) ကို run လုပ်ရန်နှင့် လုပ်ဆောင်ချက်များကို ဆောင်ရွက်ရန် OS က environment ပေးထားပြီး၊ computer ၏ hardware နှင့် software တို့ကို ချိတ်ဆက်စီမံခန့်ခွဲပေးသည်။ အဲဒါကြောင့် computer သို့မဟုတ် mobile device တစ်ခုတွင် OS မရှိဘဲ အသုံးပြု၍မရနိုင်ပါ။</p>\n<h3>1. History Of OS</h3>\n<p>၁၉၅၀ နှောင်းပိုင်းတွင် tape storage ကို စီမံရန် OS များကို စတင်တီထွင်ခဲ့ပြီး၊ General Motors Research Lab သည် ၁၉၅၀ ပြည့်နှစ်များအစောပိုင်းတွင် IBM 701 အတွက် ပထမဆုံး OS ကို အကောင်အထည်ဖော်ခဲ့သည်။ ၁၉၆၀ ပြည့်လွန်နှစ်များအလယ်ပိုင်းတွင် disk storage ကို အသုံးပြုစတင်ပြီး၊ ၁၉၆၀ ပြည့်လွန်နှစ်များနှောင်းပိုင်းတွင် Unix OS ၏ ပထမဆုံးမူကွဲကို တီထွင်ခဲ့ကြသည်။ Microsoft ၏ ပထမဆုံး OS သည် DOS ဖြစ်ပြီး၊ Seattle ကုမ္ပဏီမှ 86-DOS software ကို ဝယ်ယူပြီး ၁၉၈၁ ခုနှစ်တွင် တည်ဆောက်ခဲ့သည်။ နောက်ပြီး Windows OS ကို ၁၉၈၅ ခုနှစ်တွင် GUI (Graphical User Interface) အခြေခံ၍ MS-DOS နှင့် တွဲဖက်အသုံးပြုခဲ့သည်။</p>\n<h3>2. Operating System ၏ Features</h3>\n<p>OS များသည် အောက်ပါအဓိက လုပ်ဆောင်ချက်များကို ဆောင်ရွက်ပေးသည်။</p>\n<ul>\n<li><strong>Protected and Supervisor Mode:</strong> Hardware resources များကို ထိန်းချုပ်ရန်</li>\n<li><strong>Disk Access and File Systems:</strong> File management နှင့် device drivers</li>\n<li><strong>Networking and Security:</strong> Network connections နှင့် data protection</li>\n<li><strong>Program Execution:</strong> Process management, scheduling, and context switching</li>\n<li><strong>Memory Management:</strong> Virtual memory, allocation, and multitasking</li>\n<li><strong>I/O Operations:</strong> Input/Output device handling</li>\n<li><strong>Error Detection and Resource Allocation:</strong> System stabilityနှင့် performance</li>\n</ul>\n<h3>3. What is a Kernel?</h3>\n<p>Kernel သည် operating system ၏ အတွင်းအကျဆုံးအစိတ်အပိုင်းဖြစ်ပြီး၊ hardware နှင့် software အကြား ဆက်သွယ်မှုကို စီမံခန့်ခွဲရန် တာဝန်ရှိသည်။ OS ၏ shell သည် user interface အပြင်ဘက်တွင် ရှိသော်လည်း kernel သည် core functionality များကို low-level scheduling, inter-process communication, process synchronization နှင့် context switching စသည့် လုပ်ငန်းများကို လုပ်ဆောင်သည်။</p>\n<p>Kernel အမျိုးအစားများ</p>\n<ul>\n<li><strong>Monolithic Kernel:&nbsp;</strong>အားလုံးသော OS services များကို single code block အဖြစ် ဖော်ပြပြီး၊ hardware နှင့် software အကြား distinct communication layer ရှိစေသည်။</li>\n<li><strong>Microkernel:</strong> Kernel services များကို အနည်းငယ်သာ kernel space တွင်ထား၍၊ user services များကို different address space တွင် run နိုင်ရန် ခွဲထုတ်ထားသည်။</li>\n</ul>\n<h3>4. Operating System ၏ လုပ်ဆောင်ချက်များ</h3>\n<ul>\n<li><strong>Process Management</strong></li>\n</ul>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; Process များကို create, delete, synchronize နှင့် communicate လုပ်ရန်</p>\n<ul>\n<li><strong>Memory Management</strong></li>\n</ul>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; Program များအတွက် memory allocation နှင့် de-allocation</p>\n<ul>\n<li><strong>File Management</strong></li>\n</ul>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; Files များကို organize, store, retrieve, name, share နှင့် protect လုပ်ခြင်း</p>\n<ul>\n<li><strong>Device Management</strong></li>\n</ul>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; Input/Output devices များကို track, allocate နှင့် de-allocate လုပ်ခြင်း</p>\n<ul>\n<li><strong>I/O System Management</strong></li>\n</ul>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; Input/Output devices အတွက် driver နှင့် interface များဖြင့် စီမံခြင်း</p>\n<ul>\n<li><strong>Secondary Storage Management</strong></li>\n</ul>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; Primary, secondary နှင့် cache storage များ၏ သုံးစွဲမှုကို စီမံခြင်း</p>\n<ul>\n<li><strong>Security</strong></li>\n</ul>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; Malware နှင့် unauthorized access များမှ data ကို ကာကွယ်ခြင်း</p>\n<ul>\n<li><strong>Command Interpretation</strong></li>\n</ul>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; User commands များကို translate ပြုလုပ်၍ system resources ကို ခိုင်းခြင်း</p>\n<ul>\n<li><strong>Networking</strong></li>\n</ul>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; Distributed systems နှင့် network communication ကို စီမံခြင်း</p>\n<ul>\n<li><strong>Job Accounting</strong></li>\n</ul>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; Resource နှင့် time usage ကို track လုပ်ခြင်း</p>\n<ul>\n<li><strong>Communication Management</strong></li>\n</ul>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; အခြား computer များနှင့် Devices များအကြား ဆက်သွယ်မှု</p>\n<h3>5. Firmware နှင့် Operating System အကြား ကွာခြားချက်</h3>\n<p>&nbsp; &nbsp; &nbsp;Smartphone တွေမှာရှိတဲ့ Android တို့ IOS တို့ Window တို့တွေဟာအမှန်တကယ်တော့ OS တွေပါ။ Firmware မဟုတ်ပါဘူး။ OS နဲ့ Firmware တစ်ခါတည်းတွဲပါတာတွေ&nbsp;အချို့ Phone တွေတော့ရှိတယ်။</p>\n<img id=\"post-img\" src=\"/images/Difference between Firmware and Operating System.png\" alt=\"Difference between Firmware and Operating System\">\n<h3>6. 32-Bit vs. 64-Bit Operating System</h3>\n<img id=\"post-img\" src=\"/images/Difference between 32-Bit vs. 64 Bit Operating System.png\" alt=\"Difference between 32-Bit vs. 64 Bit Operating System\">\n<h3>7. OS အသုံးပြုမှုနှင့် Computer / Mobile အမျိုးအစားအလိုက် ရေပန်းစားမှု</h3>\n<p><strong>Computer များ:</strong> Windows, macOS နှင့် Linux distributions များ သုံးဆောင်ကြသည်။ Desktop နှင့် Laptop များတွင် အမျိုးအစားအလိုက် OS များကို optimize ပြုလုပ်ထားသည်။</p>\n<p><strong>Smartphones:</strong> Android နှင့် iOS ကို အဓိက အသုံးပြုကြပြီး၊ touch-based interface နှင့် low power consumption အတွက် အထူးသင့်လျော်သည်။</p>\n<h3>8. OS အသုံးပြုနိုင်ရန် System လိုအပ်ချက်များ</h3>\n<p>OS တစ်ခုချင်းစီသည် hardware (CPU, RAM, Storage, GPU) အတွက် သတ်မှတ်ထားသော requirements များရှိသည်။ ဥပမာ Windows 11 သည် 64-bit CPU, 4GB RAM, 64GB storage, TPM 2.0 နှင့် Secure Boot support များလိုအပ်သည်။ macOS သည် Apple hardware တွင်သာ run ဖြစ်သည်။</p>\n<h3>9. ယနေ့ခေတ် OS အသုံးပြုမှုနှင့် အကြံပြုချက်</h3>\n<p>ယနေ့ခေတ်တွင် Desktop နှင့် Laptop များအတွက် Windows 10/11, macOS, Linux distributions များ၊ Server များအတွက် Linux-based OS များနှင့် Windows Server, Mobile devices အတွက် Android နှင့် iOS ကို အထူးသင့်လျော်စွာ အသုံးပြုကြသည်။</p>\n<p>#tcmyaing</p>"
+};
+
+// DOM content loaded
+document.addEventListener("DOMContentLoaded", () => {
+    // Set title
+    document.getElementById("post-title").textContent = postData.title;
+
+    // Set author and date
+    const postMeta = document.querySelector(".post-meta");
+    if (postMeta) {
+        postMeta.innerHTML = `By <a>${postData.author}</a> • ${postData.date}`;
+    }
+
+    // Set cover image
+    const coverImageContainer = document.getElementById("post-cover-image");
+    if (coverImageContainer) {
+        coverImageContainer.innerHTML = `<img src="${postData.coverImage}" alt="${postData.imageAlt}" />`;
+    }
+
+    // Set post content
+    const postText = document.getElementById("post-text");
+    if (postText) {
+        postText.innerHTML = postData.content;
+    }
+});
+    
+// ===== 4. Navigation Update =====
+// Navigation link တွေကို JSON ကနေ update လုပ်ဖို့ function
+async function updateNavigation() {
+    try {
+        const response = await fetch('/home/post-data.json');
+        const postsData = await response.json();
+        
+        // Get current post title from the inline postData object
+        const currentTitle = postData.title;
+        const currentPost = postsData.find(post => post.title === currentTitle);
+
+        if (currentPost) {
+            const prevPostLink = document.getElementById('prevPostLink');
+            const prevPostTitle = document.getElementById('prevPostTitle');
+            if (currentPost['PrePost-Title'] && currentPost['PrePost-Url']) {
+                prevPostLink.href = `${currentPost['PrePost-Url']}.html`;
+                prevPostTitle.textContent = currentPost['PrePost-Title'];
+            } else {
+                prevPostLink.parentElement.style.display = 'none';
+            }
+
+            const nextPostLink = document.getElementById('nextPostLink');
+            const nextPostTitle = document.getElementById('nextPostTitle');
+            if (currentPost['NextPost-Title'] && currentPost['NextPost-Url']) {
+                nextPostLink.href = `${currentPost['NextPost-Url']}.html`;
+                nextPostTitle.textContent = currentPost['NextPost-Title'];
+            } else {
+                nextPostLink.parentElement.style.display = 'none';
+            }
+        } else {
+            console.error('Current post not found in JSON data');
+        }
+    } catch (error) {
+        console.error('Error fetching navigation data:', error);
+    }
+}
+
+// ===== Run Navigation =====
+// Navigation update ကို ခေါ်မယ်
+updateNavigation();
+
+
+// ===== 6. Dynamic Title Update =====
+// <h1> က စာသားကို <title> ထဲ ထည့်ဖို့
+const postTitle = document.getElementById('post-title');
+if (postTitle) {
+    document.title = postData.title + " | TC-Myaing";
+} else {
+    console.error('Post title element not found');
+}
+
+
+    
+    
+</script>
+
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01" alt="Modal Image">
+</div>
 <script src="/scripts/image-popup-modal.js"></script>
+    
+<!-- JavaScript ဖိုင်များ -->
+<script src="/scripts/back-to-top.js"></script>
 <script src="/scripts/post.js"></script>
 
 </body>
