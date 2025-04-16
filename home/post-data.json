@@ -1,6 +1,4 @@
 [
-
-
 {
         "Category": ["Computer"],
         "title": "Windows အသုံးပြုထားတဲ့ Laptop မှာ Battery Report ကို ဘယ်လိုစစ်ဆေးရမလဲ",
@@ -107,7 +105,7 @@
         "ImageCaption": "Learning Windows Boot",
         "Author": "tinnaingoo",
         "Date": "March 1, 2025",
-        "PostUrl": "/home/technology-sharing/learning-windows-boot",
+        "PostUrl": "/home/computer/learning-windows-boot",
         "NextPost-Title": "Computer ဆိုတာဘာလဲ",
         "NextPost-Url": "/home/technology-sharing/what-is-computer",
         "PrePost-Title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
