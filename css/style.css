@@ -1290,6 +1290,47 @@ nav ul li a:hover {
     }
 }
 
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-medium) 0;
+    margin: var(--spacing-medium) auto;
+    flex-wrap: wrap;
+}
+
+.pagination-link {
+    color: var(--text-dark);
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid var(--border-light);
+    margin: 0 4px;
+    border-radius: var(--border-radius-small);
+    transition: background-color var(--transition-fast);
+}
+
+.pagination-link:hover:not(.active, .disabled) {
+    background-color: var(--bg-light);
+}
+
+.pagination-link.active {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
+}
+
+.pagination-link.disabled {
+    color: var(--text-muted);
+    pointer-events: none;
+    cursor: default;
+}
+
+.pagination span {
+    padding: 8px 16px;
+    color: var(--text-muted);
+}
+
 /* ===== 10. Footer ===== */
 footer {
     background: var(--bg-footer);
