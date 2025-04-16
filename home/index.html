@@ -64,29 +64,31 @@
     </header>
     
     <div class="main-body">    
+        
         <section class="all-post">
-            <div class="container">
-                <!-- Filter Status -->
-                <div id="filterStatus" class="filter-status"></div>
-                <!-- Loading Indicator -->
-                <div id="loadingIndicator" class="loadingIndicator">
-                    <i class="fas fa-spinner fa-spin"></i> Loading...
-                </div>
-                <div class="post-content-grid" id="post-content-grid">
-                    <!-- Posts will be dynamically inserted here -->
-                </div>
-                <div id="noResultsMessage" class="no-results-message">
-                    No results found.
-                </div>
-            </div>
-            
-            <div class="pagination-container container">
-            <div class="pagination" id="pagination">
-                <!-- Pagination links will be inserted here by JavaScript -->
-            </div>
-            </div>
-            
-        </section>
+    <div class="container">
+        <!-- Filter Status -->
+        <div id="filterStatus" class="filter-status"></div>
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loadingIndicator">
+            <i class="fas fa-spinner fa-spin"></i> Loading...
+        </div>
+        <div class="post-content-grid" id="post-content-grid">
+            <!-- Posts will be dynamically inserted here -->
+        </div>
+        
+        <div id="noResultsMessage" class="no-results-message">
+            No results found.
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="pagination" id="pagination">
+            <button class="page-btn prev" id="prevPage" disabled>❮ Previous</button>
+            <div class="page-numbers" id="pageNumbers"></div>
+            <button class="page-btn next" id="nextPage">Next ❯</button>
+        </div>
+    </div>
+</section>
         
 
         <section class="aside">
