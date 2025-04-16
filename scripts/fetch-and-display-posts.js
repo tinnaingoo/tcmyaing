@@ -1,6 +1,6 @@
 let currentFilter = 'all';
 let currentPage = 1;
-const postsPerPage = 15;
+const postsPerPage = 10;
 
 async function fetchAndDisplayPosts() {
     const loadingIndicator = document.getElementById('loadingIndicator');
