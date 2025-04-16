@@ -8,16 +8,7 @@ const populateSecondary = () => {
 
     const secondaryContent = `
     
-        <section>
-            <div class="container>
-            <div class="widget-ad">
-            <div class="ad-300x250">
-                <p><b>ဤနေရာမှာ ကြော်ငြာပါ။</b></p>
-                <p>320x50</p>
-            </div>
-            </div>    
-            </div>
-        </section>  
+    
 
 <section class="subscribe-section">
     <div class="container">
