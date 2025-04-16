@@ -1,30 +1,30 @@
-let currentFilter = null;
+let currentFilter = 'all';
 let currentPage = 1;
-const postsPerPage = 15; // Number of posts to show per page
-let allPosts = []; // Store all posts for filtering/pagination
+const postsPerPage = 15;
 
 async function fetchAndDisplayPosts() {
     const loadingIndicator = document.getElementById('loadingIndicator');
     const postGrid = document.getElementById('post-content-grid');
     const filterStatus = document.getElementById('filterStatus');
     const noResultsMessage = document.getElementById('noResultsMessage');
-    const paginationContainer = document.getElementById('pagination');
+    const prevPageBtn = document.getElementById('prevPage');
+    const nextPageBtn = document.getElementById('nextPage');
+    const pageNumbersContainer = document.getElementById('pageNumbers');
 
-    if (!loadingIndicator || !postGrid || !filterStatus) {
+    if (!loadingIndicator || !postGrid || !filterStatus || !noResultsMessage || !prevPageBtn || !nextPageBtn || !pageNumbersContainer) {
         console.error('Required DOM elements are missing.');
         return;
     }
 
     loadingIndicator.style.display = 'block';
     postGrid.innerHTML = '';
-    paginationContainer.innerHTML = '';
+    pageNumbersContainer.innerHTML = '';
 
-    // Get URL parameters
+    // Get category and page from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
-    const categoryFromUrl = urlParams.get('category');
+    const categoryFromUrl = urlParams.get('category') || 'all';
     const pageFromUrl = parseInt(urlParams.get('page')) || 1;
-    
-    currentFilter = categoryFromUrl || 'all';
+    currentFilter = categoryFromUrl;
     currentPage = pageFromUrl;
 
     updateFilterStatus(currentFilter);
@@ -32,33 +32,21 @@ async function fetchAndDisplayPosts() {
     try {
         const response = await fetch('/home/post-data.json');
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-        allPosts = await response.json();
+        const posts = await response.json();
 
-        // Filter posts if needed
-        let filteredPosts = allPosts;
-        if (currentFilter && currentFilter !== 'all') {
-            filteredPosts = allPosts.filter(post => post.Category.includes(currentFilter));
-        }
-
-        // Update URL with current filter and page
-        updateUrl(currentFilter, currentPage);
+        // Filter posts based on category
+        let filteredPosts = currentFilter === 'all' ? posts : posts.filter(post => post.Category.includes(currentFilter));
 
         // Calculate pagination
         const totalPosts = filteredPosts.length;
         const totalPages = Math.ceil(totalPosts / postsPerPage);
-        
-        // Validate current page
-        if (currentPage > totalPages) currentPage = totalPages;
-        if (currentPage < 1) currentPage = 1;
-
-        // Get posts for current page
         const startIndex = (currentPage - 1) * postsPerPage;
-        const endIndex = Math.min(startIndex + postsPerPage, totalPosts);
-        const postsToDisplay = filteredPosts.slice(startIndex, endIndex);
+        const endIndex = startIndex + postsPerPage;
+        const paginatedPosts = filteredPosts.slice(startIndex, endIndex);
 
         // Display posts
         let postHTML = '';
-        postsToDisplay.forEach(post => {
+        paginatedPosts.forEach(post => {
             const categories = post.Category.join(' ');
             const categoryDisplay = post.Category
                 .map(cat => `<span class="category-tag" data-category="${cat}">${cat}</span>`)
@@ -83,152 +71,116 @@ async function fetchAndDisplayPosts() {
 
         postGrid.innerHTML = postHTML;
         loadingIndicator.style.display = 'none';
+        noResultsMessage.style.display = totalPosts > 0 ? 'none' : 'block';
 
-        // Generate pagination links if we have more than one page
-        if (totalPages > 1) {
-            generatePaginationLinks(totalPages, currentPage, currentFilter);
-        }
+        // Update pagination controls
+        updatePaginationControls(totalPages, prevPageBtn, nextPageBtn, pageNumbersContainer);
 
-        // Handle category tag clicks
+        // Add event listeners for category tags
         document.querySelectorAll('.category-tag').forEach(tag => {
-            tag.addEventListener('click', function() {
+            tag.addEventListener('click', function () {
                 const selectedCategory = this.getAttribute('data-category');
                 if (currentFilter === selectedCategory) {
-                    filterAndPaginate('all', 1);
+                    currentFilter = 'all';
+                    currentPage = 1;
+                    updateURL(currentFilter, currentPage);
+                    fetchAndDisplayPosts();
                 } else {
-                    filterAndPaginate(selectedCategory, 1);
+                    currentFilter = selectedCategory;
+                    currentPage = 1;
+                    updateURL(currentFilter, currentPage);
+                    fetchAndDisplayPosts();
                 }
             });
         });
 
-        // Show/hide no results message
-        if (noResultsMessage) {
-            noResultsMessage.style.display = filteredPosts.length === 0 ? 'block' : 'none';
+        // Add event listener for "Show All" link
+        const showAllLink = document.getElementById('showAllLink');
+        if (showAllLink) {
+            showAllLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                currentFilter = 'all';
+                currentPage = 1;
+                updateURL(currentFilter, currentPage);
+                fetchAndDisplayPosts();
+            });
         }
+
+        // Add event listeners for pagination buttons
+        prevPageBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updateURL(currentFilter, currentPage);
+                fetchAndDisplayPosts();
+            }
+        });
+
+        nextPageBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updateURL(currentFilter, currentPage);
+                fetchAndDisplayPosts();
+            }
+        });
+
+        // Handle browser back/forward navigation
+        window.addEventListener('popstate', () => {
+            const params = new URLSearchParams(window.location.search);
+            currentFilter = params.get('category') || 'all';
+            currentPage = parseInt(params.get('page')) || 1;
+            fetchAndDisplayPosts();
+        });
+
     } catch (error) {
         console.error('Error fetching or displaying posts:', error.message);
         loadingIndicator.style.display = 'none';
         postGrid.innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
         filterStatus.style.display = 'none';
-        if (noResultsMessage) noResultsMessage.style.display = 'none';
+        noResultsMessage.style.display = 'none';
     }
 }
 
-function filterAndPaginate(category, page) {
-    currentFilter = category;
-    currentPage = page;
-    updateUrl(currentFilter, currentPage);
-    fetchAndDisplayPosts();
-}
-
-function updateUrl(category, page) {
-    let url = '/home';
-    const params = [];
-    
-    if (category && category !== 'all') {
-        params.push(`category=${encodeURIComponent(category)}`);
-    }
-    
-    if (page > 1) {
-        params.push(`page=${page}`);
-    }
-    
-    if (params.length > 0) {
-        url += `?${params.join('&')}`;
-    }
-    
-    window.history.pushState({}, document.title, url);
-}
-
-function generatePaginationLinks(totalPages, currentPage, currentFilter) {
-    const paginationContainer = document.getElementById('pagination');
-    let paginationHTML = '';
-    
-    // Previous link
-    if (currentPage > 1) {
-        paginationHTML += `<a href="#" onclick="filterAndPaginate('${currentFilter}', ${currentPage - 1})">&laquo; Prev</a>`;
-    } else {
-        paginationHTML += `<span class="disabled">&laquo; Prev</span>`;
-    }
-    
-    // Page numbers
-    const maxVisiblePages = 5; // Show up to 5 page links
-    let startPage, endPage;
-    
-    if (totalPages <= maxVisiblePages) {
-        startPage = 1;
-        endPage = totalPages;
-    } else {
-        const maxPagesBeforeCurrent = Math.floor(maxVisiblePages / 2);
-        const maxPagesAfterCurrent = Math.ceil(maxVisiblePages / 2) - 1;
-        
-        if (currentPage <= maxPagesBeforeCurrent) {
-            startPage = 1;
-            endPage = maxVisiblePages;
-        } else if (currentPage + maxPagesAfterCurrent >= totalPages) {
-            startPage = totalPages - maxVisiblePages + 1;
-            endPage = totalPages;
-        } else {
-            startPage = currentPage - maxPagesBeforeCurrent;
-            endPage = currentPage + maxPagesAfterCurrent;
-        }
-    }
-    
-    // Add first page and ellipsis if needed
-    if (startPage > 1) {
-        paginationHTML += `<a href="#" onclick="filterAndPaginate('${currentFilter}', 1)">1</a>`;
-        if (startPage > 2) {
-            paginationHTML += `<span class="disabled">...</span>`;
-        }
-    }
-    
-    // Add page numbers
-    for (let i = startPage; i <= endPage; i++) {
-        if (i === currentPage) {
-            paginationHTML += `<span class="current">${i}</span>`;
-        } else {
-            paginationHTML += `<a href="#" onclick="filterAndPaginate('${currentFilter}', ${i})">${i}</a>`;
-        }
-    }
-    
-    // Add last page and ellipsis if needed
-    if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-            paginationHTML += `<span class="disabled">...</span>`;
-        }
-        paginationHTML += `<a href="#" onclick="filterAndPaginate('${currentFilter}', ${totalPages})">${totalPages}</a>`;
-    }
-    
-    // Next link
-    if (currentPage < totalPages) {
-        paginationHTML += `<a href="#" onclick="filterAndPaginate('${currentFilter}', ${currentPage + 1})">Next &raquo;</a>`;
-    } else {
-        paginationHTML += `<span class="disabled">Next &raquo;</span>`;
-    }
-    
-    paginationContainer.innerHTML = paginationHTML;
-}
-
+// Update filter status
 function updateFilterStatus(category) {
     const filterStatus = document.getElementById('filterStatus');
     if (category === 'all') {
         filterStatus.style.display = 'none';
     } else {
         filterStatus.style.display = 'block';
-        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category. <a href="/home" onclick="filterAndPaginate('all', 1); return false;">Show All</a>`;
+        filterStatus.innerHTML = `Showing posts in <strong>${category}</strong> category. <a href="/home" id="showAllLink">Show All</a>`;
     }
 }
 
-// Handle browser back/forward navigation
-window.addEventListener('popstate', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const categoryFromUrl = urlParams.get('category');
-    const pageFromUrl = parseInt(urlParams.get('page')) || 1;
-    
-    currentFilter = categoryFromUrl || 'all';
-    currentPage = pageFromUrl;
-    
-    fetchAndDisplayPosts();
-});
+// Update pagination controls
+function updatePaginationControls(totalPages, prevPageBtn, nextPageBtn, pageNumbersContainer) {
+    prevPageBtn.disabled = currentPage === 1;
+    nextPageBtn.disabled = currentPage === totalPages;
+
+    let pageHTML = '';
+    for (let i = 1; i <= totalPages; i++) {
+        pageHTML += `<a href="/home/?${currentFilter !== 'all' ? `category=${encodeURIComponent(currentFilter)}&` : ''}page=${i}" class="page-number${i === currentPage ? ' active' : ''}" data-page="${i}">${i}</a>`;
+    }
+    pageNumbersContainer.innerHTML = pageHTML;
+
+    // Add event listeners for page numbers
+    document.querySelectorAll('.page-number').forEach(number => {
+        number.addEventListener('click', function (e) {
+            e.preventDefault();
+            currentPage = parseInt(this.getAttribute('data-page'));
+            updateURL(currentFilter, currentPage);
+            fetchAndDisplayPosts();
+        });
+    });
+}
+
+// Update URL with category and page
+function updateURL(category, page) {
+    let url = '/home';
+    const params = new URLSearchParams();
+    if (category !== 'all') params.set('category', category);
+    if (page > 1) params.set('page', page);
+    if (params.toString()) url += `/?${params.toString()}`;
+    window.history.pushState({}, document.title, url);
+}
 
 document.addEventListener('DOMContentLoaded', fetchAndDisplayPosts);
