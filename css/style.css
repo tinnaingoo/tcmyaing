@@ -1290,15 +1290,23 @@ nav ul li a:hover {
     }
 }
 
+/* Pagination အတွက် ပိုမိုကောင်းမွန်သော style */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    margin: 20px auto;
+    clear: both;
+}
 
-/* Pagination Styles */
+/* Pagination Styles 
 .pagination {
     display: flex;
     justify-content: center;
     padding: var(--spacing-medium) 0;
     margin: var(--spacing-medium) auto;
     flex-wrap: wrap;
-}
+}*/
 
 .pagination-link {
     color: var(--text-dark);
