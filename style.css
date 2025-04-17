@@ -278,7 +278,7 @@ nav ul li a:hover {
     font-size: 1.25rem;
     max-width: 600px;
     margin: 0 auto var(--spacing-large);
-    font-family: var(--font-primary);
+    font-family: var(--font-mm-primary);
     opacity: 0.9;
 }
 
