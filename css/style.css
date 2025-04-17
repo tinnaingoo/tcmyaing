@@ -145,6 +145,11 @@ h1, h2, h3 {
 }
 
 /* Main Body Layout */
+.container.two {
+    display: flex;
+    flex-direction: row;
+}
+
 .main-body {
     display: flex;
     justify-content: space-between;
@@ -233,6 +238,12 @@ h1, h2, h3 {
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
+    .container.two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    
     .main-body {
         flex-direction: column;
         width: 100%;
