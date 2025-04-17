@@ -490,6 +490,7 @@ nav ul li a:hover {
     margin: var(--spacing-medium) 0;
     border-radius: var(--border-radius-medium);
     box-shadow: 0 2px 5px var(--shadow-light);
+    max-width: var(--container-max-width);
 }
 
 .subscribe-section .container {
@@ -535,6 +536,7 @@ nav ul li a:hover {
     padding: var(--spacing-xl) 0;
     background: var(--bg-light);
     text-align: center;
+    max-width: var(--container-max-width);
 }
 
 .about h2 {
@@ -824,6 +826,7 @@ nav ul li a:hover {
     padding: var(--spacing-xl) 0;
     text-align: center;
     background: var(--bg-light);
+    max-width: var(--container-max-width);
 }
 
 .slider {
@@ -1170,6 +1173,7 @@ nav ul li a:hover {
     margin: var(--spacing-medium) 0;
     border-radius: var(--border-radius-medium);
     box-shadow: 0 2px 5px var(--shadow-light);
+    max-width: var(--container-max-width);
 }
 
 .contact-section .container {
