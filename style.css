@@ -309,6 +309,11 @@ nav ul li a:hover {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    .hero{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .hero-title {
         font-size: 2.5rem;
     }
