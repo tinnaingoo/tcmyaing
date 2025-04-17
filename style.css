@@ -313,6 +313,7 @@ nav ul li a:hover {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
     }
     .hero-title {
         font-size: 2.5rem;
