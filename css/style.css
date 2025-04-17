@@ -686,8 +686,8 @@ nav ul li a:hover {
     padding: 8px 16px;
     border-radius: var(--border-radius-small);
     transition: background var(--transition-fast);
+    font-size: 12px;
 }
-
 .read-more:hover {
     background: var(--primary-hover);
 }
