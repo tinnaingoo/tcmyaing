@@ -482,6 +482,14 @@ nav ul li a:hover {
     }
 }
 
+.secondary {
+    background: var(--bg-dark);
+    width: var(--container-width);
+    max-width: var(--container-max-width);
+    margin: auto;
+    align-items: center;
+}
+
 /* Subscribe Section */
 .subscribe-section {
     background-color: var(--bg-light);
