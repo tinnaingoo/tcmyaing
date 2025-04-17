@@ -250,16 +250,35 @@ nav ul li a:hover {
 /* ===== 3. Hero Section ===== */
 /* Updated Hero Section */
 .hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
-    color: var(--text-light);
-    padding: 0 var(--spacing-medium);
+    margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, var(--primary-gradient-start), var(--primary-gradient-end), var(--primary-color));
+  background-size: 400%;
+  animation: techGradient 12s ease-in-out infinite;
+  transition: background var(--transition-medium);
+}
+/* Animation for gradient shift */
+@keyframes techGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
+/* Dark Mode Adjustments */
+body.dark-mode {
+  background: linear-gradient(45deg, var(--bg-light), var(--bg-card), var(--text-muted));
+  background-size: 400%;
+  animation: techGradient 12s ease-in-out infinite;
+}
 .hero-title {
     font-size: 4rem;
     font-weight: 700;
