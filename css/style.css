@@ -749,6 +749,115 @@ body.dark-mode .contact-link {
     }
 }
 
+/* About Section */
+.about {
+    background-color: #f4f4f4;
+    padding: var(--spacing-large) var(--spacing-medium);
+    text-align: center;
+    margin: var(--spacing-medium) 0;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 2px 5px var(--shadow-light);
+    width: 100%;
+    max-width: 1200px;
+}
+
+body.dark-mode .about {
+    background: var(--bg-light);
+}
+
+.about h2 {
+    font-size: var(--font-size-title);
+    margin-bottom: var(--spacing-large);
+    color: var(--text-dark);
+    font-family: var(--font-mm-primary);
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--spacing-large);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-medium);
+}
+
+.about-text, .about-skills {
+    flex: 1;
+    text-align: left;
+}
+
+.about-text p {
+    font-size: var(--font-size-base);
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-medium);
+    font-family: YoeYar-One;
+}
+
+.about-skills h3 {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-medium);
+    color: var(--primary-color);
+}
+
+.about-skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-skills li {
+    font-size: var(--font-size-text);
+    margin-bottom: var(--spacing-small);
+    color: var(--text-dark);
+}
+
+.social-links {
+    margin-top: var(--spacing-large);
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 var(--spacing-small);
+    font-size: var(--font-size-subtitle);
+    color: var(--primary-color);
+    transition: color var(--transition-fast);
+}
+
+.social-links a:hover {
+    color: var(--primary-hover);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-text, .about-skills {
+        text-align: center;
+    }
+}
+
+.view-more-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #0073e6;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--font-mm-secondary);
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.view-more-btn:hover {
+    background-color: #005bb5;
+}
+
+
 /* ===== 6. Post Content Styles ===== */
 .loadingIndicator {
     font-size: var(--font-size-caption);
