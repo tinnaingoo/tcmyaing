@@ -232,7 +232,7 @@ h1, h2, h3 {
 .socials__text {
     font-size: 1rem;
     font-weight: bold;
-    font-family: var(--font-primary);
+    font-family: var(--font-mm-secondary);
 }
 
 /* Responsive Design for Mobile */
@@ -340,7 +340,7 @@ ul#latestPostsList {
 .categories a {
     text-decoration: none;
     color: var(--text-light);
-    font-family: var(--font-primary);
+    font-family: var(--font-mm-secondary);
     background: var(--secondary-color);
     padding: 3px var(--spacing-small);
     border-radius: 10px;
@@ -675,7 +675,7 @@ body.dark-mode .contact-section {
     font-size: var(--font-size-title);
     color: var(--text-dark);
     margin-bottom: 15px;
-    font-family: MyanmarSquare;
+    font-family: var(--font-mm-primary);
 }
 
 .contact-section p {
