@@ -623,13 +623,6 @@ body.dark-mode .widget-categories {
     background: var(--bg-card);
 }
 
-.widget-categories .widget-title {
-    font-size: var(--font-size-subtitle);
-    color: var(--text-dark);
-    margin-bottom: 15px;
-    border-bottom: 3px dotted var(--text-meta);
-    font-family: var(--font-mm-primary);
-}
 
 .categories {
     list-style: disc;
