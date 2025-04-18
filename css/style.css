@@ -486,6 +486,7 @@ nav ul li a:hover {
     }
 }
 
+/*Secondary Content*/
 .secondary {
     background: var(--bg-dark);
     width: var(--container-width);
