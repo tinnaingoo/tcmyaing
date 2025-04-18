@@ -1,3 +1,143 @@
+// Chart.js library ကို load လုပ်ပါ
+const loadChartJS = () => {
+    return new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+        script.onload = resolve;
+        document.head.appendChild(script);
+    });
+};
+
+// JSON data ကို fetch လုပ်ပါ
+const fetchPostData = async () => {
+    try {
+        const response = await fetch('/home/post-data.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching post data:', error);
+        showAlert('ဒေတာများကို ရယူရာတွင် အမှားတစ်ခုဖြစ်နေပါသည်', 'danger');
+        return [];
+    }
+};
+
+// Dashboard ကို update လုပ်ပါ
+const updateDashboard = async () => {
+    await loadChartJS();
+    const posts = await fetchPostData();
+    
+    // Basic stats
+    document.getElementById('total-posts').textContent = posts.length;
+    
+    // Category count
+    const categories = new Set();
+    posts.forEach(post => {
+        post.Category.forEach(cat => categories.add(cat));
+    });
+    document.getElementById('total-categories').textContent = categories.size;
+    
+    // Recent posts (last 7 days)
+    const oneWeekAgo = new Date();
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+    
+    const recentPosts = posts.filter(post => {
+        const postDate = new Date(post.Date);
+        return postDate >= oneWeekAgo;
+    });
+    document.getElementById('recent-posts').textContent = recentPosts.length;
+    
+    // Prepare data for charts
+    prepareCategoryChart(posts);
+    prepareDateChart(posts);
+};
+
+// Category chart ပြင်ဆင်ခြင်း
+const prepareCategoryChart = (posts) => {
+    const categoryCount = {};
+    
+    posts.forEach(post => {
+        post.Category.forEach(cat => {
+            categoryCount[cat] = (categoryCount[cat] || 0) + 1;
+        });
+    });
+    
+    const ctx = document.getElementById('categoryChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: Object.keys(categoryCount),
+            datasets: [{
+                label: 'Posts by Category',
+                data: Object.values(categoryCount),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(54, 162, 235, 0.7)',
+                    'rgba(255, 206, 86, 0.7)',
+                    'rgba(75, 192, 192, 0.7)',
+                    'rgba(153, 102, 255, 0.7)',
+                    'rgba(255, 159, 64, 0.7)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+};
+
+// Date chart ပြင်ဆင်ခြင်း
+const prepareDateChart = (posts) => {
+    const dateCount = {};
+    
+    posts.forEach(post => {
+        const date = new Date(post.Date).toLocaleDateString();
+        dateCount[date] = (dateCount[date] || 0) + 1;
+    });
+    
+    const ctx = document.getElementById('dateChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: Object.keys(dateCount),
+            datasets: [{
+                label: 'Posts by Date',
+                data: Object.values(dateCount),
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                tension: 0.1,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const darkModeToggle = document.getElementById('darkModeToggle');
@@ -151,5 +291,10 @@ document.addEventListener('DOMContentLoaded', () => {
             successAlert.style.display = 'none';
             dangerAlert.style.display = 'none';
         }, 5000);
+    }
+
+    // Dashboard ကို update လုပ်ပါ
+    if (window.location.hash !== '#create-post') {
+        updateDashboard();
     }
 });
