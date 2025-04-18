@@ -1201,14 +1201,14 @@ body.dark-mode .contact-section {
     font-size: var(--font-size-title);
     color: var(--text-dark);
     margin-bottom: 15px;
-    font-family: MyanmarSquare;
+    font-family: var(--font-mm-primary);
 }
 
 .contact-section p {
     font-size: 1.1em;
     color: var(--text-muted);
     margin-bottom: 25px;
-    font-family: YoeYar-One;
+    font-family: var(--font-mm-beauty);
 }
 
 .contact-links {
