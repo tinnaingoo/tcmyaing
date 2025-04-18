@@ -32,10 +32,18 @@
 }
 
 @font-face {
-    font-family: 'MyanmarSquare';
-    src: url('/fonts/unknown/MyanmarSquare.ttf');
+    font-family: 'Myanmar Square';
+    src: url('MyanmarSquare.eot');
+    src: url('/fonts/mm/MyanmarSquare.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/mm/MyanmarSquare.woff2') format('woff2'),
+        url('/fonts/mm/MyanmarSquare.woff') format('woff'),
+        url('/fonts/mm/MyanmarSquare.ttf') format('truetype'),
+        url('/fonts/mm/MyanmarSquare.svg#MyanmarSquare') format('svg');
+    font-weight: normal;
+    font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'YoeYar-One';
     src: url('/fonts/unknown/YoeYar-One.ttf');
