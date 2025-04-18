@@ -947,6 +947,7 @@ body.dark-mode .about {
 }
 
 .post-excerpt {
+    font-family: var(--font-mm-secondary);
     font-size: var(--font-size-meta);
     color: var(--text-muted);
     margin-bottom: 12px;
