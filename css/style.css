@@ -502,7 +502,12 @@ nav ul li a:hover {
     margin: var(--spacing-medium) 0;
     border-radius: var(--border-radius-medium);
     box-shadow: 0 2px 5px var(--shadow-light);
-    max-width: var(--container-max-width);
+    width: 100%;
+    max-width: 1200px;
+}
+
+body.dark-mode .subscribe-section {
+    background-color: var(--bg-light);
 }
 
 .subscribe-section .container {
@@ -514,17 +519,20 @@ nav ul li a:hover {
     font-size: var(--font-size-title);
     color: var(--text-dark);
     margin-bottom: var(--spacing-small);
+    font-family: var(--font-mm-primary);
 }
 
 .subscribe-section p {
     font-size: 1.1em;
     color: var(--text-muted);
     margin-bottom: var(--spacing-medium);
+    font-family: var(--font-mm-secondary);
 }
 
 .subscribe-btn {
     display: inline-flex;
     align-items: center;
+    font-family: var(--font-mm-secondary);
     padding: 12px 24px;
     background-color: var(--youtube-color);
     color: var(--text-light);
@@ -542,53 +550,202 @@ nav ul li a:hover {
     background-color: var(--youtube-hover);
 }
 
-
-/* About Section */
-.about {
-    padding: var(--spacing-xl) 0;
-    background: var(--bg-light);
+/* Slider Styles */
+.videos {
+    background-color: #f4f4f4;
+    padding: var(--spacing-large) var(--spacing-medium);
     text-align: center;
-    max-width: var(--container-max-width);
+    margin: var(--spacing-medium) 0;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 2px 5px var(--shadow-light);
+    width: 100%;
+    max-width: 1200px;
 }
 
-.about h2 {
-    font-size: var(--font-size-title);
-    margin-bottom: var(--spacing-large);
-    color: var(--text-dark);
-    font-family: var(--font-secondary);
+body.dark-mode .videos {
+    background: var(--bg-light);
 }
 
-.about-content {
-    max-width: var(--container-max-width);
+.slider {
+    max-width: 800px;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 var(--spacing-medium);
+    overflow: hidden;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
-.about-text p {
-    font-size: 16px;
-    line-height: 1.8;
-    color: var(--text-muted);
-    margin-bottom: var(--spacing-medium);
-    font-family: var(--font-primary);
+.slider-box {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
-.view-more-btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #0073e6;
-    color: white;
+.slides {
+    display: flex;
+    transition: transform var(--transition-slow);
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
     text-decoration: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 500;
-    font-family: var(--font-mm-secondary);
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
-    cursor: pointer;
+    color: inherit;
+    display: block;
 }
 
-.view-more-btn:hover {
-    background-color: #005bb5;
+.slide img {
+    width: 100%;
+    display: block;
+    border-radius: var(--border-radius-medium);
+}
+
+.slide .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--overlay-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: var(--spacing-small);
+    font-size: var(--font-size-base);
+    font-family: var(--font-mm-secondary);
+    border-bottom-left-radius: var(--border-radius-medium);
+    border-bottom-right-radius: var(--border-radius-medium);
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--overlay-semi);
+    color: var(--text-light);
+    border: none;
+    padding: var(--spacing-small);
+    cursor: pointer;
+    font-size: var(--font-size-subtitle);
+    border-radius: var(--border-radius-circle);
+    transition: background var(--transition-fast);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: var(--spacing-small);
+}
+
+.next {
+    right: var(--spacing-small);
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #f4f4f4;
+    padding: var(--spacing-large) var(--spacing-medium);
+    text-align: center;
+    margin: var(--spacing-medium) 0;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 2px 5px var(--shadow-light);
+    width: 100%;
+    max-width: 1200px;
+}
+
+body.dark-mode .contact-section {
+    background-color: var(--bg-light);
+}
+
+.contact-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-section h2 {
+    font-size: var(--font-size-title);
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-family: MyanmarSquare;
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    font-family: YoeYar-One;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-medium);
+    flex-wrap: wrap;
+    font-family: var(--font-mm-secondary);
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    padding: 12px var(--spacing-medium);
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: var(--border-radius-small);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+    box-shadow: 0 1px 3px var(--shadow-light);
+}
+
+body.dark-mode .contact-link {
+    background-color: var(--bg-card);
+    color: var(--text-light);
+}
+
+.contact-link i {
+    margin-right: var(--spacing-small);
+    font-size: 1.2em;
+}
+
+.contact-link:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+.contact-link.facebook:hover {
+    background-color: var(--facebook-color);
+}
+
+.contact-link.youtube:hover {
+    background-color: var(--youtube-color);
+}
+
+.contact-link.telegram:hover {
+    background-color: var(--telegram-color);
+}
+
+.contact-link.email:hover {
+    background-color: var(--email-hover);
+}
+
+@media (max-width: 768px) {
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .contact-link {
+        width: 80%;
+        justify-content: center;
+    }
 }
 
 /* ===== 6. Post Content Styles ===== */
@@ -831,96 +988,6 @@ nav ul li a:hover {
 
 .ad .btn i {
     margin-right: var(--spacing-small);
-}
-
-/* ===== 7. Slider Styles ===== */
-.videos {
-    padding: var(--spacing-xl) 0;
-    text-align: center;
-    background: var(--bg-light);
-    max-width: var(--container-max-width);
-}
-
-.slider {
-    max-width: 800px;
-    width:100%;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: var(--border-radius-large);
-    box-shadow: 0 4px 8px var(--shadow-medium);
-}
-
-.slider-box {
-    position: relative;
-    max-width: 800px;
-    margin: 0  auto;
-    overflow: hidden;
-    border-radius: var(--border-radius-small);
-    box-shadow: 0 4px 8px var(--shadow-medium);
-}
-
-.slides {
-    display: flex;
-    transition: transform var(--transition-slow);
-}
-
-.slide {
-    min-width: 100%;
-    position: relative;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.slide img {
-    width: 100%;
-    display: block;
-    border-radius: var(--border-radius-large);
-}
-
-.slide .caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: var(--overlay-dark);
-    color: var(--text-light);
-    text-align: center;
-    padding: var(--spacing-small);
-    font-size: var(--font-size-caption);
-    border-bottom-left-radius: var(--border-radius-large);
-    border-bottom-right-radius: var(--border-radius-large);
-}
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--overlay-semi);
-    color: var(--text-light);
-    border: none;
-    padding: var(--spacing-small);
-    cursor: pointer;
-    font-size: var(--font-size-subtitle);
-    border-radius: var(--border-radius-circle);
-    transition: background var(--transition-fast);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.prev:hover, .next:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.prev {
-    left: var(--spacing-small);
-}
-
-.next {
-    right: var(--spacing-small);
 }
 
 /* Search Bar + Dropdown Styling */
@@ -1177,90 +1244,6 @@ nav ul li a:hover {
     to { transform: scale(1); }
 }
 
-/* Contact Section */
-.contact-section {
-    background-color: var(--bg-light);
-    padding: var(--spacing-large) var(--spacing-medium);
-    text-align: center;
-    margin: var(--spacing-medium) 0;
-    border-radius: var(--border-radius-medium);
-    box-shadow: 0 2px 5px var(--shadow-light);
-    max-width: var(--container-max-width);
-}
-
-.contact-section .container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.contact-section h2 {
-    font-size: var(--font-size-title);
-    color: var(--text-dark);
-    margin-bottom: 15px;
-}
-
-.contact-section p {
-    font-size: 1.1em;
-    color: var(--text-muted);
-    margin-bottom: 25px;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-medium);
-    flex-wrap: wrap;
-}
-
-.contact-link {
-    display: flex;
-    align-items: center;
-    padding: 12px var(--spacing-medium);
-    background-color: var(--text-light);
-    color: var(--text-dark);
-    text-decoration: none;
-    font-size: 1em;
-    border-radius: var(--border-radius-small);
-    transition: background-color var(--transition-fast), color var(--transition-fast);
-    box-shadow: 0 1px 3px var(--shadow-light);
-}
-
-.contact-link i {
-    margin-right: var(--spacing-small);
-    font-size: 1.2em;
-}
-
-.contact-link:hover {
-    background-color: var(--secondary-color);
-    color: var(--text-light);
-}
-
-.contact-link.facebook:hover {
-    background-color: var(--facebook-color);
-}
-.contact-link.youtube:hover {
-    background-color: var(--youtube-color);
-}
-
-.contact-link.telegram:hover {
-    background-color: var(--telegram-color);
-}
-
-.contact-link.email:hover {
-    background-color: var(--email-hover);
-}
-
-@media (max-width: 768px) {
-    .contact-links {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-    .contact-link {
-        width: 80%;
-        justify-content: center;
-    }
-}
 
 /* ===== Back to Top ==== */
 .back-to-top {
