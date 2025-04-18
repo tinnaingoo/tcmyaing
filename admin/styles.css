@@ -339,6 +339,66 @@ textarea {
     }
 }
 
+/* styles.css ရဲ့ နောက်ဆုံးမှာ ဒီ code တွေကို ထည့်ပါ */
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
+}
+
+.stat-card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-medium);
+    text-align: center;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-small);
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.chart-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-large);
+}
+
+@media (min-width: 992px) {
+    .chart-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.chart-card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-medium);
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+.chart-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: var(--spacing-medium);
+}
+
 /* Loading Spinner */
 .spinner {
     display: none;
