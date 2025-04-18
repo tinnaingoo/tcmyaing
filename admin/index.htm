@@ -18,108 +18,102 @@
             </button>
         </div>
     </header>
-    <main class="main-content">
 
-        <div class="admin-panel">
-            <!-- index.html ရဲ့ sidebar section ကို ဒီလိုပြောင်းပါ -->
-            <aside class="sidebar">
-                <ul class="sidebar-menu">
-                    <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                    <li><a href="#create-post"><i class="fas fa-plus-circle"></i> Create New Post</a></li>
-                    <li><a href="#all-posts"><i class="fas fa-list"></i> All Posts</a></li>
-                    <li><a href="#categories"><i class="fas fa-tags"></i> Categories</a></li>
-                    <li><a href="#users"><i class="fas fa-users"></i> Users</a></li>
-                    <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
-                    <li><a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                </ul>
-            </aside>
-        </div> 
+    <div class="admin-panel">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#create-post"><i class="fas fa-plus-circle"></i> Create New Post</a></li>
+                <li><a href="#all-posts"><i class="fas fa-list"></i> All Posts</a></li>
+                <li><a href="#categories"><i class="fas fa-tags"></i> Categories</a></li>
+                <li><a href="#users"><i class="fas fa-users"></i> Users</a></li>
+                <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
 
-        <!-- Dashboard Tab -->
-        <div id="dashboard-tab" class="tab-content active">
-            <!-- Dashboard content here -->
-             <div class="card">
-                <h2 class="card-title">Dashboard Overview</h2>
-            
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <div class="stat-value" id="total-posts">0</div>
-                        <div class="stat-label">Total Posts</div>
+        <main class="main-content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard-tab" class="tab-content active">
+                <div class="card">
+                    <h2 class="card-title">Dashboard Overview</h2>
+                    
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-value" id="total-posts">0</div>
+                            <div class="stat-label">Total Posts</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-value" id="total-categories">0</div>
+                            <div class="stat-label">Total Categories</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-value" id="recent-posts">0</div>
+                            <div class="stat-label">Recent Posts (7 days)</div>
+                        </div>
                     </div>
-                
-                    <div class="stat-card">
-                        <div class="stat-value" id="total-categories">0</div>
-                        <div class="stat-label">Total Categories</div>
-                    </div>
-                
-                    <div class="stat-card">
-                        <div class="stat-value" id="recent-posts">0</div>
-                        <div class="stat-label">Recent Posts (7 days)</div>
-                    </div>
-
-                </div>
-            
-                <div class="chart-container">
-                    <div class="chart-card">
-                        <h3>Posts by Category</h3>
-                        <canvas id="categoryChart"></canvas>
-                    </div>
-                
-                    <div class="chart-card">
-                        <h3>Posts by Date</h3>
-                        <canvas id="dateChart"></canvas>
+                    
+                    <div class="chart-container">
+                        <div class="chart-card">
+                            <h3>Posts by Category</h3>
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                        
+                        <div class="chart-card">
+                            <h3>Posts by Date</h3>
+                            <canvas id="dateChart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id="create-post-tab" class="tab-content">
-            <div class="card">
-                <h2 class="card-title">Create New Post</h2>
-                <!-- Create post form content here -->
+            <!-- Create Post Tab -->
+            <div id="create-post-tab" class="tab-content">
                 <div class="card">
                     <h2 class="card-title">Create New Post</h2>
-                
+                    
                     <div class="tabs">
                         <div class="tab active" data-tab="form">Form</div>
                         <div class="tab" data-tab="preview">Preview</div>
                     </div>
-                
+                    
                     <div id="alert-success" class="alert alert-success"></div>
                     <div id="alert-danger" class="alert alert-danger"></div>
-                
+                    
                     <div id="form-tab" class="tab-content active">
                         <form id="post-form">
                             <div class="form-group">
                                 <label for="post-title">Post Title</label>
                                 <input type="text" id="post-title" name="post-title" required>
                             </div>
-                        
+                            
                             <div class="form-group">
                                 <label for="post-author">Author</label>
                                 <input type="text" id="post-author" name="post-author" required>
                             </div>
-                        
+                            
                             <div class="form-group">
                                 <label for="post-date">Date</label>
                                 <input type="text" id="post-date" name="post-date" required>
                             </div>
-                        
+                            
                             <div class="form-group">
                                 <label for="post-cover-image">Cover Image URL</label>
                                 <input type="url" id="post-cover-image" name="post-cover-image" required>
                             </div>
-                        
+                            
                             <div class="form-group">
                                 <label for="post-image-alt">Image Alt Text</label>
                                 <input type="text" id="post-image-alt" name="post-image-alt" required>
                             </div>
-                        
+                            
                             <div class="form-group">
-                                    <label for="post-content">Content (HTML)</label>
-                                    <textarea id="post-content" name="post-content" required></textarea>
+                                <label for="post-content">Content (HTML)</label>
+                                <textarea id="post-content" name="post-content" required></textarea>
                             </div>
-                        
+                            
                             <div class="btn-group">
                                 <button type="button" class="btn btn-success" id="previewBtn">Preview</button>
                                 <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
@@ -127,65 +121,62 @@
                             </div>
                         </form>
                     </div>
-                
-                <div id="preview-tab" class="tab-content">
-                    <div class="preview-container">
-                        <h2 class="preview-title" id="preview-title">Post Title</h2>
-                        <p class="preview-meta" id="preview-meta">By Author • Date</p>
-                        <img src="" alt="" class="preview-image" id="preview-image">
-                        <div class="preview-content" id="preview-content"></div>
-                    </div>
                     
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary" id="backToFormBtn">Back to Form</button>
-                        <button type="button" class="btn btn-primary" id="copyPreviewBtn">Copy Post Data</button>
+                    <div id="preview-tab" class="tab-content">
+                        <div class="preview-container">
+                            <h2 class="preview-title" id="preview-title">Post Title</h2>
+                            <p class="preview-meta" id="preview-meta">By Author • Date</p>
+                            <img src="" alt="" class="preview-image" id="preview-image">
+                            <div class="preview-content" id="preview-content"></div>
+                        </div>
+                        
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary" id="backToFormBtn">Back to Form</button>
+                            <button type="button" class="btn btn-primary" id="copyPreviewBtn">Copy Post Data</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-    
-        <!-- All Posts Tab -->
-        <div id="all-posts-tab" class="tab-content">
-        <!-- All posts content here -->
-        <div class="card">
-            <h2 class="card-title">All Posts</h2>
-            
-            <div class="search-filter">
-                <input type="text" id="post-search" placeholder="Search posts...">
-                <select id="category-filter">
-                    <option value="">All Categories</option>
-                    <!-- Categories will be populated by JavaScript -->
-                </select>
-            </div>
-            
-            <div class="posts-table-container">
-                <table class="posts-table">
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Date</th>
-                            <th>Categories</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="posts-list">
-                        <!-- Posts will be populated by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="pagination">
-                <button id="prev-page" class="btn btn-secondary">Previous</button>
-                <span id="page-info">Page 1 of 1</span>
-                <button id="next-page" class="btn btn-secondary">Next</button>
-            </div>
-        </div>
-        </div>
 
+            <!-- All Posts Tab -->
+            <div id="all-posts-tab" class="tab-content">
+                <div class="card">
+                    <h2 class="card-title">All Posts</h2>
+                    
+                    <div class="search-filter">
+                        <input type="text" id="post-search" placeholder="Search posts...">
+                        <select id="category-filter">
+                            <option value="">All Categories</option>
+                            <!-- Categories will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <div class="posts-table-container">
+                        <table class="posts-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Date</th>
+                                    <th>Categories</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="posts-list">
+                                <!-- Posts will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="pagination">
+                        <button id="prev-page" class="btn btn-secondary">Previous</button>
+                        <span id="page-info">Page 1 of 1</span>
+                        <button id="next-page" class="btn btn-secondary">Next</button>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-    </main>    
 
     <script src="/admin/script.js"></script>
 </body>
