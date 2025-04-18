@@ -682,7 +682,7 @@ body.dark-mode .contact-section {
     font-size: 1.1em;
     color: var(--text-muted);
     margin-bottom: 25px;
-    font-family: var(--font-mm-beaury);
+    font-family: var(--font-mm-beauty);
 }
 
 .contact-links {
@@ -1004,11 +1004,11 @@ body.dark-mode .about {
     font-size: var(--font-size-base);
     color: var(--text-dark);
     line-height: 1.6;
-    font-family: var(--font-primary);
+    font-family: var(--font-mm-secondary);
 }
 
 .post-text a {
-    font-family: var(--font-primary);
+    font-family: var(--font-mm-secondary);
     text-align: justify;
     text-decoration: none;
     color: var(--primary-color);
