@@ -96,7 +96,7 @@ body {
     padding: 0;
     line-height: 1.6;
     color: var(--text-body);
-    font-family: var(--font-primary);
+    font-family: var(--font-mm-secondary);
     scroll-behavior: smooth;
 }
 
@@ -295,7 +295,7 @@ nav ul li a:hover {
     text-decoration: none;
     font-size: 1.1rem;
     transition: opacity var(--transition-fast);
-    font-family: var(--font-mm-primary);
+    font-family: var(--font-mm-secondary);
     display: inline-block;
 }
 
