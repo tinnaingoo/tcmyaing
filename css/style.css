@@ -145,9 +145,8 @@ h1, h2, h3 {
 }
 
 /* Main Body Layout */
-.container.two {
-    display: flex;
-    flex-direction: row;
+.two {
+        max-width: var(--container-max-width);
 }
 
 .main-body {
