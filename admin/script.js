@@ -298,3 +298,109 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDashboard();
     }
 });
+
+// script.js ရဲ့ နောက်ဆုံးမှာ ဒီ code တွေကို ထည့်ပါ
+
+// All Posts page ကို update လုပ်ပါ
+const updateAllPostsPage = async () => {
+    const posts = await fetchPostData();
+    const postsList = document.getElementById('posts-list');
+    const categoryFilter = document.getElementById('category-filter');
+    
+    // Clear existing data
+    postsList.innerHTML = '';
+    
+    // Get unique categories
+    const categories = new Set();
+    posts.forEach(post => {
+        post.Category.forEach(cat => categories.add(cat));
+    });
+    
+    // Populate category filter
+    categoryFilter.innerHTML = '<option value="">All Categories</option>';
+    categories.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat;
+        categoryFilter.appendChild(option);
+    });
+    
+    // Display all posts
+    displayPosts(posts);
+    
+    // Add event listeners for filtering
+    document.getElementById('post-search').addEventListener('input', (e) => {
+        filterPosts(posts, e.target.value, categoryFilter.value);
+    });
+    
+    categoryFilter.addEventListener('change', (e) => {
+        filterPosts(posts, document.getElementById('post-search').value, e.target.value);
+    });
+};
+
+// Posts တွေကို display လုပ်ပါ
+const displayPosts = (posts) => {
+    const postsList = document.getElementById('posts-list');
+    postsList.innerHTML = '';
+    
+    posts.forEach(post => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+            <td>${post.title}</td>
+            <td>${post.Author}</td>
+            <td>${post.Date}</td>
+            <td>${post.Category.join(', ')}</td>
+            <td>
+                <button class="btn btn-small btn-primary">Edit</button>
+                <button class="btn btn-small btn-danger">Delete</button>
+            </td>
+        `;
+        
+        postsList.appendChild(row);
+    });
+};
+
+// Posts တွေကို filter လုပ်ပါ
+const filterPosts = (allPosts, searchTerm, category) => {
+    const filtered = allPosts.filter(post => {
+        const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                            post.Description.toLowerCase().includes(searchTerm.toLowerCase());
+        
+        const matchesCategory = category === '' || post.Category.includes(category);
+        
+        return matchesSearch && matchesCategory;
+    });
+    
+    displayPosts(filtered);
+};
+
+// Sidebar menu item တွေကို handle လုပ်ပါ
+const setupSidebar = () => {
+    const menuItems = document.querySelectorAll('.sidebar-menu a');
+    
+    menuItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Remove active class from all items
+            menuItems.forEach(i => i.classList.remove('active'));
+            
+            // Add active class to clicked item
+            item.classList.add('active');
+            
+            // Show the corresponding tab
+            const target = item.getAttribute('href').substring(1);
+            if (target === '') {
+                switchTab('dashboard');
+                updateDashboard();
+            } else if (target === 'create-post') {
+                switchTab('form');
+            } else if (target === 'all-posts') {
+                switchTab('all-posts');
+                updateAllPostsPage();
+            }
+        });
+    });
+};
+
