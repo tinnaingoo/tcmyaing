@@ -415,3 +415,61 @@ textarea {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* styles.css ရဲ့ နောက်ဆုံးမှာ ဒီ code တွေကို ထည့်ပါ */
+
+.search-filter {
+    display: flex;
+    gap: var(--spacing-medium);
+    margin-bottom: var(--spacing-medium);
+}
+
+.search-filter input,
+.search-filter select {
+    flex: 1;
+    padding: var(--spacing-small);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.posts-table-container {
+    overflow-x: auto;
+}
+
+.posts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-medium);
+}
+
+.posts-table th,
+.posts-table td {
+    padding: var(--spacing-small);
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.posts-table th {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.posts-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.posts-table tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-medium);
+    margin-top: var(--spacing-medium);
+}
+
+#page-info {
+    padding: 0 var(--spacing-medium);
+}
