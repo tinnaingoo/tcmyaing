@@ -15,7 +15,15 @@
 
 @font-face {
     font-family: 'Pyidaungsu';
-    src: url('/fonts/other/Pyidaungsu.ttf');
+    src: url('/fonts/mm/Pyidaungsu.eot');
+    src: url('/fonts/mm/Pyidaungsu.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/mm/Pyidaungsu.woff2') format('woff2'),
+        url('/fonts/mm/Pyidaungsu.woff') format('woff'),
+        url('/fonts/mm/Pyidaungsu.ttf') format('truetype'),
+        url('/fonts/mm/Pyidaungsu.svg#Pyidaungsu') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
