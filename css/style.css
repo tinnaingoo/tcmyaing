@@ -940,6 +940,7 @@ body.dark-mode .about {
 }
 
 .post-title {
+    font-family: var(--font-mm-primary);
     font-size: 22px;
     margin: 8px 0;
     font-weight: bold;
