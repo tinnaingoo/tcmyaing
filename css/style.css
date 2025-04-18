@@ -39,7 +39,7 @@
     /* Typography */
     --font-primary: "Padauk", serif;
     --font-secondary: "Noto Sans Myanmar", serif;
-    --font-mm-primary: MyanmarSquare;
+    --font-mm-primary: Myanmar Square;
     --font-mm-secondary: Pyidaungsu;
     --font-mm-beauty: YoeYar-One;
     --font-size-base: 16px;
@@ -134,7 +134,7 @@ body {
     padding: 0;
     line-height: 1.6;
     color: var(--text-dark);
-    font-family: var(--font-primary);
+    font-family: var(--font-mm-secondary);
     scroll-behavior: smooth;
     background: var(--bg-body);
     background-position: 0 0, 0 0;
