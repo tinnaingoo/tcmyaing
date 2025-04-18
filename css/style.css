@@ -682,7 +682,7 @@ body.dark-mode .contact-section {
     font-size: 1.1em;
     color: var(--text-muted);
     margin-bottom: 25px;
-    font-family: YoeYar-One;
+    font-family: var(--font-mm-beaury);
 }
 
 .contact-links {
