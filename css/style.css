@@ -954,6 +954,7 @@ body.dark-mode .about {
 }
 
 .post-footer {
+    font-family: var(--font-mm-secondary);
     display: flex;
     justify-content: space-between;
     align-items: center;
