@@ -135,6 +135,42 @@
                 </div>
             </div>
         </main>
+        <div id="all-posts-tab" class="tab-content">
+    <div class="card">
+        <h2 class="card-title">All Posts</h2>
+        
+        <div class="search-filter">
+            <input type="text" id="post-search" placeholder="Search posts...">
+            <select id="category-filter">
+                <option value="">All Categories</option>
+                <!-- Categories will be populated by JavaScript -->
+            </select>
+        </div>
+        
+        <div class="posts-table-container">
+            <table class="posts-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th>Categories</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="posts-list">
+                    <!-- Posts will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pagination">
+            <button id="prev-page" class="btn btn-secondary">Previous</button>
+            <span id="page-info">Page 1 of 1</span>
+            <button id="next-page" class="btn btn-secondary">Next</button>
+        </div>
+    </div>
+</div>
     </div>
 
     <script src="/admin/script.js"></script>
