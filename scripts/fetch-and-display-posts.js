@@ -7,6 +7,7 @@ async function fetchAndDisplayPosts() {
     const postGrid = document.getElementById('post-content-grid');
     const filterStatus = document.getElementById('filterStatus');
     const noResultsMessage = document.getElementById('noResultsMessage');
+    const Pagination = document.getElementById('pagination');
     const prevPageBtn = document.getElementById('prevPage');
     const nextPageBtn = document.getElementById('nextPage');
     const pageNumbersContainer = document.getElementById('pageNumbers');
