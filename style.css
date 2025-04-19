@@ -98,6 +98,7 @@ body {
     color: var(--text-body);
     font-family: var(--font-mm-secondary);
     scroll-behavior: smooth;
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
 }
 
 h1, h2, h3 {
