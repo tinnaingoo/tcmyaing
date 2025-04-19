@@ -261,6 +261,13 @@ nav ul li a:hover {
     padding: 0 var(--spacing-medium);
 }
 
+.inner {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
 .hero-title {
     font-size: 4rem;
     font-weight: 700;
