@@ -56,3 +56,18 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Z01-Umoe002';
+    src: url('/fonts/mm/Z01Umoe002.eot');
+    src: url('/fonts/mm/Z01Umoe002.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/mm/Z01Umoe002.woff2') format('woff2'),
+        url('/fonts/mm/Z01Umoe002.woff') format('woff'),
+        url('/fonts/mm/Z01Umoe002.ttf') format('truetype'),
+        url('/fonts/mm/Z01Umoe002.svg#Z01Umoe002') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
