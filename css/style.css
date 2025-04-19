@@ -792,7 +792,7 @@ body.dark-mode .about {
     line-height: 1.8;
     color: var(--text-muted);
     margin-bottom: var(--spacing-medium);
-    font-family: YoeYar-One;
+    font-family: var(--font-mm-beauty);
 }
 
 .about-skills h3 {
