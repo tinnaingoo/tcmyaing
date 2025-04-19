@@ -370,7 +370,7 @@ nav ul li a:hover {
     line-height: 1.8;
     color: var(--text-muted);
     margin-bottom: var(--spacing-medium);
-    font-family: var(--font-primary);
+    font-family: var(--font-mm-secondary);
 }
 
 .about-skills h3 {
