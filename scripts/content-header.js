@@ -8,7 +8,7 @@ const populateHeader = () => {
 
     const headerContent = `
         <div class="logo" id="headerLogo">
-            <img src="/images/logo-white.png" alt="Tech with TCM Logo">
+            <img src="/images/logo-white.png" alt="TC-Myaing" title="TC-Myaing">
         </div>
 
         <!-- Search Box -->
