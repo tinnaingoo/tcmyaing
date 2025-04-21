@@ -1405,13 +1405,12 @@ body.dark-mode .about {
  
 /* Pagination Styles */
 .pagination {
-    display: flex;
+    display: none; /* အစပိုင်းမှာ ဖွက်ထားမယ် */
     justify-content: center;
     align-items: center;
     margin: var(--spacing-medium) 0;
     gap: var(--spacing-small);
 }
-
 .page-btn {
     background: var(--primary-color);
     color: var(--text-light);
