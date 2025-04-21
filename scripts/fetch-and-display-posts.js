@@ -7,16 +7,18 @@ async function fetchAndDisplayPosts() {
     const postGrid = document.getElementById('post-content-grid');
     const filterStatus = document.getElementById('filterStatus');
     const noResultsMessage = document.getElementById('noResultsMessage');
-    const Pagination = document.getElementById('pagination');
+    const pagination = document.getElementById('pagination'); // Pagination Element
     const prevPageBtn = document.getElementById('prevPage');
     const nextPageBtn = document.getElementById('nextPage');
     const pageNumbersContainer = document.getElementById('pageNumbers');
 
-    if (!loadingIndicator || !postGrid || !filterStatus || !noResultsMessage || !prevPageBtn || !nextPageBtn || !pageNumbersContainer) {
+    if (!loadingIndicator || !postGrid || !filterStatus || !noResultsMessage || !pagination || !prevPageBtn || !nextPageBtn || !pageNumbersContainer) {
         console.error('Required DOM elements are missing.');
         return;
     }
 
+    // Loading ဖြစ်နေတဲ့အချိန်မှာ Pagination ကို ဖွက်ထားမယ်
+    pagination.style.display = 'none';
     loadingIndicator.style.display = 'block';
     postGrid.innerHTML = '';
     pageNumbersContainer.innerHTML = '';
@@ -74,8 +76,13 @@ async function fetchAndDisplayPosts() {
         loadingIndicator.style.display = 'none';
         noResultsMessage.style.display = totalPosts > 0 ? 'none' : 'block';
 
-        // Update pagination controls
-        updatePaginationControls(totalPages, prevPageBtn, nextPageBtn, pageNumbersContainer);
+        // Post တွေ Fetch ပြီးတဲ့အချိန်မှာ Pagination ကို ပြမယ်
+        if (totalPosts > 0) {
+            pagination.style.display = 'flex'; // Pagination ကို ပြမယ်
+            updatePaginationControls(totalPages, prevPageBtn, nextPageBtn, pageNumbersContainer);
+        } else {
+            pagination.style.display = 'none'; // Post မရှိရင် Pagination ကို ဖွက်ထားမယ်
+        }
 
         // Add event listeners for category tags
         document.querySelectorAll('.category-tag').forEach(tag => {
@@ -138,6 +145,7 @@ async function fetchAndDisplayPosts() {
         postGrid.innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
         filterStatus.style.display = 'none';
         noResultsMessage.style.display = 'none';
+        pagination.style.display = 'none'; // Error ဖြစ်ရင်လည်း Pagination ကို ဖွက်ထားမယ်
     }
 }
 
