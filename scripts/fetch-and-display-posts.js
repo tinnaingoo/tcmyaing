@@ -7,7 +7,7 @@ async function fetchAndDisplayPosts() {
     const postGrid = document.getElementById('post-content-grid');
     const filterStatus = document.getElementById('filterStatus');
     const noResultsMessage = document.getElementById('noResultsMessage');
-    const pagination = document.getElementById('pagination'); // Pagination Element
+    const pagination = document.getElementById('pagination');
     const prevPageBtn = document.getElementById('prevPage');
     const nextPageBtn = document.getElementById('nextPage');
     const pageNumbersContainer = document.getElementById('pageNumbers');
@@ -17,13 +17,11 @@ async function fetchAndDisplayPosts() {
         return;
     }
 
-    // Loading ဖြစ်နေတဲ့အချိန်မှာ Pagination ကို ဖွက်ထားမယ်
     pagination.style.display = 'none';
     loadingIndicator.style.display = 'block';
     postGrid.innerHTML = '';
     pageNumbersContainer.innerHTML = '';
 
-    // Get category and page from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const categoryFromUrl = urlParams.get('category') || 'all';
     const pageFromUrl = parseInt(urlParams.get('page')) || 1;
@@ -37,17 +35,14 @@ async function fetchAndDisplayPosts() {
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const posts = await response.json();
 
-        // Filter posts based on category
         let filteredPosts = currentFilter === 'all' ? posts : posts.filter(post => post.Category.includes(currentFilter));
 
-        // Calculate pagination
         const totalPosts = filteredPosts.length;
         const totalPages = Math.ceil(totalPosts / postsPerPage);
         const startIndex = (currentPage - 1) * postsPerPage;
         const endIndex = startIndex + postsPerPage;
         const paginatedPosts = filteredPosts.slice(startIndex, endIndex);
 
-        // Display posts
         let postHTML = '';
         paginatedPosts.forEach(post => {
             const categories = post.Category.join(' ');
@@ -76,15 +71,13 @@ async function fetchAndDisplayPosts() {
         loadingIndicator.style.display = 'none';
         noResultsMessage.style.display = totalPosts > 0 ? 'none' : 'block';
 
-        // Post တွေ Fetch ပြီးတဲ့အချိန်မှာ Pagination ကို ပြမယ်
         if (totalPosts > 0) {
-            pagination.style.display = 'flex'; // Pagination ကို ပြမယ်
+            pagination.style.display = 'flex';
             updatePaginationControls(totalPages, prevPageBtn, nextPageBtn, pageNumbersContainer);
         } else {
-            pagination.style.display = 'none'; // Post မရှိရင် Pagination ကို ဖွက်ထားမယ်
+            pagination.style.display = 'none';
         }
 
-        // Add event listeners for category tags
         document.querySelectorAll('.category-tag').forEach(tag => {
             tag.addEventListener('click', function () {
                 const selectedCategory = this.getAttribute('data-category');
@@ -99,10 +92,11 @@ async function fetchAndDisplayPosts() {
                     updateURL(currentFilter, currentPage);
                     fetchAndDisplayPosts();
                 }
+                // Scroll to the top of the page after clicking a category tag
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
 
-        // Add event listener for "Show All" link
         const showAllLink = document.getElementById('showAllLink');
         if (showAllLink) {
             showAllLink.addEventListener('click', function (e) {
@@ -111,15 +105,18 @@ async function fetchAndDisplayPosts() {
                 currentPage = 1;
                 updateURL(currentFilter, currentPage);
                 fetchAndDisplayPosts();
+                // Scroll to the top of the page after clicking "Show All"
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
 
-        // Add event listeners for pagination buttons
         prevPageBtn.addEventListener('click', () => {
             if (currentPage > 1) {
                 currentPage--;
                 updateURL(currentFilter, currentPage);
                 fetchAndDisplayPosts();
+                // Scroll to the top of the page after clicking Previous
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
 
@@ -128,15 +125,18 @@ async function fetchAndDisplayPosts() {
                 currentPage++;
                 updateURL(currentFilter, currentPage);
                 fetchAndDisplayPosts();
+                // Scroll to the top of the page after clicking Next
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
 
-        // Handle browser back/forward navigation
         window.addEventListener('popstate', () => {
             const params = new URLSearchParams(window.location.search);
             currentFilter = params.get('category') || 'all';
             currentPage = parseInt(params.get('page')) || 1;
             fetchAndDisplayPosts();
+            // Scroll to the top of the page on back/forward navigation
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
     } catch (error) {
@@ -145,11 +145,10 @@ async function fetchAndDisplayPosts() {
         postGrid.innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
         filterStatus.style.display = 'none';
         noResultsMessage.style.display = 'none';
-        pagination.style.display = 'none'; // Error ဖြစ်ရင်လည်း Pagination ကို ဖွက်ထားမယ်
+        pagination.style.display = 'none';
     }
 }
 
-// Update filter status
 function updateFilterStatus(category) {
     const filterStatus = document.getElementById('filterStatus');
     if (category === 'all') {
@@ -160,7 +159,6 @@ function updateFilterStatus(category) {
     }
 }
 
-// Update pagination controls
 function updatePaginationControls(totalPages, prevPageBtn, nextPageBtn, pageNumbersContainer) {
     prevPageBtn.disabled = currentPage === 1;
     nextPageBtn.disabled = currentPage === totalPages;
@@ -171,18 +169,18 @@ function updatePaginationControls(totalPages, prevPageBtn, nextPageBtn, pageNumb
     }
     pageNumbersContainer.innerHTML = pageHTML;
 
-    // Add event listeners for page numbers
     document.querySelectorAll('.page-number').forEach(number => {
         number.addEventListener('click', function (e) {
             e.preventDefault();
             currentPage = parseInt(this.getAttribute('data-page'));
             updateURL(currentFilter, currentPage);
             fetchAndDisplayPosts();
+            // Scroll to the top of the page after clicking a page number
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
 }
 
-// Update URL with category and page
 function updateURL(category, page) {
     let url = '/home';
     const params = new URLSearchParams();
