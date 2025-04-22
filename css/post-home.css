@@ -152,18 +152,17 @@ body.dark-mode .result-item a {
     align-items: center;
 }
 
-/* Font Classes */
-.noto-sans-myanmar-thin { font-family: var(--font-secondary); font-weight: 100; font-style: normal; }
-.noto-sans-myanmar-extralight { font-family: var(--font-secondary); font-weight: 200; font-style: normal; }
-.noto-sans-myanmar-light { font-family: var(--font-secondary); font-weight: 300; font-style: normal; }
-.noto-sans-myanmar-regular { font-family: var(--font-secondary); font-weight: 400; font-style: normal; }
-.noto-sans-myanmar-medium { font-family: var(--font-secondary); font-weight: 500; font-style: normal; }
-.noto-sans-myanmar-semibold { font-family: var(--font-secondary); font-weight: 600; font-style: normal; }
-.noto-sans-myanmar-bold { font-family: var(--font-secondary); font-weight: 700; font-style: normal; }
-.noto-sans-myanmar-extrabold { font-family: var(--font-secondary); font-weight: 800; font-style: normal; }
-.noto-sans-myanmar-black { font-family: var(--font-secondary); font-weight: 900; font-style: normal; }
-.padauk-regular { font-family: var(--font-primary); font-weight: 400; font-style: normal; }
-.padauk-bold { font-family: var(--font-primary); font-weight: 700; font-style: normal; }
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-dark);
+    font-family: var(--font-mm-secondary);
+    scroll-behavior: smooth;
+    background: var(--bg-body);
+    background-position: 0 0, 0 0;
+}
 
 /* Header Styles */
 /* ===== 2. Header Styles ===== */
