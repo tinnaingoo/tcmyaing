@@ -145,6 +145,11 @@ body {
     background-position: 0 0, 0 0;
 }
 
+p.about-text {
+    text-align: justify;
+    font-family: var(--font-mm-secondary);
+}
+
 h1, h2, h3 {
     font-family: var(--font-secondary);
 }
