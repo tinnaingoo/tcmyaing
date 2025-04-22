@@ -515,7 +515,6 @@ nav ul li a:hover {
 
 /* Secondary Content */
 .secondary {
-    background: var(--bg-dark); /* Note: --bg-dark is not defined, using --bg-light as fallback */
     background: var(--bg-light);
     width: var(--container-width);
     max-width: var(--container-max-width);
@@ -1502,7 +1501,7 @@ footer {
     color: var(--text-light);
     text-align: center;
     padding: var(--spacing-medium) 0;
-    margin-top: var(--spacing-xl);
+    margin-top: var(--spacing-medium);
 }
 
 footer p {
