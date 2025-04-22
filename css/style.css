@@ -515,7 +515,6 @@ nav ul li a:hover {
 
 /* Secondary Content */
 .secondary {
-    background: var(--bg-card);
     width: var(--container-width);
     max-width: var(--container-max-width);
     margin: auto;
