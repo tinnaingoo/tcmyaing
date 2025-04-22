@@ -705,7 +705,7 @@ body.dark-mode .contact-section {
 }
 
 .contact-section p {
-    font-size: var(--font-size-caption);
+    font-size: var(--font-size-base);
     color: var(--text-muted);
     margin-bottom: 25px;
     font-family: var(--font-mm-beauty);
