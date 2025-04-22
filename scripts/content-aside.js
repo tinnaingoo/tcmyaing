@@ -11,21 +11,6 @@ const populateAside = () => {
 
     // Define the content for the Aside section
     const asideContent = `
-        <!-- Latest Posts Widget -->
-        <div class="widget-latest-posts">
-            <h4 class="widget-title">Latest Posts</h4>
-            <ul class="latest-posts" id="latestPostsList">
-                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
-            </ul>
-        </div>
-
-        <!-- Categories Widget -->
-        <div class="widget-categories">
-            <h4 class="widget-title">Categories</h4>
-            <ul class="categories" id="categoriesList">
-                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
-            </ul>
-        </div>
 
         <!-- Socials Widget -->
         <div class="widget-socials">
@@ -51,6 +36,24 @@ const populateAside = () => {
                 </li>
             </ul>
         </div>
+        
+        <!-- Latest Posts Widget -->
+        <div class="widget-latest-posts">
+            <h4 class="widget-title">Latest Posts</h4>
+            <ul class="latest-posts" id="latestPostsList">
+                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+            </ul>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="widget-categories">
+            <h4 class="widget-title">Categories</h4>
+            <ul class="categories" id="categoriesList">
+                <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+            </ul>
+        </div>
+
+        
 
 
 
