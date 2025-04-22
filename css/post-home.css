@@ -544,6 +544,7 @@ body.dark-mode .widget-socials {
 
     .all-post {
         flex: 0 0 100%;
+        padding-top: 75px;
         margin-left: 0;
     }
 
