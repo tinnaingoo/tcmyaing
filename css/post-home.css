@@ -138,13 +138,7 @@ body.dark-mode .result-item a {
     color: var(--text-light); /* Fixed for Dark Mode Visibility */
 }
 
-/* General Styles */
-那么: var(--transition-fast);
-    transform: scale(1.05);
-}
-
-
-
+/* ===== 1. General Styles ===== */
 body {
     margin: 0;
     padding: 0;
@@ -156,7 +150,7 @@ body {
     background-position: 0 0, 0 0;
 }
 
-/* Header Styles */
+
 /* ===== 2. Header Styles ===== */
 header {
     position: fixed;
