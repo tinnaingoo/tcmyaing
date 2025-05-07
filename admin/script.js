@@ -380,10 +380,6 @@ const fetchPostData = async () => {
     document.querySelector('.main-content').appendChild(spinner);
 
     try {
-        // For production, replace with real API call
-        // const response = await fetch('/api/posts', {
-        //     headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-        // });
         const response = await fetch('/home/post-data.json');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
@@ -531,7 +527,7 @@ const setupEditPostDialog = () => {
     });
 };
 
-const populatePostDropdowns = (excludePostUrl) => {
+const populatePostDropdowns = (excludePostUrl, prePostTitle, nextPostTitle) => {
     const prePostSelect = document.getElementById('edit-pre-post');
     const nextPostSelect = document.getElementById('edit-next-post');
     
@@ -544,11 +540,13 @@ const populatePostDropdowns = (excludePostUrl) => {
         const preOption = document.createElement('option');
         preOption.value = post.PostUrl;
         preOption.textContent = post.title;
+        if (post.title === prePostTitle) preOption.selected = true;
         prePostSelect.appendChild(preOption);
         
         const nextOption = document.createElement('option');
         nextOption.value = post.PostUrl;
         nextOption.textContent = post.title;
+        if (post.title === nextPostTitle) nextOption.selected = true;
         nextPostSelect.appendChild(nextOption);
     });
 };
@@ -591,12 +589,10 @@ const openEditDialog = (postUrl) => {
         categoryContainer.appendChild(label);
     });
     
-    // Populate Previous and Next Post dropdowns
-    populatePostDropdowns(postUrl);
-    
-    // Set Previous and Next Post values if they exist
-    document.getElementById('edit-pre-post').value = post.PrePostUrl || '';
-    document.getElementById('edit-next-post').value = post.NextPostUrl || '';
+    // Populate Previous and Next Post dropdowns based on titles
+    const prePostTitle = post.PrePostTitle || '';
+    const nextPostTitle = post.NextPostTitle || '';
+    populatePostDropdowns(postUrl, prePostTitle, nextPostTitle);
     
     const modal = document.getElementById('edit-post-dialog');
     modal.style.display = 'block';
@@ -653,41 +649,42 @@ const saveEditedPost = async () => {
         return;
     }
     
-    // Prepare the updated post data
-    const prePost = allPosts.find(p => p.PostUrl === prePostUrl);
-    const nextPost = allPosts.find(p => p.PostUrl === nextPostUrl);
-    
-    const updatedPost = {
-        Category: selectedCategories,
-        title,
-        Description: description,
-        ImageUrl: imageUrl,
-        ImageCaption: imageCaption,
-        Author: author,
-        Date: date,
-        PostUrl: postUrl,
-        PrePostTitle: prePost ? prePost.title : '',
-        PrePostUrl: prePostUrl || '',
-        NextPostTitle: nextPost ? nextPost.title : '',
-        NextPostUrl: nextPostUrl || ''
-    };
-    
-    // Update the post in allPosts
-    allPosts[postIndex] = {
-        ...allPosts[postIndex],
-        ...updatedPost
-    };
-    
-    localStorage.setItem('postData', JSON.stringify(allPosts));
-    displayPosts(allPosts);
-    
-    // Copy to clipboard
-    const postDataString = JSON.stringify(updatedPost, null, 4);
     try {
+        // Prepare the updated post data
+        const prePost = allPosts.find(p => p.PostUrl === prePostUrl);
+        const nextPost = allPosts.find(p => p.PostUrl === nextPostUrl);
+        
+        const updatedPost = {
+            Category: selectedCategories,
+            title,
+            Description: description,
+            ImageUrl: imageUrl,
+            ImageCaption: imageCaption,
+            Author: author,
+            Date: date,
+            PostUrl: postUrl,
+            PrePostTitle: prePost ? prePost.title : '',
+            PrePostUrl: prePostUrl || '',
+            NextPostTitle: nextPost ? nextPost.title : '',
+            NextPostUrl: nextPostUrl || ''
+        };
+        
+        // Update the post in allPosts
+        allPosts[postIndex] = {
+            ...allPosts[postIndex],
+            ...updatedPost
+        };
+        
+        localStorage.setItem('postData', JSON.stringify(allPosts));
+        displayPosts(allPosts);
+        
+        // Copy to clipboard
+        const postDataString = JSON.stringify(updatedPost, null, 4);
         await navigator.clipboard.writeText(postDataString);
         showAlert('Post updated and copied to clipboard successfully!', 'success');
     } catch (err) {
-        showAlert('Post updated, but failed to copy to clipboard: ' + err, 'danger');
+        showAlert('Failed to save changes: ' + err.message, 'danger');
+        return;
     }
     
     closeEditDialog();
