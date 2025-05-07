@@ -160,6 +160,9 @@ label {
 
 input[type="text"],
 input[type="url"],
+input[type="date"],
+input[type="password"],
+input[type="number"],
 textarea,
 select {
     width: 100%;
@@ -173,6 +176,9 @@ select {
 
 input[type="text"]:focus,
 input[type="url"]:focus,
+input[type="date"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
 textarea:focus,
 select:focus {
     border-color: var(--primary-color);
@@ -314,33 +320,6 @@ textarea {
     display: block;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .admin-panel {
-        flex-direction: column;
-    }
-    
-    .sidebar {
-        width: 100%;
-        padding: var(--spacing-small);
-    }
-    
-    .main-content {
-        padding: var(--spacing-medium);
-    }
-    
-    .btn-group {
-        flex-direction: column;
-    }
-    
-    .btn {
-        width: 100%;
-        margin-bottom: var(--spacing-small);
-    }
-}
-
-/* styles.css ရဲ့ နောက်ဆုံးမှာ ဒီ code တွေကို ထည့်ပါ */
-
 .stats-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -399,7 +378,6 @@ textarea {
     margin-bottom: var(--spacing-medium);
 }
 
-/* Loading Spinner */
 .spinner {
     display: none;
     width: 40px;
@@ -415,8 +393,6 @@ textarea {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
-/* styles.css ရဲ့ နောက်ဆုံးမှာ ဒီ code တွေကို ထည့်ပါ */
 
 .search-filter {
     display: flex;
@@ -474,8 +450,6 @@ textarea {
     padding: 0 var(--spacing-medium);
 }
 
-
-/* Add to your styles.css */
 .modal {
     display: none;
     position: fixed;
@@ -519,14 +493,117 @@ textarea {
     color: var(--danger-color);
 }
 
-/* For multiple select */
 select[multiple] {
-    height: auto;
-    min-height: 100px;
+    height: 150px;
+    padding: var(--spacing-small);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--bg-card);
 }
 
-/* Style for selected options */
+select[multiple] option {
+    padding: 5px;
+}
+
 select[multiple] option:checked {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--text-light);
+}
+
+.categories-table,
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-medium);
+}
+
+.categories-table th,
+.categories-table td,
+.users-table th,
+.users-table td {
+    padding: var(--spacing-small);
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.categories-table th,
+.users-table th {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.categories-table tr:nth-child(even),
+.users-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.categories-table tr:hover,
+.users-table tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .admin-panel {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: var(--spacing-small);
+    }
+    
+    .main-content {
+        padding: var(--spacing-medium);
+    }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: var(--spacing-small);
+    }
+    
+    .posts-table {
+        display: block;
+    }
+    
+    .posts-table thead {
+        display: none;
+    }
+    
+    .posts-table tr {
+        display: block;
+        margin-bottom: var(--spacing-medium);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-small);
+    }
+    
+    .posts-table td {
+        display: block;
+        text-align: left;
+        border: none;
+    }
+    
+    .posts-table td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: var(--spacing-small);
+    }
+    
+    .posts-table td[data-label="Actions"] {
+        display: flex;
+        gap: var(--spacing-small);
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: var(--spacing-small);
+    }
 }
