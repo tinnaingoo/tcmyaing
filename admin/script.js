@@ -221,6 +221,14 @@ const setupSidebar = () => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
             
+            const target = item.getAttribute('href').substring(1);
+            
+            if (target === 'logout') {
+                // Redirect to homepage
+                window.location.href = '/index.html';
+                return;
+            }
+            
             // Remove active class from all menu items
             menuItems.forEach(i => i.classList.remove('active'));
             
@@ -231,7 +239,6 @@ const setupSidebar = () => {
             tabContents.forEach(content => content.classList.remove('active'));
             
             // Show the corresponding tab
-            const target = item.getAttribute('href').substring(1);
             const targetTab = document.getElementById(`${target}-tab`);
             if (targetTab) {
                 targetTab.classList.add('active');
@@ -411,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         setTimeout(() => {
             successAlert.style.display = 'none';
-            dangerAlert.style.display = 'noneSens';
+            dangerAlert.style.display = 'none';
         }, 5000);
     }
 });
