@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSidebarNavigation();
     setupCreatePostTab();
     setupEditPostDialog();
-    initializeDashboard();
+    updateDashboard(); // Changed from initializeDashboard to updateDashboard
     initializeCategories();
     updateUsersTab();
     loadSettings();
