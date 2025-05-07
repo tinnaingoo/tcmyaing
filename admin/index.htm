@@ -176,6 +176,67 @@
                 </div>
             </div>
 
+<!-- Add this right after the posts table in all-posts-tab -->
+<div id="edit-post-dialog" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Edit Post</h3>
+            <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form id="edit-post-form">
+                <div class="form-group">
+                    <label for="edit-post-title">Post Title</label>
+                    <input type="text" id="edit-post-title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-post-category">Category</label>
+                    <select id="edit-post-category" multiple>
+                        <!-- Categories will be populated by JavaScript -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-post-description">Description</label>
+                    <textarea id="edit-post-description" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-post-image">Image URL</label>
+                    <input type="url" id="edit-post-image" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-post-image-caption">Image Caption</label>
+                    <input type="text" id="edit-post-image-caption" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-post-author">Author</label>
+                    <input type="text" id="edit-post-author" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-post-date">Date</label>
+                    <input type="text" id="edit-post-date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-post-url">Post URL</label>
+                    <input type="text" id="edit-post-url" required>
+                </div>
+                
+                <div class="btn-group">
+                    <button type="button" id="save-post-btn" class="btn btn-primary">Save Changes</button>
+                    <button type="button" id="cancel-edit-btn" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+            
+
             <!-- Categories Tab -->
             <div id="categories-tab" class="tab-content">
                 <div class="card">
