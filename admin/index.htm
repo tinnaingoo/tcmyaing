@@ -191,10 +191,10 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="edit-post-category">Category</label>
-                                    <select id="edit-post-category" multiple required>
+                                    <label for="edit-post-category">Category (Select all that apply)</label>
+                                    <div id="edit-post-category" class="checkbox-group">
                                         <!-- Categories will be populated by JavaScript -->
-                                    </select>
+                                    </div>
                                 </div>
                                 
                                 <div class="form-group">
@@ -225,6 +225,22 @@
                                 <div class="form-group">
                                     <label for="edit-post-url">Post URL</label>
                                     <input type="text" id="edit-post-url" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="edit-pre-post">Previous Post</label>
+                                    <select id="edit-pre-post">
+                                        <option value="">None</option>
+                                        <!-- Options will be populated by JavaScript -->
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="edit-next-post">Next Post</label>
+                                    <select id="edit-next-post">
+                                        <option value="">None</option>
+                                        <!-- Options will be populated by JavaScript -->
+                                    </select>
                                 </div>
                                 
                                 <div class="btn-group">
