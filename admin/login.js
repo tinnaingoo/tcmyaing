@@ -9,7 +9,7 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
     ];
     if (users.some(user => user.username === username && user.password === password)) {
         localStorage.setItem('isAuthenticated', 'true');
-        window.location.href = '/admin/index.html';
+        window.location.href = '/admin/index.htm';
     } else {
         const alert = document.getElementById('alert-danger');
         alert.textContent = 'Invalid username or password';
