@@ -11,6 +11,9 @@ let allUsers = JSON.parse(localStorage.getItem('users')) || [
 ];
 let currentPage = 1;
 
+// Predefined categories
+const predefinedCategories = ['Computer', 'AI', 'Technology Sharing'];
+
 // DOM Content Loaded Event
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('isAuthenticated') !== 'true') {
@@ -22,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSidebarNavigation();
     setupCreatePostTab();
     setupEditPostDialog();
-    updateDashboard(); // Changed from initializeDashboard to updateDashboard
+    updateDashboard();
     initializeCategories();
     updateUsersTab();
     loadSettings();
@@ -528,6 +531,28 @@ const setupEditPostDialog = () => {
     });
 };
 
+const populatePostDropdowns = (excludePostUrl) => {
+    const prePostSelect = document.getElementById('edit-pre-post');
+    const nextPostSelect = document.getElementById('edit-next-post');
+    
+    prePostSelect.innerHTML = '<option value="">None</option>';
+    nextPostSelect.innerHTML = '<option value="">None</option>';
+    
+    allPosts.forEach(post => {
+        if (post.PostUrl === excludePostUrl) return;
+        
+        const preOption = document.createElement('option');
+        preOption.value = post.PostUrl;
+        preOption.textContent = post.title;
+        prePostSelect.appendChild(preOption);
+        
+        const nextOption = document.createElement('option');
+        nextOption.value = post.PostUrl;
+        nextOption.textContent = post.title;
+        nextPostSelect.appendChild(nextOption);
+    });
+};
+
 const openEditDialog = (postUrl) => {
     const post = allPosts.find(p => p.PostUrl === postUrl);
     if (!post) {
@@ -537,6 +562,7 @@ const openEditDialog = (postUrl) => {
     
     currentEditingPost = post;
     
+    // Populate form fields
     document.getElementById('edit-post-title').value = post.title;
     document.getElementById('edit-post-description').value = post.Description;
     document.getElementById('edit-post-image').value = post.ImageUrl;
@@ -545,36 +571,57 @@ const openEditDialog = (postUrl) => {
     document.getElementById('edit-post-date').value = post.Date;
     document.getElementById('edit-post-url').value = post.PostUrl;
     
-    const categorySelect = document.getElementById('edit-post-category');
-    categorySelect.innerHTML = '';
+    // Populate categories with checkboxes
+    const categoryContainer = document.getElementById('edit-post-category');
+    categoryContainer.innerHTML = '';
     
-    allCategories.forEach(cat => {
-        const option = document.createElement('option');
-        option.value = cat;
-        option.textContent = cat;
-        option.selected = post.Category.includes(cat);
-        categorySelect.appendChild(option);
+    predefinedCategories.forEach(cat => {
+        const label = document.createElement('label');
+        label.style.display = 'block';
+        label.style.marginBottom = '5px';
+        
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = 'edit-post-category';
+        checkbox.value = cat;
+        checkbox.checked = post.Category.includes(cat);
+        
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(` ${cat}`));
+        categoryContainer.appendChild(label);
     });
+    
+    // Populate Previous and Next Post dropdowns
+    populatePostDropdowns(postUrl);
+    
+    // Set Previous and Next Post values if they exist
+    document.getElementById('edit-pre-post').value = post.PrePostUrl || '';
+    document.getElementById('edit-next-post').value = post.NextPostUrl || '';
     
     const modal = document.getElementById('edit-post-dialog');
     modal.style.display = 'block';
     modal.querySelector('input, button, select, textarea').focus();
 };
 
-const saveEditedPost = () => {
+const saveEditedPost = async () => {
     const postIndex = allPosts.findIndex(p => p.PostUrl === currentEditingPost.PostUrl);
     if (postIndex === -1) {
         showAlert('Post not found in database!', 'danger');
         return;
     }
     
-    const categorySelect = document.getElementById('edit-post-category');
-    const selectedCategories = Array.from(categorySelect.selectedOptions).map(opt => opt.value);
+    // Get selected categories
+    const categoryCheckboxes = document.getElementsByName('edit-post-category');
+    const selectedCategories = Array.from(categoryCheckboxes)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+    
     if (selectedCategories.length === 0) {
         showAlert('Please select at least one category', 'danger');
         return;
     }
     
+    // Get other form values
     const title = document.getElementById('edit-post-title').value;
     const description = document.getElementById('edit-post-description').value;
     const imageUrl = document.getElementById('edit-post-image').value;
@@ -582,7 +629,10 @@ const saveEditedPost = () => {
     const author = document.getElementById('edit-post-author').value;
     const date = document.getElementById('edit-post-date').value;
     const postUrl = document.getElementById('edit-post-url').value;
+    const prePostUrl = document.getElementById('edit-pre-post').value;
+    const nextPostUrl = document.getElementById('edit-next-post').value;
     
+    // Validation
     if (!title || !description || !imageUrl || !imageCaption || !author || !date || !postUrl) {
         showAlert('Please fill in all fields', 'danger');
         return;
@@ -603,21 +653,43 @@ const saveEditedPost = () => {
         return;
     }
     
-    allPosts[postIndex] = {
-        ...allPosts[postIndex],
-        title,
+    // Prepare the updated post data
+    const prePost = allPosts.find(p => p.PostUrl === prePostUrl);
+    const nextPost = allPosts.find(p => p.PostUrl === nextPostUrl);
+    
+    const updatedPost = {
         Category: selectedCategories,
+        title,
         Description: description,
         ImageUrl: imageUrl,
         ImageCaption: imageCaption,
         Author: author,
         Date: date,
-        PostUrl: postUrl
+        PostUrl: postUrl,
+        PrePostTitle: prePost ? prePost.title : '',
+        PrePostUrl: prePostUrl || '',
+        NextPostTitle: nextPost ? nextPost.title : '',
+        NextPostUrl: nextPostUrl || ''
+    };
+    
+    // Update the post in allPosts
+    allPosts[postIndex] = {
+        ...allPosts[postIndex],
+        ...updatedPost
     };
     
     localStorage.setItem('postData', JSON.stringify(allPosts));
     displayPosts(allPosts);
-    showAlert('Post updated successfully!', 'success');
+    
+    // Copy to clipboard
+    const postDataString = JSON.stringify(updatedPost, null, 4);
+    try {
+        await navigator.clipboard.writeText(postDataString);
+        showAlert('Post updated and copied to clipboard successfully!', 'success');
+    } catch (err) {
+        showAlert('Post updated, but failed to copy to clipboard: ' + err, 'danger');
+    }
+    
     closeEditDialog();
 };
 
