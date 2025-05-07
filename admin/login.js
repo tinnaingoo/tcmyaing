@@ -5,7 +5,7 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
 
     // Mock authentication (replace with real backend in production)
     const users = JSON.parse(localStorage.getItem('users')) || [
-        { username: 'admin', password: 'password123', role: 'admin' }
+        { username: 'AdMin', password: 'password123', role: 'admin' }
     ];
     if (users.some(user => user.username === username && user.password === password)) {
         localStorage.setItem('isAuthenticated', 'true');
