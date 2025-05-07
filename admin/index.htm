@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@100;200;300;400;500;600;700;800;900&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/admin/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.0/dist/purify.min.js"></script>
 </head>
 <body>
     <header>
@@ -20,15 +21,15 @@
     </header>
 
     <div class="admin-panel">
-        <aside class="sidebar">
-            <ul class="sidebar-menu">
-                <li><a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                <li><a href="#create-post"><i class="fas fa-plus-circle"></i> Create New Post</a></li>
-                <li><a href="#all-posts"><i class="fas fa-list"></i> All Posts</a></li>
-                <li><a href="#categories"><i class="fas fa-tags"></i> Categories</a></li>
-                <li><a href="#users"><i class="fas fa-users"></i> Users</a></li>
-                <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        <aside class="sidebar" aria-label="Main navigation">
+            <ul class="sidebar-menu" role="navigation">
+                <li><a href="#dashboard" class="active" aria-current="page"><i class="fas fa-tachometer-alt" aria-hidden="true"></i> Dashboard</a></li>
+                <li><a href="#create-post"><i class="fas fa-plus-circle" aria-hidden="true"></i> Create New Post</a></li>
+                <li><a href="#all-posts"><i class="fas fa-list" aria-hidden="true"></i> All Posts</a></li>
+                <li><a href="#categories"><i class="fas fa-tags" aria-hidden="true"></i> Categories</a></li>
+                <li><a href="#users"><i class="fas fa-users" aria-hidden="true"></i> Users</a></li>
+                <li><a href="#settings"><i class="fas fa-cog" aria-hidden="true"></i> Settings</a></li>
+                <li><a href="#logout"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Logout</a></li>
             </ul>
         </aside>
 
@@ -96,7 +97,7 @@
                             
                             <div class="form-group">
                                 <label for="post-date">Date</label>
-                                <input type="text" id="post-date" name="post-date" required>
+                                <input type="date" id="post-date" name="post-date" required>
                             </div>
                             
                             <div class="form-group">
@@ -174,74 +175,90 @@
                         <button id="next-page" class="btn btn-secondary">Next</button>
                     </div>
                 </div>
-            </div>
 
-<!-- Add this right after the posts table in all-posts-tab -->
-<div id="edit-post-dialog" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Edit Post</h3>
-            <span class="close-modal">&times;</span>
-        </div>
-        <div class="modal-body">
-            <form id="edit-post-form">
-                <div class="form-group">
-                    <label for="edit-post-title">Post Title</label>
-                    <input type="text" id="edit-post-title" required>
+                <!-- Edit Post Modal -->
+                <div id="edit-post-dialog" class="modal" role="dialog" aria-labelledby="edit-post-title" aria-modal="true">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="edit-post-title">Edit Post</h3>
+                            <button class="close-modal" aria-label="Close dialog">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="edit-post-form">
+                                <div class="form-group">
+                                    <label for="edit-post-title">Post Title</label>
+                                    <input type="text" id="edit-post-title" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="edit-post-category">Category</label>
+                                    <select id="edit-post-category" multiple required>
+                                        <!-- Categories will be populated by JavaScript -->
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="edit-post-description">Description</label>
+                                    <textarea id="edit-post-description" required></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="edit-post-image">Image URL</label>
+                                    <input type="url" id="edit-post-image" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="edit-post-image-caption">Image Caption</label>
+                                    <input type="text" id="edit-post-image-caption" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="edit-post-author">Author</label>
+                                    <input type="text" id="edit-post-author" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="edit-post-date">Date</label>
+                                    <input type="date" id="edit-post-date" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="edit-post-url">Post URL</label>
+                                    <input type="text" id="edit-post-url" required>
+                                </div>
+                                
+                                <div class="btn-group">
+                                    <button type="button" id="save-post-btn" class="btn btn-primary">Save Changes</button>
+                                    <button type="button" id="cancel-edit-btn" class="btn btn-secondary">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="edit-post-category">Category</label>
-                    <select id="edit-post-category" multiple>
-                        <!-- Categories will be populated by JavaScript -->
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="edit-post-description">Description</label>
-                    <textarea id="edit-post-description" required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="edit-post-image">Image URL</label>
-                    <input type="url" id="edit-post-image" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="edit-post-image-caption">Image Caption</label>
-                    <input type="text" id="edit-post-image-caption" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="edit-post-author">Author</label>
-                    <input type="text" id="edit-post-author" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="edit-post-date">Date</label>
-                    <input type="text" id="edit-post-date" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="edit-post-url">Post URL</label>
-                    <input type="text" id="edit-post-url" required>
-                </div>
-                
-                <div class="btn-group">
-                    <button type="button" id="save-post-btn" class="btn btn-primary">Save Changes</button>
-                    <button type="button" id="cancel-edit-btn" class="btn btn-secondary">Cancel</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-            
+            </div>
 
             <!-- Categories Tab -->
             <div id="categories-tab" class="tab-content">
                 <div class="card">
                     <h2 class="card-title">Categories</h2>
-                    <!-- Categories content will be added later -->
+                    <div class="form-group">
+                        <label for="new-category">Add New Category</label>
+                        <input type="text" id="new-category" placeholder="Enter category name">
+                        <button class="btn btn-primary" id="add-category-btn">Add Category</button>
+                    </div>
+                    <div class="categories-list">
+                        <table class="categories-table">
+                            <thead>
+                                <tr>
+                                    <th>Category Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categories-list">
+                                <!-- Categories will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -249,7 +266,26 @@
             <div id="users-tab" class="tab-content">
                 <div class="card">
                     <h2 class="card-title">Users</h2>
-                    <!-- Users content will be added later -->
+                    <div class="form-group">
+                        <label for="new-user">Add New User</label>
+                        <input type="text" id="new-user" placeholder="Enter username">
+                        <input type="password" id="new-password" placeholder="Enter password">
+                        <button class="btn btn-primary" id="add-user-btn">Add User</button>
+                    </div>
+                    <div class="users-list">
+                        <table class="users-table">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Role</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-list">
+                                <!-- Users will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -257,7 +293,17 @@
             <div id="settings-tab" class="tab-content">
                 <div class="card">
                     <h2 class="card-title">Settings</h2>
-                    <!-- Settings content will be added later -->
+                    <form id="settings-form">
+                        <div class="form-group">
+                            <label for="site-title">Site Title</label>
+                            <input type="text" id="site-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="posts-per-page">Posts Per Page</label>
+                            <input type="number" id="posts-per-page" min="1" max="100" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </form>
                 </div>
             </div>
 
@@ -265,13 +311,12 @@
             <div id="logout-tab" class="tab-content">
                 <div class="card">
                     <h2 class="card-title">Logout</h2>
-                    <!-- Logout content will be added later -->
+                    <p>You have been logged out. <a href="/admin/login.html">Login again</a>.</p>
                 </div>
             </div>
         </main>
     </div>
 
     <script src="/admin/script.js"></script>
-
 </body>
 </html>
