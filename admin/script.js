@@ -5,16 +5,30 @@
 // Global variables
 let currentEditingPost = null;
 let allCategories = new Set();
-let allPosts = [];
+let allPosts = JSON.parse(localStorage.getItem('postData')) || [];
+let allUsers = JSON.parse(localStorage.getItem('users')) || [
+    { username: 'admin', password: 'password123', role: 'admin' }
+];
+let currentPage = 1;
 
 // DOM Content Loaded Event
 document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('isAuthenticated') !== 'true') {
+        window.location.href = '/admin/login.html';
+        return;
+    }
     initializeDarkMode();
     setupCurrentDate();
     setupSidebarNavigation();
     setupCreatePostTab();
     setupEditPostDialog();
     initializeDashboard();
+    initializeCategories();
+    updateUsersTab();
+    loadSettings();
+    document.getElementById('add-category-btn').addEventListener('click', addCategory);
+    document.getElementById('add-user-btn').addEventListener('click', addUser);
+    document.getElementById('settings-form').addEventListener('submit', saveSettings);
 });
 
 // Utility Functions
@@ -39,6 +53,7 @@ const toggleDarkMode = () => {
     const isDarkMode = document.body.classList.contains('dark-mode');
     localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
     
+    const darkModeToggle = document.getElementById('darkModeToggle');
     darkModeToggle.innerHTML = isDarkMode 
         ? '<i class="fas fa-sun"></i> Light Mode' 
         : '<i class="fas fa-moon"></i> Dark Mode';
@@ -55,13 +70,39 @@ const initializeDarkMode = () => {
 };
 
 const setupCurrentDate = () => {
-    const today = new Date();
-    const formattedDate = today.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('post-date').value = today;
+};
+
+const validateUrl = (url) => {
+    try {
+        new URL(url);
+        return true;
+    } catch {
+        return false;
+    }
+};
+
+const validateDate = (dateStr) => {
+    const date = new Date(dateStr);
+    return !isNaN(date.getTime());
+};
+
+const formatDate = (dateStr) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
     });
-    document.getElementById('post-date').value = formattedDate;
+};
+
+const debounce = (func, wait) => {
+    let timeout;
+    return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
 };
 
 /* ======================
@@ -78,11 +119,15 @@ const setupSidebarNavigation = () => {
             const target = item.getAttribute('href').substring(1);
             
             if (target === 'logout') {
-                window.location.href = '/index.html';
+                localStorage.removeItem('postData');
+                localStorage.removeItem('categories');
+                localStorage.removeItem('users');
+                localStorage.removeItem('settings');
+                localStorage.removeItem('isAuthenticated');
+                window.location.href = '/admin/login.html';
                 return;
             }
             
-            // Update active states
             menuItems.forEach(i => i.classList.remove('active'));
             item.classList.add('active');
             
@@ -90,10 +135,12 @@ const setupSidebarNavigation = () => {
             const targetTab = document.getElementById(`${target}-tab`);
             if (targetTab) targetTab.classList.add('active');
             
-            // Load appropriate content
             if (target === 'dashboard') updateDashboard();
             else if (target === 'all-posts') updateAllPostsPage();
             else if (target === 'create-post') switchTab('form');
+            else if (target === 'categories') updateCategoriesTab();
+            else if (target === 'users') updateUsersTab();
+            else if (target === 'settings') loadSettings();
         });
     });
 };
@@ -103,35 +150,42 @@ const setupSidebarNavigation = () => {
    ====================== */
 
 const updateDashboard = async () => {
-    await loadChartJS();
-    const posts = await fetchPostData();
-    
-    // Basic stats
-    document.getElementById('total-posts').textContent = posts.length;
-    
-    // Category count
-    const categories = new Set();
-    posts.forEach(post => post.Category.forEach(cat => categories.add(cat)));
-    document.getElementById('total-categories').textContent = categories.size;
-    
-    // Recent posts (last 7 days)
-    const oneWeekAgo = new Date();
-    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-    const recentPosts = posts.filter(post => new Date(post.Date) >= oneWeekAgo);
-    document.getElementById('recent-posts').textContent = recentPosts.length;
-    
-    // Prepare charts
-    prepareCategoryChart(posts);
-    prepareDateChart(posts);
+    const spinner = document.createElement('div');
+    spinner.className = 'spinner';
+    document.querySelector('#dashboard-tab .card').appendChild(spinner);
+
+    try {
+        await loadChartJS();
+        const posts = await fetchPostData();
+        
+        document.getElementById('total-posts').textContent = posts.length;
+        
+        const categories = new Set();
+        posts.forEach(post => post.Category.forEach(cat => categories.add(cat)));
+        document.getElementById('total-categories').textContent = categories.size;
+        
+        const oneWeekAgo = new Date();
+        oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+        const recentPosts = posts.filter(post => new Date(post.Date) >= oneWeekAgo);
+        document.getElementById('recent-posts').textContent = recentPosts.length;
+        
+        prepareCategoryChart(posts);
+        prepareDateChart(posts);
+    } catch (error) {
+        showAlert('Error loading dashboard data', 'danger');
+    } finally {
+        spinner.remove();
+    }
 };
 
 const loadChartJS = () => {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         if (typeof Chart !== 'undefined') return resolve();
         
         const script = document.createElement('script');
         script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
         script.onload = resolve;
+        script.onerror = () => reject(new Error('Failed to load Chart.js'));
         document.head.appendChild(script);
     });
 };
@@ -213,7 +267,6 @@ const setupCreatePostTab = () => {
     const copyPreviewBtn = document.getElementById('copyPreviewBtn');
     const tabs = document.querySelectorAll('.tab');
     
-    // Tab switching
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const tabId = tab.getAttribute('data-tab');
@@ -221,7 +274,6 @@ const setupCreatePostTab = () => {
         });
     });
     
-    // Button events
     previewBtn.addEventListener('click', previewPost);
     clearBtn.addEventListener('click', clearForm);
     copyBtn.addEventListener('click', copyPostData);
@@ -252,11 +304,16 @@ const previewPost = () => {
         return;
     }
     
+    if (!validateUrl(coverImage)) {
+        showAlert('Please enter a valid URL for the cover image', 'danger');
+        return;
+    }
+    
     document.getElementById('preview-title').textContent = title;
-    document.getElementById('preview-meta').innerHTML = `ရေးသူ <a>${author}</a> • ${date}`;
+    document.getElementById('preview-meta').innerHTML = `ရေးသူ <a>${author}</a> • ${formatDate(date)}`;
     document.getElementById('preview-image').src = coverImage;
     document.getElementById('preview-image').alt = imageAlt;
-    document.getElementById('preview-content').innerHTML = content;
+    document.getElementById('preview-content').innerHTML = DOMPurify.sanitize(content);
     
     switchTab('preview');
     showAlert('ဆောင်းပါးအစမ်းမြင်ကွင်း အောင်မြင်စွာဖန်တီးပြီးပါပြီ', 'success');
@@ -264,11 +321,7 @@ const previewPost = () => {
 
 const clearForm = () => {
     document.getElementById('post-form').reset();
-    document.getElementById('post-date').value = new Date().toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-    });
+    setupCurrentDate();
     showAlert('ဖောင်ကို ရှင်းလင်းပြီးပါပြီ', 'success');
 };
 
@@ -288,6 +341,11 @@ const copyPostData = async () => {
         return;
     }
     
+    if (!validateUrl(postData.coverImage)) {
+        showAlert('Please enter a valid URL for the cover image', 'danger');
+        return;
+    }
+    
     const postDataString = `const postData = ${JSON.stringify(postData, null, 4)};\n\n// DOM content loaded\ndocument.addEventListener("DOMContentLoaded", () => {\n    // Set title\n    document.getElementById("post-title").textContent = postData.title;\n\n    // Set author and date\n    const postMeta = document.querySelector(".post-meta");\n    if (postMeta) {\n        postMeta.innerHTML = \`ရေးသူ <a>\${postData.author}</a> • \${postData.date}\`;\n    }\n\n    // Set cover image\n    const coverImageContainer = document.getElementById("post-cover-image");\n    if (coverImageContainer) {\n        coverImageContainer.innerHTML = \`<img src="\${postData.coverImage}" alt="\${postData.imageAlt}" />\`;\n    }\n\n    // Set post content\n    const postText = document.getElementById("post-text");\n    if (postText) {\n        postText.innerHTML = postData.content;\n    }\n});`;
     
     try {
@@ -303,53 +361,77 @@ const copyPostData = async () => {
    ====================== */
 
 const updateAllPostsPage = async () => {
-    allPosts = await fetchPostData();
-    displayPosts(allPosts);
-    setupCategoryFilter();
-    setupSearchFilter();
+    try {
+        allPosts = await fetchPostData();
+        displayPosts(allPosts);
+        setupCategoryFilter();
+        setupSearchFilter();
+    } catch (error) {
+        showAlert('Failed to load posts', 'danger');
+    }
 };
 
 const fetchPostData = async () => {
+    const spinner = document.createElement('div');
+    spinner.className = 'spinner';
+    document.querySelector('.main-content').appendChild(spinner);
+
     try {
+        // For production, replace with real API call
+        // const response = await fetch('/api/posts', {
+        //     headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+        // });
         const response = await fetch('/home/post-data.json');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
+        allPosts = data;
         localStorage.setItem('postData', JSON.stringify(data));
         return data;
     } catch (error) {
         console.error('Error fetching post data:', error);
         showAlert('ဒေတာများကို ရယူရာတွင် အမှားတစ်ခုဖြစ်နေပါသည်', 'danger');
-        return JSON.parse(localStorage.getItem('postData')) || [];
+        return allPosts.length ? allPosts : [];
+    } finally {
+        spinner.remove();
     }
 };
 
 const displayPosts = (posts) => {
     const postsList = document.getElementById('posts-list');
-    postsList.innerHTML = '';
-    
-    posts.forEach(post => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${post.title}</td>
-            <td>${post.Author}</td>
-            <td>${post.Date}</td>
-            <td>${post.Category.join(', ')}</td>
-            <td>
-                <button class="btn btn-small btn-primary edit-post-btn" data-id="${post.PostUrl}">Edit</button>
-                <button class="btn btn-small btn-danger delete-post-btn" data-id="${post.PostUrl}">Delete</button>
-            </td>
+    const settings = JSON.parse(localStorage.getItem('settings')) || { postsPerPage: 10 };
+    const postsPerPage = settings.postsPerPage;
+    const start = (currentPage - 1) * postsPerPage;
+    const end = start + postsPerPage;
+    const paginatedPosts = posts.slice(start, end);
+
+    let html = '';
+    paginatedPosts.forEach(post => {
+        html += `
+            <tr>
+                <td data-label="Title">${post.title}</td>
+                <td data-label="Author">${post.Author}</td>
+                <td data-label="Date">${post.Date}</td>
+                <td data-label="Categories">${post.Category.join(', ')}</td>
+                <td data-label="Actions">
+                    <button class="btn btn-small btn-primary edit-post-btn" data-id="${post.PostUrl}">Edit</button>
+                    <button class="btn btn-small btn-danger delete-post-btn" data-id="${post.PostUrl}">Delete</button>
+                </td>
+            </tr>
         `;
-        postsList.appendChild(row);
     });
-    
-    // Add event listeners to action buttons
+    postsList.innerHTML = html;
+
+    document.getElementById('page-info').textContent = `Page ${currentPage} of ${Math.ceil(posts.length / postsPerPage)}`;
+    document.getElementById('prev-page').disabled = currentPage === 1;
+    document.getElementById('next-page').disabled = currentPage === Math.ceil(posts.length / postsPerPage);
+
     document.querySelectorAll('.edit-post-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const postId = e.target.getAttribute('data-id');
             openEditDialog(postId);
         });
     });
-    
+
     document.querySelectorAll('.delete-post-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const postId = e.target.getAttribute('data-id');
@@ -377,14 +459,30 @@ const setupSearchFilter = () => {
     const searchInput = document.getElementById('post-search');
     const categoryFilter = document.getElementById('category-filter');
     
-    searchInput.addEventListener('input', () => filterPosts());
+    searchInput.addEventListener('input', debounce(() => filterPosts(), 300));
     categoryFilter.addEventListener('change', () => filterPosts());
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayPosts(allPosts);
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        const settings = JSON.parse(localStorage.getItem('settings')) || { postsPerPage: 10 };
+        if (currentPage < Math.ceil(allPosts.length / settings.postsPerPage)) {
+            currentPage++;
+            displayPosts(allPosts);
+        }
+    });
 };
 
 const filterPosts = () => {
     const searchTerm = document.getElementById('post-search').value.toLowerCase();
     const category = document.getElementById('category-filter').value;
     
+    currentPage = 1;
     const filtered = allPosts.filter(post => {
         const matchesSearch = post.title.toLowerCase().includes(searchTerm) || 
                             post.Description.toLowerCase().includes(searchTerm);
@@ -400,15 +498,32 @@ const filterPosts = () => {
    ====================== */
 
 const setupEditPostDialog = () => {
-    // Event listeners for dialog controls
-    document.querySelector('.close-modal').addEventListener('click', closeEditDialog);
-    document.getElementById('cancel-edit-btn').addEventListener('click', closeEditDialog);
-    document.getElementById('save-post-btn').addEventListener('click', saveEditedPost);
+    const modal = document.getElementById('edit-post-dialog');
+    const closeBtn = document.querySelector('.close-modal');
+    const cancelBtn = document.getElementById('cancel-edit-btn');
+    const saveBtn = document.getElementById('save-post-btn');
     
-    // Close modal when clicking outside
+    closeBtn.addEventListener('click', closeEditDialog);
+    cancelBtn.addEventListener('click', closeEditDialog);
+    saveBtn.addEventListener('click', saveEditedPost);
+    
     window.addEventListener('click', (e) => {
-        if (e.target === document.getElementById('edit-post-dialog')) {
-            closeEditDialog();
+        if (e.target === modal) closeEditDialog();
+    });
+    
+    modal.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+            const focusableElements = modal.querySelectorAll('input, button, select, textarea');
+            const first = focusableElements[0];
+            const last = focusableElements[focusableElements.length - 1];
+            
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
         }
     });
 };
@@ -422,7 +537,6 @@ const openEditDialog = (postUrl) => {
     
     currentEditingPost = post;
     
-    // Populate form fields
     document.getElementById('edit-post-title').value = post.title;
     document.getElementById('edit-post-description').value = post.Description;
     document.getElementById('edit-post-image').value = post.ImageUrl;
@@ -431,7 +545,6 @@ const openEditDialog = (postUrl) => {
     document.getElementById('edit-post-date').value = post.Date;
     document.getElementById('edit-post-url').value = post.PostUrl;
     
-    // Populate categories
     const categorySelect = document.getElementById('edit-post-category');
     categorySelect.innerHTML = '';
     
@@ -443,8 +556,9 @@ const openEditDialog = (postUrl) => {
         categorySelect.appendChild(option);
     });
     
-    // Show the modal
-    document.getElementById('edit-post-dialog').style.display = 'block';
+    const modal = document.getElementById('edit-post-dialog');
+    modal.style.display = 'block';
+    modal.querySelector('input, button, select, textarea').focus();
 };
 
 const saveEditedPost = () => {
@@ -454,27 +568,54 @@ const saveEditedPost = () => {
         return;
     }
     
-    // Get selected categories
     const categorySelect = document.getElementById('edit-post-category');
     const selectedCategories = Array.from(categorySelect.selectedOptions).map(opt => opt.value);
+    if (selectedCategories.length === 0) {
+        showAlert('Please select at least one category', 'danger');
+        return;
+    }
     
-    // Update post data
+    const title = document.getElementById('edit-post-title').value;
+    const description = document.getElementById('edit-post-description').value;
+    const imageUrl = document.getElementById('edit-post-image').value;
+    const imageCaption = document.getElementById('edit-post-image-caption').value;
+    const author = document.getElementById('edit-post-author').value;
+    const date = document.getElementById('edit-post-date').value;
+    const postUrl = document.getElementById('edit-post-url').value;
+    
+    if (!title || !description || !imageUrl || !imageCaption || !author || !date || !postUrl) {
+        showAlert('Please fill in all fields', 'danger');
+        return;
+    }
+    
+    if (!validateUrl(imageUrl)) {
+        showAlert('Please enter a valid URL for the image', 'danger');
+        return;
+    }
+    
+    if (!validateDate(date)) {
+        showAlert('Please enter a valid date', 'danger');
+        return;
+    }
+    
+    if (allPosts.some(p => p.PostUrl === postUrl && p.PostUrl !== currentEditingPost.PostUrl)) {
+        showAlert('Post URL already exists', 'danger');
+        return;
+    }
+    
     allPosts[postIndex] = {
         ...allPosts[postIndex],
-        title: document.getElementById('edit-post-title').value,
+        title,
         Category: selectedCategories,
-        Description: document.getElementById('edit-post-description').value,
-        ImageUrl: document.getElementById('edit-post-image').value,
-        ImageCaption: document.getElementById('edit-post-image-caption').value,
-        Author: document.getElementById('edit-post-author').value,
-        Date: document.getElementById('edit-post-date').value,
-        PostUrl: document.getElementById('edit-post-url').value
+        Description: description,
+        ImageUrl: imageUrl,
+        ImageCaption: imageCaption,
+        Author: author,
+        Date: date,
+        PostUrl: postUrl
     };
     
-    // Save back to localStorage
     localStorage.setItem('postData', JSON.stringify(allPosts));
-    
-    // Update UI
     displayPosts(allPosts);
     showAlert('Post updated successfully!', 'success');
     closeEditDialog();
@@ -483,6 +624,7 @@ const saveEditedPost = () => {
 const closeEditDialog = () => {
     document.getElementById('edit-post-dialog').style.display = 'none';
     currentEditingPost = null;
+    document.querySelector('.sidebar-menu a.active').focus();
 };
 
 const confirmDeletePost = (postUrl) => {
@@ -496,4 +638,176 @@ const deletePost = (postUrl) => {
     localStorage.setItem('postData', JSON.stringify(allPosts));
     displayPosts(allPosts);
     showAlert('Post deleted successfully!', 'success');
+};
+
+/* ======================
+   CATEGORIES FUNCTIONALITY
+   ====================== */
+
+const initializeCategories = () => {
+    const storedCategories = localStorage.getItem('categories');
+    if (storedCategories) {
+        allCategories = new Set(JSON.parse(storedCategories));
+    }
+    updateCategoriesTab();
+};
+
+const updateCategoriesTab = () => {
+    const categoriesList = document.getElementById('categories-list');
+    let html = '';
+    
+    allCategories.forEach(category => {
+        html += `
+            <tr>
+                <td>${category}</td>
+                <td>
+                    <button class="btn btn-small btn-danger delete-category-btn" data-category="${category}">Delete</button>
+                </td>
+            </tr>
+        `;
+    });
+    categoriesList.innerHTML = html;
+    
+    document.querySelectorAll('.delete-category-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const category = btn.getAttribute('data-category');
+            deleteCategory(category);
+        });
+    });
+};
+
+const addCategory = () => {
+    const newCategoryInput = document.getElementById('new-category');
+    const category = newCategoryInput.value.trim();
+    if (!category) {
+        showAlert('Please enter a category name', 'danger');
+        return;
+    }
+    if (allCategories.has(category)) {
+        showAlert('Category already exists', 'danger');
+        return;
+    }
+    
+    allCategories.add(category);
+    localStorage.setItem('categories', JSON.stringify([...allCategories]));
+    newCategoryInput.value = '';
+    updateCategoriesTab();
+    setupCategoryFilter();
+    showAlert('Category added successfully!', 'success');
+};
+
+const deleteCategory = (category) => {
+    if (allPosts.some(post => post.Category.includes(category))) {
+        showAlert('Cannot delete category in use by posts', 'danger');
+        return;
+    }
+    if (confirm(`Are you sure you want to delete the category "${category}"?`)) {
+        allCategories.delete(category);
+        localStorage.setItem('categories', JSON.stringify([...allCategories]));
+        updateCategoriesTab();
+        setupCategoryFilter();
+        showAlert('Category deleted successfully!', 'success');
+    }
+};
+
+/* ======================
+   USERS FUNCTIONALITY
+   ====================== */
+
+const updateUsersTab = () => {
+    const usersList = document.getElementById('users-list');
+    let html = '';
+    
+    allUsers.forEach(user => {
+        html += `
+            <tr>
+                <td>${user.username}</td>
+                <td>${user.role}</td>
+                <td>
+                    <button class="btn btn-small btn-danger delete-user-btn" data-username="${user.username}">Delete</button>
+                </td>
+            </tr>
+        `;
+    });
+    usersList.innerHTML = html;
+    
+    document.querySelectorAll('.delete-user-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const username = btn.getAttribute('data-username');
+            deleteUser(username);
+        });
+    });
+};
+
+const addUser = () => {
+    const usernameInput = document.getElementById('new-user');
+    const passwordInput = document.getElementById('new-password');
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
+    
+    if (!username || !password) {
+        showAlert('Please enter both username and password', 'danger');
+        return;
+    }
+    if (allUsers.some(user => user.username === username)) {
+        showAlert('Username already exists', 'danger');
+        return;
+    }
+    
+    allUsers.push({ username, password, role: 'editor' });
+    localStorage.setItem('users', JSON.stringify(allUsers));
+    usernameInput.value = '';
+    passwordInput.value = '';
+    updateUsersTab();
+    showAlert('User added successfully!', 'success');
+};
+
+const deleteUser = (username) => {
+    if (username === 'admin') {
+        showAlert('Cannot delete default admin user', 'danger');
+        return;
+    }
+    if (confirm(`Are you sure you want to delete user "${username}"?`)) {
+        allUsers = allUsers.filter(user => user.username !== username);
+        localStorage.setItem('users', JSON.stringify(allUsers));
+        updateUsersTab();
+        showAlert('User deleted successfully!', 'success');
+    }
+};
+
+/* ======================
+   SETTINGS FUNCTIONALITY
+   ====================== */
+
+const loadSettings = () => {
+    const settings = JSON.parse(localStorage.getItem('settings')) || {
+        siteTitle: 'TC-Myaing Admin',
+        postsPerPage: 10
+    };
+    document.getElementById('site-title').value = settings.siteTitle;
+    document.getElementById('posts-per-page').value = settings.postsPerPage;
+    document.title = settings.siteTitle;
+    document.querySelector('.logo').textContent = settings.siteTitle;
+};
+
+const saveSettings = (e) => {
+    e.preventDefault();
+    const siteTitle = document.getElementById('site-title').value.trim();
+    const postsPerPage = parseInt(document.getElementById('posts-per-page').value, 10);
+    
+    if (!siteTitle) {
+        showAlert('Please enter a site title', 'danger');
+        return;
+    }
+    if (isNaN(postsPerPage) || postsPerPage < 1 || postsPerPage > 100) {
+        showAlert('Posts per page must be between 1 and 100', 'danger');
+        return;
+    }
+    
+    const settings = { siteTitle, postsPerPage };
+    localStorage.setItem('settings', JSON.stringify(settings));
+    document.title = siteTitle;
+    document.querySelector('.logo').textContent = siteTitle;
+    showAlert('Settings saved successfully!', 'success');
+    updateAllPostsPage();
 };
