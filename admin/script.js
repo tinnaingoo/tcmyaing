@@ -138,11 +138,141 @@ const prepareDateChart = (posts) => {
     });
 };
 
+// All Posts page ကို update လုပ်ပါ
+const updateAllPostsPage = async () => {
+    const posts = await fetchPostData();
+    const postsList = document.getElementById('posts-list');
+    const categoryFilter = document.getElementById('category-filter');
+    
+    // Clear existing data
+    postsList.innerHTML = '';
+    
+    // Get unique categories
+    const categories = new Set();
+    posts.forEach(post => {
+        post.Category.forEach(cat => categories.add(cat));
+    });
+    
+    // Populate category filter
+    categoryFilter.innerHTML = '<option value="">All Categories</option>';
+    categories.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat;
+        categoryFilter.appendChild(option);
+    });
+    
+    // Display all posts
+    displayPosts(posts);
+    
+    // Add event listeners for filtering
+    document.getElementById('post-search').addEventListener('input', (e) => {
+        filterPosts(posts, e.target.value, categoryFilter.value);
+    });
+    
+    categoryFilter.addEventListener('change', (e) => {
+        filterPosts(posts, document.getElementById('post-search').value, e.target.value);
+    });
+};
+
+// Posts တွေကို display လုပ်ပါ
+const displayPosts = (posts) => {
+    const postsList = document.getElementById('posts-list');
+    postsList.innerHTML = '';
+    
+    posts.forEach(post => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+            <td>${post.title}</td>
+            <td>${post.Author}</td>
+            <td>${post.Date}</td>
+            <td>${post.Category.join(', ')}</td>
+            <td>
+                <button class="btn btn-small btn-primary">Edit</button>
+                <button class="btn btn-small btn-danger">Delete</button>
+            </td>
+        `;
+        
+        postsList.appendChild(row);
+    });
+};
+
+// Posts တွေကို filter လုပ်ပါ
+const filterPosts = (allPosts, searchTerm, category) => {
+    const filtered = allPosts.filter(post => {
+        const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                            post.Description.toLowerCase().includes(searchTerm.toLowerCase());
+        
+        const matchesCategory = category === '' || post.Category.includes(category);
+        
+        return matchesSearch && matchesCategory;
+    });
+    
+    displayPosts(filtered);
+};
+
+// Sidebar menu item တွေကို handle လုပ်ပါ
+const setupSidebar = () => {
+    const menuItems = document.querySelectorAll('.sidebar-menu a');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    menuItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Remove active class from all menu items
+            menuItems.forEach(i => i.classList.remove('active'));
+            
+            // Add active class to clicked item
+            item.classList.add('active');
+            
+            // Hide all tab contents
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Show the corresponding tab
+            const target = item.getAttribute('href').substring(1);
+            const targetTab = document.getElementById(`${target}-tab`);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+            
+            // Update content based on tab
+            if (target === 'dashboard') {
+                updateDashboard();
+            } else if (target === 'all-posts') {
+                updateAllPostsPage();
+            } else if (target === 'create-post') {
+                switchTab('form');
+            }
+        });
+    });
+};
+
+// Tab switching for Create Post
+const switchTab = (tabId) => {
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('#create-post-tab .tab-content');
+    
+    tabs.forEach(tab => {
+        tab.classList.remove('active');
+        if (tab.getAttribute('data-tab') === tabId) {
+            tab.classList.add('active');
+        }
+    });
+    
+    tabContents.forEach(content => {
+        content.classList.remove('active');
+        if (content.id === `${tabId}-tab`) {
+            content.classList.add('active');
+        }
+    });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const darkModeToggle = document.getElementById('darkModeToggle');
     const tabs = document.querySelectorAll('.tab');
-    const tabContents = document.querySelectorAll('.tab-content');
     const previewBtn = document.getElementById('previewBtn');
     const clearBtn = document.getElementById('clearBtn');
     const copyBtn = document.getElementById('copyBtn');
@@ -168,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
         darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
     }
 
-    // Tab switching
+    // Tab switching for Create Post
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const tabId = tab.getAttribute('data-tab');
@@ -183,6 +313,14 @@ document.addEventListener('DOMContentLoaded', () => {
     backToFormBtn.addEventListener('click', () => switchTab('form'));
     copyPreviewBtn.addEventListener('click', copyPostData);
 
+    // Setup sidebar navigation
+    setupSidebar();
+
+    // Initialize dashboard
+    if (window.location.hash === '' || window.location.hash === '#dashboard') {
+        updateDashboard();
+    }
+
     // Functions
     function toggleDarkMode() {
         document.body.classList.toggle('dark-mode');
@@ -194,22 +332,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             darkModeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
         }
-    }
-
-    function switchTab(tabId) {
-        tabs.forEach(tab => {
-            tab.classList.remove('active');
-            if (tab.getAttribute('data-tab') === tabId) {
-                tab.classList.add('active');
-            }
-        });
-        
-        tabContents.forEach(content => {
-            content.classList.remove('active');
-            if (content.id === `${tabId}-tab`) {
-                content.classList.add('active');
-            }
-        });
     }
 
     function previewPost() {
@@ -289,118 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         setTimeout(() => {
             successAlert.style.display = 'none';
-            dangerAlert.style.display = 'none';
+            dangerAlert.style.display = 'noneSens';
         }, 5000);
     }
-
-    // Dashboard ကို update လုပ်ပါ
-    if (window.location.hash !== '#create-post') {
-        updateDashboard();
-    }
 });
-
-// script.js ရဲ့ နောက်ဆုံးမှာ ဒီ code တွေကို ထည့်ပါ
-
-// All Posts page ကို update လုပ်ပါ
-const updateAllPostsPage = async () => {
-    const posts = await fetchPostData();
-    const postsList = document.getElementById('posts-list');
-    const categoryFilter = document.getElementById('category-filter');
-    
-    // Clear existing data
-    postsList.innerHTML = '';
-    
-    // Get unique categories
-    const categories = new Set();
-    posts.forEach(post => {
-        post.Category.forEach(cat => categories.add(cat));
-    });
-    
-    // Populate category filter
-    categoryFilter.innerHTML = '<option value="">All Categories</option>';
-    categories.forEach(cat => {
-        const option = document.createElement('option');
-        option.value = cat;
-        option.textContent = cat;
-        categoryFilter.appendChild(option);
-    });
-    
-    // Display all posts
-    displayPosts(posts);
-    
-    // Add event listeners for filtering
-    document.getElementById('post-search').addEventListener('input', (e) => {
-        filterPosts(posts, e.target.value, categoryFilter.value);
-    });
-    
-    categoryFilter.addEventListener('change', (e) => {
-        filterPosts(posts, document.getElementById('post-search').value, e.target.value);
-    });
-};
-
-// Posts တွေကို display လုပ်ပါ
-const displayPosts = (posts) => {
-    const postsList = document.getElementById('posts-list');
-    postsList.innerHTML = '';
-    
-    posts.forEach(post => {
-        const row = document.createElement('tr');
-        
-        row.innerHTML = `
-            <td>${post.title}</td>
-            <td>${post.Author}</td>
-            <td>${post.Date}</td>
-            <td>${post.Category.join(', ')}</td>
-            <td>
-                <button class="btn btn-small btn-primary">Edit</button>
-                <button class="btn btn-small btn-danger">Delete</button>
-            </td>
-        `;
-        
-        postsList.appendChild(row);
-    });
-};
-
-// Posts တွေကို filter လုပ်ပါ
-const filterPosts = (allPosts, searchTerm, category) => {
-    const filtered = allPosts.filter(post => {
-        const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                            post.Description.toLowerCase().includes(searchTerm.toLowerCase());
-        
-        const matchesCategory = category === '' || post.Category.includes(category);
-        
-        return matchesSearch && matchesCategory;
-    });
-    
-    displayPosts(filtered);
-};
-
-// Sidebar menu item တွေကို handle လုပ်ပါ
-const setupSidebar = () => {
-    const menuItems = document.querySelectorAll('.sidebar-menu a');
-    
-    menuItems.forEach(item => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            // Remove active class from all items
-            menuItems.forEach(i => i.classList.remove('active'));
-            
-            // Add active class to clicked item
-            item.classList.add('active');
-            
-            // Show the corresponding tab
-            const target = item.getAttribute('href').substring(1);
-            if (target === '') {
-                switchTab('dashboard');
-                updateDashboard();
-            } else if (target === 'create-post') {
-                switchTab('form');
-            } else if (target === 'all-posts') {
-                switchTab('all-posts');
-                updateAllPostsPage();
-            }
-        });
-    });
-};
-
