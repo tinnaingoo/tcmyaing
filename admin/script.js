@@ -562,24 +562,37 @@ const openEditDialog = (postUrl) => {
     
     currentEditingPost = post;
     
-    // Populate basic fields
+    // Format date for input[type="date"]
+    const formatDateForInput = (dateString) => {
+        if (!dateString) return '';
+        const date = new Date(dateString);
+        return date.toISOString().split('T')[0];
+    };
+
+    // Populate all fields
     document.getElementById('edit-post-title').value = post.title || '';
     document.getElementById('edit-post-description').value = post.Description || '';
     document.getElementById('edit-post-image').value = post.ImageUrl || '';
     document.getElementById('edit-post-image-caption').value = post.ImageCaption || '';
     document.getElementById('edit-post-author').value = post.Author || '';
-    document.getElementById('edit-post-date').value = post.Date || '';
+    document.getElementById('edit-post-date').value = formatDateForInput(post.Date) || '';
     document.getElementById('edit-post-url').value = post.PostUrl || '';
-    
+
     // Populate categories
     const categoryContainer = document.getElementById('edit-post-categories');
     categoryContainer.innerHTML = '';
     
-    predefinedCategories.forEach(cat => {
+    // Get all unique categories from predefined and existing posts
+    const allUniqueCategories = [...new Set([
+        ...predefinedCategories,
+        ...allPosts.flatMap(p => p.Category || [])
+    ])];
+    
+    allUniqueCategories.forEach(cat => {
         const div = document.createElement('div');
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        checkbox.id = `category-${cat.toLowerCase()}`;
+        checkbox.id = `category-${cat.toLowerCase().replace(/\s+/g, '-')}`;
         checkbox.value = cat;
         checkbox.checked = post.Category && post.Category.includes(cat);
         
@@ -591,7 +604,7 @@ const openEditDialog = (postUrl) => {
         div.appendChild(label);
         categoryContainer.appendChild(div);
     });
-    
+
     // Populate Previous/Next Post dropdowns
     const prePostSelect = document.getElementById('edit-pre-post');
     const nextPostSelect = document.getElementById('edit-next-post');
@@ -603,21 +616,15 @@ const openEditDialog = (postUrl) => {
     // Add all other posts as options
     allPosts.forEach(p => {
         if (p.PostUrl !== postUrl) {
-            const preOption = new Option(p.title, p.PostUrl);
-            const nextOption = new Option(p.title, p.PostUrl);
-            
-            prePostSelect.add(preOption);
-            nextPostSelect.add(nextOption);
+            const optionText = p.title || `Untitled Post (${p.PostUrl})`;
+            prePostSelect.add(new Option(optionText, p.PostUrl));
+            nextPostSelect.add(new Option(optionText, p.PostUrl));
         }
     });
     
     // Set selected values
-    if (post.PrePostUrl) {
-        prePostSelect.value = post.PrePostUrl;
-    }
-    if (post.NextPostUrl) {
-        nextPostSelect.value = post.NextPostUrl;
-    }
+    prePostSelect.value = post.PrePostUrl || '';
+    nextPostSelect.value = post.NextPostUrl || '';
     
     // Show modal
     const modal = document.getElementById('edit-post-dialog');
@@ -638,8 +645,14 @@ const saveEditedPost = () => {
         .filter(checkbox => checkbox.checked)
         .map(checkbox => checkbox.value);
     
+    if (selectedCategories.length === 0) {
+        showAlert('Please select at least one category', 'danger');
+        return;
+    }
+    
     // Get other form values
     const updatedPost = {
+        ...allPosts[postIndex], // Keep existing properties
         title: document.getElementById('edit-post-title').value,
         Description: document.getElementById('edit-post-description').value,
         ImageUrl: document.getElementById('edit-post-image').value,
@@ -648,9 +661,16 @@ const saveEditedPost = () => {
         Date: document.getElementById('edit-post-date').value,
         PostUrl: document.getElementById('edit-post-url').value,
         Category: selectedCategories,
-        PrePostUrl: document.getElementById('edit-pre-post').value || '',
-        NextPostUrl: document.getElementById('edit-next-post').value || ''
+        PrePostUrl: document.getElementById('edit-pre-post').value || null,
+        NextPostUrl: document.getElementById('edit-next-post').value || null
     };
+    
+    // Validate URL uniqueness
+    if (updatedPost.PostUrl !== currentEditingPost.PostUrl && 
+        allPosts.some(p => p.PostUrl === updatedPost.PostUrl && p.PostUrl !== currentEditingPost.PostUrl)) {
+        showAlert('Post URL already exists!', 'danger');
+        return;
+    }
     
     // Update post in array
     allPosts[postIndex] = updatedPost;
