@@ -487,10 +487,42 @@ textarea {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--text-muted);
+    background: none;
+    border: none;
 }
 
 .close-modal:hover {
     color: var(--danger-color);
+}
+
+body.dark-mode .modal-content {
+    background-color: var(--bg-card);
+    color: var(--text-light);
+}
+
+body.dark-mode .modal-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-mode .close-modal {
+    color: var(--text-light);
+}
+
+body.dark-mode .close-modal:hover {
+    color: var(--danger-color);
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea,
+body.dark-mode .form-group select {
+    background-color: var(--bg-card);
+    color: var(--text-light);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .checkbox-group {
+    border-color: var(--border-color);
+    background-color: var(--bg-card);
 }
 
 select[multiple] {
@@ -540,6 +572,29 @@ select[multiple] option:checked {
 .categories-table tr:hover,
 .users-table tr:hover {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.checkbox-group div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin: 0;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-weight: normal;
+    cursor: pointer;
 }
 
 /* Responsive Design */
@@ -606,58 +661,4 @@ select[multiple] option:checked {
         margin: 10% auto;
         padding: var(--spacing-small);
     }
-}
-
-.checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 5px;
-}
-
-.checkbox-group div {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.checkbox-group input[type="checkbox"] {
-    margin: 0;
-}
-
-.checkbox-group label {
-    margin: 0;
-    font-weight: normal;
-    cursor: pointer;
-}
-
-
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.modal-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 5px;
-    width: 80%;
-    max-width: 600px;
-}
-.close-modal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.close-modal:hover {
-    color: #000;
 }
