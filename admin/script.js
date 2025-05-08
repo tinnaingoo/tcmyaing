@@ -498,6 +498,11 @@ const filterPosts = () => {
 
 const setupEditPostDialog = () => {
     const modal = document.getElementById('edit-post-dialog');
+    if (!modal) {
+        console.error('Edit post dialog element not found!');
+        return;
+    }
+    
     const closeBtn = document.querySelector('.close-modal');
     const cancelBtn = document.getElementById('cancel-edit-btn');
     const saveBtn = document.getElementById('save-post-btn');
@@ -528,13 +533,24 @@ const setupEditPostDialog = () => {
 };
 
 const openEditDialog = (postUrl) => {
+    console.log('Attempting to open edit dialog for post URL:', postUrl);
+    
     const post = allPosts.find(p => p.PostUrl === postUrl);
     if (!post) {
+        console.error('Post not found with URL:', postUrl);
         showAlert('Post not found!', 'danger');
         return;
     }
     
     currentEditingPost = post;
+    console.log('Post found:', post);
+    
+    const modal = document.getElementById('edit-post-dialog');
+    if (!modal) {
+        console.error('Edit post dialog element not found!');
+        showAlert('Error: Edit dialog not found in the page!', 'danger');
+        return;
+    }
     
     // Format date for input[type="date"]
     const formatDateForInput = (dateString) => {
@@ -554,6 +570,11 @@ const openEditDialog = (postUrl) => {
 
     // Populate categories
     const categoryContainer = document.getElementById('edit-post-category');
+    if (!categoryContainer) {
+        console.error('Category container not found!');
+        showAlert('Error: Category container not found in the dialog!', 'danger');
+        return;
+    }
     categoryContainer.innerHTML = '';
     
     const allUniqueCategories = [...new Set([
@@ -582,11 +603,15 @@ const openEditDialog = (postUrl) => {
     const prePostSelect = document.getElementById('edit-pre-post');
     const nextPostSelect = document.getElementById('edit-next-post');
     
-    // Clear existing options except "None"
+    if (!prePostSelect || !nextPostSelect) {
+        console.error('Previous/Next post dropdowns not found!');
+        showAlert('Error: Previous/Next post dropdowns not found in the dialog!', 'danger');
+        return;
+    }
+    
     prePostSelect.innerHTML = '<option value="">None</option>';
     nextPostSelect.innerHTML = '<option value="">None</option>';
     
-    // Add all other posts as options
     allPosts.forEach(p => {
         if (p.PostUrl !== postUrl) {
             const optionText = p.title || `Untitled Post (${p.PostUrl})`;
@@ -594,19 +619,19 @@ const openEditDialog = (postUrl) => {
             const preOption = document.createElement('option');
             preOption.value = p.PostUrl;
             preOption.textContent = optionText;
-            if (p.PostUrl === post.PrePostUrl) preOption.selected = true;
+            if (p.PostUrl === post['PrePost-Url']) preOption.selected = true;
             prePostSelect.appendChild(preOption);
             
             const nextOption = document.createElement('option');
             nextOption.value = p.PostUrl;
             nextOption.textContent = optionText;
-            if (p.PostUrl === post.NextPostUrl) nextOption.selected = true;
+            if (p.PostUrl === post['NextPost-Url']) nextOption.selected = true;
             nextPostSelect.appendChild(nextOption);
         }
     });
     
     // Show modal
-    const modal = document.getElementById('edit-post-dialog');
+    console.log('Showing modal...');
     modal.style.display = 'block';
     document.getElementById('edit-post-title').focus();
 };
@@ -652,19 +677,18 @@ const saveEditedPost = async () => {
     const nextPostTitle = nextPostUrl ? nextPostSelect.options[nextPostSelect.selectedIndex].text : '';
     
     const updatedPost = {
-        ...allPosts[postIndex],
+        Category: categories,
         title,
         Description: description,
         ImageUrl: imageUrl,
         ImageCaption: imageCaption,
         Author: author,
-        Date: date,
+        Date: formatDate(date), // Format date to "Month DD, YYYY"
         PostUrl: postUrl,
-        Category: categories,
-        PrePostUrl: prePostUrl || null,
-        PrePostTitle: prePostTitle,
-        NextPostUrl: nextPostUrl || null,
-        NextPostTitle: nextPostTitle
+        'PrePost-Url': prePostUrl || null,
+        'PrePost-Title': prePostTitle || null,
+        'NextPost-Url': nextPostUrl || null,
+        'NextPost-Title': nextPostTitle || null
     };
     
     allPosts[postIndex] = updatedPost;
@@ -672,7 +696,7 @@ const saveEditedPost = async () => {
     
     updateRelatedPosts(updatedPost);
     
-    const postDataString = JSON.stringify(updatedPost, null, 4);
+    const postDataString = JSON.stringify(updatedPost, null, 4) + ',';
     try {
         await navigator.clipboard.writeText(postDataString);
         showAlert('Post updated and copied to clipboard successfully!', 'success');
@@ -685,19 +709,19 @@ const saveEditedPost = async () => {
 };
 
 function updateRelatedPosts(updatedPost) {
-    if (updatedPost.PrePostUrl) {
-        const prePostIndex = allPosts.findIndex(p => p.PostUrl === updatedPost.PrePostUrl);
-        if (prePostIndex !== -1 && allPosts[prePostIndex].NextPostUrl !== updatedPost.PostUrl) {
-            allPosts[prePostIndex].NextPostUrl = updatedPost.PostUrl;
-            allPosts[prePostIndex].NextPostTitle = updatedPost.title;
+    if (updatedPost['PrePost-Url']) {
+        const prePostIndex = allPosts.findIndex(p => p.PostUrl === updatedPost['PrePost-Url']);
+        if (prePostIndex !== -1 && allPosts[prePostIndex]['NextPost-Url'] !== updatedPost.PostUrl) {
+            allPosts[prePostIndex]['NextPost-Url'] = updatedPost.PostUrl;
+            allPosts[prePostIndex]['NextPost-Title'] = updatedPost.title;
         }
     }
     
-    if (updatedPost.NextPostUrl) {
-        const nextPostIndex = allPosts.findIndex(p => p.PostUrl === updatedPost.NextPostUrl);
-        if (nextPostIndex !== -1 && allPosts[nextPostIndex].PrePostUrl !== updatedPost.PostUrl) {
-            allPosts[nextPostIndex].PrePostUrl = updatedPost.PostUrl;
-            allPosts[nextPostIndex].PrePostTitle = updatedPost.title;
+    if (updatedPost['NextPost-Url']) {
+        const nextPostIndex = allPosts.findIndex(p => p.PostUrl === updatedPost['NextPost-Url']);
+        if (nextPostIndex !== -1 && allPosts[nextPostIndex]['PrePost-Url'] !== updatedPost.PostUrl) {
+            allPosts[nextPostIndex]['PrePost-Url'] = updatedPost.PostUrl;
+            allPosts[nextPostIndex]['PrePost-Title'] = updatedPost.title;
         }
     }
     
@@ -705,7 +729,10 @@ function updateRelatedPosts(updatedPost) {
 }
 
 const closeEditDialog = () => {
-    document.getElementById('edit-post-dialog').style.display = 'none';
+    const modal = document.getElementById('edit-post-dialog');
+    if (modal) {
+        modal.style.display = 'none';
+    }
     currentEditingPost = null;
     document.querySelector('.sidebar-menu a.active').focus();
 };
