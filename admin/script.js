@@ -646,63 +646,116 @@ const openEditDialog = (postUrl) => {
 };
 
 
-const saveEditedPost = () => {
+// Add this event listener in your initialization code (DOMContentLoaded)
+document.getElementById('save-post-btn').addEventListener('click', saveEditedPost);
+
+// Updated saveEditedPost function
+const saveEditedPost = async () => {
+    // Get the post being edited
     const postIndex = allPosts.findIndex(p => p.PostUrl === currentEditingPost.PostUrl);
     if (postIndex === -1) {
         showAlert('Post not found in database!', 'danger');
         return;
     }
     
+    // Get form values
+    const title = document.getElementById('edit-post-title').value.trim();
+    const description = document.getElementById('edit-post-description').value.trim();
+    const imageUrl = document.getElementById('edit-post-image').value.trim();
+    const imageCaption = document.getElementById('edit-post-image-caption').value.trim();
+    const author = document.getElementById('edit-post-author').value.trim();
+    const date = document.getElementById('edit-post-date').value;
+    const postUrl = document.getElementById('edit-post-url').value.trim();
+    const prePostUrl = document.getElementById('edit-pre-post').value;
+    const nextPostUrl = document.getElementById('edit-next-post').value;
+    
     // Get selected categories
-    const categoryCheckboxes = document.querySelectorAll('#edit-post-categories input[type="checkbox"]');
-    const selectedCategories = Array.from(categoryCheckboxes)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
+    const categoryCheckboxes = document.querySelectorAll('#edit-post-categories input[type="checkbox"]:checked');
+    const categories = Array.from(categoryCheckboxes).map(cb => cb.value);
     
-    if (selectedCategories.length === 0) {
-        showAlert('Please select at least one category', 'danger');
+    // Validation
+    if (!title || !description || !imageUrl || !imageCaption || !author || !date || !postUrl) {
+        showAlert('Please fill in all required fields', 'danger');
         return;
     }
     
-    // Get other form values
+    if (!validateUrl(imageUrl)) {
+        showAlert('Please enter a valid image URL', 'danger');
+        return;
+    }
+    
+    if (postUrl !== currentEditingPost.PostUrl && allPosts.some(p => p.PostUrl === postUrl)) {
+        showAlert('Post URL already exists! Please choose a different one.', 'danger');
+        return;
+    }
+    
+    // Get related post titles
+    const prePostSelect = document.getElementById('edit-pre-post');
+    const nextPostSelect = document.getElementById('edit-next-post');
+    const prePostTitle = prePostUrl ? prePostSelect.options[prePostSelect.selectedIndex].text : '';
+    const nextPostTitle = nextPostUrl ? nextPostSelect.options[nextPostSelect.selectedIndex].text : '';
+    
+    // Update the post
     const updatedPost = {
-        ...allPosts[postIndex], // Keep existing properties
-        title: document.getElementById('edit-post-title').value,
-        Description: document.getElementById('edit-post-description').value,
-        ImageUrl: document.getElementById('edit-post-image').value,
-        ImageCaption: document.getElementById('edit-post-image-caption').value,
-        Author: document.getElementById('edit-post-author').value,
-        Date: document.getElementById('edit-post-date').value,
-        PostUrl: document.getElementById('edit-post-url').value,
-        Category: selectedCategories,
-        PrePostUrl: document.getElementById('edit-pre-post').value,
-        NextPostUrl: document.getElementById('edit-next-post').value,
-        // Update related post titles if needed
-        PrePostTitle: document.getElementById('edit-pre-post').value 
-            ? document.getElementById('edit-pre-post').options[document.getElementById('edit-pre-post').selectedIndex].text
-            : '',
-        NextPostTitle: document.getElementById('edit-next-post').value 
-            ? document.getElementById('edit-next-post').options[document.getElementById('edit-next-post').selectedIndex].text
-            : ''
+        ...allPosts[postIndex],
+        title,
+        Description: description,
+        ImageUrl: imageUrl,
+        ImageCaption: imageCaption,
+        Author: author,
+        Date: date,
+        PostUrl: postUrl,
+        Category: categories,
+        PrePostUrl: prePostUrl || null,
+        PrePostTitle: prePostTitle,
+        NextPostUrl: nextPostUrl || null,
+        NextPostTitle: nextPostTitle
     };
-   
     
-    // Validate URL uniqueness
-    if (updatedPost.PostUrl !== currentEditingPost.PostUrl && 
-        allPosts.some(p => p.PostUrl === updatedPost.PostUrl && p.PostUrl !== currentEditingPost.PostUrl)) {
-        showAlert('Post URL already exists!', 'danger');
-        return;
-    }
-    
-    // Update post in array
+    // Update in the array
     allPosts[postIndex] = updatedPost;
+    
+    // Update localStorage
     localStorage.setItem('postData', JSON.stringify(allPosts));
     
+    // Update related posts if needed
+    updateRelatedPosts(updatedPost);
+    
+    // Show success message
     showAlert('Post updated successfully!', 'success');
+    
+    // Close the modal
     closeEditDialog();
-    updateAllPostsPage(); // Refresh the posts list
+    
+    // Refresh the posts list
+    updateAllPostsPage();
 };
 
+// Helper function to update related posts
+function updateRelatedPosts(updatedPost) {
+    // Update previous post's NextPost reference if changed
+    if (updatedPost.PrePostUrl) {
+        const prePostIndex = allPosts.findIndex(p => p.PostUrl === updatedPost.PrePostUrl);
+        if (prePostIndex !== -1 && allPosts[prePostIndex].NextPostUrl !== updatedPost.PostUrl) {
+            allPosts[prePostIndex].NextPostUrl = updatedPost.PostUrl;
+            allPosts[prePostIndex].NextPostTitle = updatedPost.title;
+        }
+    }
+    
+    // Update next post's PrePost reference if changed
+    if (updatedPost.NextPostUrl) {
+        const nextPostIndex = allPosts.findIndex(p => p.PostUrl === updatedPost.NextPostUrl);
+        if (nextPostIndex !== -1 && allPosts[nextPostIndex].PrePostUrl !== updatedPost.PostUrl) {
+            allPosts[nextPostIndex].PrePostUrl = updatedPost.PostUrl;
+            allPosts[nextPostIndex].PrePostTitle = updatedPost.title;
+        }
+    }
+    
+    // Save the updates
+    localStorage.setItem('postData', JSON.stringify(allPosts));
+}
+
+// Close modal function
 const closeEditDialog = () => {
     document.getElementById('edit-post-dialog').style.display = 'none';
     currentEditingPost = null;
