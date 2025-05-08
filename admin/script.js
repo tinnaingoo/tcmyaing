@@ -676,14 +676,6 @@ const saveEditedPost = () => {
         PostUrl: document.getElementById('edit-post-url').value,
         Category: selectedCategories,
         PrePostUrl: document.getElementById('edit-pre-post').value || null,
-        NextPostUrl: document.getElementById('edit-next-post').value || null
-    };
-
-      // Get other form values
-    const updatedPost = {
-        ...allPosts[postIndex],
-        // ... other fields ...
-        PrePostUrl: document.getElementById('edit-pre-post').value || null,
         NextPostUrl: document.getElementById('edit-next-post').value || null,
         // Update related post titles if needed
         PrePostTitle: document.getElementById('edit-pre-post').value 
