@@ -169,17 +169,20 @@
         "PrePost-Url": "/home/technology-sharing/about-computer-os"
     },
     {
-        "Category": ["Technology Sharing", "Computer"],
-        "title": "Operating System (OS) အကြောင်း",
-        "Description": "ကွန်ပျူတာများသည် လူတို့၏ နေ့စဉ်ဘဝတွင် အရေးကြီးသော အကူအညီပေးပစ္စည်းဖြစ်လာပါသည်။ အဲဒီအတွက် ကွန်ပျူတာများကို အလုပ်လုပ်နိုင်စေရန် Operating System (OS) များလိုအပ်ပြီး OS များသည် hardware နှင့် software အကြား...",
-        "ImageUrl": "https://i.pinimg.com/1200x/8a/aa/dd/8aaaddd94e13c535d7580d2cf6e4c456.jpg",
-        "ImageCaption": "About Computer OS",
-        "Author": "tinnaingoo",
-        "Date": "Feb 24, 2025",
-        "PostUrl": "/home/computer/about-computer-os",
-        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
-        "NextPost-Url": "/home/technology-sharing/what-is-computer",
-        "PrePost-Title": "ကွန်ပျူတာကီးဘုတ် (Computer Keyboard) အကြောင်း",
-        "PrePost-Url": "/home/technology-sharing/about-computer-keyboard"
-    }
+    "Category": [
+        "Computer",
+        "Technology Sharing"
+    ],
+    "title": "Operating System (OS) အကြောင်း",
+    "Description": "ကွန်ပျူတာများသည် လူတို့၏ နေ့စဉ်ဘဝတွင် အရေးကြီးသော အကူအညီပေးပစ္စည်းဖြစ်လာပါသည်။ အဲဒီအတွက် ကွန်ပျူတာများကို အလုပ်လုပ်နိုင်စေရန် Operating System (OS) များလိုအပ်ပြီး OS များသည် hardware နှင့် software အကြား...",
+    "ImageUrl": "https://i.pinimg.com/1200x/8a/aa/dd/8aaaddd94e13c535d7580d2cf6e4c456.jpg",
+    "ImageCaption": "About Computer OS",
+    "Author": "tinnaingoo",
+    "Date": "February 23, 2025",
+    "PostUrl": "/home/computer/about-computer-os",
+    "PrePost-Url": "/home/technology-sharing/about-computer-keyboard",
+    "PrePost-Title": "ကွန်ပျူတာကီးဘုတ် (Computer Keyboard) အကြောင်း",
+    "NextPost-Url": "/home/computer/what-is-computer",
+    "NextPost-Title": "Computer ဆိုတာဘာလဲ"
+}
 ]
