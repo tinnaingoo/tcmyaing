@@ -678,6 +678,22 @@ const saveEditedPost = () => {
         PrePostUrl: document.getElementById('edit-pre-post').value || null,
         NextPostUrl: document.getElementById('edit-next-post').value || null
     };
+
+      / Get other form values
+    const updatedPost = {
+        ...allPosts[postIndex],
+        // ... other fields ...
+        PrePostUrl: document.getElementById('edit-pre-post').value || null,
+        NextPostUrl: document.getElementById('edit-next-post').value || null,
+        // Update related post titles if needed
+        PrePostTitle: document.getElementById('edit-pre-post').value 
+            ? document.getElementById('edit-pre-post').options[document.getElementById('edit-pre-post').selectedIndex].text
+            : '',
+        NextPostTitle: document.getElementById('edit-next-post').value 
+            ? document.getElementById('edit-next-post').options[document.getElementById('edit-next-post').selectedIndex].text
+            : ''
+    };
+   
     
     // Validate URL uniqueness
     if (updatedPost.PostUrl !== currentEditingPost.PostUrl && 
