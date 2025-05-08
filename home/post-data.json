@@ -140,34 +140,43 @@
         "PrePost-Title": "Computer Keyboard အကြောင်း",
         "PrePost-Url": "/home/technology-sharing/about-computer-keyboard"
     },
+        
+{
+    "Category": [
+        "Computer",
+        "Technology Sharing"
+    ],
+    "title": "Computer ဆိုတာဘာလဲ",
+    "Description": "ကွန်ပျူတာ ဆိုသည်မှာ ဒေတာများ သိမ်းဆည်းရန် နှင့် တွက်ချက်ရန် အသုံးပြုသော လျှပ်စစ်ပစ္စည်းဖြစ်သည်။ စာရွက်စာတမ်းများ နှင့် စာရင်းဇယားများပြုလုပ်ခြင်း၊ email ပို့ခြင်း၊ Game ဆော့ခြင်း၊ Internet အသုံးပြုခြင်း နှင့် အခြားသောလုပ်ငန်းဆောင်တာများတွင် အသုံးပြုကြသည်။...",
+    "ImageUrl": "https://i.pinimg.com/1200x/d2/e3/d7/d2e3d70daea2a86a742311ca1f7584b7.jpg",
+    "ImageCaption": "What is Computer",
+    "Author": "tinnaingoo",
+    "Date": "February 22, 2025",
+    "PostUrl": "/home/computer/what-is-computer",
+    "PrePost-Url": "/home/computer/about-computer-os",
+    "PrePost-Title": "Operating System (OS) အကြောင်း",
+    "NextPost-Url": "/home/technology-sharing/about-computer-keyboard",
+    "NextPost-Title": "ကွန်ပျူတာကီးဘုတ် (Computer Keyboard) အကြောင်း"
+},
+        
     {
-        "Category": ["Technology Sharing","Computer"],
-        "title": "Computer ဆိုတာဘာလဲ",
-        "Description": "ကွန်ပျူတာ ဆိုသည်မှာ ဒေတာများ သိမ်းဆည်းရန် နှင့် တွက်ချက်ရန် အသုံးပြုသော လျှပ်စစ်ပစ္စည်းဖြစ်သည်။ စာရွက်စာတမ်းများ နှင့် စာရင်းဇယားများပြုလုပ်ခြင်း၊ email ပို့ခြင်း၊ Game ဆော့ခြင်း၊ Internet အသုံးပြုခြင်း နှင့် အခြားသောလုပ်ငန်းဆောင်တာများတွင် အသုံးပြုကြသည်။...",
-        "ImageUrl": "https://i.pinimg.com/1200x/d2/e3/d7/d2e3d70daea2a86a742311ca1f7584b7.jpg",
-        "ImageCaption": "What is Computer",
-        "Author": "tinnaingoo",
-        "Date": "Feb 23, 2025",
-        "PostUrl": "/home/computer/what-is-computer",
-        "NextPost-Title": "Computer OS အကြောင်း",
-        "NextPost-Url": "/home/technology-sharing/about-computer-os",
-        "PrePost-Title": "Computer Keyboard အကြောင်း",
-        "PrePost-Url": "/home/computer/about-computer-keyboard"
-    },
-    {
-        "Category": ["Technology Sharing", "Computer"],
-        "title": "ကွန်ပျူတာကီးဘုတ် (Computer Keyboard) အကြောင်း",
-        "Description": "ကွန်ပျူတာကီးဘုတ်သည် ကွန်ပျူတာစနစ်တစ်ခုအတွက် အရေးပါသော Input Device တစ်ခုဖြစ်သည်။ ကီးဘုတ်မှတစ်ဆင့် စာရိုက်ခြင်း၊ ကွန်ပျူတာကို ထိန်းချုပ်ခြင်း၊ နှင့် အခြားလုပ်ဆောင်ချက်များကို လုပ်ဆောင်နိုင်သည်။ ကီးဘုတ်များသည် နည်းပညာတိုးတက်မှုနှင့်အတူ အမျိုးအစား...",
-        "ImageUrl": "https://i.pinimg.com/1200x/32/5e/e0/325ee0d8d14e60a33264a49cfb3dca42.jpg",
-        "ImageCaption": "About Computer Keyboard",
-        "Author": "tinnaingoo",
-        "Date": "Feb 24, 2025",
-        "PostUrl": "/home/technology-sharing/about-computer-keyboard",
-        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
-        "NextPost-Url": "/home/technology-sharing/what-is-computer",
-        "PrePost-Title": "Computer OS အကြောင်း",
-        "PrePost-Url": "/home/technology-sharing/about-computer-os"
-    },
+    "Category": [
+        "Computer",
+        "Technology Sharing"
+    ],
+    "title": "ကွန်ပျူတာကီးဘုတ် (Computer Keyboard) အကြောင်း",
+    "Description": "ကွန်ပျူတာကီးဘုတ်သည် ကွန်ပျူတာစနစ်တစ်ခုအတွက် အရေးပါသော Input Device တစ်ခုဖြစ်သည်။ ကီးဘုတ်မှတစ်ဆင့် စာရိုက်ခြင်း၊ ကွန်ပျူတာကို ထိန်းချုပ်ခြင်း၊ နှင့် အခြားလုပ်ဆောင်ချက်များကို လုပ်ဆောင်နိုင်သည်။ ကီးဘုတ်များသည် နည်းပညာတိုးတက်မှုနှင့်အတူ အမျိုးအစား...",
+    "ImageUrl": "https://i.pinimg.com/1200x/32/5e/e0/325ee0d8d14e60a33264a49cfb3dca42.jpg",
+    "ImageCaption": "About Computer Keyboard",
+    "Author": "tinnaingoo",
+    "Date": "February 23, 2025",
+    "PostUrl": "/home/technology-sharing/about-computer-keyboard",
+    "PrePost-Url": "/home/computer/what-is-computer",
+    "PrePost-Title": "Computer ဆိုတာဘာလဲ",
+    "NextPost-Url": "/home/computer/learning-windows-boot",
+    "NextPost-Title": "Window boot ကိုလေ့လာခြင်း"
+},
+        
     {
     "Category": [
         "Computer",
