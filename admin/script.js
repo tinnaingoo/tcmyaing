@@ -380,10 +380,6 @@ const fetchPostData = async () => {
     document.querySelector('.main-content').appendChild(spinner);
 
     try {
-        // For production, replace with real API call
-        // const response = await fetch('/api/posts', {
-        //     headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-        // });
         const response = await fetch('/home/post-data.json');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
@@ -531,28 +527,6 @@ const setupEditPostDialog = () => {
     });
 };
 
-const populatePostDropdowns = (excludePostUrl) => {
-    const prePostSelect = document.getElementById('edit-pre-post');
-    const nextPostSelect = document.getElementById('edit-next-post');
-    
-    prePostSelect.innerHTML = '<option value="">None</option>';
-    nextPostSelect.innerHTML = '<option value="">None</option>';
-    
-    allPosts.forEach(post => {
-        if (post.PostUrl === excludePostUrl) return;
-        
-        const preOption = document.createElement('option');
-        preOption.value = post.PostUrl;
-        preOption.textContent = post.title;
-        prePostSelect.appendChild(preOption);
-        
-        const nextOption = document.createElement('option');
-        nextOption.value = post.PostUrl;
-        nextOption.textContent = post.title;
-        nextPostSelect.appendChild(nextOption);
-    });
-};
-
 const openEditDialog = (postUrl) => {
     const post = allPosts.find(p => p.PostUrl === postUrl);
     if (!post) {
@@ -579,7 +553,7 @@ const openEditDialog = (postUrl) => {
     document.getElementById('edit-post-url').value = post.PostUrl || '';
 
     // Populate categories
-    const categoryContainer = document.getElementById('edit-post-categories');
+    const categoryContainer = document.getElementById('edit-post-category');
     categoryContainer.innerHTML = '';
     
     const allUniqueCategories = [...new Set([
@@ -617,27 +591,19 @@ const openEditDialog = (postUrl) => {
         if (p.PostUrl !== postUrl) {
             const optionText = p.title || `Untitled Post (${p.PostUrl})`;
             
-            // For Previous Post dropdown
             const preOption = document.createElement('option');
             preOption.value = p.PostUrl;
             preOption.textContent = optionText;
+            if (p.PostUrl === post.PrePostUrl) preOption.selected = true;
             prePostSelect.appendChild(preOption);
             
-            // For Next Post dropdown
             const nextOption = document.createElement('option');
             nextOption.value = p.PostUrl;
             nextOption.textContent = optionText;
+            if (p.PostUrl === post.NextPostUrl) nextOption.selected = true;
             nextPostSelect.appendChild(nextOption);
         }
     });
-    
-    // Set selected values - IMPORTANT FIX HERE
-    if (post.PrePostUrl) {
-        prePostSelect.value = post.PrePostUrl;
-    }
-    if (post.NextPostUrl) {
-        nextPostSelect.value = post.NextPostUrl;
-    }
     
     // Show modal
     const modal = document.getElementById('edit-post-dialog');
@@ -645,20 +611,13 @@ const openEditDialog = (postUrl) => {
     document.getElementById('edit-post-title').focus();
 };
 
-
-// Add this event listener in your initialization code (DOMContentLoaded)
-document.getElementById('save-post-btn').addEventListener('click', saveEditedPost);
-
-// Updated saveEditedPost function
 const saveEditedPost = async () => {
-    // Get the post being edited
     const postIndex = allPosts.findIndex(p => p.PostUrl === currentEditingPost.PostUrl);
     if (postIndex === -1) {
         showAlert('Post not found in database!', 'danger');
         return;
     }
     
-    // Get form values
     const title = document.getElementById('edit-post-title').value.trim();
     const description = document.getElementById('edit-post-description').value.trim();
     const imageUrl = document.getElementById('edit-post-image').value.trim();
@@ -669,11 +628,9 @@ const saveEditedPost = async () => {
     const prePostUrl = document.getElementById('edit-pre-post').value;
     const nextPostUrl = document.getElementById('edit-next-post').value;
     
-    // Get selected categories
-    const categoryCheckboxes = document.querySelectorAll('#edit-post-categories input[type="checkbox"]:checked');
+    const categoryCheckboxes = document.querySelectorAll('#edit-post-category input[type="checkbox"]:checked');
     const categories = Array.from(categoryCheckboxes).map(cb => cb.value);
     
-    // Validation
     if (!title || !description || !imageUrl || !imageCaption || !author || !date || !postUrl) {
         showAlert('Please fill in all required fields', 'danger');
         return;
@@ -689,13 +646,11 @@ const saveEditedPost = async () => {
         return;
     }
     
-    // Get related post titles
     const prePostSelect = document.getElementById('edit-pre-post');
     const nextPostSelect = document.getElementById('edit-next-post');
     const prePostTitle = prePostUrl ? prePostSelect.options[prePostSelect.selectedIndex].text : '';
     const nextPostTitle = nextPostUrl ? nextPostSelect.options[nextPostSelect.selectedIndex].text : '';
     
-    // Update the post
     const updatedPost = {
         ...allPosts[postIndex],
         title,
@@ -712,28 +667,24 @@ const saveEditedPost = async () => {
         NextPostTitle: nextPostTitle
     };
     
-    // Update in the array
     allPosts[postIndex] = updatedPost;
-    
-    // Update localStorage
     localStorage.setItem('postData', JSON.stringify(allPosts));
     
-    // Update related posts if needed
     updateRelatedPosts(updatedPost);
     
-    // Show success message
-    showAlert('Post updated successfully!', 'success');
+    const postDataString = JSON.stringify(updatedPost, null, 4);
+    try {
+        await navigator.clipboard.writeText(postDataString);
+        showAlert('Post updated and copied to clipboard successfully!', 'success');
+    } catch (err) {
+        showAlert('Failed to copy to clipboard: ' + err.message, 'danger');
+    }
     
-    // Close the modal
     closeEditDialog();
-    
-    // Refresh the posts list
     updateAllPostsPage();
 };
 
-// Helper function to update related posts
 function updateRelatedPosts(updatedPost) {
-    // Update previous post's NextPost reference if changed
     if (updatedPost.PrePostUrl) {
         const prePostIndex = allPosts.findIndex(p => p.PostUrl === updatedPost.PrePostUrl);
         if (prePostIndex !== -1 && allPosts[prePostIndex].NextPostUrl !== updatedPost.PostUrl) {
@@ -742,7 +693,6 @@ function updateRelatedPosts(updatedPost) {
         }
     }
     
-    // Update next post's PrePost reference if changed
     if (updatedPost.NextPostUrl) {
         const nextPostIndex = allPosts.findIndex(p => p.PostUrl === updatedPost.NextPostUrl);
         if (nextPostIndex !== -1 && allPosts[nextPostIndex].PrePostUrl !== updatedPost.PostUrl) {
@@ -751,11 +701,9 @@ function updateRelatedPosts(updatedPost) {
         }
     }
     
-    // Save the updates
     localStorage.setItem('postData', JSON.stringify(allPosts));
 }
 
-// Close modal function
 const closeEditDialog = () => {
     document.getElementById('edit-post-dialog').style.display = 'none';
     currentEditingPost = null;
