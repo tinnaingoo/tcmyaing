@@ -26,16 +26,16 @@
     .red   { background-color: #EA2839; }
 
     .star {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 5vw;
-      color: white;
-      font-family: "Arial Black", sans-serif;
-      z-index: 10;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    }
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15vw;
+    color: white;
+    font-family: "Arial Black", sans-serif;
+    z-index: 10;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
 
     /*@keyframes wave {
       0% { transform: perspective(800px) rotateY(0deg); }
