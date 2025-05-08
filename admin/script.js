@@ -100,6 +100,12 @@ const formatDate = (dateStr) => {
     });
 };
 
+const normalizeUrl = (url) => {
+    if (!url) return '';
+    // Ensure the URL starts with a leading slash
+    return url.startsWith('/') ? url : `/${url}`;
+};
+
 const debounce = (func, wait) => {
     let timeout;
     return (...args) => {
@@ -619,13 +625,19 @@ const openEditDialog = (postUrl) => {
             const preOption = document.createElement('option');
             preOption.value = p.PostUrl;
             preOption.textContent = optionText;
-            if (p.PostUrl === post['PrePost-Url']) preOption.selected = true;
+            // Normalize URLs for comparison
+            if (normalizeUrl(p.PostUrl) === normalizeUrl(post['PrePost-Url'])) {
+                preOption.selected = true;
+            }
             prePostSelect.appendChild(preOption);
             
             const nextOption = document.createElement('option');
             nextOption.value = p.PostUrl;
             nextOption.textContent = optionText;
-            if (p.PostUrl === post['NextPost-Url']) nextOption.selected = true;
+            // Normalize URLs for comparison
+            if (normalizeUrl(p.PostUrl) === normalizeUrl(post['NextPost-Url'])) {
+                nextOption.selected = true;
+            }
             nextPostSelect.appendChild(nextOption);
         }
     });
@@ -639,7 +651,7 @@ const openEditDialog = (postUrl) => {
 const saveEditedPost = async () => {
     const postIndex = allPosts.findIndex(p => p.PostUrl === currentEditingPost.PostUrl);
     if (postIndex === -1) {
-        showAlert('Post not found in database!', 'danger');
+        showAlert('ပို့စ်ကို ဒေတာဘေ့စ်ထဲတွင် ရှာမတွေ့ပါ!', 'danger');
         return;
     }
     
@@ -656,18 +668,43 @@ const saveEditedPost = async () => {
     const categoryCheckboxes = document.querySelectorAll('#edit-post-category input[type="checkbox"]:checked');
     const categories = Array.from(categoryCheckboxes).map(cb => cb.value);
     
-    if (!title || !description || !imageUrl || !imageCaption || !author || !date || !postUrl) {
-        showAlert('Please fill in all required fields', 'danger');
+    // Validate required fields
+    if (!title) {
+        showAlert('ကျေးဇူးပြု၍ ခေါင်းစဉ်ဖြည့်ပါ', 'danger');
+        return;
+    }
+    if (!description) {
+        showAlert('ကျေးဇူးပြု၍ ဖော်ပြချက်ဖြည့်ပါ', 'danger');
+        return;
+    }
+    if (!imageUrl) {
+        showAlert('ကျေးဇူးပြု၍ ပုံလိပ်စာဖြည့်ပါ', 'danger');
+        return;
+    }
+    if (!imageCaption) {
+        showAlert('ကျေးဇူးပြု၍ ပုံစာတန်းဖြည့်ပါ', 'danger');
+        return;
+    }
+    if (!author) {
+        showAlert('ကျေးဇူးပြု၍ ရေးသားသူဖြည့်ပါ', 'danger');
+        return;
+    }
+    if (!date) {
+        showAlert('ကျေးဇူးပြု၍ ရက်စွဲဖြည့်ပါ', 'danger');
+        return;
+    }
+    if (!postUrl) {
+        showAlert('ကျေးဇူးပြု၍ ပို့စ်လိပ်စာဖြည့်ပါ', 'danger');
         return;
     }
     
     if (!validateUrl(imageUrl)) {
-        showAlert('Please enter a valid image URL', 'danger');
+        showAlert('ကျေးဇူးပြု၍ မှန်ကန်သော ပုံလိပ်စာထည့်ပါ', 'danger');
         return;
     }
     
     if (postUrl !== currentEditingPost.PostUrl && allPosts.some(p => p.PostUrl === postUrl)) {
-        showAlert('Post URL already exists! Please choose a different one.', 'danger');
+        showAlert('ဤပို့စ်လိပ်စာရှိပြီးဖြစ်သည်။ ကျေးဇူးပြု၍ အခြားတစ်ခုရွေးပါ။', 'danger');
         return;
     }
     
@@ -699,9 +736,10 @@ const saveEditedPost = async () => {
     const postDataString = JSON.stringify(updatedPost, null, 4) + ',';
     try {
         await navigator.clipboard.writeText(postDataString);
-        showAlert('Post updated and copied to clipboard successfully!', 'success');
+        showAlert('ပို့စ်ကို အောင်မြင်စွာ ပြင်ဆင်ပြီး clipboard သို့ ကူးယူပြီးပါပြီ!', 'success');
     } catch (err) {
-        showAlert('Failed to copy to clipboard: ' + err.message, 'danger');
+        showAlert('Clipboard သို့ ကူးယူရာတွင် အမှားဖြစ်ခဲ့သည်: ' + err.message, 'danger');
+        return;
     }
     
     closeEditDialog();
