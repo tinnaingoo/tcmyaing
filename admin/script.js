@@ -582,7 +582,6 @@ const openEditDialog = (postUrl) => {
     const categoryContainer = document.getElementById('edit-post-categories');
     categoryContainer.innerHTML = '';
     
-    // Get all unique categories from predefined and existing posts
     const allUniqueCategories = [...new Set([
         ...predefinedCategories,
         ...allPosts.flatMap(p => p.Category || [])
@@ -610,27 +609,42 @@ const openEditDialog = (postUrl) => {
     const nextPostSelect = document.getElementById('edit-next-post');
     
     // Clear existing options except "None"
-    while (prePostSelect.options.length > 1) prePostSelect.remove(1);
-    while (nextPostSelect.options.length > 1) nextPostSelect.remove(1);
+    prePostSelect.innerHTML = '<option value="">None</option>';
+    nextPostSelect.innerHTML = '<option value="">None</option>';
     
     // Add all other posts as options
     allPosts.forEach(p => {
         if (p.PostUrl !== postUrl) {
             const optionText = p.title || `Untitled Post (${p.PostUrl})`;
-            prePostSelect.add(new Option(optionText, p.PostUrl));
-            nextPostSelect.add(new Option(optionText, p.PostUrl));
+            
+            // For Previous Post dropdown
+            const preOption = document.createElement('option');
+            preOption.value = p.PostUrl;
+            preOption.textContent = optionText;
+            prePostSelect.appendChild(preOption);
+            
+            // For Next Post dropdown
+            const nextOption = document.createElement('option');
+            nextOption.value = p.PostUrl;
+            nextOption.textContent = optionText;
+            nextPostSelect.appendChild(nextOption);
         }
     });
     
-    // Set selected values
-    prePostSelect.value = post.PrePostUrl || '';
-    nextPostSelect.value = post.NextPostUrl || '';
+    // Set selected values - IMPORTANT FIX HERE
+    if (post.PrePostUrl) {
+        prePostSelect.value = post.PrePostUrl;
+    }
+    if (post.NextPostUrl) {
+        nextPostSelect.value = post.NextPostUrl;
+    }
     
     // Show modal
     const modal = document.getElementById('edit-post-dialog');
     modal.style.display = 'block';
     document.getElementById('edit-post-title').focus();
 };
+
 
 const saveEditedPost = () => {
     const postIndex = allPosts.findIndex(p => p.PostUrl === currentEditingPost.PostUrl);
