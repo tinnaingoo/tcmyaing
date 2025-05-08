@@ -607,3 +607,35 @@ select[multiple] option:checked {
         padding: var(--spacing-small);
     }
 }
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.checkbox-group div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin: 0;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.modal {
+    z-index: 1000;
+}
+
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
