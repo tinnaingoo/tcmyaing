@@ -675,8 +675,8 @@ const saveEditedPost = () => {
         Date: document.getElementById('edit-post-date').value,
         PostUrl: document.getElementById('edit-post-url').value,
         Category: selectedCategories,
-        PrePostUrl: document.getElementById('edit-pre-post').value || null,
-        NextPostUrl: document.getElementById('edit-next-post').value || null,
+        PrePostUrl: document.getElementById('edit-pre-post').value,
+        NextPostUrl: document.getElementById('edit-next-post').value,
         // Update related post titles if needed
         PrePostTitle: document.getElementById('edit-pre-post').value 
             ? document.getElementById('edit-pre-post').options[document.getElementById('edit-pre-post').selectedIndex].text
