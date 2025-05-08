@@ -563,7 +563,7 @@ const openEditDialog = (postUrl) => {
     currentEditingPost = post;
     
     // Populate form fields
-    document.getElementById('edit-post-title').value = post.title;
+    document.getElementById('edit-post-title-input').value = post.title;
     document.getElementById('edit-post-description').value = post.Description;
     document.getElementById('edit-post-image').value = post.ImageUrl;
     document.getElementById('edit-post-image-caption').value = post.ImageCaption;
@@ -602,6 +602,8 @@ const openEditDialog = (postUrl) => {
     modal.style.display = 'block';
     modal.querySelector('input, button, select, textarea').focus();
 };
+
+//-------------------------
 
 const saveEditedPost = async () => {
     const postIndex = allPosts.findIndex(p => p.PostUrl === currentEditingPost.PostUrl);
