@@ -12,6 +12,21 @@ const populateAside = () => {
     // Define the content for the Aside section
     const asideContent = `
 
+        <!-- Myanmar Flag -->
+        <style type="text/css">
+            @import url("/css/myanmar-flag.css");
+        </style>
+        
+                <div class="container-flag">
+    <h2>May there be peace.</h2>
+    <div class="flag">
+      <div class="stripe yellow"></div>
+      <div class="stripe green"></div>
+      <div class="stripe red"></div>
+      <div class="star">★</div>
+    </div>
+  </div>
+  
         <!-- Socials Widget -->
         <div class="widget-socials">
             <h4 class="widget-title">Keep up with Us</h4>
@@ -59,9 +74,7 @@ const populateAside = () => {
 
 
         <!-- Ad Widget -->
-        <style type="text/css">
-            @import url("/css/ad.css");
-        </style>
+        
     `;
 
     // Insert the content into the aside section
