@@ -1,145 +1,178 @@
 [
 {
-        "Category": ["Computer"],
-        "title": "Windows အသုံးပြုထားတဲ့ Laptop မှာ Battery Report ကို ဘယ်လိုစစ်ဆေးရမလဲ",
-        "Description": "ဒီနေ့ခေတ်မှာ နည်းပညာက တစ်နေ့တစ်ခြား တိုးတက်လာနေပြီး အဲဒီထဲမှာ အထူးခြားဆုံးတစ်ခုကတော့ Artificial Intelligence (AI) လို့ခေါ်တဲ့ ဉာဏ်ရည်တု နည်းပညာပါပဲ။ AI ဆိုတာဘာလဲ၊ ဘာတွေလုပ်လို့ရလဲ၊ ဘယ်လိုအခမဲ့ AI တွေကို သုံးလို့ရလဲဆိုတ...",
-        "ImageUrl": "https://i.pcmag.com/imagery/articles/06pAOqu8HjHsQpUe1Xc8AbF-1.fit_lim.size_1600x900.v1742833565.jpg",
-        "ImageCaption": "HTML & CSS - Beginner To Super Beginner",
-        "Author": "tinnaingoo",
-        "Date": "March 13, 2025",
-        "PostUrl": "/home/computer/how-to-check-the-health-of-your-laptop-battery-in-windows",
-        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
-        "NextPost-Url": "/home/technology-sharing/what-is-computer",
-        "PrePost-Title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
-        "PrePost-Url": "/home/technology-sharing/what-different-32bit-and-64bit"
+    "Category": [
+        "Computer"
+    ],
+    "title": "Windows အသုံးပြုထားတဲ့ Laptop မှာ Battery Report ကို ဘယ်လိုစစ်ဆေးရမလဲ",
+    "Description": "ဒီနေ့ခေတ်မှာ နည်းပညာက တစ်နေ့တစ်ခြား တိုးတက်လာနေပြီး အဲဒီထဲမှာ အထူးခြားဆုံးတစ်ခုကတော့ Artificial Intelligence (AI) လို့ခေါ်တဲ့ ဉာဏ်ရည်တု နည်းပညာပါပဲ။ AI ဆိုတာဘာလဲ၊ ဘာတွေလုပ်လို့ရလဲ၊ ဘယ်လိုအခမဲ့ AI တွေကို သုံးလို့ရလဲဆိုတ...",
+    "ImageUrl": "https://i.pcmag.com/imagery/articles/06pAOqu8HjHsQpUe1Xc8AbF-1.fit_lim.size_1600x900.v1742833565.jpg",
+    "ImageCaption": "HTML & CSS - Beginner To Super Beginner",
+    "Author": "tinnaingoo",
+    "Date": "March 12, 2025",
+    "PostUrl": "/home/computer/how-to-check-the-health-of-your-laptop-battery-in-windows",
+    "PrePost-Url": "/home/computer/about-computer-os",
+    "PrePost-Title": "Operating System (OS) အကြောင်း",
+    "NextPost-Url": "/home/computer/learning-windows-boot",
+    "NextPost-Title": "Window boot ကိုလေ့လာခြင်း"
 },
+        
 {
-        "Category": ["E-book"],
-        "title": "HTML & CSS - Beginner To Super Beginner by Lwin Moe Paing",
-        "Description": "ဒီနေ့ခေတ်မှာ နည်းပညာက တစ်နေ့တစ်ခြား တိုးတက်လာနေပြီး အဲဒီထဲမှာ အထူးခြားဆုံးတစ်ခုကတော့ Artificial Intelligence (AI) လို့ခေါ်တဲ့ ဉာဏ်ရည်တု နည်းပညာပါပဲ။ AI ဆိုတာဘာလဲ၊ ဘာတွေလုပ်လို့ရလဲ၊ ဘယ်လိုအခမဲ့ AI တွေကို သုံးလို့ရလဲဆိုတ...",
-        "ImageUrl": "https://i.pinimg.com/1200x/29/c5/8e/29c58e694ad68e6ebdef728e586db15e.jpg",
-        "ImageCaption": "HTML & CSS - Beginner To Super Beginner",
-        "Author": "tinnaingoo",
-        "Date": "March 13, 2025",
-        "PostUrl": "/home/e-book/HTML-CSS-Beginner-to-Super-Beginner-by-Lwin-Moe-Paing",
-        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
-        "NextPost-Url": "/home/technology-sharing/what-is-computer",
-        "PrePost-Title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
-        "PrePost-Url": "/home/technology-sharing/what-different-32bit-and-64bit"
-    },
-    {
-        "Category": ["Technology Sharing", "AI"],
-        "title": "အခမဲ့နဲ့ အသုံးပြုရအဆင်ပြေတဲ့ AI တွေအကြောင်း",
-        "Description": "ဒီနေ့ခေတ်မှာ နည်းပညာက တစ်နေ့တစ်ခြား တိုးတက်လာနေပြီး အဲဒီထဲမှာ အထူးခြားဆုံးတစ်ခုကတော့ Artificial Intelligence (AI) လို့ခေါ်တဲ့ ဉာဏ်ရည်တု နည်းပညာပါပဲ။ AI ဆိုတာဘာလဲ၊ ဘာတွေလုပ်လို့ရလဲ၊ ဘယ်လိုအခမဲ့ AI တွေကို သုံးလို့ရလဲဆိုတ...",
-        "ImageUrl": "https://i.pinimg.com/1200x/16/af/2d/16af2da293626bde74db2371cad76430.jpg",
-        "ImageCaption": "Learning Windows Boot",
-        "Author": "tinnaingoo",
-        "Date": "March 7, 2025",
-        "PostUrl": "/home/technology-sharing/free-ai",
-        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
-        "NextPost-Url": "/home/technology-sharing/what-is-computer",
-        "PrePost-Title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
-        "PrePost-Url": "/home/technology-sharing/what-different-32bit-and-64bit"
-    },
-       {
-        "Category": ["Technology Sharing", "Computer"],
-        "title": "Printer တွေအကြောင်း",
-        "Description": "ဒီနေ့ Printer တွေအကြောင်းကို အစကနေ အဆုံးထိ ပြောပြပေးချင်ပါတယ်။ သူတို့ ဘယ်လိုစတင်ခဲ့လဲ၊ ဘယ်လိုတိုးတက်လာခဲ့လဲ၊ အထူးသဖြင့် လူသုံးအများဆုံး Inkjet နဲ့ Laser Printer တွေရဲ့ ပုံစံရော အလုပ်လုပ်ပုံရော အသေးစိတ်ထိ  ...",
-        "ImageUrl": "https://i.pinimg.com/1200x/0c/c1/3e/0cc13edf361c8af7a002822bbe076c4e.jpg",
-        "ImageCaption": "Learning Windows Boot",
-        "Author": "tinnaingoo",
-        "Date": "March 6, 2025",
-        "PostUrl": "/home/computer/about-all-printer",
-        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
-        "NextPost-Url": "home/technology-sharing/what-is-computer",
-        "PrePost-Title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
-        "PrePost-Url": "/home/technology-sharing/what-different-32bit-and-64bit"
-    },
-       {
-        "Category": ["Technology Sharing", "Computer"],
-        "title": "Laptop ဝယ်ရင် ဘာတွေသိထားရမလဲ",
-        "Description": "ကမ္ဘာကြီးရဲ့ အပြောင်းအလဲတွေကြားမှာ လူသားတွေရဲ့ ဖန်တီးနိုင်စွမ်းဟာလည်း အံ့သြစရာကောင်းလောက်အောင် တိုးတက်လာခဲ့ပါတယ်။ ...",
-        "ImageUrl": "https://i.pinimg.com/736x/61/00/fd/6100fd2be3e0e536c600b36593d2610b.jpg",
-        "ImageCaption": "Learning Windows Boot",
-        "Author": "tinnaingoo",
-        "Date": "March 3, 2025",
-        "PostUrl": "/home/computer/buy-a-laptop",
-        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
-        "NextPost-Url": "/home/technology-sharing/what-is-computer",
-        "PrePost-Title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
-        "PrePost-Url": "/home/technology-sharing/what-different-32bit-and-64bit"
-    },
-    {
-        "Category": ["Technology Sharing", "Computer"],
-        "title": "Image Generate AI တွေအတွက် Prompt ရေးသားနည်း",
-        "Description": "ကမ္ဘာကြီးရဲ့ အပြောင်းအလဲတွေကြားမှာ လူသားတွေရဲ့ ဖန်တီးနိုင်စွမ်းဟာလည်း အံ့သြစရာကောင်းလောက်အောင် တိုးတက်လာခဲ့ပါတယ်။ ...",
-        "ImageUrl": "https://i.pinimg.com/1200x/11/24/a9/1124a9fa3b867d9be203402bceca8b53.jpg",
-        "ImageCaption": "Learning Windows Boot",
-        "Author": "tinnaingoo",
-        "Date": "March 3, 2025",
-        "PostUrl": "/home/artificial-intelligence/image-generate-ai-prompt",
-        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
-        "NextPost-Url": "/home/technology-sharing/what-is-computer",
-        "PrePost-Title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
-        "PrePost-Url": "/home/technology-sharing/what-different-32bit-and-64bit"
-    },
-    {
-        "Category": ["Technology Sharing", "AI"],
-        "title": "ယနေ့ခေတ် AI နည်းပညာများ",
-        "Description": "ဒီနေ့ခေတ်မှာ နည်းပညာဆိုတာ ကျွန်တော်တို့ဘဝရဲ့ အစိတ်အပိုင်းတစ်ခုလို ဖြစ်နေပါပြီ။ ...",
-        "ImageUrl": "https://i.pinimg.com/1200x/9b/04/ac/9b04ac7be90c02400e9bdbca1db20d78.jpg",
-        "ImageCaption": "Learning Windows Boot",
-        "Author": "tinnaingoo",
-        "Date": "March 2, 2025",
-        "PostUrl": "/home/artificial-intelligence/today-and-artificial-intelligence",
-        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
-        "NextPost-Url": "/home/technology-sharing/what-is-computer",
-        "PrePost-Title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",   
-        "PrePost-Url": "/home/technology-sharing/what-different-32bit-and-64bit"
-    },
-    {
-        "Category": ["Technology Sharing", "Computer"],
-        "title": "Window boot ကိုလေ့လာခြင်း",
-        "Description": "ကွန်ပျူတာသုံးသူအများစုမှာ Windows OS ကိုသုံးကြပါသည်။ OS မတက်တော့သည့်အခါ စိတ်ဆင်းရဲကြ ရသည်။ မိမိက ဘာတစ်ခုမှ မလုပ်တတ်လျှင် Service ကိုပို့ရလိမ့်မည်။ ရှေ့မှာတန်းစီနေသော ကွန် ပျူတာများရှိလျှင် သုံးရက်ခန့်စောင့်...",
-        "ImageUrl":"https://i.pinimg.com/1200x/a7/c3/ea/a7c3ea20c35551ccd46fcfb9836a615b.jpg",
-        "ImageCaption": "Learning Windows Boot",
-        "Author": "tinnaingoo",
-        "Date": "March 1, 2025",
-        "PostUrl": "/home/computer/learning-windows-boot",
-        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
-        "NextPost-Url": "/home/technology-sharing/what-is-computer",
-        "PrePost-Title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
-        "PrePost-Url": "/home/technology-sharing/what-different-32bit-and-64bit"
-    },
-    {
-        "Category": ["Technology Sharing", "Computer"],
-        "title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
-        "Description": "နည်းပညာသည် ယနေ့ခေတ် ကမ္ဘာကြီးတွင် အရေးပါသော အခန်းကဏ္ဍမှ ပါဝင်နေပြီး လူ့ဘဝ၏ နေ့စဉ်လုပ်ငန်းဆောင်တာများကို လွယ်ကူချောမွေ့စေရုံသာမက လူမှုစီးပွားဘဝကိုပါ ပြောင်းလဲတိုးတက်စေနိုင်သည့် ပညာတစ်ရပ်...",
-        "ImageUrl":"https://i.pinimg.com/1200x/da/99/98/da999890c4e3385daac0b30c7734d098.jpg",
-        "ImageCaption": "Why You should be Interested in Technology",
-        "Author": "tinnaingoo",
-        "Date": "Feb 28, 2025",
-        "PostUrl": "/home/computer/what-different-32bit-and-64bit",
-        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
-        "NextPost-Url": "/home/computer/what-is-computer",
-        "PrePost-Title": "Computer Keyboard အကြောင်း",
-        "PrePost-Url": "/home/computer/about-computer-keyboard"
-    },
+    "Category": [
+        "E-book"
+    ],
+    "title": "HTML & CSS - Beginner To Super Beginner by Lwin Moe Paing",
+    "Description": "ဒီနေ့ခေတ်မှာ နည်းပညာက တစ်နေ့တစ်ခြား တိုးတက်လာနေပြီး အဲဒီထဲမှာ အထူးခြားဆုံးတစ်ခုကတော့ Artificial Intelligence (AI) လို့ခေါ်တဲ့ ဉာဏ်ရည်တု နည်းပညာပါပဲ။ AI ဆိုတာဘာလဲ၊ ဘာတွေလုပ်လို့ရလဲ၊ ဘယ်လိုအခမဲ့ AI တွေကို သုံးလို့ရလဲဆိုတ...",
+    "ImageUrl": "https://i.pinimg.com/1200x/29/c5/8e/29c58e694ad68e6ebdef728e586db15e.jpg",
+    "ImageCaption": "HTML & CSS - Beginner To Super Beginner",
+    "Author": "tinnaingoo",
+    "Date": "March 12, 2025",
+    "PostUrl": "/home/e-book/HTML-CSS-Beginner-to-Super-Beginner-by-Lwin-Moe-Paing",
+    "PrePost-Url": "/home/technology-sharing/why-you-should-be-interested-in-technology",
+    "PrePost-Title": "Why should you be interested in technology?",
+    "NextPost-Url": "/home/artificial-intelligence/today-and-artificial-intelligence",
+    "NextPost-Title": "ယနေ့ခေတ် AI နည်းပညာများ"
+},
+        
+{
+    "Category": [
+        "AI",
+        "Technology Sharing"
+    ],
+    "title": "အခမဲ့နဲ့ အသုံးပြုရအဆင်ပြေတဲ့ AI တွေအကြောင်း",
+    "Description": "ဒီနေ့ခေတ်မှာ နည်းပညာက တစ်နေ့တစ်ခြား တိုးတက်လာနေပြီး အဲဒီထဲမှာ အထူးခြားဆုံးတစ်ခုကတော့ Artificial Intelligence (AI) လို့ခေါ်တဲ့ ဉာဏ်ရည်တု နည်းပညာပါပဲ။ AI ဆိုတာဘာလဲ၊ ဘာတွေလုပ်လို့ရလဲ၊ ဘယ်လိုအခမဲ့ AI တွေကို သုံးလို့ရလဲဆိုတ...",
+    "ImageUrl": "https://i.pinimg.com/1200x/16/af/2d/16af2da293626bde74db2371cad76430.jpg",
+    "ImageCaption": "Learning Windows Boot",
+    "Author": "tinnaingoo",
+    "Date": "March 6, 2025",
+    "PostUrl": "/home/technology-sharing/free-ai",
+    "PrePost-Url": "/home/artificial-intelligence/today-and-artificial-intelligence",
+    "PrePost-Title": "ယနေ့ခေတ် AI နည်းပညာများ",
+    "NextPost-Url": "/home/artificial-intelligence/image-generate-ai-prompt",
+    "NextPost-Title": "Image Generate AI တွေအတွက် Prompt ရေးသားနည်း"
+},
+        
+{
+    "Category": [
+        "Computer",
+        "Technology Sharing"
+    ],
+    "title": "Printer တွေအကြောင်း",
+    "Description": "ဒီနေ့ Printer တွေအကြောင်းကို အစကနေ အဆုံးထိ ပြောပြပေးချင်ပါတယ်။ သူတို့ ဘယ်လိုစတင်ခဲ့လဲ၊ ဘယ်လိုတိုးတက်လာခဲ့လဲ၊ အထူးသဖြင့် လူသုံးအများဆုံး Inkjet နဲ့ Laser Printer တွေရဲ့ ပုံစံရော အလုပ်လုပ်ပုံရော အသေးစိတ်ထိ  ...",
+    "ImageUrl": "https://i.pinimg.com/1200x/0c/c1/3e/0cc13edf361c8af7a002822bbe076c4e.jpg",
+    "ImageCaption": "Learning Windows Boot",
+    "Author": "tinnaingoo",
+    "Date": "March 5, 2025",
+    "PostUrl": "/home/computer/about-all-printer",
+    "PrePost-Url": "/home/computer/about-computer-os",
+    "PrePost-Title": "Operating System (OS) အကြောင်း",
+    "NextPost-Url": "/home/technology-sharing/about-computer-keyboard",
+    "NextPost-Title": "ကွန်ပျူတာကီးဘုတ် (Computer Keyboard) အကြောင်း"
+},
+        
+{
+    "Category": [
+        "Computer",
+        "Technology Sharing"
+    ],
+    "title": "Laptop ဝယ်ရင် ဘာတွေသိထားရမလဲ",
+    "Description": "ကမ္ဘာကြီးရဲ့ အပြောင်းအလဲတွေကြားမှာ လူသားတွေရဲ့ ဖန်တီးနိုင်စွမ်းဟာလည်း အံ့သြစရာကောင်းလောက်အောင် တိုးတက်လာခဲ့ပါတယ်။ ...",
+    "ImageUrl": "https://i.pinimg.com/736x/61/00/fd/6100fd2be3e0e536c600b36593d2610b.jpg",
+    "ImageCaption": "Learning Windows Boot",
+    "Author": "tinnaingoo",
+    "Date": "March 2, 2025",
+    "PostUrl": "/home/computer/buy-a-laptop",
+    "PrePost-Url": "/home/computer/what-is-computer",
+    "PrePost-Title": "Computer ဆိုတာဘာလဲ",
+    "NextPost-Url": "/home/technology-sharing/about-computer-keyboard",
+    "NextPost-Title": "ကွန်ပျူတာကီးဘုတ် (Computer Keyboard) အကြောင်း"
+},
+        
+{
+    "Category": [
+        "Computer",
+        "Technology Sharing"
+    ],
+    "title": "Image Generate AI တွေအတွက် Prompt ရေးသားနည်း",
+    "Description": "ကမ္ဘာကြီးရဲ့ အပြောင်းအလဲတွေကြားမှာ လူသားတွေရဲ့ ဖန်တီးနိုင်စွမ်းဟာလည်း အံ့သြစရာကောင်းလောက်အောင် တိုးတက်လာခဲ့ပါတယ်။ ...",
+    "ImageUrl": "https://i.pinimg.com/1200x/11/24/a9/1124a9fa3b867d9be203402bceca8b53.jpg",
+    "ImageCaption": "Learning Windows Boot",
+    "Author": "tinnaingoo",
+    "Date": "March 2, 2025",
+    "PostUrl": "/home/artificial-intelligence/image-generate-ai-prompt",
+    "PrePost-Url": "/home/technology-sharing/free-ai",
+    "PrePost-Title": "အခမဲ့နဲ့ အသုံးပြုရအဆင်ပြေတဲ့ AI တွေအကြောင်း",
+    "NextPost-Url": "/home/artificial-intelligence/today-and-artificial-intelligence",
+    "NextPost-Title": "ယနေ့ခေတ် AI နည်းပညာများ"
+},
+        
+{
+    "Category": [
+        "AI"
+    ],
+    "title": "ယနေ့ခေတ် AI နည်းပညာများ",
+    "Description": "ဒီနေ့ခေတ်မှာ နည်းပညာဆိုတာ ကျွန်တော်တို့ဘဝရဲ့ အစိတ်အပိုင်းတစ်ခုလို ဖြစ်နေပါပြီ။ ...",
+    "ImageUrl": "https://i.pinimg.com/1200x/9b/04/ac/9b04ac7be90c02400e9bdbca1db20d78.jpg",
+    "ImageCaption": "Learning Windows Boot",
+    "Author": "tinnaingoo",
+    "Date": "March 1, 2025",
+    "PostUrl": "/home/artificial-intelligence/today-and-artificial-intelligence",
+    "PrePost-Url": "/home/technology-sharing/free-ai",
+    "PrePost-Title": "အခမဲ့နဲ့ အသုံးပြုရအဆင်ပြေတဲ့ AI တွေအကြောင်း",
+    "NextPost-Url": "/home/technology-sharing/why-you-should-be-interested-in-technology",
+    "NextPost-Title": "Why should you be interested in technology?"
+},
+        
+{
+    "Category": [
+        "Computer",
+        "Technology Sharing"
+    ],
+    "title": "Window boot ကိုလေ့လာခြင်း",
+    "Description": "ကွန်ပျူတာသုံးသူအများစုမှာ Windows OS ကိုသုံးကြပါသည်။ OS မတက်တော့သည့်အခါ စိတ်ဆင်းရဲကြ ရသည်။ မိမိက ဘာတစ်ခုမှ မလုပ်တတ်လျှင် Service ကိုပို့ရလိမ့်မည်။ ရှေ့မှာတန်းစီနေသော ကွန် ပျူတာများရှိလျှင် သုံးရက်ခန့်စောင့်...",
+    "ImageUrl": "https://i.pinimg.com/1200x/a7/c3/ea/a7c3ea20c35551ccd46fcfb9836a615b.jpg",
+    "ImageCaption": "Learning Windows Boot",
+    "Author": "tinnaingoo",
+    "Date": "February 28, 2025",
+    "PostUrl": "/home/computer/learning-windows-boot",
+    "PrePost-Url": "/home/computer/what-is-computer",
+    "PrePost-Title": "Computer ဆိုတာဘာလဲ",
+    "NextPost-Url": "/home/computer/about-computer-os",
+    "NextPost-Title": "Operating System (OS) အကြောင်း"
+},
 
-    {
-        "Category": ["Technology Sharing", "Computer"],
-        "title": "Why should you be interested in technology?",
-        "Description": "နည်းပညာသည် ယနေ့ခေတ် ကမ္ဘာကြီးတွင် အရေးပါသော အခန်းကဏ္ဍမှ ပါဝင်နေပြီး လူ့ဘဝ၏ နေ့စဉ်လုပ်ငန်းဆောင်တာများကို လွယ်ကူချောမွေ့စေရုံသာမက လူမှုစီးပွားဘဝကိုပါ ပြောင်းလဲတိုးတက်စေနိုင်သည့် ပညာတစ်ရပ်...",
-        "ImageUrl": "https://i.pinimg.com/1200x/2b/ee/a9/2beea9e54f8d110dea10ac85636e2f44.jpg",
-        "ImageCaption": "Why You should be Interested in Technology",
-        "Author": "tinnaingoo",
-        "Date": "Feb 26, 2025",
-        "PostUrl": "/home/technology-sharing/why-you-should-be-interested-in-technology",
-        "NextPost-Title": "Computer ဆိုတာဘာလဲ",
-        "NextPost-Url": "/home/technology-sharing/what-is-computer",
-        "PrePost-Title": "Computer Keyboard အကြောင်း",
-        "PrePost-Url": "/home/technology-sharing/about-computer-keyboard"
-    },
+{
+    "Category": [
+        "Computer"
+    ],
+    "title": "32 bit နဲ့ 64 bit က ဘာတွေကွာတာလဲ?",
+    "Description": "နည်းပညာသည် ယနေ့ခေတ် ကမ္ဘာကြီးတွင် အရေးပါသော အခန်းကဏ္ဍမှ ပါဝင်နေပြီး လူ့ဘဝ၏ နေ့စဉ်လုပ်ငန်းဆောင်တာများကို လွယ်ကူချောမွေ့စေရုံသာမက လူမှုစီးပွားဘဝကိုပါ ပြောင်းလဲတိုးတက်စေနိုင်သည့် ပညာတစ်ရပ်...",
+    "ImageUrl": "https://i.pinimg.com/1200x/da/99/98/da999890c4e3385daac0b30c7734d098.jpg",
+    "ImageCaption": "Why You should be Interested in Technology",
+    "Author": "tinnaingoo",
+    "Date": "February 27, 2025",
+    "PostUrl": "/home/computer/what-different-32bit-and-64bit",
+    "PrePost-Url": "/home/computer/about-computer-os",
+    "PrePost-Title": "Operating System (OS) အကြောင်း",
+    "NextPost-Url": "/home/computer/what-is-computer",
+    "NextPost-Title": "Computer ဆိုတာဘာလဲ"
+},
+
+{
+    "Category": [
+        "Technology Sharing"
+    ],
+    "title": "Why should you be interested in technology?",
+    "Description": "နည်းပညာသည် ယနေ့ခေတ် ကမ္ဘာကြီးတွင် အရေးပါသော အခန်းကဏ္ဍမှ ပါဝင်နေပြီး လူ့ဘဝ၏ နေ့စဉ်လုပ်ငန်းဆောင်တာများကို လွယ်ကူချောမွေ့စေရုံသာမက လူမှုစီးပွားဘဝကိုပါ ပြောင်းလဲတိုးတက်စေနိုင်သည့် ပညာတစ်ရပ်...",
+    "ImageUrl": "https://i.pinimg.com/1200x/2b/ee/a9/2beea9e54f8d110dea10ac85636e2f44.jpg",
+    "ImageCaption": "Why You should be Interested in Technology",
+    "Author": "tinnaingoo",
+    "Date": "February 25, 2025",
+    "PostUrl": "/home/technology-sharing/why-you-should-be-interested-in-technology",
+    "PrePost-Url": "/home/technology-sharing/free-ai",
+    "PrePost-Title": "အခမဲ့နဲ့ အသုံးပြုရအဆင်ပြေတဲ့ AI တွေအကြောင်း",
+    "NextPost-Url": "/home/artificial-intelligence/today-and-artificial-intelligence",
+    "NextPost-Title": "ယနေ့ခေတ် AI နည်းပညာများ"
+},
         
 {
     "Category": [
