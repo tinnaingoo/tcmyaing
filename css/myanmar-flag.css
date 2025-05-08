@@ -40,10 +40,10 @@
       text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
 
-    @keyframes wave {
+    /*@keyframes wave {
       0% { transform: perspective(800px) rotateY(0deg); }
       25% { transform: perspective(800px) rotateY(2deg); }
       50% { transform: perspective(800px) rotateY(0deg); }
       75% { transform: perspective(800px) rotateY(-2deg); }
       100% { transform: perspective(800px) rotateY(0deg); }
-    }
+    }*/
