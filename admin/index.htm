@@ -176,24 +176,24 @@
                     </div>
                 </div>
 
-                <!-- Edit Post Modal -->
-                <!-- Edit Post Modal -->
-<div id="edit-post-dialog" class="modal" role="dialog" aria-labelledby="edit-post-title" aria-modal="true">
+                
+<!-- Edit Post Modal -->
+<div id="edit-post-dialog" class="modal" role="dialog" aria-labelledby="edit-post-dialog-title" aria-modal="true">
     <div class="modal-content">
         <div class="modal-header">
-            <h3 id="edit-post-title">Edit Post</h3>
+            <h3 id="edit-post-dialog-title">Edit Post</h3>
             <button class="close-modal" aria-label="Close dialog">×</button>
         </div>
         <div class="modal-body">
             <form id="edit-post-form">
                 <div class="form-group">
                     <label for="edit-post-title">Post Title</label>
-                    <input type="text" id="edit-post-title-input" required>
+                    <input type="text" id="edit-post-title" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="edit-post-category">Category (Select all that apply)</label>
-                    <div id="edit-post-category" class="checkbox-group">
+                    <label>Categories</label>
+                    <div id="edit-post-categories" class="checkbox-group">
                         <!-- Categories will be populated by JavaScript -->
                     </div>
                 </div>
@@ -252,6 +252,7 @@
         </div>
     </div>
 </div>
+                
                 
             </div>
 
