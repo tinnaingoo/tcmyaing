@@ -679,7 +679,7 @@ const saveEditedPost = () => {
         NextPostUrl: document.getElementById('edit-next-post').value || null
     };
 
-      / Get other form values
+      // Get other form values
     const updatedPost = {
         ...allPosts[postIndex],
         // ... other fields ...
