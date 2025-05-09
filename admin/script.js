@@ -1,3 +1,5 @@
+/* ... (Previous code remains unchanged) ... */
+
 /* ======================
    INITIAL SETUP & UTILITIES
    ====================== */
@@ -39,6 +41,12 @@ const showAlert = (message, type) => {
     const successAlert = document.getElementById('alert-success');
     const dangerAlert = document.getElementById('alert-danger');
     
+    // Check if elements exist
+    if (!successAlert || !dangerAlert) {
+        console.error('Alert elements not found in the DOM!');
+        return;
+    }
+
     const alertElement = type === 'success' ? successAlert : dangerAlert;
     const otherAlert = type === 'success' ? dangerAlert : successAlert;
     
@@ -102,7 +110,6 @@ const formatDate = (dateStr) => {
 
 const normalizeUrl = (url) => {
     if (!url) return '';
-    // Ensure the URL starts with a leading slash
     return url.startsWith('/') ? url : `/${url}`;
 };
 
