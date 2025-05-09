@@ -354,16 +354,16 @@ const fetchDataFromUrl = async () => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
 
-        // Extract data based on your webpage structure
-        const title = doc.querySelector('h1.post-title')?.textContent.trim() || '';
-        const meta = doc.querySelector('p.post-meta')?.textContent.trim() || '';
+        // Extract data based on updated webpage structure
+        const title = doc.querySelector('h1.entry-title')?.textContent.trim() || '';
+        const meta = doc.querySelector('p.meta')?.textContent.trim() || '';
         const authorMatch = meta.match(/By\s+(.+?)\s+•/);
         const dateMatch = meta.match(/•\s+(.+)/);
         const author = authorMatch ? authorMatch[1] : '';
         const date = dateMatch ? dateMatch[1] : '';
-        const coverImage = doc.querySelector('div.post-cover-image img')?.src || '';
-        const imageAlt = doc.querySelector('div.post-cover-image img')?.alt || '';
-        const content = doc.querySelector('div.post-text')?.innerHTML || '';
+        const coverImage = doc.querySelector('div.featured-image img')?.src || '';
+        const imageAlt = doc.querySelector('div.featured-image img')?.alt || '';
+        const content = doc.querySelector('div.entry-content')?.innerHTML || '';
 
         // Populate form
         document.getElementById('post-title').value = title;
@@ -373,8 +373,12 @@ const fetchDataFromUrl = async () => {
         document.getElementById('post-image-alt').value = imageAlt;
         document.getElementById('post-content').value = content;
 
+        // Debug log to check extracted data
+        console.log('Fetched Data:', { title, author, date, coverImage, imageAlt, content });
+
         showAlert('Data fetched from URL successfully!', 'success');
     } catch (error) {
+        console.error('Fetch Error:', error);
         showAlert('ဒေတာကို URL မှ ဆွဲယူရာတွင် အမှားဖြစ်ခဲ့သည်: ' + error.message, 'danger');
     }
 };
