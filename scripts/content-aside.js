@@ -19,12 +19,9 @@ const populateAside = () => {
         
                 <div class="container-flag">
     <h2>May there be peace.</h2>
-    <div class="flag">
-      <div class="stripe yellow"></div>
-      <div class="stripe green"></div>
-      <div class="stripe red"></div>
-      <div class="star">★</div>
-    </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg"
+       alt="Flag of Myanmar"
+       style="width: 100%; max-width: 400px;">
   </div>
   
         <!-- Socials Widget -->
