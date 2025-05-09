@@ -71,73 +71,64 @@
             </div>
 
             <!-- Create Post Tab -->
-            <div id="create-post-tab" class="tab-content">
-                <div class="card">
-                    <h2 class="card-title">Create New Post</h2>
-                    
-                    <div class="tabs">
-                        <div class="tab active" data-tab="form">Form</div>
-                        <div class="tab" data-tab="preview">Preview</div>
-                    </div>
-                    
-                    <div id="alert-success" class="alert alert-success"></div>
-                    <div id="alert-danger" class="alert alert-danger"></div>
-                    
-                    <div id="form-tab" class="tab-content active">
-                        <form id="post-form">
-                            <div class="form-group">
-                                <label for="post-title">Post Title</label>
-                                <input type="text" id="post-title" name="post-title" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="post-author">Author</label>
-                                <input type="text" id="post-author" name="post-author" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="post-date">Date</label>
-                                <input type="date" id="post-date" name="post-date" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="post-cover-image">Cover Image URL</label>
-                                <input type="url" id="post-cover-image" name="post-cover-image" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="post-image-alt">Image Alt Text</label>
-                                <input type="text" id="post-image-alt" name="post-image-alt" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="post-content">Content (HTML)</label>
-                                <textarea id="post-content" name="post-content" required></textarea>
-                            </div>
-                            
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-success" id="previewBtn">Preview</button>
-                                <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
-                                <button type="button" class="btn btn-primary" id="copyBtn">Copy Post Data</button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <div id="preview-tab" class="tab-content">
-                        <div class="preview-container">
-                            <h2 class="preview-title" id="preview-title">Post Title</h2>
-                            <p class="preview-meta" id="preview-meta">By Author • Date</p>
-                            <img src="" alt="" class="preview-image" id="preview-image">
-                            <div class="preview-content" id="preview-content"></div>
-                        </div>
-                        
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-secondary" id="backToFormBtn">Back to Form</button>
-                            <button type="button" class="btn btn-primary" id="copyPreviewBtn">Copy Post Data</button>
-                        </div>
-                    </div>
-                </div>
+            <div id="create-post-tab" class="tab-content active">
+    <div class="tab" data-tab="form" class="active">Form</div>
+    <div class="tab" data-tab="preview">Preview</div>
+
+    <!-- Form Tab Content -->
+    <div id="form-tab" class="tab-content active">
+        <form id="post-form">
+            <div class="form-group">
+                <label for="existing-post-select">Edit Existing Post:</label>
+                <select id="existing-post-select" class="form-control">
+                    <option value="">Select an existing post to edit</option>
+                </select>
             </div>
+            <div class="form-group">
+                <label for="post-url-input">Webpage URL (to fetch data):</label>
+                <input type="text" id="post-url-input" class="form-control" placeholder="Enter URL to fetch data">
+                <button type="button" id="fetch-data-btn" class="btn btn-primary mt-2">Fetch Data from URL</button>
+            </div>
+            <div class="form-group">
+                <label for="post-title">Title:</label>
+                <input type="text" id="post-title" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="post-author">Author:</label>
+                <input type="text" id="post-author" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="post-date">Date:</label>
+                <input type="date" id="post-date" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="post-cover-image">Cover Image URL:</label>
+                <input type="text" id="post-cover-image" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="post-image-alt">Image Caption:</label>
+                <input type="text" id="post-image-alt" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="post-content">Content:</label>
+                <textarea id="post-content" class="form-control" rows="5" required></textarea>
+            </div>
+            <button type="button" id="previewBtn" class="btn btn-primary">Preview</button>
+            <button type="button" id="clearBtn" class="btn btn-secondary">Clear</button>
+            <button type="button" id="copyBtn" class="btn btn-success">Copy</button>
+        </form>
+    </div>
+
+    <!-- Preview Tab Content -->
+    <div id="preview-tab" class="tab-content">
+        <h2 id="preview-title"></h2>
+        <div id="preview-meta" class="post-meta"></div>
+        <img id="preview-image" alt="Preview Image" style="max-width: 100%;">
+        <div id="preview-content"></div>
+        <button type="button" id="backToFormBtn" class="btn btn-secondary">Back to Form</button>
+        <button type="button" id="copyPreviewBtn" class="btn btn-success">Copy</button>
+    </div>
+</div>
 
             <!-- All Posts Tab -->
             <div id="all-posts-tab" class="tab-content">
