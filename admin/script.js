@@ -264,6 +264,8 @@ const prepareDateChart = (posts) => {
     });
 };
 
+/* ... (Previous code remains unchanged) ... */
+
 /* ======================
    CREATE POST FUNCTIONALITY
    ====================== */
@@ -274,6 +276,8 @@ const setupCreatePostTab = () => {
     const copyBtn = document.getElementById('copyBtn');
     const backToFormBtn = document.getElementById('backToFormBtn');
     const copyPreviewBtn = document.getElementById('copyPreviewBtn');
+    const fetchDataBtn = document.getElementById('fetch-data-btn');
+    const existingPostSelect = document.getElementById('existing-post-select');
     const tabs = document.querySelectorAll('.tab');
     
     tabs.forEach(tab => {
@@ -288,6 +292,84 @@ const setupCreatePostTab = () => {
     copyBtn.addEventListener('click', copyPostData);
     backToFormBtn.addEventListener('click', () => switchTab('form'));
     copyPreviewBtn.addEventListener('click', copyPostData);
+    fetchDataBtn.addEventListener('click', fetchDataFromUrl);
+    existingPostSelect.addEventListener('change', loadExistingPost);
+
+    populateExistingPosts();
+};
+
+const populateExistingPosts = () => {
+    const existingPostSelect = document.getElementById('existing-post-select');
+    if (!existingPostSelect) {
+        console.error('Existing post select element not found!');
+        return;
+    }
+    existingPostSelect.innerHTML = '<option value="">Select an existing post to edit</option>';
+    allPosts.forEach(post => {
+        const option = document.createElement('option');
+        option.value = post.PostUrl;
+        option.textContent = `${post.title} (${post.PostUrl})`;
+        existingPostSelect.appendChild(option);
+    });
+};
+
+const loadExistingPost = () => {
+    const existingPostSelect = document.getElementById('existing-post-select');
+    const postUrl = existingPostSelect.value;
+    if (!postUrl) return;
+
+    const post = allPosts.find(p => p.PostUrl === postUrl);
+    if (post) {
+        document.getElementById('post-title').value = post.title || '';
+        document.getElementById('post-content').value = post.Description || '';
+        document.getElementById('post-cover-image').value = post.ImageUrl || '';
+        document.getElementById('post-image-alt').value = post.ImageCaption || '';
+        document.getElementById('post-author').value = post.Author || '';
+        document.getElementById('post-date').value = post.Date ? new Date(post.Date).toISOString().split('T')[0] : '';
+        showAlert('Existing post loaded successfully!', 'success');
+    } else {
+        showAlert('Post not found!', 'danger');
+    }
+};
+
+const fetchDataFromUrl = async () => {
+    const urlInput = document.getElementById('post-url-input');
+    const url = urlInput.value.trim();
+    if (!url || !validateUrl(url)) {
+        showAlert('ကျေးဇူးပြု၍ မှန်ကန်သော URL ထည့်ပါ', 'danger');
+        return;
+    }
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Failed to fetch the URL');
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        // Extract data based on your webpage structure
+        const title = doc.querySelector('h1.post-title')?.textContent.trim() || '';
+        const meta = doc.querySelector('p.post-meta')?.textContent.trim() || '';
+        const authorMatch = meta.match(/By\s+(.+?)\s+•/);
+        const dateMatch = meta.match(/•\s+(.+)/);
+        const author = authorMatch ? authorMatch[1] : '';
+        const date = dateMatch ? dateMatch[1] : '';
+        const coverImage = doc.querySelector('div.post-cover-image img')?.src || '';
+        const imageAlt = doc.querySelector('div.post-cover-image img')?.alt || '';
+        const content = doc.querySelector('div.post-text')?.innerHTML || '';
+
+        // Populate form
+        document.getElementById('post-title').value = title;
+        document.getElementById('post-author').value = author;
+        document.getElementById('post-date').value = date ? new Date(date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+        document.getElementById('post-cover-image').value = coverImage;
+        document.getElementById('post-image-alt').value = imageAlt;
+        document.getElementById('post-content').value = content;
+
+        showAlert('Data fetched from URL successfully!', 'success');
+    } catch (error) {
+        showAlert('ဒေတာကို URL မှ ဆွဲယူရာတွင် အမှားဖြစ်ခဲ့သည်: ' + error.message, 'danger');
+    }
 };
 
 const switchTab = (tabId) => {
@@ -319,7 +401,7 @@ const previewPost = () => {
     }
     
     document.getElementById('preview-title').textContent = title;
-    document.getElementById('preview-meta').innerHTML = `ရေးသူ <a>${author}</a> • ${formatDate(date)}`;
+    document.getElementById('preview-meta').innerHTML = `By <a>${author}</a> • ${formatDate(date)}`;
     document.getElementById('preview-image').src = coverImage;
     document.getElementById('preview-image').alt = imageAlt;
     document.getElementById('preview-content').innerHTML = DOMPurify.sanitize(content);
@@ -330,6 +412,8 @@ const previewPost = () => {
 
 const clearForm = () => {
     document.getElementById('post-form').reset();
+    document.getElementById('existing-post-select').value = '';
+    document.getElementById('post-url-input').value = '';
     setupCurrentDate();
     showAlert('ဖောင်ကို ရှင်းလင်းပြီးပါပြီ', 'success');
 };
@@ -355,7 +439,7 @@ const copyPostData = async () => {
         return;
     }
     
-    const postDataString = `const postData = ${JSON.stringify(postData, null, 4)};\n\n// DOM content loaded\ndocument.addEventListener("DOMContentLoaded", () => {\n    // Set title\n    document.getElementById("post-title").textContent = postData.title;\n\n    // Set author and date\n    const postMeta = document.querySelector(".post-meta");\n    if (postMeta) {\n        postMeta.innerHTML = \`ရေးသူ <a>\${postData.author}</a> • \${postData.date}\`;\n    }\n\n    // Set cover image\n    const coverImageContainer = document.getElementById("post-cover-image");\n    if (coverImageContainer) {\n        coverImageContainer.innerHTML = \`<img src="\${postData.coverImage}" alt="\${postData.imageAlt}" />\`;\n    }\n\n    // Set post content\n    const postText = document.getElementById("post-text");\n    if (postText) {\n        postText.innerHTML = postData.content;\n    }\n});`;
+    const postDataString = `const postData = ${JSON.stringify(postData, null, 4)};\n\n// DOM content loaded\ndocument.addEventListener("DOMContentLoaded", () => {\n    // Set title\n    document.getElementById("post-title").textContent = postData.title;\n\n    // Set author and date\n    const postMeta = document.querySelector(".post-meta");\n    if (postMeta) {\n        postMeta.innerHTML = \`By <a>\${postData.author}</a> • \${postData.date}\`;\n    }\n\n    // Set cover image\n    const coverImageContainer = document.getElementById("post-cover-image");\n    if (coverImageContainer) {\n        coverImageContainer.innerHTML = \`<img src="\${postData.coverImage}" alt="\${postData.imageAlt}" />\`;\n    }\n\n    // Set post content\n    const postText = document.getElementById("post-text");\n    if (postText) {\n        postText.innerHTML = postData.content;\n    }\n});`;
     
     try {
         await navigator.clipboard.writeText(postDataString);
@@ -364,6 +448,8 @@ const copyPostData = async () => {
         showAlert('ကူးယူရာတွင် အမှားတစ်ခုဖြစ်နေပါသည်: ' + err, 'danger');
     }
 };
+
+/* ... (Remaining code remains unchanged) ... */
 
 /* ======================
    ALL POSTS FUNCTIONALITY
