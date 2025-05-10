@@ -685,5 +685,5 @@ select[multiple] option:checked {
     width: 100%;
     text-align: left;
     color: var(--text-dark);
-    font-family: var(--font-mm-primary) "Myanmar Square", sans-serif;
+    font-family: var(--font-mm-primary);
 }
