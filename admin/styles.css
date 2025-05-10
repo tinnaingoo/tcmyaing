@@ -21,6 +21,21 @@
     --spacing-medium: 20px;
     --spacing-large: 30px;
     --border-radius: 5px;
+
+    /* Typography */
+    --font-primary: "Padauk", serif;
+    --font-secondary: "Noto Sans Myanmar", serif;
+    --font-mm-primary: "Myanmar Square", sans-serif; /* Added Fallback */
+    --font-mm-secondary: "Pyidaungsu", sans-serif; /* Added Fallback */
+    --font-mm-beauty: "Z01-Umoe002", sans-serif; /* Added Fallback */
+    --font-size-base: 1rem; /* 16px if root is 16px */
+    --font-size-title: clamp(1.5rem, 4vw, 2.5rem); /* Fluid Title Size */
+    --font-size-subtitle: clamp(1.2rem, 2.5vw, 1.5rem);
+    --font-size-meta: clamp(0.75rem, 1.5vw, 0.875rem);
+    --font-size-small: clamp(0.7rem, 1vw, 0.9rem);
+    --font-size-nav-title: clamp(1rem, 2vw, 1.2rem);
+    --font-size-caption: clamp(0.9rem, 1.5vw, 1.1rem); /* Added for Captions */
+    
 }
 
 body.dark-mode {
