@@ -1,5 +1,3 @@
-/* ... (Previous code remains unchanged) ... */
-
 /* ======================
    INITIAL SETUP & UTILITIES
    ====================== */
@@ -34,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('add-category-btn').addEventListener('click', addCategory);
     document.getElementById('add-user-btn').addEventListener('click', addUser);
     document.getElementById('settings-form').addEventListener('submit', saveSettings);
+    loadExistingPosts(); // Load dropdown with posts from post-data.json
 });
 
 // Utility Functions
@@ -271,8 +270,6 @@ const prepareDateChart = (posts) => {
     });
 };
 
-/* ... (Previous code remains unchanged) ... */
-
 /* ======================
    CREATE POST FUNCTIONALITY
    ====================== */
@@ -305,6 +302,39 @@ const setupCreatePostTab = () => {
     populateExistingPosts();
 };
 
+const loadExistingPosts = async () => {
+    const select = document.getElementById('existing-post-select');
+    select.innerHTML = '<option value="">Select an existing post to edit</option>';
+
+    try {
+        const response = await fetch('/home/post-data.json');
+        if (!response.ok) throw new Error('Failed to fetch post-data.json');
+        const posts = await response.json();
+
+        if (!Array.isArray(posts) || posts.length === 0) {
+            console.log('No posts available in post-data.json.');
+            return;
+        }
+
+        // Get current website domain
+        const currentDomain = window.location.origin; // e.g., https://example.com
+
+        // Populate dropdown with post titles and construct full URL
+        posts.forEach(post => {
+            if (post.title && post.PostUrl) {
+                const fullUrl = `${currentDomain}${post.PostUrl}.html`;
+                const option = document.createElement('option');
+                option.value = fullUrl; // Store the full URL as the value
+                option.textContent = post.title;
+                select.appendChild(option);
+            }
+        });
+    } catch (error) {
+        console.error('Error loading posts from post-data.json:', error);
+        showAlert('Error loading posts: ' + error.message, 'danger');
+    }
+};
+
 const populateExistingPosts = () => {
     const existingPostSelect = document.getElementById('existing-post-select');
     if (!existingPostSelect) {
@@ -320,23 +350,21 @@ const populateExistingPosts = () => {
     });
 };
 
-const loadExistingPost = () => {
-    const existingPostSelect = document.getElementById('existing-post-select');
-    const postUrl = existingPostSelect.value;
-    if (!postUrl) return;
+const loadExistingPost = async () => {
+    const select = document.getElementById('existing-post-select');
+    const selectedUrl = select.value;
 
-    const post = allPosts.find(p => p.PostUrl === postUrl);
-    if (post) {
-        document.getElementById('post-title').value = post.title || '';
-        document.getElementById('post-content').value = post.Description || '';
-        document.getElementById('post-cover-image').value = post.ImageUrl || '';
-        document.getElementById('post-image-alt').value = post.ImageCaption || '';
-        document.getElementById('post-author').value = post.Author || '';
-        document.getElementById('post-date').value = post.Date ? new Date(post.Date).toISOString().split('T')[0] : '';
-        showAlert('Existing post loaded successfully!', 'success');
-    } else {
-        showAlert('Post not found!', 'danger');
+    if (!selectedUrl) {
+        clearForm();
+        return;
     }
+
+    // Automatically populate the URL input and trigger fetch
+    const urlInput = document.getElementById('post-url-input');
+    urlInput.value = selectedUrl;
+
+    // Call fetchDataFromUrl to fetch data from the selected URL
+    await fetchDataFromUrl();
 };
 
 const fetchDataFromUrl = async () => {
@@ -359,7 +387,6 @@ const fetchDataFromUrl = async () => {
         let postData = null;
         if (scriptTag) {
             try {
-                // Attempt to evaluate the script content
                 const scriptContent = scriptTag.textContent;
                 const postDataMatch = scriptContent.match(/const\s+postData\s*=\s*({[\s\S]*?});/);
                 if (postDataMatch && postDataMatch[1]) {
@@ -371,28 +398,28 @@ const fetchDataFromUrl = async () => {
         }
 
         if (!postData) {
-        throw new Error('postData not found in the webpage script');
-    }
+            throw new Error('postData not found in the webpage script');
+        }
 
-    // Save fetched postData to allPosts
-    if (!allPosts.some(p => p.title === postData.title)) {
-        allPosts.push(postData);
-        localStorage.setItem('postData', JSON.stringify(allPosts));
-        loadExistingPosts(); // Refresh the dropdown
-    }
+        // Save fetched postData to allPosts
+        if (!allPosts.some(p => p.title === postData.title)) {
+            allPosts.push(postData);
+            localStorage.setItem('postData', JSON.stringify(allPosts));
+            populateExistingPosts(); // Refresh the dropdown
+        }
 
-    // Populate form with postData
-    document.getElementById('post-title').value = postData.title || '';
-    document.getElementById('post-author').value = postData.author || '';
-    document.getElementById('post-date').value = postData.date ? new Date(postData.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
-    document.getElementById('post-cover-image').value = postData.coverImage || '';
-    document.getElementById('post-image-alt').value = postData.imageAlt || '';
-    document.getElementById('post-content').value = postData.content || '';
+        // Populate form with postData
+        document.getElementById('post-title').value = postData.title || '';
+        document.getElementById('post-author').value = postData.author || '';
+        document.getElementById('post-date').value = postData.date ? new Date(postData.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+        document.getElementById('post-cover-image').value = postData.coverImage || '';
+        document.getElementById('post-image-alt').value = postData.imageAlt || '';
+        document.getElementById('post-content').value = postData.content || '';
 
-    // Debug log to check extracted data
-    console.log('Fetched postData:', postData);
+        // Debug log to check extracted data
+        console.log('Fetched postData:', postData);
 
-    showAlert('Data fetched from URL successfully!', 'success');
+        showAlert('Data fetched from URL successfully!', 'success');
     } catch (error) {
         console.error('Fetch Error:', error);
         showAlert('ဒေတာကို URL မှ ဆွဲယူရာတွင် အမှားဖြစ်ခဲ့သည်: ' + error.message, 'danger');
@@ -475,8 +502,6 @@ const copyPostData = async () => {
         showAlert('ကူးယူရာတွင် အမှားတစ်ခုဖြစ်နေပါသည်: ' + err, 'danger');
     }
 };
-
-/* ... (Remaining code remains unchanged) ... */
 
 /* ======================
    ALL POSTS FUNCTIONALITY
@@ -859,7 +884,7 @@ const saveEditedPost = async () => {
     updateAllPostsPage();
 };
 
-function updateRelatedPosts(updatedPost) {
+const updateRelatedPosts = (updatedPost) => {
     if (updatedPost['PrePost-Url']) {
         const prePostIndex = allPosts.findIndex(p => p.PostUrl === updatedPost['PrePost-Url']);
         if (prePostIndex !== -1 && allPosts[prePostIndex]['NextPost-Url'] !== updatedPost.PostUrl) {
@@ -877,7 +902,7 @@ function updateRelatedPosts(updatedPost) {
     }
     
     localStorage.setItem('postData', JSON.stringify(allPosts));
-}
+};
 
 const closeEditDialog = () => {
     const modal = document.getElementById('edit-post-dialog');
