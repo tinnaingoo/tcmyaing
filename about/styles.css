@@ -1314,7 +1314,6 @@ footer {
     color: var(--text-light);
     text-align: center;
     padding: var(--spacing-medium) 0;
-    margin-top: var(--spacing-xl);
 }
 
 footer p {
