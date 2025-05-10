@@ -3,7 +3,7 @@
     "Category": [
         "Computer"
     ],
-    "title": "Windows မှာ Help Box အမြပေါ်နေသူများအတွက် F1 Help Disable Help file",
+    "title": "Windows မှာ Help Box အမြဲပေါ်နေသူများအတွက် F1 Help Disable Help file",
     "Description": "Computer မှာ ကိုယ်က ဘာ Key မှ မနှိပ်မိဘဲ Help Box ပေါ်နေသူများအနေနဲ့ ယခု Post က .......",
     "ImageUrl": "https://i.pinimg.com/736x/81/a5/a8/81a5a818b70661853a6747042805833f.jpg",
     "ImageCaption": "HTML & CSS - Beginner To Super Beginner",
@@ -82,7 +82,7 @@
     "PostUrl": "/home/computer/about-all-printer",
     "PrePost-Url": "/home/computer/about-computer-os",
     "PrePost-Title": "Operating System (OS) အကြောင်း",
-    "NextPost-Url": "/home/technology-sharing/about-computer-keyboard",
+    "NextPost-Url": "/home/computer/about-computer-keyboard",
     "NextPost-Title": "ကွန်ပျူတာကီးဘုတ် (Computer Keyboard) အကြောင်း"
 },
         
@@ -220,7 +220,7 @@
     "ImageCaption": "About Computer Keyboard",
     "Author": "tinnaingoo",
     "Date": "February 23, 2025",
-    "PostUrl": "/home/technology-sharing/about-computer-keyboard",
+    "PostUrl": "/home/computer/about-computer-keyboard",
     "PrePost-Url": "/home/computer/what-is-computer",
     "PrePost-Title": "Computer ဆိုတာဘာလဲ",
     "NextPost-Url": "/home/computer/learning-windows-boot",
