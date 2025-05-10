@@ -677,3 +677,13 @@ select[multiple] option:checked {
     background-color: #f8d7da;
     color: #721c24;
 }
+
+#preview-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-weight: bold;
+    margin-bottom: var(--spacing-small);
+    width: 100%;
+    text-align: left;
+    color: var(--text-dark);
+    font-family: var(--font-mm-primary) "Myanmar Square", sans-serif;
+}
