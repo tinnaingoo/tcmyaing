@@ -110,34 +110,15 @@
 
 <script>
     <!--Post Data Script-->
+        
     // post.js
-
-// Post data
 const postData = {
-    title: "HTML & CSS - Beginner To Super Beginner by Lwin Moe Paing",
-    author: "tinnaingoo",
-    date: "April 8, 2025",
-    coverImage: "https://i.pinimg.com/1200x/29/c5/8e/29c58e694ad68e6ebdef728e586db15e.jpg",
-    imageAlt: "HTML & CSS",
-    content: `
-        <p>ဒီစာအုပ်က အခုမှ Web Development ကို စတင်လေ့လာမည့်သူ့တွေအတွက် အရမ်းသင့်တော်တဲ့ စာအုပ်တစ်အုပ်ဖြစ်ပါတယ်။ ...</p>
-        <p class="break-words"><strong>ဒီ eBook က ဘယ်သူ့အတွက်လဲ?</strong></p>
-        <ul class="marker:text-secondary">
-            <li class="break-words">လုံးဝအစပြုသူများ - ...</li>
-            <li class="break-words">အလယ်အလတ်သင်ယူသူများ - ...</li>
-            <li class="break-words">ဝက်ဘ်ဆိုက်ပိုင်ရှင်များ - ...</li>
-        </ul>
-        <p class="break-words"><strong>ဒီ eBook ကို ဘာကြောင့် ဖတ်သင့်သလဲ?</strong></p>
-        <ul class="marker:text-secondary">
-            <li class="break-words">လက်တွေ့ဆန်တဲ့ ချဉ်းကပ်မှု - ...</li>
-            <li class="break-words">ပြည့်စုံတဲ့ အကြောင်းအရာ - ...</li>
-            <li class="break-words">ကျွမ်းကျင်သူရဲ့ လမ်းညွှန်မှု - ...</li>
-            <li class="break-words">နောက်ဆုံးပေါ် အချက်အလက်များ - ...</li>
-        </ul>
-        <p>Author: <a href="https://github.com/lwinmoepaing/html-and-css-beginner-to-super-beginner-ebook">Lwin Moe Paing</a></p>
-        <button class="btn"><i class="fa fa-download"></i> Download</button>
-        <p>#tcmyaing</p>
-    `
+    "title": "HTML & CSS - Beginner To Super Beginner by Lwin Moe Paing",
+    "author": "tinnaingoo",
+    "date": "2025-04-08",
+    "coverImage": "https://i.pinimg.com/1200x/29/c5/8e/29c58e694ad68e6ebdef728e586db15e.jpg",
+    "imageAlt": "HTML & CSS",
+    "content": "<p>ဒီစာအုပ်က အခုမှ Web Development ကို စတင်လေ့လာမည့်သူ့တွေအတွက် အရမ်းသင့်တော်တဲ့ စာအုပ်တစ်အုပ်ဖြစ်ပါတယ်။ ...</p>\n        <p class=\"break-words\"><strong>ဒီ eBook က ဘယ်သူ့အတွက်လဲ?</strong></p>\n        <ul class=\"marker:text-secondary\">\n            <li class=\"break-words\">လုံးဝအစပြုသူများ - ...</li>\n            <li class=\"break-words\">အလယ်အလတ်သင်ယူသူများ - ...</li>\n            <li class=\"break-words\">ဝက်ဘ်ဆိုက်ပိုင်ရှင်များ - ...</li>\n        </ul>\n        <p class=\"break-words\"><strong>ဒီ eBook ကို ဘာကြောင့် ဖတ်သင့်သလဲ?</strong></p>\n        <ul class=\"marker:text-secondary\">\n            <li class=\"break-words\">လက်တွေ့ဆန်တဲ့ ချဉ်းကပ်မှု - ...</li>\n            <li class=\"break-words\">ပြည့်စုံတဲ့ အကြောင်းအရာ - ...</li>\n            <li class=\"break-words\">ကျွမ်းကျင်သူရဲ့ လမ်းညွှန်မှု - ...</li>\n            <li class=\"break-words\">နောက်ဆုံးပေါ် အချက်အလက်များ - ...</li>\n        </ul>\n        <p>Author: <a href=\"https://github.com/lwinmoepaing/html-and-css-beginner-to-super-beginner-ebook\">Lwin Moe Paing</a></p>\n        <a class=\"btn\" href=\"https://drive.google.com/file/d/1EcXt3WrOzLh-PR6ywdEXR1kIMr0DxK3s/view\" target=\"_blank\"> <i class=\"fa fa-download\"></i> Download</a>\n        <p>#tcmyaing</p>"
 };
 
 // DOM content loaded
@@ -164,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
+    
 // ===== 4. Navigation Update =====
 // Navigation link တွေကို JSON ကနေ update လုပ်ဖို့ function
 async function updateNavigation() {
