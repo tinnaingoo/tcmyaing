@@ -752,9 +752,9 @@ body.dark-mode section.post-content {
 }
 
 .btn {
-    background-color: DodgerBlue;
+    background-color: var(--primary-color);
     border: none;
-    color: white;
+    color: var(--text-light);
     padding: 12px 30px;
     cursor: pointer;
     font-size: var(--font-size-base);
@@ -762,6 +762,7 @@ body.dark-mode section.post-content {
 
 body.dark-mode .btn {
     background-color: #1a73e8;
+    color: var(--text-light);
 }
 
 /* Darker background on mouse-over */
