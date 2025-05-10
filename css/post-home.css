@@ -732,7 +732,7 @@ body.dark-mode section.post-content {
     font-family: var(--font-primary);
     text-align: justify;
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--text-light);
 }
 
 .post-text p {
