@@ -354,27 +354,36 @@ const fetchDataFromUrl = async () => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
 
-        // Extract data based on updated webpage structure
-        const title = doc.querySelector('h1.entry-title')?.textContent.trim() || '';
-        const meta = doc.querySelector('p.meta')?.textContent.trim() || '';
-        const authorMatch = meta.match(/By\s+(.+?)\s+•/);
-        const dateMatch = meta.match(/•\s+(.+)/);
-        const author = authorMatch ? authorMatch[1] : '';
-        const date = dateMatch ? dateMatch[1] : '';
-        const coverImage = doc.querySelector('div.featured-image img')?.src || '';
-        const imageAlt = doc.querySelector('div.featured-image img')?.alt || '';
-        const content = doc.querySelector('div.entry-content')?.innerHTML || '';
+        // Extract postData from <script> tag
+        const scriptTag = doc.querySelector('script:not([src])');
+        let postData = null;
+        if (scriptTag) {
+            try {
+                // Attempt to evaluate the script content
+                const scriptContent = scriptTag.textContent;
+                const postDataMatch = scriptContent.match(/const\s+postData\s*=\s*({[\s\S]*?});/);
+                if (postDataMatch && postDataMatch[1]) {
+                    postData = JSON.parse(postDataMatch[1]);
+                }
+            } catch (e) {
+                console.error('Error parsing postData:', e);
+            }
+        }
 
-        // Populate form
-        document.getElementById('post-title').value = title;
-        document.getElementById('post-author').value = author;
-        document.getElementById('post-date').value = date ? new Date(date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
-        document.getElementById('post-cover-image').value = coverImage;
-        document.getElementById('post-image-alt').value = imageAlt;
-        document.getElementById('post-content').value = content;
+        if (!postData) {
+            throw new Error('postData not found in the webpage script');
+        }
+
+        // Populate form with postData
+        document.getElementById('post-title').value = postData.title || '';
+        document.getElementById('post-author').value = postData.author || '';
+        document.getElementById('post-date').value = postData.date ? new Date(postData.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+        document.getElementById('post-cover-image').value = postData.coverImage || '';
+        document.getElementById('post-image-alt').value = postData.imageAlt || '';
+        document.getElementById('post-content').value = postData.content || '';
 
         // Debug log to check extracted data
-        console.log('Fetched Data:', { title, author, date, coverImage, imageAlt, content });
+        console.log('Fetched postData:', postData);
 
         showAlert('Data fetched from URL successfully!', 'success');
     } catch (error) {
