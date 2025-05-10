@@ -371,21 +371,28 @@ const fetchDataFromUrl = async () => {
         }
 
         if (!postData) {
-            throw new Error('postData not found in the webpage script');
-        }
+        throw new Error('postData not found in the webpage script');
+    }
 
-        // Populate form with postData
-        document.getElementById('post-title').value = postData.title || '';
-        document.getElementById('post-author').value = postData.author || '';
-        document.getElementById('post-date').value = postData.date ? new Date(postData.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
-        document.getElementById('post-cover-image').value = postData.coverImage || '';
-        document.getElementById('post-image-alt').value = postData.imageAlt || '';
-        document.getElementById('post-content').value = postData.content || '';
+    // Save fetched postData to allPosts
+    if (!allPosts.some(p => p.title === postData.title)) {
+        allPosts.push(postData);
+        localStorage.setItem('postData', JSON.stringify(allPosts));
+        loadExistingPosts(); // Refresh the dropdown
+    }
 
-        // Debug log to check extracted data
-        console.log('Fetched postData:', postData);
+    // Populate form with postData
+    document.getElementById('post-title').value = postData.title || '';
+    document.getElementById('post-author').value = postData.author || '';
+    document.getElementById('post-date').value = postData.date ? new Date(postData.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+    document.getElementById('post-cover-image').value = postData.coverImage || '';
+    document.getElementById('post-image-alt').value = postData.imageAlt || '';
+    document.getElementById('post-content').value = postData.content || '';
 
-        showAlert('Data fetched from URL successfully!', 'success');
+    // Debug log to check extracted data
+    console.log('Fetched postData:', postData);
+
+    showAlert('Data fetched from URL successfully!', 'success');
     } catch (error) {
         console.error('Fetch Error:', error);
         showAlert('ဒေတာကို URL မှ ဆွဲယူရာတွင် အမှားဖြစ်ခဲ့သည်: ' + error.message, 'danger');
