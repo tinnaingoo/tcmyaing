@@ -56,8 +56,8 @@ async function fetchAndDisplayPosts() {
                         <img src="${post.ImageUrl}" alt="${post.ImageCaption}">
                     </div>
                     <div class="post-content">
-                        <span class="post-category">${categoryDisplay}</span>
                         <h2 class="post-title" style="text-align: center;">${post.title}</h2>
+                        <span class="post-category">${categoryDisplay}</span>
                         <p class="post-excerpt">${post.Description}</p>
                         <div class="post-footer">
                             <a href="${post.PostUrl}.html" class="read-more" title="${post.title}">KEEP READING...</a>
