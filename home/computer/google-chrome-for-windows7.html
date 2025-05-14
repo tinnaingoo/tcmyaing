@@ -89,6 +89,13 @@
 <script src="/scripts/content-secondary.js"></script>
     
 
+
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01" alt="Modal Image">
+</div>
+<script src="/scripts/image-popup-modal.js"></script>
+
 <footer id="footer">
     <div class="container">
         <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
@@ -107,12 +114,12 @@
 
 // Post data
 const postData = {
-    "title": "Google Chrome for Windows 7 | Chrome  109",
+    "title": "Setup Cannot find Error Microsoft Office 2010",
     "author": "tinnaingoo",
-    "date": "2025-05-14",
-    "coverImage": "https://images.filepuma.com/screenshots/web_browsers/google_chrome_64bit/wa_FP-google_chrome_64bit_f1c658390c28602a32239328993.png",
-    "imageAlt": "Chrome  109",
-    "content": "<div style=\"padding-bottom: 20px; padding-top: 20px;\">Windows 7 မှာ Chrome Install လုပ်တဲ့အခါ Error တက်နေရင် Chrome 109 ကို ပြောင်းထည့်ကြည့်ပါ။</div><div style=\"padding-bottom: 20px; padding-top: 20px;\">လိုအပ်သူများ Download ယူနိုင်ပါတယ်။ <br /></div>\n\n<a class=\"btn\" href=\"https://archive.org/download/chrome-109-Win7-8\" target=\"_blank\"><i class=\"fa fa-download\"></i> Download  </a>"
+    "date": "2025-05-12",
+    "coverImage": "https://i.pinimg.com/736x/67/1e/af/671eaff55fe79f9f000cfa4d8152dce1.jpg",
+    "imageAlt": "Setup Cannot Find Error",
+    "content": "<div style=\"padding-bottom: 20px; padding-top: 20px;\">Setup cannot find office.e-us\\dwtrig20.exe&nbsp; error တတ်ခဲ့ရင် အခုပေးထားတဲ့ Link ကနေ ပြန် Download ဆွဲပြီး ထည့်သွင်းပါ။</div><div class=\"separator\" style=\"clear: both; text-align: center;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjskFNVjMY_czXADE0EaUmQKwUhf4C61QsTBRSwsdt8CPxBDp8QMktYVXg9dyxzGZ2UWZlh1VIWGdHztx5KAwBlJSf5NO4LRoYvwHuid7nEXxuaVCWeqbXmLj92rgu5ttN6cPAG0jkg_CyS_Xm1vt4P9xXaoGQfaLDB76ICWTFEEcvUROBOzvoSFJ8li8Y/s1600/Error.PNG\" style=\"margin-left: 1em; margin-right: 1em;\"><img border=\"0\" data-original-height=\"900\" data-original-width=\"1600\" height=\"180\" src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjskFNVjMY_czXADE0EaUmQKwUhf4C61QsTBRSwsdt8CPxBDp8QMktYVXg9dyxzGZ2UWZlh1VIWGdHztx5KAwBlJSf5NO4LRoYvwHuid7nEXxuaVCWeqbXmLj92rgu5ttN6cPAG0jkg_CyS_Xm1vt4P9xXaoGQfaLDB76ICWTFEEcvUROBOzvoSFJ8li8Y/s320/Error.PNG\" width=\"320\" /></a></div><br />\n\n<div class=\"separator\" style=\"clear: both; text-align: center;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXXnisGL_qYbC4MaOFtHXA9fTj9IgVQ3vJ9b2ectCDsTaU7c_m9PFL120S41dAM-bomdye_NZyUGNAf5pJewNS93RUI87QhzY150N1F-gOnWlvIc1pvXwHUBL1-LeYva82bC63PHLrXTOmS_z3jPCvvvZnnFhGBRv316gPcAUdMqAAHBsljl422s7OQbg/s616/Error%2002.PNG\" style=\"margin-left: 1em; margin-right: 1em;\"><img border=\"0\" data-original-height=\"500\" data-original-width=\"616\" height=\"260\" src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXXnisGL_qYbC4MaOFtHXA9fTj9IgVQ3vJ9b2ectCDsTaU7c_m9PFL120S41dAM-bomdye_NZyUGNAf5pJewNS93RUI87QhzY150N1F-gOnWlvIc1pvXwHUBL1-LeYva82bC63PHLrXTOmS_z3jPCvvvZnnFhGBRv316gPcAUdMqAAHBsljl422s7OQbg/s320/Error%2002.PNG\" width=\"320\" /></a></div><div class=\"separator\" style=\"clear: both; text-align: center;\"><br /></div><div class=\"separator\" style=\"clear: both; text-align: center;\">\n  \n<a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtluvQ0-19M_HVlwX-pe8DnXdGa25ULowEq3uGrx_4hlAoB9m-lrao7HV9-hCLxp_jRJS2KYLIDDNBmkzE2yS6du2GqVSCRcKaztZlBeB5T5VxA7KygZ_qX-hhO9msek1UArSzrqJWT79tPALR61Gqi6vgoqN_4eYEbW2RZB6U9nZoC91SBDgUPu2ujPk/s334/Error%2003.PNG\" style=\"margin-left: 1em; margin-right: 1em;\"><img border=\"0\" data-original-height=\"326\" data-original-width=\"334\" height=\"312\" src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtluvQ0-19M_HVlwX-pe8DnXdGa25ULowEq3uGrx_4hlAoB9m-lrao7HV9-hCLxp_jRJS2KYLIDDNBmkzE2yS6du2GqVSCRcKaztZlBeB5T5VxA7KygZ_qX-hhO9msek1UArSzrqJWT79tPALR61Gqi6vgoqN_4eYEbW2RZB6U9nZoC91SBDgUPu2ujPk/s320/Error%2003.PNG\" width=\"320\" /></a>\n</div><br /><div class=\"separator\" style=\"clear: both; text-align: center;\"><br /></div><br /><div style=\"padding-bottom: 20px; padding-top: 20px;\">https://youtu.be/9fKdkasPxJk?si=iKfWxyjUEzz66f_U</div>\n\n  <a class=\"btn\" href=\"https://archive.org/details/microsoft-office-2010\" target=\"_blank\"><button class=\"btn-txt\"> Download Link&nbsp;</button></a>\n\n"
 };
 
 // DOM content loaded
@@ -138,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
         postText.innerHTML = postData.content;
     }
 });
-    
+
 // ===== 4. Navigation Update =====
 // Navigation link တွေကို JSON ကနေ update လုပ်ဖို့ function
 async function updateNavigation() {
@@ -192,17 +199,10 @@ if (postTitle) {
 
 
     
-    
 </script>
-
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01" alt="Modal Image">
-</div>
-<script src="/scripts/image-popup-modal.js"></script>
-    
 <!-- JavaScript ဖိုင်များ -->
-<script src="/scripts/back-to-top.js"></script>
+<script src="/scripts/back-to-top.js"></script>      
+<script src="/scripts/image-popup-modal.js"></script>
 <script src="/scripts/post.js"></script>
 
 </body>
