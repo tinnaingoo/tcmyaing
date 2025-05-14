@@ -913,6 +913,9 @@ body.dark-mode .about {
     border-radius: var(--border-radius-small);
     box-shadow: 0 4px 8px var(--shadow-light);
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .post-image {
