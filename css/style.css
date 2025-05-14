@@ -921,6 +921,8 @@ body.dark-mode .about {
 .post-image {
     position: relative;
     overflow: hidden;
+    max-width: 300px;
+    align-items: center;
 }
 
 .post-image img {
