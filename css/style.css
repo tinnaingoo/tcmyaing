@@ -1091,6 +1091,16 @@ body.dark-mode .about {
     display: block;
     align-items: center;
 }
+    .post-image {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+    
     
     .post-text img {
         width: 300px;
