@@ -1533,6 +1533,73 @@ body.dark-mode .about {
     align-items: center;
 }
 
+/* --- Social Links Widget --- */
+
+.social-links {
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-links li {
+  margin: 0;
+}
+
+.social-links li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-secondary); /* Default light mode background */
+  color: var(--text-color);
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  font-size: 18px;
+}
+
+/* Hover effect */
+.social-links li a:hover {
+  transform: scale(1.1);
+  background: var(--accent-color);
+  color: #fff;
+  border-color: var(--accent-color);
+}
+
+/* Dark Mode Support (prefers-color-scheme) */
+@media (prefers-color-scheme: dark) {
+  .social-links li a {
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+  }
+
+  .social-links li a:hover {
+    background: #333;
+    border-color: #555;
+  }
+}
+
+/* Dark Mode Support (Manual toggle via .dark-mode class) */
+.dark-mode .social-links li a {
+  background: #222;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.dark-mode .social-links li a:hover {
+  background: #333;
+  border-color: #555;
+}
+
+
+
 /* ===== 10. Footer ===== */
 footer {
     background: var(--bg-footer);
