@@ -908,16 +908,16 @@ body.dark-mode .about {
 }
 
 .post-card {
-  display: flex;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 15px;
-  gap: 15px;
-  border-radius: 8px;
-  max-width: 900px;
-  margin: 0 auto;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  width: 100%;
+    display: flex;
+    background-color: var(--bg-card);
+    border: 1px solid #ddd;
+    padding: 15px;
+    gap: 15px;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    width: 100%;
 }
 
 .post-card-img{
