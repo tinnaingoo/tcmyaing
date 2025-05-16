@@ -51,20 +51,24 @@ async function fetchAndDisplayPosts() {
                 .join(', ');
 
             postHTML += `
-                <div class="post-card" data-category="${categories}">
-                    <div class="post-image">
-                        <img src="${post.ImageUrl}" alt="${post.ImageCaption}">
-                    </div>
-                    <div class="post-content">
-                        <h2 class="post-title" style="text-align: center;">${post.title}</h2>
-                        <span class="post-category">${categoryDisplay}</span>
-                        <p class="post-excerpt">${post.Description}</p>
-                        <div class="post-footer">
-                            <a href="${post.PostUrl}.html" class="read-more" title="${post.title}">KEEP READING...</a>
-                            <span class="post-meta">By <a>${post.Author}</a> • ${post.Date}</span>
-                        </div>
-                    </div>
-                </div>`;
+
+    <div class="post-card">
+    <div class="post-card-img">
+      <img src="${post.ImageUrl}" alt="${post.ImageCaption}">
+    </div>
+    <div class="post-card-content">
+      <h2>
+        <a href="${post.PostUrl}.html">${post.title}</a>
+      </h2>
+      <p class="post-meta">
+        Posted by <strong>${post.Author}</strong> on <em>${post.Date}</em> in 
+        <span class="category">${categoryDisplay}</span>
+      </p>
+      <p class="post-description">
+        ${post.Description}
+      </p>
+    </div>
+  </div> `;
         });
 
         postGrid.innerHTML = postHTML;
