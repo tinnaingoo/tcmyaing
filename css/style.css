@@ -919,9 +919,18 @@ body.dark-mode .about {
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
+.post-card-img{
+    width: 140px;           /* မင်းလိုချင်တဲ့ size */
+  height: 140px;
+  overflow: hidden;       /* ရှိတဲ့ box အပြင် Image မထွက်အောင် */
+  display: flex;
+  align-items: center;    /* vertical center */
+  justify-content: center; /* horizontal center */
+}
 .post-card-img img {
   width: 160px;
   border-radius: 5px;
+  object-fit: cover;
 }
 
 .post-card-content {
