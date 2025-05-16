@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/post-home.css">
+    <link rel="stylesheet" href="/css/myanmar-fonts.css">
+        
+    <!-- Font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+</head>
+<body>
+
+<button class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+</button>
+<script src="/scripts/dark-mode-toggle.js"></script>
+    
+<header id="header">
+    <div class="header-box">
+        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+    </div>
+</header>
+<script src="/scripts/content-header.js"></script>
+
+<div class="main-body">
+<section class="all-post">
+
+<section class="post-content">
+    <div class="container">
+        <div class="post-title-container">
+        <h1 class="post-title" id="post-title">Title</h1>
+        <p class="post-meta">By <a>tinnaingoo</a> • Date</p>
+        </div>
+        <div class="post-cover-image" id="post-cover-image">
+            
+        </div>
+
+        <div class="post-text" id="post-text">
+            
+       </div>
+    </div>
+</section>
+
+<section id="post-navigation" class="post-navigation">
+    <div class="container">
+        <div class="nav-links">
+            <!-- Previous Post -->
+            <div class="prev-post">
+                <a href="#" class="nav-link" id="prevPostLink">
+                    <div class="nav-content">
+                        <span class="nav-label">Previous Post</span>
+                        <h3 class="nav-title" id="prevPostTitle"></h3>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Next Post -->
+            <div class="next-post">
+                <a href="#" class="nav-link" id="nextPostLink">
+                    <div class="nav-content">
+                        <span class="nav-label">Next Post</span>
+                        <h3 class="nav-title" id="nextPostTitle"></h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+</section>
+    
+<section class="aside" id="aside">
+    <div class="container">
+        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+    </div>
+</section>
+<script src="/scripts/content-aside.js"></script>
+  
+</div>
+    
+<section class="secondary" id="secondary">
+    <div class="container">
+        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+    </div>
+</section>
+<script src="/scripts/content-secondary.js"></script>
+    
+
+
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01" alt="Modal Image">
+</div>
+<script src="/scripts/image-popup-modal.js"></script>
+
+<footer id="footer">
+    <div class="container">
+        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+    </div>
+</footer>
+<script src="/scripts/content-footer.js"></script>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" title="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+</button>            
+
+<script>
+    <!--Post Data Script-->
+        
+    // post.js
+const postData = {
+    "title": "Disable \"Show more options\" context menu in Windows 11",
+    "author": "tinnaingoo",
+    "date": "2025-05-16",
+    "coverImage": "https://i.pinimg.com/736x/35/a4/b9/35a4b96ff5289361fba8bff15a895178.jpg",
+    "imageAlt": "Disable Show More Option",
+    "content": "<div class=\"download-button-cn\">Windows 11 မှာ Showmore Option ဖျောက်ဖို့အတွက် နည်းလမ်းလေးတွေပါ။</div\n\n<div class=\"download-button-cn\"><br /></div><div class=\"download-button-cn\" style=\"text-align: left;\"><h2><b><span style=\"color: #2b00fe;\">(1) Fileနဲ့ ပြောင်းရန်</span></b></h2></div>\n\n<div class=\"download-button-cn\"><br /></div>\n\n<img border=\"0\" class=\"img-post\" data-original-height=\"460\" data-original-width=\"385\" height=\"460\" src=\"https://www.elevenforum.com/attachments/enable_show_more_options-png.106133/\" width=\"385\" />\n<div style=\"padding-bottom: 20px; padding-top: 20px;\">\n\n<a class=\"btn\" href=\"https://drive.google.com/file/d/1clsMs--xbQkRTaEWV16hX12-BYZkz6Zu/view?usp=sharing\" target=\"_blank\">\n    <i class=\"fa fa-download\"></i> Enable File Download\n</a>\n</div>\n\n<img border=\"0\" class=\"img-post\" data-original-height=\"419\" data-original-width=\"278\" height=\"419\" src=\"https://www.elevenforum.com/attachments/disable_show_more_options-png.8876/\" width=\"278\" />\n\n<div style=\"padding-bottom: 20px; padding-top: 20px;\">\n<a class=\"btn\" href=\"https://drive.google.com/file/d/19VS9yvHQKHUmR2eiErcNlzbCIYt9p7OI/view?usp=sharing\" target=\"_blank\">\n    <i class=\"fa fa-download\"></i> Disable File Download\n\n</a>\n</div>\n\n<p>Download ဆွဲပြီးရင် Run လိုက်ရုံပါပဲ။</p>\n<h2 style=\"text-align: left;\"><b><span style=\"color: #2b00fe;\">(2) Commands နဲ့ ပြောင်းတဲ့နည်း</span></b>\n</h2><h3 style=\"text-align: left;\">Show More Option ဖျောက်ရန်</h3>\n<div>reg add “HKCU\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\\InprocServer32” /f /ve</div><div><br /></div>\n<div>Show More Option ပြရန်</div>\n<div>reg delete “HKEY_CURRENT_USER\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}” /f</div><div><br /></div>\n</br>\n</br>\n"
+};
+
+// DOM content loaded
+document.addEventListener("DOMContentLoaded", () => {
+    // Set title
+    document.getElementById("post-title").textContent = postData.title;
+
+    // Set author and date
+    const postMeta = document.querySelector(".post-meta");
+    if (postMeta) {
+        postMeta.innerHTML = `By <a>${postData.author}</a> • ${postData.date}`;
+    }
+
+    // Set cover image
+    const coverImageContainer = document.getElementById("post-cover-image");
+    if (coverImageContainer) {
+        coverImageContainer.innerHTML = `<img src="${postData.coverImage}" alt="${postData.imageAlt}" />`;
+    }
+
+    // Set post content
+    const postText = document.getElementById("post-text");
+    if (postText) {
+        postText.innerHTML = postData.content;
+    }
+});
+
+    
+// ===== 4. Navigation Update =====
+// Navigation link တွေကို JSON ကနေ update လုပ်ဖို့ function
+async function updateNavigation() {
+    try {
+        const response = await fetch('/home/post-data.json');
+        const postsData = await response.json();
+        
+        // Get current post title from the inline postData object
+        const currentTitle = postData.title;
+        const currentPost = postsData.find(post => post.title === currentTitle);
+
+        if (currentPost) {
+            const prevPostLink = document.getElementById('prevPostLink');
+            const prevPostTitle = document.getElementById('prevPostTitle');
+            if (currentPost['PrePost-Title'] && currentPost['PrePost-Url']) {
+                prevPostLink.href = `${currentPost['PrePost-Url']}.html`;
+                prevPostTitle.textContent = currentPost['PrePost-Title'];
+            } else {
+                prevPostLink.parentElement.style.display = 'none';
+            }
+
+            const nextPostLink = document.getElementById('nextPostLink');
+            const nextPostTitle = document.getElementById('nextPostTitle');
+            if (currentPost['NextPost-Title'] && currentPost['NextPost-Url']) {
+                nextPostLink.href = `${currentPost['NextPost-Url']}.html`;
+                nextPostTitle.textContent = currentPost['NextPost-Title'];
+            } else {
+                nextPostLink.parentElement.style.display = 'none';
+            }
+        } else {
+            console.error('Current post not found in JSON data');
+        }
+    } catch (error) {
+        console.error('Error fetching navigation data:', error);
+    }
+}
+
+// ===== Run Navigation =====
+// Navigation update ကို ခေါ်မယ်
+updateNavigation();
+
+
+// ===== 6. Dynamic Title Update =====
+// <h1> က စာသားကို <title> ထဲ ထည့်ဖို့
+const postTitle = document.getElementById('post-title');
+if (postTitle) {
+    document.title = postData.title + " | TC-Myaing";
+} else {
+    console.error('Post title element not found');
+}
+
+
+    
+</script>
+<!-- JavaScript ဖိုင်များ -->
+<script src="/scripts/back-to-top.js"></script>      
+<script src="/scripts/image-popup-modal.js"></script>
+<script src="/scripts/post.js"></script>
+
+</body>
+</html>
