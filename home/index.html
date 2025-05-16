@@ -164,12 +164,75 @@
     </div>
 </div>
 
+                <style>
+        .widget-fb {
+            display: none; /* ပုံမှန်အားဖြင့်ဖျောက်ထား */
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+        }
+                    </style>
                 <div class="widget-fb">
-                    <div id="fb-root"></div>
-                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v22.0"></script>
-                    <div class="fb-page" data-href="https://www.facebook.com/tcmyaing" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/tcmyaing" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/tcmyaing">TC-Myaing</a></blockquote></div>
-                    
+                     <div id="fb-widget-container">
+                        <p class="loading-ip">Checking your location...</p>
+                    </div>
                 </div>
+                <script>
+        // IP စစ်ဆေးပြီး Facebook widget ထည့်မည့် function
+        async function loadFBWidgetBasedOnIP() {
+            const container = document.getElementById('fb-widget-container');
+            
+            try {
+                // 1. User ၏ IP address ရယူခြင်း
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                const userIp = ipData.ip;
+                
+                // 2. IP မှနိုင်ငံရှာခြင်း (free IP geolocation API သုံးထားသည်)
+                const geoResponse = await fetch(`https://ipapi.co/${userIp}/country_name/`);
+                const country = await geoResponse.text();
+                
+                // 3. မြန်မာနိုင်ငံမဟုတ်မှသာ Facebook widget ထည့်မည်
+                if (country.trim() !== 'Myanmar') {
+                    container.innerHTML = `
+                        <div class="widget-fb">
+                            <div id="fb-root"></div>
+                            <script async defer crossorigin="anonymous" 
+                                    src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v22.0"></script>
+                            <div class="fb-page" 
+                                data-href="https://www.facebook.com/tcmyaing" 
+                                data-tabs="timeline" 
+                                data-width="" 
+                                data-height="" 
+                                data-small-header="false" 
+                                data-adapt-container-width="true" 
+                                data-hide-cover="false" 
+                                data-show-facepile="true">
+                                <blockquote cite="https://www.facebook.com/tcmyaing" class="fb-xfbml-parse-ignore">
+                                    <a href="https://www.facebook.com/tcmyaing">TC-Myaing</a>
+                                </blockquote>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Facebook SDK ပြည့်စုံစွာအလုပ်လုပ်စေရန်
+                    if (window.FB) {
+                        window.FB.XFBML.parse();
+                    }
+                } else {
+                    container.innerHTML = '<p>Facebook widget is not available in your region.</p>';
+                }
+            } catch (error) {
+                console.error('Error checking location:', error);
+                container.innerHTML = '<p>Unable to check location. Facebook widget is hidden by default.</p>';
+            }
+        }
+
+        // Page load တွင် IP စစ်ဆေးမည်
+        document.addEventListener('DOMContentLoaded', loadFBWidgetBasedOnIP);
+    </script>
+            
             </div>
         
         </section>
