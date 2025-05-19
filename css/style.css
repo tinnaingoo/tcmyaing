@@ -960,10 +960,8 @@ body.dark-mode .about {
 }
 
 .category {
-  background-color: #eee;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-size: 12px;
+    font-size: 12px;
+    margin-left: 20px;
 }
 
 .post-description {
