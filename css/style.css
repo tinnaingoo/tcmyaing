@@ -1249,10 +1249,7 @@ body.dark-mode .about {
     cursor: pointer;
 }
 
-.category-tag:before:hover{
-    background-color: var(--primary-hover);
-    cursor: pointer;
-}
+
     
 
 .category-tag.highlighted {
