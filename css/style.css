@@ -966,7 +966,7 @@ body.dark-mode .about {
 
 .post-description {
     font-size: 14px;
-    color: #333;
+    color: var(--text-dark);
     margin-bottom: 5px;
     text-align: justify;
 }
