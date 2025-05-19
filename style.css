@@ -113,7 +113,8 @@ body {
     color: var(--text-dark); /* Fixed variable name */
     font-family: var(--font-mm-secondary);
     scroll-behavior: smooth;
-    background: var(--bg-body); /* Changed to use solid color for body */
+    background-image: url('/images/Background.jpg');
+    /*background: var(--bg-body); /* Changed to use solid color for body */
 }
 
 h1, h2, h3 {
