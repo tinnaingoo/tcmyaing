@@ -169,7 +169,13 @@ h1, h2, h3 {
 .two {
     max-width: var(--container-max-width);
 }
-
+.main-container{
+    display: flex;
+    justify-content: space-between;
+    width: var(--container-width);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
 .main-body {
     display: flex;
     justify-content: space-between;
