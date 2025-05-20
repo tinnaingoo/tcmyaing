@@ -175,6 +175,7 @@ h1, h2, h3 {
     width: var(--container-width);
     max-width: var(--container-max-width);
     margin: 0 auto;
+    flex-direction: column;
     padding-top: 80px;
 }
 .main-body {
