@@ -1042,7 +1042,6 @@ body.dark-mode .about {
 @media (max-width: 768px) {
     .post-card {
     flex: 1 1 100%;
-    background: var(--bg-card);
     border-radius: var(--border-radius-small);
     box-shadow: 0 4px 8px var(--shadow-light);
     overflow: hidden;
