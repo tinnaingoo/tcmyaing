@@ -3,71 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TC-Myaing</title>
+    <meta name="description" content="TC-Myaing: Tech tutorials, software reviews, and more in Myanmar language.">
+    <meta name="keywords" content="tech, tutorials, Myanmar, software, reviews, TC-Myaing">
+    <title>TC-Myaing Home Page</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/ad.css">
+    <link rel="stylesheet" href="/css/clock.css">
     <link rel="stylesheet" href="/css/myanmar-fonts.css">
-    <link rel="stylesheet" href="/css/bg-stars-anmimation.css">
+    <link rel="stylesheet" href="/css/myanmar-flag.css">
 
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <!-- Font Awesome CDN -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body >
+<body>
+
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+</button>
+
+
     <header>
         <div class="header-box">
-            <div class="logo">
+            <div class="logo" id="headerLogo">
                 <img src="/images/logo-white.png" alt="TC-Myaing" title="TC-Myaing">
             </div>
+
+            <!-- Search Box -->
+            <div class="search">
+                <div class="search-container" id="searchContainer">
+                    <i class="fa fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search..">
+                </div>
+                <div id="sbutton" class="sbutton">
+                    <i class="fa fa-search" id="searchIcon"></i>
+                </div>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+
+            <!-- Hamburger Icon for Mobile -->
             <div class="hamburger" onclick="toggleMenu()">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
-            <nav id="navMenu">
-                <ul><li><a href="/home">ပင်မစာမျက်နှာ</a></li>
+
+            <!-- Navigation Menu -->
+            <nav style="top: 60px;" id="navMenu">
+                <ul><li><a href="/"><i class="fa-solid fa-house"></i> ပင်မစာမျက်နှာ</a></li>
                     <li><a href="/about">အကြောင်းအရာ</a></li>
                     <li><a href="/#contact">ဆက်သွယ်ရန်</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    
-    <section id="home" class="hero">
-       
-        
-    
+    <div class="main-container">
 
-         <style>
-            .galaxy {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    overflow: hidden;
-}
-        </style>
-        <div class="galaxy">
-            
-                <div class="inner">
-                <div class="container">
-                <h2 class="hero-subtitle">Welcome to TC-Myaing<br>Develop anything.</h2>
-                <p class="hero-description">ကျတော်သိထားသော နည်းပညာအချို့ကို မျှဝေပေးသွားပါမယ်။</p>
-                <div class="hero-divider"></div>
-                    <a href="/home" class="hero-link">
-                        <strong>View All →</strong> Documentation
-                    </a>
-                </div>
-                </div>
-            
-            <div class="stars1"></div>
-            <div class="stars2"></div>
-            <div class="stars3"></div>
-        </div>
-     <!--<div class="container">
-        <img style="width: 400px" src="/images/tcmyaing_feature.png" alt="team-img">
-    </div>-->
+    <div class="feature">
+  <div class="auto-slider">
+    <div class="slides">
+      <div class="slide active" style="background-image: url('https://wowslider.com/sliders/demo-74/data1/images/newyorkcity336475_1280.jpg');">
+        <div class="caption">Welcome to Our Website</div>
+      </div>
+      <div class="slide" style="background-image: url('https://www.wonderplugin.com/wp-content/uploads/2019/05/sydney-opera-house.jpg');">
+        <div class="caption">Explore Our Services</div>
+      </div>
+      <div class="slide" style="background-image: url('https://wowslider.com/sliders/demo-18/data1/images/hongkong1081704.jpg');">
+        <div class="caption">Contact Us Today</div>
+      </div>
+    </div>
+  </div>
+</div>
+
         
-    </section>
-    <!-- JavaScript ဖိုင်များ -->
+    <div class="main-body">    
+     
+            
+        <section class="all-post">
+    <div class="container">
+        <!-- Filter Status -->
+        <div id="filterStatus" class="filter-status"></div>
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loadingIndicator">
+            <i class="fas fa-spinner fa-spin"></i> Loading...
+        </div>
+        <div class="post-content-grid" id="post-content-grid">
+            <!-- Posts will be dynamically inserted here -->
+        </div>
+        
+        <div id="noResultsMessage" class="no-results-message">
+            No results found.
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="pagination" id="pagination">
+             
+            <button class="page-btn" id="prevPage" disabled><i class='fas fa-angle-left'></i> Previous</button>
+            <div class="page-numbers" id="pageNumbers"></div>
+            <button class="page-btn" id="nextPage">Next <i class='fas fa-angle-right'></i></button>
+             
+        </div>
+    </div>
+</section>
+        
+
+        <section class="aside">
+            <div class="container">
+
+
+
+                <!-- Myanmar Flag -->
+                <div class="container-flag">
+    <h2>May there be peace.</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg"
+       alt="Flag of Myanmar"
+       style="width: 100%; max-width: 400px;">
+  </div>
+
+                
+                <!-- Socials Widget -->
+                <div class="widget-socials">
+                    <h4 class="widget-title">Keep up with Us</h4>
+                    <ul class="socials">
+                        <li>
+                            <a class="social-facebook" href="https://www.facebook.com/tc.myaing/" title="facebook" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                                <span class="socials__text">Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="social-telegram" href="https://t.me/tcmyaing" title="telegram" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                                <span class="socials__text">Telegram</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="social-youtube" href="https://www.youtube.com/@tcmyaing" title="youtube" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                                <span class="socials__text">YouTube</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                
+                <!-- Categories Widget -->
+                <div class="widget-categories">
+                    <h4 class="widget-title">Categories</h4>
+                    <ul class="categories" id="categoriesList">
+                        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+                    </ul>
+                </div>
+                
+
+<div class="widget-clock">
+    <h4 class="widget-title">မြန်မာစံတော်ချိန်</h4>
+    <div id="digitalClock" style="text-align: center; font-size: 1.2rem; margin-bottom: 10px;"></div>
+    <div class="clock">
+        <label style="--i: 1"><span>၁</span></label>
+        <label style="--i: 2"><span>၂</span></label>
+        <label style="--i: 3"><span>၃</span></label>
+        <label style="--i: 4"><span>၄</span></label>
+        <label style="--i: 5"><span>၅</span></label>
+        <label style="--i: 6"><span>၆</span></label>
+        <label style="--i: 7"><span>၇</span></label>
+        <label style="--i: 8"><span>၈</span></label>
+        <label style="--i: 9"><span>၉</span></label>
+        <label style="--i: 10"><span>၁၀</span></label>
+        <label style="--i: 11"><span>၁၁</span></label>
+        <label style="--i: 12"><span>၁၂</span></label>
+        <div class="indicator">
+            <span class="hand hour"></span>
+            <span class="hand minute"></span>
+            <span class="hand second"></span>
+        </div>
+    </div>
+</div>
+
+                <div class="widget-fb">
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v22.0"></script>
+                <div class="fb-page" data-href="https://www.facebook.com/tcmyaing" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/tcmyaing" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/tcmyaing">TC-Myaing</a></blockquote></div></div>
+                
+            </div>
+        
+        </section>
+            
+    </div>
+    </div>
+
+   
+
+<section class="secondary" id="secondary">
+    <div class="container">
+        <!-- JavaScript ကနေ dynamically ထည့်ပေးမယ် -->
+    </div>
+</section>
+<script src="/scripts/content-secondary.js"></script>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>            
+
+    <footer>
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Files -->
+    <script src="/scripts/fetch-and-display-posts.js"></script>
     <script src="/scripts/nav-toggle.js"></script>
+    <script src="/scripts/categories.js"></script>
+    <script src="/scripts/image-auto-slider.js"></script>
+    <script src="/scripts/search.js"></script>        
+    <script src="/scripts/back-to-top.js"></script>
+    <script src="/scripts/home.js"></script>
+    <script src="/scripts/clock.js"></script>
+    
 </body>
 </html>
