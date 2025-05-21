@@ -979,7 +979,7 @@ body.dark-mode .about {
 
 .post-card {
     display: flex;
-    background-color: var(--bg-card);
+    background-color: var(--bg-light);
     padding: 15px;
     gap: 15px;
     border-radius: 8px;
